@@ -83,9 +83,10 @@ web_modules/
 .cache
 .parcel-cache
 
-# Next.js build output
-.next
-out
+# next.js
+.next/
+out/
+build
 
 # Nuxt.js build / generate output
 .nuxt
@@ -128,3 +129,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# misc
+.DS_Store
+*.pem
+
+.contentlayer
+tsconfig.tsbuildinfo
