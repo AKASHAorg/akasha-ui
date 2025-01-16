@@ -7,8 +7,8 @@ import { NpmCommands } from "@/types/unist"
 import { useConfig } from "@/hooks/use-config"
 import { copyToClipboardWithMeta } from "@/components/copy-button"
 import { Tabs } from "@/registry/default/ui/tabs"
-import { Button } from "@/registry/new-york/ui/button"
-import { TabsContent, TabsList, TabsTrigger } from "@/registry/new-york/ui/tabs"
+import { Button } from "@/registry/default/ui/button"
+import { TabsContent, TabsList, TabsTrigger } from "@/registry/default/ui/tabs"
 
 export function CodeBlockCommand({
   __npmCommand__,

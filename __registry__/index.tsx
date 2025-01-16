@@ -11,12 +11,12 @@ export const Index: Record<string, any> = {
       type: "registry:lib",
       registryDependencies: undefined,
       files: [{
-        path: "registry/new-york/lib/utils.ts",
+        path: "registry/default/lib/utils.ts",
         type: "registry:lib",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/new-york/lib/utils.ts")),
+      component: React.lazy(() => import("@/registry/default/lib/utils.ts")),
       source: "",
       meta: undefined,
     },
@@ -26,12 +26,12 @@ export const Index: Record<string, any> = {
       type: "registry:hook",
       registryDependencies: undefined,
       files: [{
-        path: "registry/new-york/hooks/use-mobile.tsx",
+        path: "registry/default/hooks/use-mobile.tsx",
         type: "registry:hook",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/new-york/hooks/use-mobile.tsx")),
+      component: React.lazy(() => import("@/registry/default/hooks/use-mobile.tsx")),
       source: "",
       meta: undefined,
     },
@@ -41,12 +41,12 @@ export const Index: Record<string, any> = {
       type: "registry:hook",
       registryDependencies: undefined,
       files: [{
-        path: "registry/new-york/hooks/use-toast.ts",
+        path: "registry/default/hooks/use-toast.ts",
         type: "registry:hook",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/new-york/hooks/use-toast.ts")),
+      component: React.lazy(() => import("@/registry/default/hooks/use-toast.ts")),
       source: "",
       meta: undefined,
     },
