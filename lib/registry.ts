@@ -2,13 +2,13 @@ import { promises as fs } from "fs"
 import { tmpdir } from "os"
 import path from "path"
 import { Index } from "@/__registry__"
-import { registryItemFileSchema, registryItemSchema } from "shadcn/registry"
 import { Project, ScriptKind, SourceFile, SyntaxKind } from "ts-morph"
 import { z } from "zod"
 
 import { Style } from "@/registry/registry-styles"
+import { registryItemSchema, registryItemFileSchema } from "@/shadcn"
 
-export const DEFAULT_REGISTRY_STYLE = "new-york" satisfies Style["name"]
+export const DEFAULT_REGISTRY_STYLE = "default" satisfies Style["name"]
 
 const memoizedIndex: typeof Index = Object.fromEntries(
   Object.entries(Index).map(([style, items]) => [style, { ...items }])
