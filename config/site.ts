@@ -1,12 +1,12 @@
 export const siteConfig = {
-  name: "akasha-ui",
-  url: "https://ui.shadcn.com",
+  name: "Akasha UI",
+  url: "https://akasha.org/",
   ogImage: "https://ui.shadcn.com/og.jpg",
   description:
-    "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
+    "Beautifully designed Web3 components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn-ui/ui",
+    twitter: "https://x.com/AKASHAorg",
+    github: "https://github.com/AKASHAorg/akasha-ui",
   },
 }
 
