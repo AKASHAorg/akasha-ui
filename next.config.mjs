@@ -24,6 +24,11 @@ const nextConfig = {
   redirects() {
     return [
       {
+        source: '/',
+        destination: '/docs',
+        permanent: true, // Set to true for 301 permanent redirect, false for 302 temporary redirect
+      },
+      {
         source: "/components",
         destination: "/docs/components/accordion",
         permanent: true,

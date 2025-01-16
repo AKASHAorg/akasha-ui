@@ -35,22 +35,12 @@ export const docsConfig: DocsConfig = {
         },
         {
           title: "Installation",
-          href: "/docs/installation",
+          href: "/docs/installation/manual",
           items: [],
         },
         {
           title: "Changelog",
           href: "/docs/changelog",
-          items: [],
-        },
-      ],
-    },
-    {
-      title: "Installation",
-      items: [
-        {
-          title: "Manual",
-          href: "/docs/installation/manual",
           items: [],
         },
       ],
