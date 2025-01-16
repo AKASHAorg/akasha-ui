@@ -1,17 +1,6 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import {
-  Frame,
-  LifeBuoy,
-  Map,
-  PanelLeftClose,
-  PanelLeftOpen,
-  PieChart,
-  Send,
-} from "lucide-react"
-
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/new-york/ui/button";
 import {
   Sidebar,
   SidebarContent,
@@ -23,7 +12,17 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from "@/registry/new-york/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar";
+import {
+  Frame,
+  LifeBuoy,
+  Map,
+  PanelLeftClose,
+  PanelLeftOpen,
+  PieChart,
+  Send,
+} from "lucide-react";
+import * as React from "react";
 
 const projects = [
   {
@@ -51,10 +50,10 @@ const projects = [
     url: "#",
     icon: Send,
   },
-]
+];
 
 export default function AppSidebar() {
-  const [open, setOpen] = React.useState(true)
+  const [open, setOpen] = React.useState(true);
 
   return (
     <SidebarProvider open={open} onOpenChange={setOpen}>
@@ -92,5 +91,5 @@ export default function AppSidebar() {
         </header>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }

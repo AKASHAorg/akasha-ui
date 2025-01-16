@@ -1,6 +1,4 @@
-"use client"
-
-import { Frame, LifeBuoy, Map, PieChart, Send } from "lucide-react"
+"use client";
 
 import {
   Sidebar,
@@ -12,7 +10,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from "@/registry/new-york/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar";
+import { Frame, LifeBuoy, Map, PieChart, Send } from "lucide-react";
 
 const projects = [
   {
@@ -40,7 +39,7 @@ const projects = [
     url: "#",
     icon: Send,
   },
-]
+];
 
 export default function AppSidebar() {
   return (
@@ -67,5 +66,5 @@ export default function AppSidebar() {
         </SidebarContent>
       </Sidebar>
     </SidebarProvider>
-  )
+  );
 }

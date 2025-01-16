@@ -1,9 +1,8 @@
-import { Bold, Italic, Underline } from "lucide-react"
-
 import {
   ToggleGroup,
   ToggleGroupItem,
-} from "@/registry/new-york/ui/toggle-group"
+} from "@/registry/new-york/ui/toggle-group";
+import { Bold, Italic, Underline } from "lucide-react";
 
 export default function ToggleGroupDemo() {
   return (
@@ -18,5 +17,5 @@ export default function ToggleGroupDemo() {
         <Underline className="h-4 w-4" />
       </ToggleGroupItem>
     </ToggleGroup>
-  )
+  );
 }

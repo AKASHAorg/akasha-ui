@@ -1,9 +1,6 @@
-import * as React from "react"
-import { Plus } from "lucide-react"
-
-import { Calendars } from "@/registry/new-york/blocks/sidebar-15/components/calendars"
-import { DatePicker } from "@/registry/new-york/blocks/sidebar-15/components/date-picker"
-import { NavUser } from "@/registry/new-york/blocks/sidebar-15/components/nav-user"
+import { Calendars } from "@/registry/new-york/blocks/sidebar-15/components/calendars";
+import { DatePicker } from "@/registry/new-york/blocks/sidebar-15/components/date-picker";
+import { NavUser } from "@/registry/new-york/blocks/sidebar-15/components/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -14,7 +11,9 @@ import {
   SidebarMenuItem,
   SidebarRail,
   SidebarSeparator,
-} from "@/registry/new-york/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar";
+import { Plus } from "lucide-react";
+import * as React from "react";
 
 // This is sample data.
 const data = {
@@ -37,7 +36,7 @@ const data = {
       items: ["Travel", "Reminders", "Deadlines"],
     },
   ],
-}
+};
 
 export function SidebarRight({
   ...props
@@ -67,5 +66,5 @@ export function SidebarRight({
         </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }

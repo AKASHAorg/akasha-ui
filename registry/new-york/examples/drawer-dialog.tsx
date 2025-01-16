@@ -1,8 +1,6 @@
-import * as React from "react"
-
-import { cn } from "@/lib/utils"
-import { useMediaQuery } from "@/hooks/use-media-query"
-import { Button } from "@/registry/new-york/ui/button"
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { cn } from "@/lib/utils";
+import { Button } from "@/registry/new-york/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -10,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/registry/new-york/ui/dialog"
+} from "@/registry/new-york/ui/dialog";
 import {
   Drawer,
   DrawerClose,
@@ -20,13 +18,14 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/registry/new-york/ui/drawer"
-import { Input } from "@/registry/new-york/ui/input"
-import { Label } from "@/registry/new-york/ui/label"
+} from "@/registry/new-york/ui/drawer";
+import { Input } from "@/registry/new-york/ui/input";
+import { Label } from "@/registry/new-york/ui/label";
+import * as React from "react";
 
 export default function DrawerDialogDemo() {
-  const [open, setOpen] = React.useState(false)
-  const isDesktop = useMediaQuery("(min-width: 768px)")
+  const [open, setOpen] = React.useState(false);
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   if (isDesktop) {
     return (
@@ -44,7 +43,7 @@ export default function DrawerDialogDemo() {
           <ProfileForm />
         </DialogContent>
       </Dialog>
-    )
+    );
   }
 
   return (
@@ -67,7 +66,7 @@ export default function DrawerDialogDemo() {
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
-  )
+  );
 }
 
 function ProfileForm({ className }: React.ComponentProps<"form">) {
@@ -83,5 +82,5 @@ function ProfileForm({ className }: React.ComponentProps<"form">) {
       </div>
       <Button type="submit">Save changes</Button>
     </form>
-  )
+  );
 }

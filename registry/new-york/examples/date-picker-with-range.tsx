@@ -1,18 +1,17 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { addDays, format } from "date-fns"
-import { CalendarIcon } from "lucide-react"
-import { DateRange } from "react-day-picker"
-
-import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york/ui/button"
-import { Calendar } from "@/registry/new-york/ui/calendar"
+import { cn } from "@/lib/utils";
+import { Button } from "@/registry/new-york/ui/button";
+import { Calendar } from "@/registry/new-york/ui/calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/registry/new-york/ui/popover"
+} from "@/registry/new-york/ui/popover";
+import { addDays, format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
+import * as React from "react";
+import { DateRange } from "react-day-picker";
 
 export default function DatePickerWithRange({
   className,
@@ -20,7 +19,7 @@ export default function DatePickerWithRange({
   const [date, setDate] = React.useState<DateRange | undefined>({
     from: new Date(2022, 0, 20),
     to: addDays(new Date(2022, 0, 20), 20),
-  })
+  });
 
   return (
     <div className={cn("grid gap-2", className)}>
@@ -61,5 +60,5 @@ export default function DatePickerWithRange({
         </PopoverContent>
       </Popover>
     </div>
-  )
+  );
 }

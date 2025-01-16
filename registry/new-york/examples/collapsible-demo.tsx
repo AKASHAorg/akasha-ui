@@ -1,17 +1,16 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { ChevronsUpDown } from "lucide-react"
-
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/new-york/ui/button";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/registry/new-york/ui/collapsible"
+} from "@/registry/new-york/ui/collapsible";
+import { ChevronsUpDown } from "lucide-react";
+import * as React from "react";
 
 export default function CollapsibleDemo() {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <Collapsible
@@ -42,5 +41,5 @@ export default function CollapsibleDemo() {
         </div>
       </CollapsibleContent>
     </Collapsible>
-  )
+  );
 }

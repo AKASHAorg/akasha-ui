@@ -1,35 +1,22 @@
-"use client"
-
-import * as React from "react"
-import {
-  BadgeCheck,
-  Bell,
-  Check,
-  ChevronRight,
-  ChevronsUpDown,
-  CreditCard,
-  LogOut,
-  Plus,
-  Sparkles,
-} from "lucide-react"
+"use client";
 
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/registry/new-york/ui/avatar"
+} from "@/registry/new-york/ui/avatar";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbList,
   BreadcrumbPage,
-} from "@/registry/new-york/ui/breadcrumb"
-import { Calendar } from "@/registry/new-york/ui/calendar"
+} from "@/registry/new-york/ui/breadcrumb";
+import { Calendar } from "@/registry/new-york/ui/calendar";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/registry/new-york/ui/collapsible"
+} from "@/registry/new-york/ui/collapsible";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -38,8 +25,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/registry/new-york/ui/dropdown-menu"
-import { Separator } from "@/registry/new-york/ui/separator"
+} from "@/registry/new-york/ui/dropdown-menu";
+import { Separator } from "@/registry/new-york/ui/separator";
 import {
   Sidebar,
   SidebarContent,
@@ -57,7 +44,19 @@ import {
   SidebarSeparator,
   SidebarTrigger,
   useSidebar,
-} from "@/registry/new-york/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar";
+import {
+  BadgeCheck,
+  Bell,
+  Check,
+  ChevronRight,
+  ChevronsUpDown,
+  CreditCard,
+  LogOut,
+  Plus,
+  Sparkles,
+} from "lucide-react";
+import * as React from "react";
 
 // This is sample data.
 const data = {
@@ -80,11 +79,11 @@ const data = {
       items: ["Travel", "Reminders", "Deadlines"],
     },
   ],
-}
+};
 
-export const iframeHeight = "800px"
+export const iframeHeight = "800px";
 
-export const description = "A sidebar with a calendar."
+export const description = "A sidebar with a calendar.";
 
 export default function Page() {
   return (
@@ -111,7 +110,7 @@ export default function Page() {
         </div>
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }
 
 function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -137,16 +136,16 @@ function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
 
 function Calendars({
   calendars,
 }: {
   calendars: {
-    name: string
-    items: string[]
-  }[]
+    name: string;
+    items: string[];
+  }[];
 }) {
   return (
     <>
@@ -191,7 +190,7 @@ function Calendars({
         </React.Fragment>
       ))}
     </>
-  )
+  );
 }
 
 function DatePicker() {
@@ -201,19 +200,19 @@ function DatePicker() {
         <Calendar className="[&_[role=gridcell].bg-accent]:bg-sidebar-primary [&_[role=gridcell].bg-accent]:text-sidebar-primary-foreground [&_[role=gridcell]]:w-[33px]" />
       </SidebarGroupContent>
     </SidebarGroup>
-  )
+  );
 }
 
 function NavUser({
   user,
 }: {
   user: {
-    name: string
-    email: string
-    avatar: string
-  }
+    name: string;
+    email: string;
+    avatar: string;
+  };
 }) {
-  const { isMobile } = useSidebar()
+  const { isMobile } = useSidebar();
 
   return (
     <SidebarMenu>
@@ -284,5 +283,5 @@ function NavUser({
         </DropdownMenu>
       </SidebarMenuItem>
     </SidebarMenu>
-  )
+  );
 }

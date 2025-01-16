@@ -1,10 +1,7 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { ArchiveX, Command, File, Inbox, Send, Trash2 } from "lucide-react"
-
-import { NavUser } from "@/registry/new-york/blocks/sidebar-09/components/nav-user"
-import { Label } from "@/registry/new-york/ui/label"
+import { NavUser } from "@/registry/new-york/blocks/sidebar-09/components/nav-user";
+import { Label } from "@/registry/new-york/ui/label";
 import {
   Sidebar,
   SidebarContent,
@@ -17,8 +14,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/registry/new-york/ui/sidebar"
-import { Switch } from "@/registry/new-york/ui/switch"
+} from "@/registry/new-york/ui/sidebar";
+import { Switch } from "@/registry/new-york/ui/switch";
+import { ArchiveX, Command, File, Inbox, Send, Trash2 } from "lucide-react";
+import * as React from "react";
 
 // This is sample data
 const data = {
@@ -141,14 +140,14 @@ const data = {
         "To celebrate our recent project success, I'd like to organize a team dinner.\nAre you available next Friday evening? Please let me know your preferences.",
     },
   ],
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   // Note: I'm using state to show active item.
   // IRL you should use the url/router.
-  const [activeItem, setActiveItem] = React.useState(data.navMain[0])
-  const [mails, setMails] = React.useState(data.mails)
-  const { setOpen } = useSidebar()
+  const [activeItem, setActiveItem] = React.useState(data.navMain[0]);
+  const [mails, setMails] = React.useState(data.mails);
+  const { setOpen } = useSidebar();
 
   return (
     <Sidebar
@@ -192,15 +191,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                         hidden: false,
                       }}
                       onClick={() => {
-                        setActiveItem(item)
-                        const mail = data.mails.sort(() => Math.random() - 0.5)
+                        setActiveItem(item);
+                        const mail = data.mails.sort(() => Math.random() - 0.5);
                         setMails(
                           mail.slice(
                             0,
                             Math.max(5, Math.floor(Math.random() * 10) + 1)
                           )
-                        )
-                        setOpen(true)
+                        );
+                        setOpen(true);
                       }}
                       isActive={activeItem.title === item.title}
                       className="px-2.5 md:px-2"
@@ -258,5 +257,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarContent>
       </Sidebar>
     </Sidebar>
-  )
+  );
 }

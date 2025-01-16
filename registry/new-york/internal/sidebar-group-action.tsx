@@ -1,15 +1,4 @@
-"use client"
-
-import {
-  ChevronDown,
-  Frame,
-  LifeBuoy,
-  Map,
-  PieChart,
-  Plus,
-  Send,
-} from "lucide-react"
-import { Toaster, toast } from "sonner"
+"use client";
 
 import {
   Sidebar,
@@ -22,7 +11,17 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from "@/registry/new-york/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar";
+import {
+  ChevronDown,
+  Frame,
+  LifeBuoy,
+  Map,
+  PieChart,
+  Plus,
+  Send,
+} from "lucide-react";
+import { Toaster, toast } from "sonner";
 
 export default function AppSidebar() {
   return (
@@ -75,5 +74,5 @@ export default function AppSidebar() {
         </SidebarContent>
       </Sidebar>
     </SidebarProvider>
-  )
+  );
 }

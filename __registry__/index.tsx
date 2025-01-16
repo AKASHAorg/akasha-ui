@@ -4,7 +4,53 @@
 import * as React from "react"
 
 export const Index: Record<string, any> = {
-  "default": {
+  "new-york": {
+    "utils": {
+      name: "utils",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/new-york/lib/utils.ts",
+        type: "registry:lib",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/lib/utils.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "use-mobile": {
+      name: "use-mobile",
+      description: "",
+      type: "registry:hook",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/new-york/hooks/use-mobile.tsx",
+        type: "registry:hook",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/hooks/use-mobile.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "use-toast": {
+      name: "use-toast",
+      description: "",
+      type: "registry:hook",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/new-york/hooks/use-toast.ts",
+        type: "registry:hook",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/new-york/hooks/use-toast.ts")),
+      source: "",
+      meta: undefined,
+    },
+  },  "default": {
     "utils": {
       name: "utils",
       description: "",

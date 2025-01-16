@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -8,7 +6,8 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/registry/new-york/ui/breadcrumb"
+} from "@/registry/new-york/ui/breadcrumb";
+import Link from "next/link";
 
 export default function BreadcrumbCollapsed() {
   return (
@@ -35,5 +34,5 @@ export default function BreadcrumbCollapsed() {
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
-  )
+  );
 }

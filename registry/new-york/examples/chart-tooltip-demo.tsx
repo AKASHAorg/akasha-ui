@@ -1,8 +1,7 @@
-"use client"
+"use client";
 
-import * as React from "react"
-
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
+import * as React from "react";
 
 export default function Component() {
   return (
@@ -120,7 +119,7 @@ export default function Component() {
         </svg>
       </div>
     </div>
-  )
+  );
 }
 
 function TooltipDemo({
@@ -131,27 +130,27 @@ function TooltipDemo({
   hideIndicator,
   className,
 }: {
-  label: string
-  hideLabel?: boolean
-  hideIndicator?: boolean
-  indicator?: "line" | "dot" | "dashed"
+  label: string;
+  hideLabel?: boolean;
+  hideIndicator?: boolean;
+  indicator?: "line" | "dot" | "dashed";
   payload: {
-    name: string
-    value: number
-    fill: string
-  }[]
-  nameKey?: string
-  labelKey?: string
+    name: string;
+    value: number;
+    fill: string;
+  }[];
+  nameKey?: string;
+  labelKey?: string;
 } & React.ComponentProps<"div">) {
   const tooltipLabel = hideLabel ? null : (
     <div className="font-medium">{label}</div>
-  )
+  );
 
   if (!payload?.length) {
-    return null
+    return null;
   }
 
-  const nestLabel = payload.length === 1 && indicator !== "dot"
+  const nestLabel = payload.length === 1 && indicator !== "dot";
 
   return (
     <div
@@ -163,7 +162,7 @@ function TooltipDemo({
       {!nestLabel ? tooltipLabel : null}
       <div className="grid gap-1.5">
         {payload.map((item, index) => {
-          const indicatorColor = item.fill
+          const indicatorColor = item.fill;
 
           return (
             <div
@@ -210,9 +209,9 @@ function TooltipDemo({
                 </div>
               </>
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
+  );
 }

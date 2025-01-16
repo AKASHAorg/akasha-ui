@@ -1,6 +1,4 @@
-import * as React from "react"
-
-import { Card, CardContent } from "@/registry/new-york/ui/card"
+import { Card, CardContent } from "@/registry/new-york/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -8,25 +6,26 @@ import {
   CarouselNext,
   CarouselPrevious,
   type CarouselApi,
-} from "@/registry/new-york/ui/carousel"
+} from "@/registry/new-york/ui/carousel";
+import * as React from "react";
 
 export default function CarouselDApiDemo() {
-  const [api, setApi] = React.useState<CarouselApi>()
-  const [current, setCurrent] = React.useState(0)
-  const [count, setCount] = React.useState(0)
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
 
   React.useEffect(() => {
     if (!api) {
-      return
+      return;
     }
 
-    setCount(api.scrollSnapList().length)
-    setCurrent(api.selectedScrollSnap() + 1)
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
 
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1)
-    })
-  }, [api])
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
 
   return (
     <div className="mx-auto max-w-xs">
@@ -49,5 +48,5 @@ export default function CarouselDApiDemo() {
         Slide {current} of {count}
       </div>
     </div>
-  )
+  );
 }

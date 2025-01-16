@@ -1,10 +1,7 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons";
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,7 +10,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/registry/new-york/ui/navigation-menu"
+} from "@/registry/new-york/ui/navigation-menu";
+import Link from "next/link";
+import * as React from "react";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -51,7 +50,7 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
-]
+];
 
 export default function NavigationMenuDemo() {
   return (
@@ -115,7 +114,7 @@ export default function NavigationMenuDemo() {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
-  )
+  );
 }
 
 const ListItem = React.forwardRef<
@@ -140,6 +139,6 @@ const ListItem = React.forwardRef<
         </a>
       </NavigationMenuLink>
     </li>
-  )
-})
-ListItem.displayName = "ListItem"
+  );
+});
+ListItem.displayName = "ListItem";

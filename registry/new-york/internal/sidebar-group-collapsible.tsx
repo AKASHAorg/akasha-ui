@@ -1,12 +1,10 @@
-"use client"
-
-import { ChevronDown, LifeBuoy, Send } from "lucide-react"
+"use client";
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/registry/new-york/ui/collapsible"
+} from "@/registry/new-york/ui/collapsible";
 import {
   Sidebar,
   SidebarContent,
@@ -17,7 +15,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from "@/registry/new-york/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar";
+import { ChevronDown, LifeBuoy, Send } from "lucide-react";
 
 export default function AppSidebar() {
   return (
@@ -58,5 +57,5 @@ export default function AppSidebar() {
         </SidebarContent>
       </Sidebar>
     </SidebarProvider>
-  )
+  );
 }

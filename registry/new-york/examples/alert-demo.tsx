@@ -1,10 +1,9 @@
-import { Terminal } from "lucide-react"
-
 import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry/new-york/ui/alert"
+} from "@/registry/new-york/ui/alert";
+import { Terminal } from "lucide-react";
 
 export default function AlertDemo() {
   return (
@@ -15,5 +14,5 @@ export default function AlertDemo() {
         You can add components to your app using the cli.
       </AlertDescription>
     </Alert>
-  )
+  );
 }

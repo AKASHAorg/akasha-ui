@@ -1,8 +1,7 @@
-"use client"
+"use client";
 
-import { toast } from "sonner"
-
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/new-york/ui/button";
+import { toast } from "sonner";
 
 export default function SonnerDemo() {
   return (
@@ -20,5 +19,5 @@ export default function SonnerDemo() {
     >
       Show Toast
     </Button>
-  )
+  );
 }

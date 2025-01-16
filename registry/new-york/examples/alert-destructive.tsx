@@ -1,10 +1,9 @@
-import { AlertCircle } from "lucide-react"
-
 import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry/new-york/ui/alert"
+} from "@/registry/new-york/ui/alert";
+import { AlertCircle } from "lucide-react";
 
 export default function AlertDestructive() {
   return (
@@ -15,5 +14,5 @@ export default function AlertDestructive() {
         Your session has expired. Please log in again.
       </AlertDescription>
     </Alert>
-  )
+  );
 }

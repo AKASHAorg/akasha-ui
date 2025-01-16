@@ -1,6 +1,20 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import { Button } from "@/registry/new-york/ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/registry/new-york/ui/popover";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/registry/new-york/ui/sidebar";
 import {
   ArrowDown,
   ArrowUp,
@@ -17,23 +31,8 @@ import {
   Star,
   Trash,
   Trash2,
-} from "lucide-react"
-
-import { Button } from "@/registry/new-york/ui/button"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/registry/new-york/ui/popover"
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/registry/new-york/ui/sidebar"
+} from "lucide-react";
+import * as React from "react";
 
 const data = [
   [
@@ -96,14 +95,14 @@ const data = [
       icon: ArrowDown,
     },
   ],
-]
+];
 
 export function NavActions() {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = React.useState(false);
 
   React.useEffect(() => {
-    setIsOpen(true)
-  }, [])
+    setIsOpen(true);
+  }, []);
 
   return (
     <div className="flex items-center gap-2 text-sm">
@@ -149,5 +148,5 @@ export function NavActions() {
         </PopoverContent>
       </Popover>
     </div>
-  )
+  );
 }

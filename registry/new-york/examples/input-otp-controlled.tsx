@@ -1,15 +1,14 @@
-"use client"
-
-import * as React from "react"
+"use client";
 
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from "@/registry/new-york/ui/input-otp"
+} from "@/registry/new-york/ui/input-otp";
+import * as React from "react";
 
 export default function InputOTPControlled() {
-  const [value, setValue] = React.useState("")
+  const [value, setValue] = React.useState("");
 
   return (
     <div className="space-y-2">
@@ -35,5 +34,5 @@ export default function InputOTPControlled() {
         )}
       </div>
     </div>
-  )
+  );
 }

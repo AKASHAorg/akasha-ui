@@ -1,5 +1,3 @@
-import * as React from "react"
-
 import {
   Select,
   SelectContent,
@@ -8,7 +6,8 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/registry/new-york/ui/select"
+} from "@/registry/new-york/ui/select";
+import * as React from "react";
 
 export function SelectDemo() {
   return (
@@ -27,5 +26,5 @@ export function SelectDemo() {
         </SelectGroup>
       </SelectContent>
     </Select>
-  )
+  );
 }

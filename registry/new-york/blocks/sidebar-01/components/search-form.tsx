@@ -1,11 +1,10 @@
-import { Search } from "lucide-react"
-
-import { Label } from "@/registry/new-york/ui/label"
+import { Label } from "@/registry/new-york/ui/label";
 import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarInput,
-} from "@/registry/new-york/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar";
+import { Search } from "lucide-react";
 
 export function SearchForm({ ...props }: React.ComponentProps<"form">) {
   return (
@@ -24,5 +23,5 @@ export function SearchForm({ ...props }: React.ComponentProps<"form">) {
         </SidebarGroupContent>
       </SidebarGroup>
     </form>
-  )
+  );
 }

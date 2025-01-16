@@ -1,22 +1,21 @@
-"use client"
-
-import { type LucideIcon } from "lucide-react"
+"use client";
 
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/registry/new-york/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar";
+import { type LucideIcon } from "lucide-react";
 
 export function NavMain({
   items,
 }: {
   items: {
-    title: string
-    url: string
-    icon: LucideIcon
-    isActive?: boolean
-  }[]
+    title: string;
+    url: string;
+    icon: LucideIcon;
+    isActive?: boolean;
+  }[];
 }) {
   return (
     <SidebarMenu>
@@ -31,5 +30,5 @@ export function NavMain({
         </SidebarMenuItem>
       ))}
     </SidebarMenu>
-  )
+  );
 }

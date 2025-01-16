@@ -1,16 +1,15 @@
-import { CalendarIcon } from "lucide-react"
-
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/registry/new-york/ui/avatar"
-import { Button } from "@/registry/new-york/ui/button"
+} from "@/registry/new-york/ui/avatar";
+import { Button } from "@/registry/new-york/ui/button";
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/registry/new-york/ui/hover-card"
+} from "@/registry/new-york/ui/hover-card";
+import { CalendarIcon } from "lucide-react";
 
 export function HoverCardDemo() {
   return (
@@ -39,5 +38,5 @@ export function HoverCardDemo() {
         </div>
       </HoverCardContent>
     </HoverCard>
-  )
+  );
 }

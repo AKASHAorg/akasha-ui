@@ -1,6 +1,3 @@
-import * as React from "react"
-import { Frame, LifeBuoy, Map, PieChart, Send } from "lucide-react"
-
 import {
   Sidebar,
   SidebarContent,
@@ -12,7 +9,9 @@ import {
   SidebarMenuItem,
   SidebarMenuSkeleton,
   SidebarProvider,
-} from "@/registry/new-york/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar";
+import { Frame, LifeBuoy, Map, PieChart, Send } from "lucide-react";
+import * as React from "react";
 
 const projects = [
   {
@@ -45,12 +44,12 @@ const projects = [
     icon: Send,
     badge: "8",
   },
-]
+];
 
 // Dummy fetch function
 async function fetchProjects() {
-  await new Promise((resolve) => setTimeout(resolve, 3000))
-  return projects
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  return projects;
 }
 
 export default function AppSidebar() {
@@ -69,7 +68,7 @@ export default function AppSidebar() {
         </SidebarContent>
       </Sidebar>
     </SidebarProvider>
-  )
+  );
 }
 
 function NavProjectsSkeleton() {
@@ -81,11 +80,11 @@ function NavProjectsSkeleton() {
         </SidebarMenuItem>
       ))}
     </SidebarMenu>
-  )
+  );
 }
 
 async function NavProjects() {
-  const projects = await fetchProjects()
+  const projects = await fetchProjects();
 
   return (
     <SidebarMenu>
@@ -100,5 +99,5 @@ async function NavProjects() {
         </SidebarMenuItem>
       ))}
     </SidebarMenu>
-  )
+  );
 }

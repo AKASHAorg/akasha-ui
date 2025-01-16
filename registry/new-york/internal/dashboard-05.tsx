@@ -1,6 +1,62 @@
-import * as React from "react"
-import Image from "next/image"
-import Link from "next/link"
+import { Badge } from "@/registry/new-york/ui/badge";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/registry/new-york/ui/breadcrumb";
+import { Button } from "@/registry/new-york/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/registry/new-york/ui/card";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/registry/new-york/ui/dropdown-menu";
+import { Input } from "@/registry/new-york/ui/input";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+} from "@/registry/new-york/ui/pagination";
+import { Progress } from "@/registry/new-york/ui/progress";
+import { Separator } from "@/registry/new-york/ui/separator";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/registry/new-york/ui/sheet";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/registry/new-york/ui/table";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/registry/new-york/ui/tabs";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/registry/new-york/ui/tooltip";
 import {
   ChevronLeft,
   ChevronRight,
@@ -19,70 +75,17 @@ import {
   ShoppingCart,
   Truck,
   Users2,
-} from "lucide-react"
-
-import { Badge } from "@/registry/new-york/ui/badge"
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/registry/new-york/ui/breadcrumb"
-import { Button } from "@/registry/new-york/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/registry/new-york/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/registry/new-york/ui/dropdown-menu"
-import { Input } from "@/registry/new-york/ui/input"
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-} from "@/registry/new-york/ui/pagination"
-import { Progress } from "@/registry/new-york/ui/progress"
-import { Separator } from "@/registry/new-york/ui/separator"
-import { Sheet, SheetContent, SheetTrigger } from "@/registry/new-york/ui/sheet"
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/registry/new-york/ui/table"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/registry/new-york/ui/tabs"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/registry/new-york/ui/tooltip"
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import * as React from "react";
 
 export const description =
-  "An orders dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. The main area has a list of recent orders with a filter and export button. The main area also has a detailed view of a single order with order details, shipping information, billing information, customer information, and payment information."
+  "An orders dashboard with a sidebar navigation. The sidebar has icon navigation. The content area has a breadcrumb and search in the header. The main area has a list of recent orders with a filter and export button. The main area also has a detailed view of a single order with order details, shipping information, billing information, customer information, and payment information.";
 
-export const iframeHeight = "906px"
+export const iframeHeight = "906px";
 
-export const containerClassName = "w-full h-full"
+export const containerClassName = "w-full h-full";
 
 export default function Dashboard() {
   return (
@@ -723,5 +726,5 @@ export default function Dashboard() {
         </main>
       </div>
     </div>
-  )
+  );
 }

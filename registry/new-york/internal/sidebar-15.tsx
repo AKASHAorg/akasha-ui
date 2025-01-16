@@ -1,6 +1,56 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/registry/new-york/ui/avatar";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+  BreadcrumbPage,
+} from "@/registry/new-york/ui/breadcrumb";
+import { Calendar } from "@/registry/new-york/ui/calendar";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/registry/new-york/ui/collapsible";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuTrigger,
+} from "@/registry/new-york/ui/dropdown-menu";
+import { Separator } from "@/registry/new-york/ui/separator";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarInset,
+  SidebarMenu,
+  SidebarMenuAction,
+  SidebarMenuBadge,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  SidebarProvider,
+  SidebarRail,
+  SidebarSeparator,
+  SidebarTrigger,
+  useSidebar,
+} from "@/registry/new-york/ui/sidebar";
 import {
   ArrowUpRight,
   AudioWaveform,
@@ -27,63 +77,12 @@ import {
   StarOff,
   Trash2,
   type LucideIcon,
-} from "lucide-react"
+} from "lucide-react";
+import * as React from "react";
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/registry/new-york/ui/avatar"
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbList,
-  BreadcrumbPage,
-} from "@/registry/new-york/ui/breadcrumb"
-import { Calendar } from "@/registry/new-york/ui/calendar"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/registry/new-york/ui/collapsible"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuTrigger,
-} from "@/registry/new-york/ui/dropdown-menu"
-import { Separator } from "@/registry/new-york/ui/separator"
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarHeader,
-  SidebarInset,
-  SidebarMenu,
-  SidebarMenuAction,
-  SidebarMenuBadge,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
-  SidebarProvider,
-  SidebarRail,
-  SidebarSeparator,
-  SidebarTrigger,
-  useSidebar,
-} from "@/registry/new-york/ui/sidebar"
+export const iframeHeight = "800px";
 
-export const iframeHeight = "800px"
-
-export const description = "A left and right sidebar."
+export const description = "A left and right sidebar.";
 
 // This is sample data.
 const sidebarLeftData = {
@@ -314,7 +313,7 @@ const sidebarLeftData = {
       ],
     },
   ],
-}
+};
 
 // This is sample data.
 const sidebarRightData = {
@@ -337,7 +336,7 @@ const sidebarRightData = {
       items: ["Travel", "Reminders", "Deadlines"],
     },
   ],
-}
+};
 
 export default function Page() {
   return (
@@ -366,7 +365,7 @@ export default function Page() {
       </SidebarInset>
       <SidebarRight />
     </SidebarProvider>
-  )
+  );
 }
 
 function SidebarLeft({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -386,7 +385,7 @@ function SidebarLeft({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
 
 function SidebarRight({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -415,16 +414,16 @@ function SidebarRight({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }
 
 function Calendars({
   calendars,
 }: {
   calendars: {
-    name: string
-    items: string[]
-  }[]
+    name: string;
+    items: string[];
+  }[];
 }) {
   return (
     <>
@@ -469,7 +468,7 @@ function Calendars({
         </React.Fragment>
       ))}
     </>
-  )
+  );
 }
 
 function DatePicker() {
@@ -479,19 +478,19 @@ function DatePicker() {
         <Calendar className="[&_[role=gridcell].bg-accent]:bg-sidebar-primary [&_[role=gridcell].bg-accent]:text-sidebar-primary-foreground [&_[role=gridcell]]:w-[33px]" />
       </SidebarGroupContent>
     </SidebarGroup>
-  )
+  );
 }
 
 function NavFavorites({
   favorites,
 }: {
   favorites: {
-    name: string
-    url: string
-    emoji: string
-  }[]
+    name: string;
+    url: string;
+    emoji: string;
+  }[];
 }) {
-  const { isMobile } = useSidebar()
+  const { isMobile } = useSidebar();
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
@@ -547,18 +546,18 @@ function NavFavorites({
         </SidebarMenuItem>
       </SidebarMenu>
     </SidebarGroup>
-  )
+  );
 }
 
 function NavMain({
   items,
 }: {
   items: {
-    title: string
-    url: string
-    icon: LucideIcon
-    isActive?: boolean
-  }[]
+    title: string;
+    url: string;
+    icon: LucideIcon;
+    isActive?: boolean;
+  }[];
 }) {
   return (
     <SidebarMenu>
@@ -573,7 +572,7 @@ function NavMain({
         </SidebarMenuItem>
       ))}
     </SidebarMenu>
-  )
+  );
 }
 
 function NavSecondary({
@@ -581,11 +580,11 @@ function NavSecondary({
   ...props
 }: {
   items: {
-    title: string
-    url: string
-    icon: LucideIcon
-    badge?: React.ReactNode
-  }[]
+    title: string;
+    url: string;
+    icon: LucideIcon;
+    badge?: React.ReactNode;
+  }[];
 } & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
   return (
     <SidebarGroup {...props}>
@@ -605,19 +604,19 @@ function NavSecondary({
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>
-  )
+  );
 }
 
 function NavUser({
   user,
 }: {
   user: {
-    name: string
-    email: string
-    avatar: string
-  }
+    name: string;
+    email: string;
+    avatar: string;
+  };
 }) {
-  const { isMobile } = useSidebar()
+  const { isMobile } = useSidebar();
 
   return (
     <SidebarMenu>
@@ -688,20 +687,20 @@ function NavUser({
         </DropdownMenu>
       </SidebarMenuItem>
     </SidebarMenu>
-  )
+  );
 }
 
 function NavWorkspaces({
   workspaces,
 }: {
   workspaces: {
-    name: string
-    emoji: React.ReactNode
+    name: string;
+    emoji: React.ReactNode;
     pages: {
-      name: string
-      emoji: React.ReactNode
-    }[]
-  }[]
+      name: string;
+      emoji: React.ReactNode;
+    }[];
+  }[];
 }) {
   return (
     <SidebarGroup>
@@ -754,19 +753,19 @@ function NavWorkspaces({
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>
-  )
+  );
 }
 
 function TeamSwitcher({
   teams,
 }: {
   teams: {
-    name: string
-    logo: React.ElementType
-    plan: string
-  }[]
+    name: string;
+    logo: React.ElementType;
+    plan: string;
+  }[];
 }) {
-  const [activeTeam, setActiveTeam] = React.useState(teams[0])
+  const [activeTeam, setActiveTeam] = React.useState(teams[0]);
 
   return (
     <SidebarMenu>
@@ -814,5 +813,5 @@ function TeamSwitcher({
         </DropdownMenu>
       </SidebarMenuItem>
     </SidebarMenu>
-  )
+  );
 }

@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
-import * as React from "react"
-
-import { Calendar } from "@/registry/new-york/ui/calendar"
+import { Calendar } from "@/registry/new-york/ui/calendar";
+import * as React from "react";
 
 export function CalendarDemo() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date())
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
 
   return (
     <Calendar
@@ -14,5 +13,5 @@ export function CalendarDemo() {
       onSelect={setDate}
       className="rounded-md border shadow"
     />
-  )
+  );
 }

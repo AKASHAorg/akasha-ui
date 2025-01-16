@@ -1,6 +1,16 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import { NavFavorites } from "@/registry/new-york/blocks/sidebar-10/components/nav-favorites";
+import { NavMain } from "@/registry/new-york/blocks/sidebar-10/components/nav-main";
+import { NavSecondary } from "@/registry/new-york/blocks/sidebar-10/components/nav-secondary";
+import { NavWorkspaces } from "@/registry/new-york/blocks/sidebar-10/components/nav-workspaces";
+import { TeamSwitcher } from "@/registry/new-york/blocks/sidebar-10/components/team-switcher";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarHeader,
+  SidebarRail,
+} from "@/registry/new-york/ui/sidebar";
 import {
   AudioWaveform,
   Blocks,
@@ -13,19 +23,8 @@ import {
   Settings2,
   Sparkles,
   Trash2,
-} from "lucide-react"
-
-import { NavFavorites } from "@/registry/new-york/blocks/sidebar-10/components/nav-favorites"
-import { NavMain } from "@/registry/new-york/blocks/sidebar-10/components/nav-main"
-import { NavSecondary } from "@/registry/new-york/blocks/sidebar-10/components/nav-secondary"
-import { NavWorkspaces } from "@/registry/new-york/blocks/sidebar-10/components/nav-workspaces"
-import { TeamSwitcher } from "@/registry/new-york/blocks/sidebar-10/components/team-switcher"
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarHeader,
-  SidebarRail,
-} from "@/registry/new-york/ui/sidebar"
+} from "lucide-react";
+import * as React from "react";
 
 // This is sample data.
 const data = {
@@ -256,7 +255,7 @@ const data = {
       ],
     },
   ],
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -272,5 +271,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }

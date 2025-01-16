@@ -1,20 +1,11 @@
-"use client"
-
-import {
-  Frame,
-  LifeBuoy,
-  Map,
-  MoreHorizontal,
-  PieChart,
-  Send,
-} from "lucide-react"
+"use client";
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/registry/new-york/ui/dropdown-menu"
+} from "@/registry/new-york/ui/dropdown-menu";
 import {
   Sidebar,
   SidebarContent,
@@ -26,7 +17,15 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from "@/registry/new-york/ui/sidebar"
+} from "@/registry/new-york/ui/sidebar";
+import {
+  Frame,
+  LifeBuoy,
+  Map,
+  MoreHorizontal,
+  PieChart,
+  Send,
+} from "lucide-react";
 
 const projects = [
   {
@@ -54,7 +53,7 @@ const projects = [
     url: "#",
     icon: Send,
   },
-]
+];
 
 export default function AppSidebar() {
   return (
@@ -100,5 +99,5 @@ export default function AppSidebar() {
         </SidebarContent>
       </Sidebar>
     </SidebarProvider>
-  )
+  );
 }

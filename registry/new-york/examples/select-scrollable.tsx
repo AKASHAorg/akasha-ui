@@ -1,5 +1,3 @@
-import * as React from "react"
-
 import {
   Select,
   SelectContent,
@@ -8,7 +6,8 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/registry/new-york/ui/select"
+} from "@/registry/new-york/ui/select";
+import * as React from "react";
 
 export default function SelectScrollable() {
   return (
@@ -71,5 +70,5 @@ export default function SelectScrollable() {
         </SelectGroup>
       </SelectContent>
     </Select>
-  )
+  );
 }
