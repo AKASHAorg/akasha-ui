@@ -6,7 +6,7 @@ import { Project, ScriptKind, SourceFile, SyntaxKind } from "ts-morph"
 import { z } from "zod"
 
 import { Style } from "@/registry/registry-styles"
-import { registryItemSchema, registryItemFileSchema } from "@/shadcn"
+import { registryItemSchema, registryItemFileSchema } from "@/registry/schema"
 
 export const DEFAULT_REGISTRY_STYLE = "default" satisfies Style["name"]
 
