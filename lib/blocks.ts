@@ -1,20 +1,17 @@
-"use server"
+"use server";
 
-import { registryItemSchema } from "@/registry/schema"
-import { z } from "zod"
+import { registryItemSchema } from "@/registry/schema";
+import { z } from "zod";
 
-import { Style } from "@/registry/registry-styles"
+import { Style } from "@/registry/registry-styles";
 
 export async function getAllBlockIds(
-  types: z.infer<typeof registryItemSchema>["type"][] = [
-    "registry:block",
-    "registry:internal",
-  ],
+  types: z.infer<typeof registryItemSchema>["type"][] = ["registry:block"],
   categories: string[] = [],
   style: Style["name"] = "default"
 ): Promise<string[]> {
-  const { Index } = await import("@/__registry__")
-  const index = z.record(registryItemSchema).parse(Index[style])
+  const { Index } = await import("@/__registry__");
+  const index = z.record(registryItemSchema).parse(Index[style]);
 
   return Object.values(index)
     .filter(
@@ -26,5 +23,5 @@ export async function getAllBlockIds(
           )) &&
         !block.name.startsWith("chart-")
     )
-    .map((block) => block.name)
+    .map((block) => block.name);
 }

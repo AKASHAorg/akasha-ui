@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Akasha UI",
+  name: "AKASHA UI",
   url: "https://akasha.org/",
   ogImage: "https://ui.shadcn.com/og.jpg",
   description:
@@ -8,11 +8,11 @@ export const siteConfig = {
     twitter: "https://x.com/AKASHAorg",
     github: "https://github.com/AKASHAorg/akasha-ui",
   },
-}
+};
 
-export type SiteConfig = typeof siteConfig
+export type SiteConfig = typeof siteConfig;
 
 export const META_THEME_COLORS = {
   light: "#ffffff",
   dark: "#09090b",
-}
+};

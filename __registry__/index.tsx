@@ -4,51 +4,51 @@
 import * as React from "react"
 
 export const Index: Record<string, any> = {
-    "default":{
-      "utils": {
-        name: "utils",
-        description: "",
+  "default": {
+    "utils": {
+      name: "utils",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/lib/utils.ts",
         type: "registry:lib",
-        registryDependencies: undefined,
-        files: [{
-          path: "registry/default/lib/utils.ts",
-          type: "registry:lib",
-          target: ""
-        }],
-        categories: undefined,
-        component: React.lazy(() => import("@/registry/default/lib/utils.ts")),
-        source: "",
-        meta: undefined,
-      },
-      "use-mobile": {
-        name: "use-mobile",
-        description: "",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/lib/utils.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "use-mobile": {
+      name: "use-mobile",
+      description: "",
+      type: "registry:hook",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/hooks/use-mobile.tsx",
         type: "registry:hook",
-        registryDependencies: undefined,
-        files: [{
-          path: "registry/default/hooks/use-mobile.tsx",
-          type: "registry:hook",
-          target: ""
-        }],
-        categories: undefined,
-        component: React.lazy(() => import("@/registry/default/hooks/use-mobile.tsx")),
-        source: "",
-        meta: undefined,
-      },
-      "use-toast": {
-        name: "use-toast",
-        description: "",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/hooks/use-mobile.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "use-toast": {
+      name: "use-toast",
+      description: "",
+      type: "registry:hook",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/hooks/use-toast.ts",
         type: "registry:hook",
-        registryDependencies: undefined,
-        files: [{
-          path: "registry/default/hooks/use-toast.ts",
-          type: "registry:hook",
-          target: ""
-        }],
-        categories: undefined,
-        component: React.lazy(() => import("@/registry/default/hooks/use-toast.ts")),
-        source: "",
-        meta: undefined,
-      },
-  }
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/hooks/use-toast.ts")),
+      source: "",
+      meta: undefined,
+    },
+  },
 }
