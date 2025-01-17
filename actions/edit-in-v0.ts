@@ -15,7 +15,7 @@ export async function editInV0({
   style?: Style["name"]
   url: string
 }) {
-  style = style ?? "new-york"
+  style = style ?? "default"
   try {
     const registryItem = await getRegistryItem(name, style)
 

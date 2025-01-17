@@ -29,18 +29,10 @@ function V0Tooltip({
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        {style === "new-york" ? (
-          <span tabIndex={-1}>{children}</span>
-        ) : (
           <>{children}</>
-        )}
       </TooltipTrigger>
       <TooltipContent>
-        {style === "new-york" ? (
-          <>Not available in New York</>
-        ) : (
           <>Open in v0</>
-        )}
       </TooltipContent>
     </Tooltip>
   )
