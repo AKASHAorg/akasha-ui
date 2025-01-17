@@ -134,5 +134,14 @@
   },
   "peerDependencies": {
     "esbuild": "^0.17.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "contentlayer2",
+      "esbuild",
+      "protobufjs",
+      "puppeteer",
+      "sharp"
+    ]
   }
 }
