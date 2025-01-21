@@ -1,3 +1,136 @@
 import { Registry } from "@/registry/schema";
 
-export const examples: Registry = [];
+export const examples: Registry = [
+  {
+    name: "typography-demo",
+    type: "registry:example",
+    registryDependencies: ["typography"],
+    files: [
+      {
+        path: "examples/typography-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "typography-h1",
+    type: "registry:example",
+    registryDependencies: ["typography"],
+    files: [
+      {
+        path: "examples/typography-h1.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "typography-h2",
+    type: "registry:example",
+    registryDependencies: ["typography"],
+    files: [
+      {
+        path: "examples/typography-h2.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "typography-h3",
+    type: "registry:example",
+    registryDependencies: ["typography"],
+    files: [
+      {
+        path: "examples/typography-h3.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "typography-h4",
+    type: "registry:example",
+    registryDependencies: ["typography"],
+    files: [
+      {
+        path: "examples/typography-h4.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "typography-h5",
+    type: "registry:example",
+    registryDependencies: ["typography"],
+    files: [
+      {
+        path: "examples/typography-h5.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "typography-p",
+    type: "registry:example",
+    registryDependencies: ["typography"],
+    files: [
+      {
+        path: "examples/typography-p.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "typography-large-bold",
+    type: "registry:example",
+    registryDependencies: ["typography"],
+    files: [
+      {
+        path: "examples/typography-large-bold.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "typography-small",
+    type: "registry:example",
+    registryDependencies: ["typography"],
+    files: [
+      {
+        path: "examples/typography-small.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "typography-small-bold",
+    type: "registry:example",
+    registryDependencies: ["typography"],
+    files: [
+      {
+        path: "examples/typography-small-bold.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "typography-extra-small",
+    type: "registry:example",
+    registryDependencies: ["typography"],
+    files: [
+      {
+        path: "examples/typography-extra-small.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "typography-extra-small-bold",
+    type: "registry:example",
+    registryDependencies: ["typography"],
+    files: [
+      {
+        path: "examples/typography-extra-small-bold.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+];
