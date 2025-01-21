@@ -61,10 +61,18 @@ import { Image } from "@/components/akasha-ui/image"
 ```
 
 ```tsx
-<Image
-  alt="Alternative text"
-  src="https://picsum.photos/200/300"
-  width={200}
-  height={200}
-/>
+ <Image>
+  <Image.Fallback>
+    <div>
+      Failed to load image
+    </div>
+  </Image.Fallback>
+  <Image.Image
+    enableLoader={true}
+    src="https://picsum.photos/200/300"
+    alt="Example"
+    width={256}
+    height={256}
+  />
+</Image>
 ```

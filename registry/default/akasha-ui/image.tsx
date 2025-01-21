@@ -1,72 +1,82 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { default as NextImage } from "next/image";
-import { cn } from "@/lib/utils";
+import React, {
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react"
+import NextImage, { ImageProps as NextImageProps } from "next/image"
+import { Loader2 } from "lucide-react"
 
-export type ImageProps = React.ComponentPropsWithoutRef<typeof NextImage> & {
-  showLoadingIndicator?: boolean;
-  fallbackSrc?: string;
-  children?: React.ReactNode;
-};
+// Context for managing the image state
+const ImageContext = createContext<{
+  isLoading: boolean
+  hasError: boolean
+  setLoading: (loading: boolean) => void
+  setError: (error: boolean) => void
+} | null>(null)
 
-const ImageLoader = () => (
-  <div className="flex justify-center items-center h-full w-full">
-    <span className="loader" /> {/* TODO - define loader */}
-  </div>
-);
-
-const Image = React.forwardRef<React.ElementRef<typeof NextImage>, ImageProps>(
-  (
-    {
-      className,
-      showLoadingIndicator = false,
-      fallbackSrc,
-      children,
-      ...props
-    },
-    ref
-  ) => {
-    const [isLoading, setIsLoading] = React.useState(true);
-    const [isError, setIsError] = React.useState(false);
-
-    const handleLoad = () => {
-      setIsLoading(false);
-    };
-
-    const handleError = () => {
-      setIsError(true);
-      setIsLoading(false);
-    };
-
-    return (
-      <div className="relative">
-        {showLoadingIndicator && isLoading && <ImageLoader />}
-        {!isError ? (
-          <NextImage
-            ref={ref}
-            className={cn(
-              isLoading && showLoadingIndicator ? "invisible" : "visible",
-              className
-            )}
-            {...props}
-            onLoad={handleLoad}
-            onError={handleError}
-          />
-        ) : fallbackSrc ? (
-          <NextImage
-            src={fallbackSrc}
-            alt={props.alt || "Fallback image"}
-            className="fallback-image"
-          />
-        ) : (
-          children
-        )}
-      </div>
-    );
+const useImageContext = () => {
+  const context = useContext(ImageContext)
+  if (!context) {
+    throw new Error("Image components must be used within an Image.")
   }
-);
+  return context
+}
 
-Image.displayName = "Image";
+// Main Image Component
+const Image = ({ children }: { children: ReactNode }) => {
+  const [isLoading, setLoading] = useState(true)
+  const [hasError, setError] = useState(false)
 
-export default Image;
+  return (
+    <ImageContext.Provider
+      value={{ isLoading, hasError, setLoading, setError }}
+    >
+      <div className="relative">{children}</div>
+    </ImageContext.Provider>
+  )
+}
+
+// Fallback Subcomponent
+Image.Fallback = ({ children }: { children: ReactNode }) => {
+  const { hasError } = useImageContext()
+  return hasError ? <>{children}</> : null
+}
+
+// Next.js Image Subcomponent
+interface ImageProps extends NextImageProps {
+  enableLoader?: boolean
+}
+
+Image.Image = ({ enableLoader = true, ...props }: ImageProps) => {
+  const { setLoading, setError, isLoading, hasError } = useImageContext()
+
+  useEffect(() => {
+    setLoading(true)
+  }, [setLoading])
+
+  return (
+    <>
+      {enableLoader && isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Loader2 className="animate-spin text-secondary" />
+        </div>
+      )}
+      {!hasError && (
+        <NextImage
+          {...props}
+          onLoadingComplete={() => setLoading(false)}
+          onError={() => {
+            setError(true)
+            setLoading(false)
+          }}
+        />
+      )}
+    </>
+  )
+}
+
+export default Image
