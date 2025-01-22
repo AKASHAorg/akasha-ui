@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function PageHeader({
   className,
@@ -13,7 +13,7 @@ function PageHeader({
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function PageHeaderHeading({
@@ -28,7 +28,7 @@ function PageHeaderHeading({
       )}
       {...props}
     />
-  )
+  );
 }
 
 function PageHeaderDescription({
@@ -43,7 +43,7 @@ function PageHeaderDescription({
       )}
       {...props}
     />
-  )
+  );
 }
 
 function PageActions({
@@ -58,7 +58,7 @@ function PageActions({
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { PageActions, PageHeader, PageHeaderDescription, PageHeaderHeading }
+export { PageActions, PageHeader, PageHeaderDescription, PageHeaderHeading };

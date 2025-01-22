@@ -1,4 +1,4 @@
-import { Registry } from "@/registry/schema"
+import { Registry } from "@/registry/schema";
 
 export const ui: Registry = [
   {
@@ -33,4 +33,4 @@ export const ui: Registry = [
       },
     ],
   },
-]
+];

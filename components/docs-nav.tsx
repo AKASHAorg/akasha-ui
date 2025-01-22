@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { SidebarNavItem } from "types/nav"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { SidebarNavItem } from "types/nav";
 
-import { type DocsConfig } from "@/config/docs"
-import { cn } from "@/lib/utils"
+import { type DocsConfig } from "@/config/docs";
+import { cn } from "@/lib/utils";
 
 export function DocsNav({ config }: { config: DocsConfig }) {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
-  const items = config.sidebarNav
+  const items = config.sidebarNav;
 
   return items.length ? (
     <div className="flex flex-col gap-6">
@@ -25,15 +25,15 @@ export function DocsNav({ config }: { config: DocsConfig }) {
         </div>
       ))}
     </div>
-  ) : null
+  ) : null;
 }
 
 function DocsNavItems({
   items,
   pathname,
 }: {
-  items: SidebarNavItem[]
-  pathname: string | null
+  items: SidebarNavItem[];
+  pathname: string | null;
 }) {
   return items?.length ? (
     <div className="grid grid-flow-row auto-rows-max gap-0.5 text-sm">
@@ -76,5 +76,5 @@ function DocsNavItems({
         )
       )}
     </div>
-  ) : null
+  ) : null;
 }

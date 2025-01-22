@@ -1,7 +1,7 @@
-import Link from "next/link"
+import Link from "next/link";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/registry/default/ui/button"
+import { cn } from "@/lib/utils";
+import { Button } from "@/registry/default/ui/button";
 
 export function OpenInV0Cta({ className }: React.ComponentProps<"div">) {
   return (
@@ -31,5 +31,5 @@ export function OpenInV0Cta({ className }: React.ComponentProps<"div">) {
         <span className="sr-only">Deploy to Vercel</span>
       </Link>
     </div>
-  )
+  );
 }

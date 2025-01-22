@@ -8,11 +8,11 @@ export const siteConfig = {
     twitter: "https://x.com/AKASHAorg",
     github: "https://github.com/AKASHAorg/akasha-ui",
   },
-}
+};
 
-export type SiteConfig = typeof siteConfig
+export type SiteConfig = typeof siteConfig;
 
 export const META_THEME_COLORS = {
   light: "#ffffff",
   dark: "#09090b",
-}
+};

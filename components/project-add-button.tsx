@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import { Check, PlusCircle } from "lucide-react"
+import { Check, PlusCircle } from "lucide-react";
 
-import { cn } from "@/lib/utils"
-import { useProject } from "@/hooks/use-project"
-import { Button } from "@/registry/default/ui/button"
+import { cn } from "@/lib/utils";
+import { useProject } from "@/hooks/use-project";
+import { Button } from "@/registry/default/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/registry/default/ui/tooltip"
+} from "@/registry/default/ui/tooltip";
 
 export function ProjectAddButton({
   name,
   className,
   ...props
 }: React.ComponentProps<typeof Button> & { name: string }) {
-  const { addBlock, isAdded } = useProject()
+  const { addBlock, isAdded } = useProject();
   return (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -25,7 +25,7 @@ export function ProjectAddButton({
           size="sm"
           className={cn("rounded-sm", className)}
           onClick={() => {
-            addBlock(name)
+            addBlock(name);
           }}
           {...props}
         >
@@ -34,5 +34,5 @@ export function ProjectAddButton({
       </TooltipTrigger>
       <TooltipContent sideOffset={10}>Add to Project</TooltipContent>
     </Tooltip>
-  )
+  );
 }

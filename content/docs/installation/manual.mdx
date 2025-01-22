@@ -90,7 +90,7 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
 ```
 
 ### Configure styles
@@ -162,11 +162,11 @@ Add the following to your styles/globals.css file. You can learn more about usin
 ### Add a cn helper
 
 ```ts title="lib/utils.ts" showLineNumbers
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 ```
 

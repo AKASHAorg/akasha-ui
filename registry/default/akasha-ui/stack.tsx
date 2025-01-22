@@ -1,7 +1,7 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const stackVariants = cva("flex divide-accent", {
   variants: {
@@ -35,12 +35,12 @@ const stackVariants = cva("flex divide-accent", {
   defaultVariants: {
     direction: "column",
   },
-})
+});
 
 export interface StackProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof stackVariants> {
-  spacing?: 0.5 | 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 | 5 | 6 | 7 | 8
+  spacing?: 0.5 | 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 | 5 | 6 | 7 | 8;
 }
 
 const Stack = React.forwardRef<HTMLDivElement, StackProps>(
@@ -71,9 +71,9 @@ const Stack = React.forwardRef<HTMLDivElement, StackProps>(
         ref={ref}
         {...props}
       />
-    )
+    );
   }
-)
-Stack.displayName = "Stack"
+);
+Stack.displayName = "Stack";
 
-export { Stack, stackVariants }
+export { Stack, stackVariants };

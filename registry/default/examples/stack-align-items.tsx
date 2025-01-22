@@ -1,4 +1,4 @@
-import { Stack } from "@/registry/default/akasha-ui/stack"
+import { Stack } from "@/registry/default/akasha-ui/stack";
 
 export default function StackAlignItems() {
   return (
@@ -12,5 +12,5 @@ export default function StackAlignItems() {
       <div className="p-12 flex-1 rounded-lg shadow-lg bg-cyan-500">02</div>
       <div className="p-8 flex-1 rounded-lg shadow-lg bg-cyan-500">03</div>
     </Stack>
-  )
+  );
 }

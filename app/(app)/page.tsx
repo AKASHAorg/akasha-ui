@@ -1,14 +1,14 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
-import { Announcement } from "@/components/announcement"
+import { Announcement } from "@/components/announcement";
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
-} from "@/components/page-header"
-import { Button } from "@/registry/default/ui/button"
+} from "@/components/page-header";
+import { Button } from "@/registry/default/ui/button";
 
 export default function IndexPage() {
   return (
@@ -30,5 +30,5 @@ export default function IndexPage() {
         </PageActions>
       </PageHeader>
     </>
-  )
+  );
 }
