@@ -27,7 +27,7 @@ const useImageContext = () => {
 }
 
 // Main Image Component
-const Image = ({ children }: { children: ReactNode }) => {
+const ImageRoot = ({ children }: { children: ReactNode }) => {
   const [isLoading, setLoading] = useState(true)
   const [hasError, setError] = useState(false)
 
@@ -41,7 +41,7 @@ const Image = ({ children }: { children: ReactNode }) => {
 }
 
 // Fallback Subcomponent
-Image.Fallback = ({ children }: { children: ReactNode }) => {
+const ImageFallback = ({ children }: { children: ReactNode }) => {
   const { hasError } = useImageContext()
   return hasError ? <>{children}</> : null
 }
@@ -51,7 +51,7 @@ interface ImageProps extends NextImageProps {
   enableLoader?: boolean
 }
 
-Image.Image = ({ enableLoader = true, ...props }: ImageProps) => {
+const Image = ({ enableLoader = true, ...props }: ImageProps) => {
   const { setLoading, setError, isLoading, hasError } = useImageContext()
 
   useEffect(() => {
@@ -79,4 +79,4 @@ Image.Image = ({ enableLoader = true, ...props }: ImageProps) => {
   )
 }
 
-export default Image
+export { ImageRoot, ImageFallback, Image }
