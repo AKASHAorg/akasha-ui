@@ -1,0 +1,62 @@
+---
+title: IconContainer
+description: The IconContainer component is a flexible and customizable container designed to hold icons or other elements. It supports multiple style and size variations and an optional badge for added interactivity.
+component: true
+---
+
+<ComponentPreview
+  name="icon-container-demo"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[70%]"
+  description="IconContainer example"
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://github.com/AKASHAorg/akasha-ui/tree/main/public/r/styles/default/icon-container.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install next
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="icon-container" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import IconContainer from "@/components/akasha-ui/icon-container"
+```
+
+```tsx
+<IconContainer variant="roundLarge">
+  <Icon className="w-full h-full p-2" />
+</IconContainer>
+```

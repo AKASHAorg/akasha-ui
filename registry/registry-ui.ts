@@ -13,6 +13,17 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "icon-container",
+    type: "registry:ui",
+    dependencies: [],
+    files: [
+      {
+        path: "akasha-ui/icon-container.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "stack",
     type: "registry:ui",
     files: [

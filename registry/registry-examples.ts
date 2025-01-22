@@ -13,6 +13,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "icon-container-demo",
+    type: "registry:example",
+    registryDependencies: ["icon-container"],
+    files: [
+      {
+        path: "examples/icon-container-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "typography-demo",
     type: "registry:example",
     registryDependencies: ["typography"],
