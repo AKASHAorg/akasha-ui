@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import { Announcement } from "@/components/announcement";
 import {
   PageActions,
@@ -6,8 +9,6 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header";
 import { Button } from "@/registry/default/ui/button";
-import Image from "next/image";
-import Link from "next/link";
 
 export default function IndexPage() {
   return (

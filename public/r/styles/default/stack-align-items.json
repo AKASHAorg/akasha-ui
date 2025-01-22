@@ -1,9 +1,7 @@
 {
   "name": "stack-align-items",
   "type": "registry:example",
-  "registryDependencies": [
-    "stack"
-  ],
+  "registryDependencies": ["stack"],
   "files": [
     {
       "path": "examples/stack-align-items.tsx",

@@ -1,9 +1,9 @@
 "use server";
 
-import { registryItemSchema } from "@/registry/schema";
 import { z } from "zod";
 
 import { Style } from "@/registry/registry-styles";
+import { registryItemSchema } from "@/registry/schema";
 
 export async function getAllBlockIds(
   types: z.infer<typeof registryItemSchema>["type"][] = ["registry:block"],

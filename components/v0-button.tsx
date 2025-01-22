@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { editInV0 } from "@/actions/edit-in-v0"
-import { Loader2 } from "lucide-react"
-import { useFormStatus } from "react-dom"
-import { toast } from "sonner"
+import * as React from "react";
+import { editInV0 } from "@/actions/edit-in-v0";
+import { Loader2 } from "lucide-react";
+import { useFormStatus } from "react-dom";
+import { toast } from "sonner";
 
-import { cn } from "@/lib/utils"
-import { Button, ButtonProps } from "@/registry/default/ui/button"
+import { cn } from "@/lib/utils";
+import { Button, ButtonProps } from "@/registry/default/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/registry/default/ui/tooltip"
-import { Style } from "@/registry/registry-styles"
+} from "@/registry/default/ui/tooltip";
+import { Style } from "@/registry/registry-styles";
 
-type Size = "default" | "icon"
+type Size = "default" | "icon";
 
 function V0Tooltip({
   size,
@@ -23,19 +23,19 @@ function V0Tooltip({
   children,
 }: React.PropsWithChildren<{ size: Size; style?: Style["name"] }>) {
   if (size === "default") {
-    return <>{children}</>
+    return <>{children}</>;
   }
 
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-          <>{children}</>
+        <>{children}</>
       </TooltipTrigger>
       <TooltipContent>
-          <>Open in v0</>
+        <>Open in v0</>
       </TooltipContent>
     </Tooltip>
-  )
+  );
 }
 
 export function V0Button({
@@ -45,14 +45,14 @@ export function V0Button({
   className,
   ...props
 }: {
-  name: string
-  size?: Size
+  name: string;
+  size?: Size;
 } & ButtonProps) {
-  const [url, setUrl] = React.useState("https://ui.shadcn.com")
+  const [url, setUrl] = React.useState("https://ui.shadcn.com");
 
   React.useEffect(() => {
-    setUrl(window.location.href)
-  }, [])
+    setUrl(window.location.href);
+  }, []);
 
   return (
     <form
@@ -61,32 +61,32 @@ export function V0Button({
           const result = await editInV0({
             name,
             url,
-          })
+          });
 
           if (result?.error) {
-            throw new Error(result.error)
+            throw new Error(result.error);
           }
 
           if (result?.url) {
-            const popupOpened = window.open(result.url, "_blank")
+            const popupOpened = window.open(result.url, "_blank");
             if (!popupOpened) {
               toast.warning("Pop-up window blocked.", {
                 description:
                   "Click the pop-up button in your browser to continue.",
                 duration: 5000,
-              })
+              });
             }
           }
         } catch (error) {
           if (error instanceof Error) {
-            toast.error(error.message)
+            toast.error(error.message);
           }
         }
       }}
     >
       <Form size={size} className={className} disabled={disabled} {...props} />
     </form>
-  )
+  );
 }
 
 function Form({
@@ -95,7 +95,7 @@ function Form({
   className,
   ...props
 }: Omit<React.ComponentProps<typeof V0Button>, "name">) {
-  const { pending } = useFormStatus()
+  const { pending } = useFormStatus();
 
   return (
     <V0Tooltip size={size}>
@@ -125,7 +125,7 @@ function Form({
         )}
       </Button>
     </V0Tooltip>
-  )
+  );
 }
 
 export function V0Logo({ className, ...props }: React.ComponentProps<"svg">) {
@@ -146,5 +146,5 @@ export function V0Logo({ className, ...props }: React.ComponentProps<"svg">) {
         fill="currentColor"
       ></path>
     </svg>
-  )
+  );
 }

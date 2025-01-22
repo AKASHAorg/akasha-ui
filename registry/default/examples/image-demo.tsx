@@ -2,7 +2,7 @@ import {
   Image,
   ImageFallback,
   ImageRoot,
-} from "@/registry/default/akasha-ui/image"
+} from "@/registry/default/akasha-ui/image";
 
 export default function ImageDemo() {
   return (
@@ -20,5 +20,5 @@ export default function ImageDemo() {
         height={256}
       />
     </ImageRoot>
-  )
+  );
 }

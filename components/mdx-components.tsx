@@ -1,43 +1,43 @@
 // @ts-nocheck
-"use client"
+"use client";
 
-import * as React from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { useMDXComponent } from "next-contentlayer2/hooks"
-import { NpmCommands } from "types/unist"
+import * as React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useMDXComponent } from "next-contentlayer2/hooks";
+import { NpmCommands } from "types/unist";
 
-import { Event } from "@/lib/events"
-import { cn } from "@/lib/utils"
-import { useConfig } from "@/hooks/use-config"
-import { Callout } from "@/components/callout"
-import { CodeBlockCommand } from "@/components/code-block-command"
-import { CodeBlockWrapper } from "@/components/code-block-wrapper"
-import { ComponentExample } from "@/components/component-example"
-import { ComponentPreview } from "@/components/component-preview"
-import { ComponentSource } from "@/components/component-source"
-import { CopyButton, CopyNpmCommandButton } from "@/components/copy-button"
-import { FrameworkDocs } from "@/components/framework-docs"
-import { StyleWrapper } from "@/components/style-wrapper"
+import { Event } from "@/lib/events";
+import { cn } from "@/lib/utils";
+import { useConfig } from "@/hooks/use-config";
+import { Callout } from "@/components/callout";
+import { CodeBlockCommand } from "@/components/code-block-command";
+import { CodeBlockWrapper } from "@/components/code-block-wrapper";
+import { ComponentExample } from "@/components/component-example";
+import { ComponentPreview } from "@/components/component-preview";
+import { ComponentSource } from "@/components/component-source";
+import { CopyButton, CopyNpmCommandButton } from "@/components/copy-button";
+import { FrameworkDocs } from "@/components/framework-docs";
+import { StyleWrapper } from "@/components/style-wrapper";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/registry/default/ui/accordion"
+} from "@/registry/default/ui/accordion";
 import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/registry/default/ui/alert"
-import { AspectRatio } from "@/registry/default/ui/aspect-ratio"
+} from "@/registry/default/ui/alert";
+import { AspectRatio } from "@/registry/default/ui/aspect-ratio";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/registry/default/ui/tabs"
-import { Style } from "@/registry/registry-styles"
+} from "@/registry/default/ui/tabs";
+import { Style } from "@/registry/registry-styles";
 
 const components = {
   Accordion,
@@ -187,14 +187,14 @@ const components = {
     __style__,
     ...props
   }: React.HTMLAttributes<HTMLPreElement> & {
-    __style__?: Style["name"]
-    __rawString__?: string
-    __withMeta__?: boolean
-    __src__?: string
-    __event__?: Event["name"]
+    __style__?: Style["name"];
+    __rawString__?: string;
+    __withMeta__?: boolean;
+    __src__?: string;
+    __event__?: Event["name"];
   } & NpmCommands) => {
     const isNpmCommand =
-      __npmCommand__ && __yarnCommand__ && __pnpmCommand__ && __bunCommand__
+      __npmCommand__ && __yarnCommand__ && __pnpmCommand__ && __bunCommand__;
 
     if (isNpmCommand) {
       return (
@@ -204,7 +204,7 @@ const components = {
           __pnpmCommand__={__pnpmCommand__}
           __bunCommand__={__bunCommand__}
         />
-      )
+      );
     }
 
     return (
@@ -225,7 +225,7 @@ const components = {
           />
         )}
       </StyleWrapper>
-    )
+    );
   },
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
@@ -320,21 +320,21 @@ const components = {
       {...props}
     />
   ),
-}
+};
 
 interface MdxProps {
-  code: string
+  code: string;
 }
 
 export function Mdx({ code }: MdxProps) {
-  const [config] = useConfig()
+  const [config] = useConfig();
   const Component = useMDXComponent(code, {
     style: config.style,
-  })
+  });
 
   return (
     <div className="mdx">
       <Component components={components} />
     </div>
-  )
+  );
 }

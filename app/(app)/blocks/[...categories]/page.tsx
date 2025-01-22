@@ -1,5 +1,5 @@
-import { BlockDisplay } from "@/components/block-display";
 import { getAllBlockIds } from "@/lib/blocks";
+import { BlockDisplay } from "@/components/block-display";
 import { registryCategories } from "@/registry/registry-categories";
 
 export const dynamicParams = false;

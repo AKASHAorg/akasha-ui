@@ -28,8 +28,8 @@ const nextConfig = {
   redirects() {
     return [
       {
-        source: '/',
-        destination: '/docs',
+        source: "/",
+        destination: "/docs",
         permanent: true, // Set to true for 301 permanent redirect, false for 302 temporary redirect
       },
       {
