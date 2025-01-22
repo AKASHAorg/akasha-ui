@@ -144,4 +144,59 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "stack-demo",
+    type: "registry:example",
+    registryDependencies: ["stack"],
+    files: [
+      {
+        path: "examples/stack-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "stack-align-items",
+    type: "registry:example",
+    registryDependencies: ["stack"],
+    files: [
+      {
+        path: "examples/stack-align-items.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "stack-direction",
+    type: "registry:example",
+    registryDependencies: ["stack"],
+    files: [
+      {
+        path: "examples/stack-direction.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "stack-divider",
+    type: "registry:example",
+    registryDependencies: ["stack"],
+    files: [
+      {
+        path: "examples/stack-divider.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "stack-justify-content",
+    type: "registry:example",
+    registryDependencies: ["stack"],
+    files: [
+      {
+        path: "examples/stack-justify-content.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

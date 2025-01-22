@@ -50,6 +50,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "stack": {
+      name: "stack",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/stack.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/stack.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "utils": {
       name: "utils",
       description: "",
@@ -272,6 +287,81 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/typography-extra-small-bold.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "stack-demo": {
+      name: "stack-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["stack"],
+      files: [{
+        path: "registry/default/examples/stack-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/stack-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "stack-align-items": {
+      name: "stack-align-items",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["stack"],
+      files: [{
+        path: "registry/default/examples/stack-align-items.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/stack-align-items.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "stack-direction": {
+      name: "stack-direction",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["stack"],
+      files: [{
+        path: "registry/default/examples/stack-direction.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/stack-direction.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "stack-divider": {
+      name: "stack-divider",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["stack"],
+      files: [{
+        path: "registry/default/examples/stack-divider.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/stack-divider.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "stack-justify-content": {
+      name: "stack-justify-content",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["stack"],
+      files: [{
+        path: "registry/default/examples/stack-justify-content.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/stack-justify-content.tsx")),
       source: "",
       meta: undefined,
     },
