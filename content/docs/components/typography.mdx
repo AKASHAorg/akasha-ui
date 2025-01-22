@@ -1,14 +1,61 @@
 ---
 title: Typography
-description: Styles for headings, paragraphs, lists...etc
+description: Styles for headings, and paragraphs
 component: true
 ---
 
 <ComponentPreview
   name="typography-demo"
-  className="[&>div.min-h-[350px]]:p-6"
-  description="A collection of typographic elements."
+  description="A typography component."
 />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://github.com/AKASHAorg/akasha-ui/tree/main/public/r/styles/default/typography.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-slot
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="typography" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { Typography } from "@/components/ui/typography";
+```
+
+```tsx
+<Typography>Almost before we knew it, we had left the ground.</Typography>
+```
 
 ## h1
 
@@ -26,38 +73,30 @@ component: true
 
 <ComponentPreview name="typography-h4" />
 
+## h5
+
+<ComponentPreview name="typography-h5" />
+
 ## p
 
 <ComponentPreview name="typography-p" />
 
-## blockquote
+## Large bold
 
-<ComponentPreview name="typography-blockquote" />
-
-## table
-
-<ComponentPreview name="typography-table" />
-
-## list
-
-<ComponentPreview name="typography-list" />
-
-## Inline code
-
-<ComponentPreview name="typography-inline-code" />
-
-## Lead
-
-<ComponentPreview name="typography-lead" />
-
-## Large
-
-<ComponentPreview name="typography-large" />
+<ComponentPreview name="typography-large-bold" />
 
 ## Small
 
 <ComponentPreview name="typography-small" />
 
-## Muted
+## Small bold
 
-<ComponentPreview name="typography-muted" />
+<ComponentPreview name="typography-small-bold" />
+
+## Extra small
+
+<ComponentPreview name="typography-extra-small" />
+
+## Extra small bold
+
+<ComponentPreview name="typography-extra-small-bold" />

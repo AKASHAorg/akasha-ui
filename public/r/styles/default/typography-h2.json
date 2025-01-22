@@ -1,0 +1,15 @@
+{
+  "name": "typography-h2",
+  "type": "registry:example",
+  "registryDependencies": [
+    "typography"
+  ],
+  "files": [
+    {
+      "path": "examples/typography-h2.tsx",
+      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyH2() {\n  return <Typography variant=\"h2\">The People of the Kingdom</Typography>;\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "typography-extra-small",
+  "type": "registry:example",
+  "registryDependencies": [
+    "typography"
+  ],
+  "files": [
+    {
+      "path": "examples/typography-extra-small.tsx",
+      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyExtraSmall() {\n  return <Typography variant=\"xs\">Powered by Web3Modal</Typography>;\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

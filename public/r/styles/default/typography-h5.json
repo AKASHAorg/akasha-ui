@@ -1,0 +1,15 @@
+{
+  "name": "typography-h5",
+  "type": "registry:example",
+  "registryDependencies": [
+    "typography"
+  ],
+  "files": [
+    {
+      "path": "examples/typography-h5.tsx",
+      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyH5() {\n  return <Typography variant=\"h5\">Always be careful of bad ideas</Typography>;\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -30,7 +30,6 @@ const REGISTRY_INDEX_WHITELIST: z.infer<typeof registryItemTypeSchema>[] = [
   "registry:theme",
   "registry:block",
   "registry:example",
-  "registry:internal",
 ];
 
 const project = new Project({

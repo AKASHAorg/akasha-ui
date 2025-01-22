@@ -1,0 +1,15 @@
+{
+  "name": "typography-h1",
+  "type": "registry:example",
+  "registryDependencies": [
+    "typography"
+  ],
+  "files": [
+    {
+      "path": "examples/typography-h1.tsx",
+      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyH1() {\n  return (\n    <Typography variant=\"h1\">\n      Taxing Laughter: The Joke Tax Chronicles\n    </Typography>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
