@@ -25,7 +25,7 @@ links:
 <TabsContent value="cli">
 
 ```bash
-npx akasha-ui@latest add image
+npx shadcn@latest add "https://github.com/AKASHAorg/akasha-ui/tree/main/public/r/styles/default/image.json"
 ```
 
 </TabsContent>
@@ -60,11 +60,6 @@ import { Image } from "@/components/akasha-ui/image"
 
 ```tsx
 <ImageRoot>
-  <ImageFallback>
-    <div className="w-full p-2 h-full flex items-center justify-center bg-gray-200 text-gray-500">
-      Failed to load image
-    </div>
-  </ImageFallback>
   <Image
     enableLoader={true}
     src="https://picsum.photos/200/300"
@@ -72,5 +67,10 @@ import { Image } from "@/components/akasha-ui/image"
     width={256}
     height={256}
   />
+  <ImageFallback>
+    <div className="w-full p-2 h-full flex items-center justify-center bg-gray-200 text-gray-500">
+      Failed to load image
+    </div>
+  </ImageFallback>
 </ImageRoot>
 ```
