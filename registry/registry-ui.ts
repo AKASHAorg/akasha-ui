@@ -1,13 +1,13 @@
-import { Registry } from "@/registry/schema";
+import { Registry } from "@/registry/schema"
 
 export const ui: Registry = [
   {
-    name: "typography",
+    name: "image",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-slot"],
+    dependencies: ["next"],
     files: [
       {
-        path: "akasha-ui/typography.tsx",
+        path: "akasha-ui/image.tsx",
         type: "registry:ui",
       },
     ],
@@ -22,4 +22,15 @@ export const ui: Registry = [
       },
     ],
   },
-];
+  {
+    name: "typography",
+    type: "registry:ui",
+    dependencies: ["@radix-ui/react-slot"],
+    files: [
+      {
+        path: "akasha-ui/typography.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+]
