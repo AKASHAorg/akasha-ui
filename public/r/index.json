@@ -2,7 +2,9 @@
   {
     "name": "image",
     "type": "registry:ui",
-    "dependencies": ["next"],
+    "dependencies": [
+      "next"
+    ],
     "files": [
       {
         "path": "akasha-ui/image.tsx",
@@ -11,12 +13,12 @@
     ]
   },
   {
-    "name": "typography",
+    "name": "icon-container",
     "type": "registry:ui",
-    "dependencies": ["@radix-ui/react-slot"],
+    "dependencies": [],
     "files": [
       {
-        "path": "akasha-ui/typography.tsx",
+        "path": "akasha-ui/icon-container.tsx",
         "type": "registry:ui"
       }
     ]
@@ -27,6 +29,19 @@
     "files": [
       {
         "path": "akasha-ui/stack.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "typography",
+    "type": "registry:ui",
+    "dependencies": [
+      "@radix-ui/react-slot"
+    ],
+    "files": [
+      {
+        "path": "akasha-ui/typography.tsx",
         "type": "registry:ui"
       }
     ]

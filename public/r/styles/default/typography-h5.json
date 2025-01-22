@@ -1,7 +1,9 @@
 {
   "name": "typography-h5",
   "type": "registry:example",
-  "registryDependencies": ["typography"],
+  "registryDependencies": [
+    "typography"
+  ],
   "files": [
     {
       "path": "examples/typography-h5.tsx",

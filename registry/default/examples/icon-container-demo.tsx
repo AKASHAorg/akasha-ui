@@ -1,7 +1,7 @@
-import React from "react"
-import { Heart } from "lucide-react"
+import React from "react";
+import { Heart } from "lucide-react";
 
-import IconContainer from "@/registry/default/akasha-ui/icon-container"
+import IconContainer from "@/registry/default/akasha-ui/icon-container";
 
 const IconContainerDemo = () => {
   return (
@@ -35,7 +35,7 @@ const IconContainerDemo = () => {
         </IconContainer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default IconContainerDemo
+export default IconContainerDemo;

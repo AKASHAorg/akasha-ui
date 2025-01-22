@@ -1,7 +1,9 @@
 {
   "name": "typography",
   "type": "registry:ui",
-  "dependencies": ["@radix-ui/react-slot"],
+  "dependencies": [
+    "@radix-ui/react-slot"
+  ],
   "files": [
     {
       "path": "akasha-ui/typography.tsx",

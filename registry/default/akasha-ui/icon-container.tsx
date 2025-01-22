@@ -1,5 +1,5 @@
-import React from "react"
-import { VariantProps, cva } from "class-variance-authority"
+import React from "react";
+import { VariantProps, cva } from "class-variance-authority";
 
 const iconContainerStyles = cva(
   "flex items-center justify-center relative bg-secondary",
@@ -19,7 +19,7 @@ const iconContainerStyles = cva(
       variant: "squareMedium",
     },
   }
-)
+);
 
 const badgeStyles = cva("absolute rounded-full w-3 h-3 bg-orange-600", {
   variants: {
@@ -33,14 +33,14 @@ const badgeStyles = cva("absolute rounded-full w-3 h-3 bg-orange-600", {
   defaultVariants: {
     position: "topRight",
   },
-})
+});
 
 export interface IconContainerProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof iconContainerStyles> {
-  children: React.ReactNode
-  badge?: boolean // If true, show the badge
-  badgePosition?: "topRight" | "topLeft" | "bottomRight" | "bottomLeft" // Badge position
+  children: React.ReactNode;
+  badge?: boolean; // If true, show the badge
+  badgePosition?: "topRight" | "topLeft" | "bottomRight" | "bottomLeft"; // Badge position
 }
 
 const IconContainer: React.FC<IconContainerProps> = ({
@@ -56,7 +56,7 @@ const IconContainer: React.FC<IconContainerProps> = ({
       {children}
       {badge && <div className={badgeStyles({ position: badgePosition })} />}
     </div>
-  )
-}
+  );
+};
 
-export default IconContainer
+export default IconContainer;

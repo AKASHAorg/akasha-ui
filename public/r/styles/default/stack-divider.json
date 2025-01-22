@@ -1,7 +1,9 @@
 {
   "name": "stack-divider",
   "type": "registry:example",
-  "registryDependencies": ["stack"],
+  "registryDependencies": [
+    "stack"
+  ],
   "files": [
     {
       "path": "examples/stack-divider.tsx",
