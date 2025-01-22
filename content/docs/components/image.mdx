@@ -1,0 +1,76 @@
+---
+title: Image
+description: An image component.
+component: true
+links:
+  doc: https://nextjs.org/docs/pages/api-reference/components/image
+  api: https://nextjs.org/docs/pages/api-reference/components/image#props
+---
+
+<ComponentPreview
+  name="image-demo"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[70%]"
+  description="Image example"
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://github.com/AKASHAorg/akasha-ui/tree/main/public/r/styles/default/image.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install next
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="image" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { Image } from "@/components/akasha-ui/image"
+```
+
+```tsx
+<ImageRoot>
+  <Image
+    enableLoader={true}
+    src="https://picsum.photos/200/300"
+    alt="Example"
+    width={256}
+    height={256}
+  />
+  <ImageFallback>
+    <div className="w-full p-2 h-full flex items-center justify-center bg-gray-200 text-gray-500">
+      Failed to load image
+    </div>
+  </ImageFallback>
+</ImageRoot>
+```

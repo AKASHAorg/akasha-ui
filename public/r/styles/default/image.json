@@ -1,0 +1,15 @@
+{
+  "name": "image",
+  "type": "registry:ui",
+  "dependencies": [
+    "next"
+  ],
+  "files": [
+    {
+      "path": "akasha-ui/image.tsx",
+      "content": "\"use client\"\n\nimport React, {\n  ReactNode,\n  createContext,\n  useContext,\n  useEffect,\n  useState,\n} from \"react\"\nimport NextImage, { ImageProps as NextImageProps } from \"next/image\"\nimport { Loader2 } from \"lucide-react\"\n\n// Context for managing the image state\nconst ImageContext = createContext<{\n  isLoading: boolean\n  hasError: boolean\n  setLoading: (loading: boolean) => void\n  setError: (error: boolean) => void\n} | null>(null)\n\nconst useImageContext = () => {\n  const context = useContext(ImageContext)\n  if (!context) {\n    throw new Error(\"Image components must be used within an Image.\")\n  }\n  return context\n}\n\n// Main Image Component\nconst ImageRoot = ({ children }: { children: ReactNode }) => {\n  const [isLoading, setLoading] = useState(true)\n  const [hasError, setError] = useState(false)\n\n  return (\n    <ImageContext.Provider\n      value={{ isLoading, hasError, setLoading, setError }}\n    >\n      <div className=\"relative\">{children}</div>\n    </ImageContext.Provider>\n  )\n}\n\n// Fallback Subcomponent\nconst ImageFallback = ({ children }: { children: ReactNode }) => {\n  const { hasError } = useImageContext()\n  return hasError ? <>{children}</> : null\n}\n\n// Next.js Image Subcomponent\ninterface ImageProps extends NextImageProps {\n  enableLoader?: boolean\n}\n\nconst Image = ({ enableLoader = true, ...props }: ImageProps) => {\n  const { setLoading, setError, isLoading, hasError } = useImageContext()\n\n  useEffect(() => {\n    setLoading(true)\n  }, [setLoading])\n\n  return (\n    <>\n      {enableLoader && isLoading && (\n        <div className=\"absolute inset-0 flex items-center justify-center\">\n          <Loader2 className=\"animate-spin text-secondary\" />\n        </div>\n      )}\n      {!hasError && (\n        <NextImage\n          {...props}\n          onLoadingComplete={() => setLoading(false)}\n          onError={() => {\n            setError(true)\n            setLoading(false)\n          }}\n        />\n      )}\n    </>\n  )\n}\n\nexport { ImageRoot, ImageFallback, Image }\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

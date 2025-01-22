@@ -17,7 +17,7 @@ export const docsConfig: DocsConfig = {
     },
     {
       title: "Components",
-      href: "/docs/components/accordion",
+      href: "/docs/components/image",
     },
     {
       title: "Blocks",
@@ -49,8 +49,8 @@ export const docsConfig: DocsConfig = {
       title: "Components",
       items: [
         {
-          title: "Accordion",
-          href: "/docs/components/accordion",
+          title: "Image",
+          href: "/docs/components/image",
           items: [],
         },
         {

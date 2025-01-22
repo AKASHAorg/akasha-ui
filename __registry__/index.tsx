@@ -5,6 +5,36 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
+    "image": {
+      name: "image",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/image.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/image.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "image-demo": {
+      name: "image-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["image"],
+      files: [{
+        path: "registry/default/examples/image-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/image-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "typography": {
       name: "typography",
       description: "",

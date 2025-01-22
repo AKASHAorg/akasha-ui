@@ -1,0 +1,15 @@
+{
+  "name": "image-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "image"
+  ],
+  "files": [
+    {
+      "path": "examples/image-demo.tsx",
+      "content": "import {\n  Image,\n  ImageFallback,\n  ImageRoot,\n} from \"@/registry/default/akasha-ui/image\"\n\nexport default function ImageDemo() {\n  return (\n    <ImageRoot>\n      <ImageFallback>\n        <div className=\"w-full p-2 h-full flex items-center justify-center bg-gray-200 text-gray-500\">\n          Failed to load image\n        </div>\n      </ImageFallback>\n      <Image\n        enableLoader={true}\n        src=\"https://picsum.photos/200/300\"\n        alt=\"Example\"\n        width={256}\n        height={256}\n      />\n    </ImageRoot>\n  )\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
