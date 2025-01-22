@@ -1,0 +1,91 @@
+---
+title: Stack
+description: A container component for arranging elements vertically or horizontally.
+component: true
+---
+
+<ComponentPreview name="stack-demo" description="A stack component." />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://github.com/AKASHAorg/akasha-ui/tree/main/public/r/styles/default/stack.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="stack" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { Stack } from "@/components/ui/stack";
+```
+
+```tsx
+<Stack>
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</Stack>
+```
+
+## Examples
+
+### Align Items
+
+Supported values are `start`, `center`, `end`, `baseline`, and `stretch`.
+For detailed information about the Tailwind utilities associated with each value, please refer to the [doc](https://tailwindcss.com/docs/align-items).
+
+E.g. use `center` to align items along the center of the container’s cross axis:
+
+<ComponentPreview name="stack-align-items" />
+
+### Direction
+
+Supported values are `row`, `rowReverse`, `column` and `columnReverse`. For detailed information about the Tailwind utilities associated with each value, please refer to the [doc](https://tailwindcss.com/docs/flex-direction).
+
+The **default** value is `column`.
+
+E.g. use `row` to position flex items horizontally:
+
+<ComponentPreview name="stack-direction" />
+
+### Divider
+
+Supported values are `row` and `column`. For detailed information about the Tailwind utilities associated with each value, please refer to the [doc](https://tailwindcss.com/docs/divide-width).
+
+E.g. use `column` to add borders between vertical elements:
+
+<ComponentPreview name="stack-divider" />
+
+### Justify Content
+
+Supported values are `start`, `center`, `end`, `between`, `evenly`, `around`, and `stretch`.
+For detailed information about the Tailwind utilities associated with each value, please refer to the [doc](https://tailwindcss.com/docs/justify-content).
+
+E.g. use `center` to justify items along the center of the container’s main axis:
+
+<ComponentPreview name="stack-justify-content" />

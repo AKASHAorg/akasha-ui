@@ -12,4 +12,14 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "stack",
+    type: "registry:ui",
+    files: [
+      {
+        path: "akasha-ui/stack.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];
