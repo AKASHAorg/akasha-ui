@@ -1,9 +1,7 @@
 {
   "name": "image",
   "type": "registry:ui",
-  "dependencies": [
-    "next"
-  ],
+  "dependencies": ["next"],
   "files": [
     {
       "path": "akasha-ui/image.tsx",

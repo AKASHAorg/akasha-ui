@@ -1,9 +1,7 @@
 {
   "name": "stack-direction",
   "type": "registry:example",
-  "registryDependencies": [
-    "stack"
-  ],
+  "registryDependencies": ["stack"],
   "files": [
     {
       "path": "examples/stack-direction.tsx",

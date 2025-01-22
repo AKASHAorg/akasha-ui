@@ -1,9 +1,7 @@
 {
   "name": "typography-small-bold",
   "type": "registry:example",
-  "registryDependencies": [
-    "typography"
-  ],
+  "registryDependencies": ["typography"],
   "files": [
     {
       "path": "examples/typography-small-bold.tsx",

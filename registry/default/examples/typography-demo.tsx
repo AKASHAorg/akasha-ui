@@ -1,4 +1,4 @@
-import { Typography } from "@/registry/default/akasha-ui/typography";
+import { Typography } from "@/registry/default/akasha-ui/typography"
 
 export default function TypographyDemo() {
   return (
@@ -79,5 +79,5 @@ export default function TypographyDemo() {
         and always be careful of bad ideas.
       </Typography>
     </div>
-  );
+  )
 }

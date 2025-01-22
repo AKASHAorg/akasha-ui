@@ -1,4 +1,4 @@
-import { Stack } from "@/registry/default/akasha-ui/stack";
+import { Stack } from "@/registry/default/akasha-ui/stack"
 
 export default function StackDirection() {
   return (
@@ -11,5 +11,5 @@ export default function StackDirection() {
       <div className="w-14 rounded-lg shadow-lg bg-cyan-500">02</div>
       <div className="w-14 rounded-lg shadow-lg bg-cyan-500">03</div>
     </Stack>
-  );
+  )
 }

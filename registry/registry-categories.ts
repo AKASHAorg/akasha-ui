@@ -4,4 +4,4 @@ export const registryCategories = [
     slug: "apps",
     hidden: true,
   },
-];
+]

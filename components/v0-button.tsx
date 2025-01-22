@@ -29,10 +29,10 @@ function V0Tooltip({
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-          <>{children}</>
+        <>{children}</>
       </TooltipTrigger>
       <TooltipContent>
-          <>Open in v0</>
+        <>Open in v0</>
       </TooltipContent>
     </Tooltip>
   )

@@ -1,4 +1,4 @@
-import { Stack } from "@/registry/default/akasha-ui/stack";
+import { Stack } from "@/registry/default/akasha-ui/stack"
 
 export default function StackDivider() {
   return (
@@ -10,5 +10,5 @@ export default function StackDivider() {
       <div className="p-4 bg-white dark:bg-black">02</div>
       <div className="p-4 bg-white dark:bg-black">03</div>
     </Stack>
-  );
+  )
 }
