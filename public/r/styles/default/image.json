@@ -1,0 +1,15 @@
+{
+  "name": "image",
+  "type": "registry:ui",
+  "dependencies": [
+    "next"
+  ],
+  "files": [
+    {
+      "path": "akasha-ui/image.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { default as NextImage } from \"next/image\";\nimport { cn } from \"@/lib/utils\";\n\nexport type ImageProps = React.ComponentPropsWithoutRef<typeof NextImage> & {\n  showLoadingIndicator?: boolean;\n  fallbackSrc?: string;\n  children?: React.ReactNode;\n};\n\nconst ImageLoader = () => (\n  <div className=\"flex justify-center items-center h-full w-full\">\n    <span className=\"loader\" /> {/* TODO - define loader */}\n  </div>\n);\n\nconst Image = React.forwardRef<React.ElementRef<typeof NextImage>, ImageProps>(\n  (\n    {\n      className,\n      showLoadingIndicator = false,\n      fallbackSrc,\n      children,\n      ...props\n    },\n    ref\n  ) => {\n    const [isLoading, setIsLoading] = React.useState(true);\n    const [isError, setIsError] = React.useState(false);\n\n    const handleLoad = () => {\n      setIsLoading(false);\n    };\n\n    const handleError = () => {\n      setIsError(true);\n      setIsLoading(false);\n    };\n\n    return (\n      <div className=\"relative\">\n        {showLoadingIndicator && isLoading && <ImageLoader />}\n        {!isError ? (\n          <NextImage\n            ref={ref}\n            className={cn(\n              isLoading && showLoadingIndicator ? \"invisible\" : \"visible\",\n              className\n            )}\n            {...props}\n            onLoad={handleLoad}\n            onError={handleError}\n          />\n        ) : fallbackSrc ? (\n          <NextImage\n            src={fallbackSrc}\n            alt={props.alt || \"Fallback image\"}\n            className=\"fallback-image\"\n          />\n        ) : (\n          children\n        )}\n      </div>\n    );\n  }\n);\n\nImage.displayName = \"Image\";\n\nexport default Image;\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

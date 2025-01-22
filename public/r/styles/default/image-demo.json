@@ -1,0 +1,15 @@
+{
+  "name": "image-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "image"
+  ],
+  "files": [
+    {
+      "path": "examples/image-demo.tsx",
+      "content": "import Image from \"../akasha-ui/image\";\n\nexport default function ImageDemo() {\n  return (\n    <Image\n      alt=\"Alternative text\"\n      src=\"https://picsum.photos/200/300\"\n      width={200}\n      height={200}\n      showLoadingIndicator={true}\n    />\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

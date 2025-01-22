@@ -12,4 +12,15 @@ export const ui: Registry = [
       },
     ],
   },
+  {
+    name: "image",
+    type: "registry:ui",
+    dependencies: ["next"],
+    files: [
+      {
+        path: "akasha-ui/image.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ];
