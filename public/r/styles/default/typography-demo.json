@@ -1,7 +1,9 @@
 {
   "name": "typography-demo",
   "type": "registry:example",
-  "registryDependencies": ["typography"],
+  "registryDependencies": [
+    "typography"
+  ],
   "files": [
     {
       "path": "examples/typography-demo.tsx",

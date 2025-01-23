@@ -63,6 +63,11 @@ export const docsConfig: DocsConfig = {
           href: "/docs/components/typography",
           items: [],
         },
+        {
+          title: "Icon Container",
+          href: "/docs/components/icon-container",
+          items: [],
+        },
       ],
     },
   ],

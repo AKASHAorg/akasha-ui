@@ -1,7 +1,9 @@
 {
   "name": "typography-h3",
   "type": "registry:example",
-  "registryDependencies": ["typography"],
+  "registryDependencies": [
+    "typography"
+  ],
   "files": [
     {
       "path": "examples/typography-h3.tsx",

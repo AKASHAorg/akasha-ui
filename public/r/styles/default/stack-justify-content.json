@@ -1,7 +1,9 @@
 {
   "name": "stack-justify-content",
   "type": "registry:example",
-  "registryDependencies": ["stack"],
+  "registryDependencies": [
+    "stack"
+  ],
   "files": [
     {
       "path": "examples/stack-justify-content.tsx",

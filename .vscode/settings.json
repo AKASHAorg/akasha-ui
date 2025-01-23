@@ -1,0 +1,4 @@
+{
+  "typescript.preferences.importModuleSpecifier": "non-relative", // uses @/path/... for imports
+  "javascript.preferences.importModuleSpecifier": "non-relative"
+}

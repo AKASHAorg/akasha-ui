@@ -20,33 +20,18 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "image-demo": {
-      name: "image-demo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["image"],
-      files: [{
-        path: "registry/default/examples/image-demo.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/image-demo.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "typography": {
-      name: "typography",
+    "icon-container": {
+      name: "icon-container",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
       files: [{
-        path: "registry/default/akasha-ui/typography.tsx",
+        path: "registry/default/akasha-ui/icon-container.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/typography.tsx")),
+      component: React.lazy(() => import("@/registry/default/akasha-ui/icon-container.tsx")),
       source: "",
       meta: undefined,
     },
@@ -62,6 +47,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/akasha-ui/stack.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "typography": {
+      name: "typography",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/typography.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/typography.tsx")),
       source: "",
       meta: undefined,
     },
@@ -107,6 +107,36 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/hooks/use-toast.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "image-demo": {
+      name: "image-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["image"],
+      files: [{
+        path: "registry/default/examples/image-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/image-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "icon-container-demo": {
+      name: "icon-container-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["icon-container"],
+      files: [{
+        path: "registry/default/examples/icon-container-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/icon-container-demo.tsx")),
       source: "",
       meta: undefined,
     },

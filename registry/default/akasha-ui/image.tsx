@@ -10,6 +10,8 @@ import React, {
 import NextImage, { ImageProps as NextImageProps } from "next/image";
 import { Loader2 } from "lucide-react";
 
+import { cn } from "@/lib/utils";
+
 // Context for managing the image state
 const ImageContext = createContext<{
   isLoading: boolean;
@@ -48,35 +50,39 @@ const ImageFallback = ({ children }: { children: ReactNode }) => {
 
 // Next.js Image Subcomponent
 interface ImageProps extends NextImageProps {
-  enableLoader?: boolean;
+  showLoadingIndictor?: boolean;
 }
 
-const Image = ({ enableLoader = true, ...props }: ImageProps) => {
-  const { setLoading, setError, isLoading, hasError } = useImageContext();
+const Image = React.forwardRef<HTMLDivElement, ImageProps>(
+  ({ showLoadingIndictor, ...props }) => {
+    const { setLoading, setError, isLoading, hasError } = useImageContext();
 
-  useEffect(() => {
-    setLoading(true);
-  }, [setLoading]);
+    useEffect(() => {
+      setLoading(true);
+    }, [setLoading]);
 
-  return (
-    <>
-      {enableLoader && isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <Loader2 className="animate-spin text-secondary" />
-        </div>
-      )}
-      {!hasError && (
-        <NextImage
-          {...props}
-          onLoadingComplete={() => setLoading(false)}
-          onError={() => {
-            setError(true);
-            setLoading(false);
-          }}
-        />
-      )}
-    </>
-  );
-};
+    return (
+      <>
+        {showLoadingIndictor && isLoading && (
+          <div
+            className={cn("absolute inset-0 flex items-center justify-center")}
+          >
+            <Loader2 className={cn("animate-spin text-secondary")} />
+          </div>
+        )}
+        {!hasError && (
+          <NextImage
+            {...props}
+            onLoadingComplete={() => setLoading(false)}
+            onError={() => {
+              setError(true);
+              setLoading(false);
+            }}
+          />
+        )}
+      </>
+    );
+  }
+);
 
 export { ImageRoot, ImageFallback, Image };

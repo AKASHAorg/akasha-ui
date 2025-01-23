@@ -13,7 +13,7 @@ export default function ImageDemo() {
         </div>
       </ImageFallback>
       <Image
-        enableLoader={true}
+        showLoadingIndictor={true}
         src="https://picsum.photos/200/300"
         alt="Example"
         width={256}
