@@ -11,7 +11,7 @@ const IconContainerDemo = () => {
         <IconContainer variant="square" size="lg">
           <Heart />
         </IconContainer>
-        <IconContainer showNotificationDot={true}>
+        <IconContainer variant="square" size="md" showNotificationDot={true}>
           <Heart />
         </IconContainer>
         <IconContainer variant="square" size="sm">
@@ -24,7 +24,7 @@ const IconContainerDemo = () => {
         <IconContainer variant="round" size="lg">
           <Heart />
         </IconContainer>
-        <IconContainer variant="round" showNotificationDot={true}>
+        <IconContainer showNotificationDot={true}>
           <Heart />
         </IconContainer>
         <IconContainer variant="round" size="sm">

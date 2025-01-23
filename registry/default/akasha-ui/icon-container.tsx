@@ -56,7 +56,7 @@ const iconContainerStyles = cva(
       },
     ],
     defaultVariants: {
-      variant: "square",
+      variant: "round",
       size: "md",
     },
   }
