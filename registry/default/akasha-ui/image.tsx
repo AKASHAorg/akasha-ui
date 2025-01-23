@@ -48,35 +48,37 @@ const ImageFallback = ({ children }: { children: ReactNode }) => {
 
 // Next.js Image Subcomponent
 interface ImageProps extends NextImageProps {
-  enableLoader?: boolean;
+  showLoader?: boolean;
 }
 
-const Image = ({ enableLoader = true, ...props }: ImageProps) => {
-  const { setLoading, setError, isLoading, hasError } = useImageContext();
+const Image = React.forwardRef<HTMLDivElement, ImageProps>(
+  ({ showLoader, ...props }) => {
+    const { setLoading, setError, isLoading, hasError } = useImageContext();
 
-  useEffect(() => {
-    setLoading(true);
-  }, [setLoading]);
+    useEffect(() => {
+      setLoading(true);
+    }, [setLoading]);
 
-  return (
-    <>
-      {enableLoader && isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <Loader2 className="animate-spin text-secondary" />
-        </div>
-      )}
-      {!hasError && (
-        <NextImage
-          {...props}
-          onLoadingComplete={() => setLoading(false)}
-          onError={() => {
-            setError(true);
-            setLoading(false);
-          }}
-        />
-      )}
-    </>
-  );
-};
+    return (
+      <>
+        {showLoader && isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Loader2 className="animate-spin text-secondary" />
+          </div>
+        )}
+        {!hasError && (
+          <NextImage
+            {...props}
+            onLoadingComplete={() => setLoading(false)}
+            onError={() => {
+              setError(true);
+              setLoading(false);
+            }}
+          />
+        )}
+      </>
+    );
+  }
+);
 
 export { ImageRoot, ImageFallback, Image };

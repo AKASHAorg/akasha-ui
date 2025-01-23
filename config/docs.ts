@@ -64,11 +64,10 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
-          title: "IconContainer",
+          title: "Icon Container",
           href: "/docs/components/icon-container",
           items: [],
         },
-
       ],
     },
   ],

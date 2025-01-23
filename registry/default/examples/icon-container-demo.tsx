@@ -8,30 +8,30 @@ const IconContainerDemo = () => {
     <div className="space-y-8 p-8">
       <div className="space-y-8 ">
         <h2 className="text-lg font-bold">Square</h2>
-        <IconContainer variant="squareLarge">
-          <Heart className="w-full h-full p-4" />
+        <IconContainer variant="square" size="lg">
+          <Heart />
         </IconContainer>
-        <IconContainer variant="squareMedium" badge={true}>
-          <Heart className="w-full h-full p-2" />
+        <IconContainer showNotificationDot={true}>
+          <Heart />
         </IconContainer>
-        <IconContainer variant="squareSmall">
-          <Heart className="w-full h-full p-2" />
+        <IconContainer variant="square" size="sm">
+          <Heart />
         </IconContainer>
       </div>
 
       <div className="space-y-8 ">
         <h2 className="text-lg font-bold">Round</h2>
-        <IconContainer variant="roundLarge">
-          <Heart className="w-full h-full p-2" />
+        <IconContainer variant="round" size="lg">
+          <Heart />
         </IconContainer>
-        <IconContainer variant="roundMedium" badge={true}>
-          <Heart className="w-full h-full p-2" />
+        <IconContainer variant="round" showNotificationDot={true}>
+          <Heart />
         </IconContainer>
-        <IconContainer variant="roundSmall">
-          <Heart className="w-full h-full p-1.5" />
+        <IconContainer variant="round" size="sm">
+          <Heart />
         </IconContainer>
-        <IconContainer variant="roundExtraSmall">
-          <Heart className="w-full h-full p-1" />
+        <IconContainer variant="round" size="xs">
+          <Heart />
         </IconContainer>
       </div>
     </div>
