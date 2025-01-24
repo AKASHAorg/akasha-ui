@@ -4,7 +4,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const iconContainerStyles = cva(
-  "flex items-center justify-center relative bg-secondary",
+  "flex items-center justify-center relative bg-muted",
   {
     variants: {
       variant: {

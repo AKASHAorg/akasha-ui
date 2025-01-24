@@ -1,0 +1,15 @@
+{
+  "name": "profile-avatar-size",
+  "type": "registry:example",
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "examples/profile-avatar-size.tsx",
+      "content": "import {\n  ProfileAvatar,\n  ProfileAvatarFallback,\n  ProfileAvatarImage,\n} from \"@/registry/default/akasha-ui/profile-avatar\";\n\nexport default function ProfileAvatarExtraLarge() {\n  return (\n    <ProfileAvatar size=\"xl\">\n      <ProfileAvatarImage\n        src=\"https://github.com/akashaorg.png\"\n        alt=\"@akashaorg\"\n      />\n      <ProfileAvatarFallback>AK</ProfileAvatarFallback>\n    </ProfileAvatar>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

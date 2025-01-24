@@ -23,7 +23,9 @@ const ImageContext = createContext<{
 const useImageContext = () => {
   const context = useContext(ImageContext);
   if (!context) {
-    throw new Error("Image components must be used within an Image.");
+    throw new Error(
+      "`useImageContext` must be used within an `ImageRoot` component"
+    );
   }
   return context;
 };

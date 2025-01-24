@@ -35,6 +35,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "profile-avatar": {
+      name: "profile-avatar",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/profile-avatar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/profile-avatar.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "stack": {
       name: "stack",
       description: "",
@@ -107,6 +122,51 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/hooks/use-toast.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "profile-avatar-demo": {
+      name: "profile-avatar-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar"],
+      files: [{
+        path: "registry/default/examples/profile-avatar-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/profile-avatar-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "profile-avatar-nsfw": {
+      name: "profile-avatar-nsfw",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar"],
+      files: [{
+        path: "registry/default/examples/profile-avatar-nsfw.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/profile-avatar-nsfw.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "profile-avatar-size": {
+      name: "profile-avatar-size",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["avatar"],
+      files: [{
+        path: "registry/default/examples/profile-avatar-size.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/profile-avatar-size.tsx")),
       source: "",
       meta: undefined,
     },

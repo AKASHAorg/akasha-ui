@@ -2,6 +2,39 @@ import { Registry } from "@/registry/schema";
 
 export const examples: Registry = [
   {
+    name: "profile-avatar-demo",
+    type: "registry:example",
+    registryDependencies: ["avatar"],
+    files: [
+      {
+        path: "examples/profile-avatar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "profile-avatar-nsfw",
+    type: "registry:example",
+    registryDependencies: ["avatar"],
+    files: [
+      {
+        path: "examples/profile-avatar-nsfw.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "profile-avatar-size",
+    type: "registry:example",
+    registryDependencies: ["avatar"],
+    files: [
+      {
+        path: "examples/profile-avatar-size.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "image-demo",
     type: "registry:example",
     registryDependencies: ["image"],

@@ -24,6 +24,17 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "profile-avatar",
+    type: "registry:ui",
+    dependencies: ["@radix-ui/react-avatar"],
+    files: [
+      {
+        path: "akasha-ui/profile-avatar.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "stack",
     type: "registry:ui",
     files: [
