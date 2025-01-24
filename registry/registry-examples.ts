@@ -101,12 +101,12 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "typography-large-bold",
+    name: "typography-regular-bold",
     type: "registry:example",
     registryDependencies: ["typography"],
     files: [
       {
-        path: "examples/typography-large-bold.tsx",
+        path: "examples/typography-regular-bold.tsx",
         type: "registry:example",
       },
     ],

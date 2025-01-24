@@ -34,12 +34,12 @@ const nextConfig = {
       },
       {
         source: "/components",
-        destination: "/docs/components/accordion",
+        destination: "/docs/components/image",
         permanent: true,
       },
       {
         source: "/docs/components",
-        destination: "/docs/components/accordion",
+        destination: "/docs/components/image",
         permanent: true,
       },
       {

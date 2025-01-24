@@ -245,18 +245,18 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "typography-large-bold": {
-      name: "typography-large-bold",
+    "typography-regular-bold": {
+      name: "typography-regular-bold",
       description: "",
       type: "registry:example",
       registryDependencies: ["typography"],
       files: [{
-        path: "registry/default/examples/typography-large-bold.tsx",
+        path: "registry/default/examples/typography-regular-bold.tsx",
         type: "registry:example",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/typography-large-bold.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/typography-regular-bold.tsx")),
       source: "",
       meta: undefined,
     },

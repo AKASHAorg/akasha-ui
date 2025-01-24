@@ -1,0 +1,15 @@
+{
+  "name": "typography-regular-bold",
+  "type": "registry:example",
+  "registryDependencies": [
+    "typography"
+  ],
+  "files": [
+    {
+      "path": "examples/typography-regular-bold.tsx",
+      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyRegularBOld() {\n  return (\n    <Typography variant=\"regular-bold\">\n      Subtitles and key information.\n    </Typography>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

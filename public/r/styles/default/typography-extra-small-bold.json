@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/typography-extra-small-bold.tsx",
-      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyExtraSmallBold() {\n  return (\n    <Typography variant=\"xs\" bold>\n      Your wallet address is 0xa2cc...4108a8\n    </Typography>\n  );\n}\n",
+      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyExtraSmallBold() {\n  return (\n    <Typography variant=\"xs\" bold>\n      UI labels and elements in small spaces.\n    </Typography>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/typography-small.tsx",
-      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographySmall() {\n  return <Typography variant=\"sm\">This is the app's display name.</Typography>;\n}\n",
+      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographySmall() {\n  return (\n    <Typography variant=\"sm\">\n      Secondary UI elements requiring clear readability.\n    </Typography>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

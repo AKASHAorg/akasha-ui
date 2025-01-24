@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/typography-h4.tsx",
-      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyH4() {\n  return <Typography variant=\"h4\">People stopped telling jokes</Typography>;\n}\n",
+      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyH4() {\n  return <Typography variant=\"h4\">Less prominent title.</Typography>;\n}\n",
       "type": "registry:example",
       "target": ""
     }
