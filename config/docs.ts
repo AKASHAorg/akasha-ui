@@ -64,6 +64,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Stacked Avatar",
+          href: "/docs/components/stacked-avatar",
+          items: [],
+        },
+        {
           title: "Typography",
           href: "/docs/components/typography",
           items: [],

@@ -45,6 +45,16 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "stacked-avatar",
+    type: "registry:ui",
+    files: [
+      {
+        path: "akasha-ui/stacked-avatar.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "typography",
     type: "registry:ui",
     dependencies: ["@radix-ui/react-slot"],

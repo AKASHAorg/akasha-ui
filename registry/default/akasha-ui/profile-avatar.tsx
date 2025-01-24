@@ -107,4 +107,9 @@ const ProfileAvatarFallback = React.forwardRef<
 });
 ProfileAvatarFallback.displayName = "ProfileAvatarFallback";
 
-export { ProfileAvatar, ProfileAvatarImage, ProfileAvatarFallback };
+export {
+  ProfileAvatar,
+  ProfileAvatarImage,
+  ProfileAvatarFallback,
+  profileAvatarVariants,
+};

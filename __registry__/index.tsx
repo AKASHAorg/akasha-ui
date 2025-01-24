@@ -65,6 +65,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "stacked-avatar": {
+      name: "stacked-avatar",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/stacked-avatar.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/stacked-avatar.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "typography": {
       name: "typography",
       description: "",
@@ -452,6 +467,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/stack-justify-content.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "stacked-avatar-demo": {
+      name: "stacked-avatar-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["stack"],
+      files: [{
+        path: "registry/default/examples/stacked-avatar-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/stacked-avatar-demo.tsx")),
       source: "",
       meta: undefined,
     },

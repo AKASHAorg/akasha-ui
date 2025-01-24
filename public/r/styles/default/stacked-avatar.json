@@ -1,0 +1,12 @@
+{
+  "name": "stacked-avatar",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "akasha-ui/stacked-avatar.tsx",
+      "content": "import React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nexport interface StackedAvatar\n  extends Omit<React.HTMLAttributes<HTMLDivElement>, \"children\"> {\n  count: number;\n  children: (index: number) => React.ReactNode;\n}\n\nconst StackedAvatar = React.forwardRef<HTMLDivElement, StackedAvatar>(\n  ({ className, count, children, ...props }, ref) => {\n    return (\n      <div className={cn(\"flex flex-row\", className)} ref={ref} {...props}>\n        {Array(Math.abs(count))\n          .fill(0)\n          .map((_, index) => (\n            <div\n              className={cn(\"rounded-full border border-border\")}\n              style={{ transform: `translateX(-${index * 50}%)` }}\n            >\n              {children(index)}\n            </div>\n          ))}\n      </div>\n    );\n  }\n);\nStackedAvatar.displayName = \"StackedAvatar\";\n\nexport { StackedAvatar };\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

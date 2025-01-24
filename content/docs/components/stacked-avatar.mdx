@@ -1,0 +1,76 @@
+---
+title: Stacked avatar
+description: Stacked avatar
+component: true
+---
+
+<ComponentPreview
+  name="stacked-avatar-demo"
+  description="A stacked avatar component."
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://github.com/AKASHAorg/akasha-ui/tree/main/public/r/styles/default/stacked-avatar.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-avatar
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="stacked-avatar" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { StackedAvatar } from "@/components/ui/stacked-avatar";
+```
+
+```tsx
+const avatars = [
+    { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },
+    { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },
+    { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },
+    { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },
+  ];
+  return (
+    <StackedAvatar size={avatars.length}>
+      {(index) => (
+        <ProfileAvatar>
+          <ProfileAvatarImage
+            src={avatars[index].src}
+            alt={avatars[index].alt}
+          />
+          <ProfileAvatarFallback>AK</ProfileAvatarFallback>
+        </ProfileAvatar>
+      )}
+    </StackedAvatar>
+  );
+```

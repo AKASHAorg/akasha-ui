@@ -1,0 +1,15 @@
+{
+  "name": "stacked-avatar-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "stack"
+  ],
+  "files": [
+    {
+      "path": "examples/stacked-avatar-demo.tsx",
+      "content": "import {\n  ProfileAvatar,\n  ProfileAvatarFallback,\n  ProfileAvatarImage,\n} from \"@/registry/default/akasha-ui/profile-avatar\";\nimport { StackedAvatar } from \"@/registry/default/akasha-ui/stacked-avatar\";\n\nexport default function ProfileAvatarDemo() {\n  const avatars = [\n    { src: \"https://github.com/akashaorg.png\", alt: \"@akashaorg\" },\n    { src: \"https://github.com/akashaorg.png\", alt: \"@akashaorg\" },\n    { src: \"https://github.com/akashaorg.png\", alt: \"@akashaorg\" },\n    { src: \"https://github.com/akashaorg.png\", alt: \"@akashaorg\" },\n  ];\n  return (\n    <StackedAvatar count={avatars.length}>\n      {(index) => (\n        <ProfileAvatar>\n          <ProfileAvatarImage\n            src={avatars[index].src}\n            alt={avatars[index].alt}\n          />\n          <ProfileAvatarFallback>AK</ProfileAvatarFallback>\n        </ProfileAvatar>\n      )}\n    </StackedAvatar>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

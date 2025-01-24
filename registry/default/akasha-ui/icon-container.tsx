@@ -100,4 +100,4 @@ const IconContainer = React.forwardRef<HTMLDivElement, IconContainerProps>(
 );
 IconContainer.displayName = "IconContainer";
 
-export default IconContainer;
+export { IconContainer };

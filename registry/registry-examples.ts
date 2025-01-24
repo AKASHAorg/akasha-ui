@@ -243,4 +243,15 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "stacked-avatar-demo",
+    type: "registry:example",
+    registryDependencies: ["stack"],
+    files: [
+      {
+        path: "examples/stacked-avatar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];
