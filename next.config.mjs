@@ -1,4 +1,4 @@
-import { createContentlayerPlugin } from "next-contentlayer2"
+import { createContentlayerPlugin } from "next-contentlayer2";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -34,12 +34,12 @@ const nextConfig = {
       },
       {
         source: "/components",
-        destination: "/docs/components/image",
+        destination: "/docs/components/icon-container",
         permanent: true,
       },
       {
         source: "/docs/components",
-        destination: "/docs/components/image",
+        destination: "/docs/components/icon-container",
         permanent: true,
       },
       {
@@ -77,12 +77,12 @@ const nextConfig = {
         destination: "/docs/react-19",
         permanent: true,
       },
-    ]
+    ];
   },
-}
+};
 
 const withContentlayer = createContentlayerPlugin({
   // Additional Contentlayer config options
-})
+});
 
-export default withContentlayer(nextConfig)
+export default withContentlayer(nextConfig);

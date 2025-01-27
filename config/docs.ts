@@ -17,7 +17,7 @@ export const docsConfig: DocsConfig = {
     },
     {
       title: "Components",
-      href: "/docs/components/image",
+      href: "/docs/components/icon-container",
     },
     {
       title: "Blocks",
@@ -49,6 +49,11 @@ export const docsConfig: DocsConfig = {
       title: "Components",
       items: [
         {
+          title: "Icon Container",
+          href: "/docs/components/icon-container",
+          items: [],
+        },
+        {
           title: "Image",
           href: "/docs/components/image",
           items: [],
@@ -71,11 +76,6 @@ export const docsConfig: DocsConfig = {
         {
           title: "Typography",
           href: "/docs/components/typography",
-          items: [],
-        },
-        {
-          title: "Icon Container",
-          href: "/docs/components/icon-container",
           items: [],
         },
       ],
