@@ -1,11 +1,10 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { X } from "lucide-react";
 
 import {
   AutoComplete,
-  type AutoCompleteRef,
   type Option,
 } from "@/registry/default/akasha-ui/auto-complete";
 import { Badge } from "@/registry/default/ui/badge";
@@ -24,48 +23,50 @@ const frameworks = [
 ];
 
 export default function AutoCompleteMultipleDemo() {
-  const autoCompleteRef = useRef<AutoCompleteRef>(null);
-  const [selected, setSelected] = useState<Option[]>([]);
+  const [selectedValues, setSelectedValues] = useState<Option[]>([]);
 
-  const handleValueChange = (value: Option | Option[]) => {
-    if (Array.isArray(value)) {
-      setSelected(value);
-    }
+  const handleValueChange = (value: Option[] | undefined) => {
+    if (!value) return;
+    setSelectedValues(value);
   };
 
-  const handleDeselect = (option: Option) => {
-    autoCompleteRef.current?.deselectOption(option);
+  const handleRemove = (valueToRemove: string) => {
+    setSelectedValues((prev) =>
+      prev.filter((item) => item.value !== valueToRemove)
+    );
   };
+
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex flex-col gap-4">
-        <AutoComplete
-          ref={autoCompleteRef}
-          options={frameworks}
-          placeholder="Select frameworks..."
-          emptyMessage="No framework found."
-          multiple
-          value={selected}
-          onValueChange={handleValueChange}
-        />
-
-        <div className="flex flex-wrap gap-2">
-          {selected.map((option) => (
-            <Badge key={option.value} variant="secondary">
-              {option.label}
-              <Button
-                variant="ghost"
-                size="sm"
-                className="ml-1 h-auto p-0 hover:bg-transparent"
-                onClick={() => handleDeselect(option)}
-              >
-                <X className="h-3 w-3" />
-                <span className="sr-only">Remove {option.label}</span>
-              </Button>
-            </Badge>
-          ))}
-        </div>
+      <AutoComplete
+        options={frameworks}
+        value={selectedValues}
+        onValueChange={(value) => handleValueChange(value as Option[])}
+        placeholder="Select frameworks..."
+        emptyMessage="No framework found."
+        multiple={true}
+      />
+      <div className="flex flex-wrap gap-2">
+        {selectedValues.map((framework) => (
+          <Badge key={framework.value} variant="secondary">
+            {framework.label}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="h-auto p-1 ml-2"
+              onClick={() => handleRemove(framework.value)}
+            >
+              <X className="h-3 w-3" />
+            </Button>
+          </Badge>
+        ))}
       </div>
+      <p className="text-sm text-muted-foreground">
+        Selected:{" "}
+        {selectedValues.length
+          ? selectedValues.map((v) => v.label).join(", ")
+          : "None"}
+      </p>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import {
+import React, {
   forwardRef,
   useCallback,
   useImperativeHandle,
@@ -20,11 +20,7 @@ import {
 } from "@/registry/default/ui/command";
 import { Skeleton } from "@/registry/default/ui/skeleton";
 
-export type Option = Record<"value" | "label", string> & Record<string, string>;
-
-export interface AutoCompleteRef {
-  deselectOption: (optionToDeselect: Option) => void;
-}
+export type Option = Record<"value" | "label", string>;
 
 type AutoCompleteProps = {
   options: Option[];
@@ -37,55 +33,33 @@ type AutoCompleteProps = {
   multiple?: boolean;
 };
 
-export const AutoComplete = forwardRef<AutoCompleteRef, AutoCompleteProps>(
-  (
-    {
-      options,
-      placeholder,
-      emptyMessage,
-      value,
-      onValueChange,
-      disabled,
-      isLoading = false,
-      multiple = false,
-    },
-    ref
-  ) => {
+export const AutoComplete = forwardRef<
+  React.ElementRef<typeof CommandPrimitive>,
+  AutoCompleteProps
+>(
+  ({
+    options,
+    placeholder,
+    emptyMessage,
+    value,
+    onValueChange,
+    disabled,
+    isLoading = false,
+    multiple = false,
+    ...props
+  }) => {
     const inputRef = useRef<HTMLInputElement>(null);
-
     const [isOpen, setOpen] = useState(false);
-    const [selected, setSelected] = useState<Option[]>(
-      multiple
-        ? Array.isArray(value)
-          ? value
-          : []
-        : value
-        ? [value as Option]
-        : []
-    );
     const [inputValue, setInputValue] = useState<string>("");
 
-    const handleDeselect = useCallback(
-      (optionToDeselect: Option) => {
-        if (!multiple) return;
-
-        const newSelected = selected.filter(
-          (option) => option.value !== optionToDeselect.value
-        );
-        setSelected(newSelected);
-        setInputValue("");
-        onValueChange?.(newSelected);
-      },
-      [multiple, selected, onValueChange]
-    );
-
-    useImperativeHandle(
-      ref,
-      () => ({
-        deselectOption: handleDeselect,
-      }),
-      [handleDeselect]
-    );
+    // Convert value prop to array format for consistent handling
+    const selected = multiple
+      ? Array.isArray(value)
+        ? value
+        : []
+      : value
+      ? [value as Option]
+      : [];
 
     const handleKeyDown = useCallback(
       (event: KeyboardEvent<HTMLDivElement>) => {
@@ -105,7 +79,6 @@ export const AutoComplete = forwardRef<AutoCompleteRef, AutoCompleteProps>(
             (option) => option.label === input.value
           );
           if (optionToSelect) {
-            setSelected([optionToSelect]);
             onValueChange?.(optionToSelect);
           }
         }
@@ -130,19 +103,17 @@ export const AutoComplete = forwardRef<AutoCompleteRef, AutoCompleteProps>(
           const isSelected = selected.some(
             (option) => option.value === selectedOption.value
           );
+
           const newSelected = isSelected
             ? selected.filter((option) => option.value !== selectedOption.value)
             : [...selected, selectedOption];
 
-          setSelected(newSelected);
           setInputValue("");
           onValueChange?.(newSelected);
         } else {
           setInputValue(selectedOption.label);
-          setSelected([selectedOption]);
           onValueChange?.(selectedOption);
 
-          // This is a hack to prevent the input from being focused after the user selects an option
           setTimeout(() => {
             inputRef?.current?.blur();
           }, 0);
@@ -152,7 +123,7 @@ export const AutoComplete = forwardRef<AutoCompleteRef, AutoCompleteProps>(
     );
 
     return (
-      <CommandPrimitive onKeyDown={handleKeyDown}>
+      <CommandPrimitive onKeyDown={handleKeyDown} {...props}>
         <div className="border rounded-lg">
           <CommandInput
             ref={inputRef}
@@ -186,6 +157,7 @@ export const AutoComplete = forwardRef<AutoCompleteRef, AutoCompleteProps>(
                     const isSelected = selected.some(
                       (item) => item.value === option.value
                     );
+
                     return (
                       <CommandItem
                         key={option.value}

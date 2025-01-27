@@ -155,18 +155,18 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "auto-complete-single-demo": {
-      name: "auto-complete-single-demo",
+    "auto-complete-demo": {
+      name: "auto-complete-demo",
       description: "",
       type: "registry:example",
       registryDependencies: ["auto-complete"],
       files: [{
-        path: "registry/default/examples/auto-complete-single-demo.tsx",
+        path: "registry/default/examples/auto-complete-demo.tsx",
         type: "registry:example",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/auto-complete-single-demo.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/auto-complete-demo.tsx")),
       source: "",
       meta: undefined,
     },

@@ -2,12 +2,12 @@ import { Registry } from "@/registry/schema";
 
 export const examples: Registry = [
   {
-    name: "auto-complete-single-demo",
+    name: "auto-complete-demo",
     type: "registry:example",
     registryDependencies: ["auto-complete"],
     files: [
       {
-        path: "examples/auto-complete-single-demo.tsx",
+        path: "examples/auto-complete-demo.tsx",
         type: "registry:example",
       },
     ],
