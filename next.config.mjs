@@ -7,6 +7,7 @@ const nextConfig = {
       "/blocks/*": ["./registry/**/*"],
     },
   },
+  output: "export",
   reactStrictMode: true,
   swcMinify: true,
   images: {
