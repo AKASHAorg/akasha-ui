@@ -48,7 +48,7 @@ const CommandInput = React.forwardRef<
       )}
       {...props}
     />
-    <Search className="ml-2 h-4 w-4 shrink-0 opacity-50"/>
+    <Search className="ml-2 h-4 w-4 shrink-0 opacity-50" />
   </div>
 ));
 

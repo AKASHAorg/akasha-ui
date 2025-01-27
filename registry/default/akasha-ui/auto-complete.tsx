@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState, type KeyboardEvent } from "react";
+import { useCallback, useRef, useState, type KeyboardEvent, forwardRef, useImperativeHandle } from "react";
 import { Command as CommandPrimitive, CommandSeparator } from "cmdk";
 import { Check } from "lucide-react";
 
@@ -15,6 +15,10 @@ import { Skeleton } from "@/registry/default/ui/skeleton";
 
 export type Option = Record<"value" | "label", string> & Record<string, string>;
 
+export interface AutoCompleteRef {
+  deselectOption: (optionToDeselect: Option) => void;
+}
+
 type AutoCompleteProps = {
   options: Option[];
   emptyMessage: string;
@@ -26,7 +30,7 @@ type AutoCompleteProps = {
   multiple?: boolean;
 };
 
-export const AutoComplete = ({
+export const AutoComplete = forwardRef<AutoCompleteRef, AutoCompleteProps>(({
   options,
   placeholder,
   emptyMessage,
@@ -35,7 +39,7 @@ export const AutoComplete = ({
   disabled,
   isLoading = false,
   multiple = false,
-}: AutoCompleteProps) => {
+}, ref) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isOpen, setOpen] = useState(false);
@@ -49,6 +53,21 @@ export const AutoComplete = ({
       : []
   );
   const [inputValue, setInputValue] = useState<string>("");
+
+  const handleDeselect = useCallback((optionToDeselect: Option) => {
+    if (!multiple) return;
+    
+    const newSelected = selected.filter(
+      (option) => option.value !== optionToDeselect.value
+    );
+    setSelected(newSelected);
+    setInputValue("");
+    onValueChange?.(newSelected);
+  }, [multiple, selected, onValueChange]);
+
+  useImperativeHandle(ref, () => ({
+    deselectOption: handleDeselect
+  }), [handleDeselect]);
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<HTMLDivElement>) => {
@@ -68,7 +87,7 @@ export const AutoComplete = ({
           (option) => option.label === input.value
         );
         if (optionToSelect) {
-          setSelected(optionToSelect);
+          setSelected([optionToSelect]);
           onValueChange?.(optionToSelect);
         }
       }
@@ -180,4 +199,4 @@ export const AutoComplete = ({
       </div>
     </CommandPrimitive>
   );
-};
+});
