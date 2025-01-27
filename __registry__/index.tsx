@@ -155,6 +155,36 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "auto-complete-single-demo": {
+      name: "auto-complete-single-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["auto-complete"],
+      files: [{
+        path: "registry/default/examples/auto-complete-single-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/auto-complete-single-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "auto-complete-multiple-demo": {
+      name: "auto-complete-multiple-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["auto-complete"],
+      files: [{
+        path: "registry/default/examples/auto-complete-multiple-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/auto-complete-multiple-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "profile-avatar-demo": {
       name: "profile-avatar-demo",
       description: "",
