@@ -16,6 +16,7 @@ const StackedAvatar = React.forwardRef<HTMLDivElement, StackedAvatar>(
           .fill(0)
           .map((_, index) => (
             <div
+              key={index}
               className={cn("rounded-full border border-border")}
               style={{ transform: `translateX(-${index * 50}%)` }}
             >
