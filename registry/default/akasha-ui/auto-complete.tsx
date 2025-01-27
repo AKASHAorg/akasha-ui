@@ -18,11 +18,12 @@ export type Option = Record<"value" | "label", string> & Record<string, string>;
 type AutoCompleteProps = {
   options: Option[];
   emptyMessage: string;
-  value?: Option;
-  onValueChange?: (value: Option) => void;
+  value?: Option | Option[];
+  onValueChange?: (value: Option | Option[]) => void;
   isLoading?: boolean;
   disabled?: boolean;
   placeholder?: string;
+  multiple?: boolean;
 };
 
 export const AutoComplete = ({
@@ -33,12 +34,21 @@ export const AutoComplete = ({
   onValueChange,
   disabled,
   isLoading = false,
+  multiple = false,
 }: AutoCompleteProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isOpen, setOpen] = useState(false);
-  const [selected, setSelected] = useState<Option>(value as Option);
-  const [inputValue, setInputValue] = useState<string>(value?.label || "");
+  const [selected, setSelected] = useState<Option[]>(
+    multiple
+      ? Array.isArray(value)
+        ? value
+        : []
+      : value
+      ? [value as Option]
+      : []
+  );
+  const [inputValue, setInputValue] = useState<string>("");
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<HTMLDivElement>) => {
@@ -72,23 +82,36 @@ export const AutoComplete = ({
 
   const handleBlur = useCallback(() => {
     setOpen(false);
-    setInputValue(selected?.label);
-  }, [selected]);
+    if (!multiple) {
+      setInputValue(selected[0]?.label || "");
+    }
+  }, [selected, multiple]);
 
   const handleSelectOption = useCallback(
     (selectedOption: Option) => {
-      setInputValue(selectedOption.label);
+      if (multiple) {
+        const isSelected = selected.some(
+          (option) => option.value === selectedOption.value
+        );
+        const newSelected = isSelected
+          ? selected.filter((option) => option.value !== selectedOption.value)
+          : [...selected, selectedOption];
 
-      setSelected(selectedOption);
-      onValueChange?.(selectedOption);
+        setSelected(newSelected);
+        setInputValue("");
+        onValueChange?.(newSelected);
+      } else {
+        setInputValue(selectedOption.label);
+        setSelected([selectedOption]);
+        onValueChange?.(selectedOption);
 
-      // This is a hack to prevent the input from being focused after the user selects an option
-      // We can call this hack: "The next tick"
-      setTimeout(() => {
-        inputRef?.current?.blur();
-      }, 0);
+        // This is a hack to prevent the input from being focused after the user selects an option
+        setTimeout(() => {
+          inputRef?.current?.blur();
+        }, 0);
+      }
     },
-    [onValueChange]
+    [multiple, selected, onValueChange]
   );
 
   return (
@@ -123,7 +146,9 @@ export const AutoComplete = ({
             {options.length > 0 && !isLoading ? (
               <CommandGroup>
                 {options.map((option) => {
-                  const isSelected = selected?.value === option.value;
+                  const isSelected = selected.some(
+                    (item) => item.value === option.value
+                  );
                   return (
                     <CommandItem
                       key={option.value}
