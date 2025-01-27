@@ -144,5 +144,6 @@
       "puppeteer",
       "sharp"
     ]
-  }
+  },
+  "packageManager": "pnpm@9.15.4"
 }
