@@ -23,29 +23,7 @@ const frameworks = [
   { value: "nest", label: "Nest.js" },
 ];
 
-export default function AutoCompleteDemo() {
-  return (
-    <div className="flex flex-col gap-4">
-      <BasicExample />
-      <MultipleWithExternalDeselect />
-    </div>
-  );
-}
-
-function BasicExample() {
-  return (
-    <div className="flex flex-col gap-2">
-      <p className="text-sm text-muted-foreground">Basic example:</p>
-      <AutoComplete
-        options={frameworks}
-        placeholder="Select framework..."
-        emptyMessage="No framework found."
-      />
-    </div>
-  );
-}
-
-function MultipleWithExternalDeselect() {
+export default function AutoCompleteMultipleDemo() {
   const autoCompleteRef = useRef<AutoCompleteRef>(null);
   const [selected, setSelected] = useState<Option[]>([]);
 
@@ -58,13 +36,8 @@ function MultipleWithExternalDeselect() {
   const handleDeselect = (option: Option) => {
     autoCompleteRef.current?.deselectOption(option);
   };
-
   return (
     <div className="flex flex-col gap-2">
-      <p className="text-sm text-muted-foreground">
-        Multiple selection with external deselect:
-      </p>
-
       <div className="flex flex-col gap-4">
         <AutoComplete
           ref={autoCompleteRef}
