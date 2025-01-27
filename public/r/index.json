@@ -1,10 +1,18 @@
 [
   {
+    "name": "auto-complete",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "akasha-ui/auto-complete.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "image",
     "type": "registry:ui",
-    "dependencies": [
-      "next"
-    ],
+    "dependencies": ["next"],
     "files": [
       {
         "path": "akasha-ui/image.tsx",
@@ -26,9 +34,7 @@
   {
     "name": "profile-avatar",
     "type": "registry:ui",
-    "dependencies": [
-      "@radix-ui/react-avatar"
-    ],
+    "dependencies": ["@radix-ui/react-avatar"],
     "files": [
       {
         "path": "akasha-ui/profile-avatar.tsx",
@@ -59,9 +65,7 @@
   {
     "name": "typography",
     "type": "registry:ui",
-    "dependencies": [
-      "@radix-ui/react-slot"
-    ],
+    "dependencies": ["@radix-ui/react-slot"],
     "files": [
       {
         "path": "akasha-ui/typography.tsx",

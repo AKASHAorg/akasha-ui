@@ -1,0 +1,15 @@
+{
+  "name": "auto-complete-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "auto-complete"
+  ],
+  "files": [
+    {
+      "path": "examples/auto-complete-demo.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nimport { AutoComplete } from \"@/registry/default/akasha-ui/auto-complete\";\n\nconst frameworks = [\n  {\n    value: \"next.js\",\n    label: \"Next.js\",\n  },\n  {\n    value: \"sveltekit\",\n    label: \"SvelteKit\",\n  },\n  {\n    value: \"nuxt\",\n    label: \"Nuxt.js\",\n  },\n  {\n    value: \"remix\",\n    label: \"Remix\",\n  },\n  {\n    value: \"astro\",\n    label: \"Astro\",\n  },\n  {\n    value: \"gatsby\",\n    label: \"Gatsby\",\n  },\n];\n\nexport default function AutoCompleteDemo() {\n  const [loading, setLoading] = React.useState(false);\n  const [selectedFramework, setSelectedFramework] = React.useState<\n    | {\n        value: string;\n        label: string;\n      }\n    | undefined\n  >(undefined);\n\n  // Simulate loading state when selecting a framework\n  const handleSelect = (option: { value: string; label: string }) => {\n    setLoading(true);\n    setSelectedFramework(option);\n\n    // Simulate API delay\n    setTimeout(() => {\n      setLoading(false);\n    }, 1000);\n  };\n\n  return (\n    <div className=\"flex flex-col gap-4\">\n      <AutoComplete\n        options={frameworks}\n        placeholder=\"Select framework...\"\n        isLoading={loading}\n        onValueChange={handleSelect}\n        value={selectedFramework}\n        emptyMessage=\"No framework found.\"\n      />\n\n      {selectedFramework && (\n        <p className=\"text-sm text-muted-foreground\">\n          You selected: {selectedFramework.label}\n        </p>\n      )}\n    </div>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

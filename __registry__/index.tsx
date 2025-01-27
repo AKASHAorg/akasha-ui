@@ -5,6 +5,21 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
+    "auto-complete": {
+      name: "auto-complete",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/auto-complete.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/auto-complete.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "image": {
       name: "image",
       description: "",

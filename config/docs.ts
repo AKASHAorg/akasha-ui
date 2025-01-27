@@ -49,6 +49,11 @@ export const docsConfig: DocsConfig = {
       title: "Components",
       items: [
         {
+          title: "AutoComplete",
+          href: "/docs/components/auto-complete",
+          items: [],
+        },
+        {
           title: "Image",
           href: "/docs/components/image",
           items: [],
