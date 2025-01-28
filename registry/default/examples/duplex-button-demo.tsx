@@ -3,20 +3,21 @@
 import { useState } from "react";
 import { UserIcon, UsersIcon } from "lucide-react";
 
-import DuplexButton, {
+import {
+  DuplexButton,
   DuplexButtonActive,
   DuplexButtonHover,
   DuplexButtonInactive,
 } from "@/registry/default/akasha-ui/duplex-button";
 
 export default function DuplexButtonDemo() {
-  const [active, setActive] = useState(false);
+  const [follow, setFollow] = useState(false);
   return (
-    <DuplexButton active={active}>
+    <DuplexButton active={follow}>
       <DuplexButtonInactive
         variant="default"
         onClick={() => {
-          setActive(true);
+          setFollow(true);
         }}
       >
         Follow <UsersIcon className="h-4 w-4" />
@@ -25,7 +26,7 @@ export default function DuplexButtonDemo() {
       <DuplexButtonHover
         variant="outline"
         onClick={() => {
-          setActive(false);
+          setFollow(false);
         }}
       >
         Unfollow <UsersIcon className="h-4 w-4" />

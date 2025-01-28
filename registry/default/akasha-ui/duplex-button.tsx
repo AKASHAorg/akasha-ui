@@ -44,38 +44,40 @@ const DuplexButton = ({ children, active }: DuplexButtonProps) => {
   );
 };
 
-export const DuplexButtonActive = React.forwardRef<
-  HTMLButtonElement,
-  ButtonProps
->(({ ...props }, ref) => {
-  const { active, hovered, onHovered } = useDuplexButtonContext();
-  return (
-    active &&
-    !hovered && (
-      <Button ref={ref} onMouseEnter={() => onHovered(true)} {...props} />
-    )
-  );
-});
+const DuplexButtonActive = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ ...props }, ref) => {
+    const { active, hovered, onHovered } = useDuplexButtonContext();
+    return (
+      active &&
+      !hovered && (
+        <Button ref={ref} onMouseEnter={() => onHovered(true)} {...props} />
+      )
+    );
+  }
+);
 
-export const DuplexButtonHover = React.forwardRef<
-  HTMLButtonElement,
-  ButtonProps
->(({ ...props }, ref) => {
-  const { active, hovered, onHovered } = useDuplexButtonContext();
-  return (
-    active &&
-    hovered && (
-      <Button ref={ref} onMouseLeave={() => onHovered(false)} {...props} />
-    )
-  );
-});
+const DuplexButtonHover = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ ...props }, ref) => {
+    const { active, hovered, onHovered } = useDuplexButtonContext();
+    return (
+      active &&
+      hovered && (
+        <Button ref={ref} onMouseLeave={() => onHovered(false)} {...props} />
+      )
+    );
+  }
+);
 
-export const DuplexButtonInactive = React.forwardRef<
-  HTMLButtonElement,
-  ButtonProps
->(({ ...props }, ref) => {
-  const { active } = useDuplexButtonContext();
-  return !active && <Button ref={ref} {...props} />;
-});
+const DuplexButtonInactive = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ ...props }, ref) => {
+    const { active } = useDuplexButtonContext();
+    return !active && <Button ref={ref} {...props} />;
+  }
+);
 
-export default DuplexButton;
+export {
+  DuplexButton,
+  DuplexButtonActive,
+  DuplexButtonHover,
+  DuplexButtonInactive,
+};

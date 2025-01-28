@@ -51,17 +51,38 @@ npm install next
 ## Usage
 
 ```tsx
-import { DuplexButton } from "<path-to-ui-components>/duplex-button" ;
+import {
+  DuplexButton,
+  DuplexButtonActive,
+  DuplexButtonHover,
+  DuplexButtonInactive,
+} from "<path-to-ui-components>/duplex-button";
 ```
 
 ```tsx
-<DuplexButton active={isSubscribed}>
-  <DuplexButtonActive onClick={() => setIsSubscribed(false)}>
-    <DuplexButtonActiveDefault>Subscribed</DuplexButtonActiveDefault>
-    <DuplexButtonActiveHover>Unsubscribe</DuplexButtonActiveHover>
-  </DuplexButtonActive>
-  <DuplexButtonInactive onClick={() => setIsSubscribed(true)}>
-    Subscribe
+const [subscribe, setSubscribe] = useState(false);
+
+<DuplexButton active={subscribe}>
+  <DuplexButtonInactive
+    variant="default"
+    onClick={() => {
+      setSubscribe(true);
+    }}
+  >
+    Subscribe <UsersIcon className="h-4 w-4" />
   </DuplexButtonInactive>
-</DuplexButton>
+
+  <DuplexButtonHover
+    variant="outline"
+    onClick={() => {
+      setSubscribe(false);
+    }}
+  >
+    Unsubscribe <UsersIcon className="h-4 w-4" />
+  </DuplexButtonHover>
+
+  <DuplexButtonActive>
+    Subscribed <UserIcon className="h-4 w-4" />
+  </DuplexButtonActive>
+</DuplexButton>;
 ```
