@@ -1,5 +1,15 @@
 [
   {
+    "name": "auto-complete",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "akasha-ui/auto-complete.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "duplex-button",
     "type": "registry:ui",
     "dependencies": [],

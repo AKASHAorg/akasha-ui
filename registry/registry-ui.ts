@@ -2,6 +2,17 @@ import { Registry } from "@/registry/schema";
 
 export const ui: Registry = [
   {
+    name: "auto-complete",
+    type: "registry:ui",
+    dependencies: undefined,
+    files: [
+      {
+        path: "akasha-ui/auto-complete.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "duplex-button",
     type: "registry:ui",
     dependencies: [],

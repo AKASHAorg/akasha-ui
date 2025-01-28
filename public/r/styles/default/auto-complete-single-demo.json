@@ -1,0 +1,15 @@
+{
+  "name": "auto-complete-single-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "auto-complete"
+  ],
+  "files": [
+    {
+      "path": "examples/auto-complete-single-demo.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\n\nimport {\n  AutoComplete,\n  Option,\n} from \"@/registry/default/akasha-ui/auto-complete\";\n\n// Sample data for demonstrations\nconst frameworks = [\n  { value: \"next\", label: \"Next.js\" },\n  { value: \"sveltekit\", label: \"SvelteKit\" },\n  { value: \"nuxt\", label: \"Nuxt.js\" },\n  { value: \"remix\", label: \"Remix\" },\n  { value: \"astro\", label: \"Astro\" },\n  { value: \"wordpress\", label: \"WordPress\" },\n  { value: \"express\", label: \"Express.js\" },\n  { value: \"nest\", label: \"Nest.js\" },\n];\n\nexport default function AutoCompleteSingleDemo() {\n  const [selected, setSelected] = useState<Option>();\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <AutoComplete\n        options={frameworks}\n        placeholder=\"Select framework...\"\n        emptyMessage=\"No framework found.\"\n        multiple={false}\n        value={selected}\n        onValueChange={(value) => setSelected(value as Option)}\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

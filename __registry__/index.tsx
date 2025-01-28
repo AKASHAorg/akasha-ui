@@ -5,6 +5,21 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
+    "auto-complete": {
+      name: "auto-complete",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/auto-complete.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/auto-complete.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "duplex-button": {
       name: "duplex-button",
       description: "",
@@ -152,6 +167,36 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/hooks/use-toast.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "auto-complete-demo": {
+      name: "auto-complete-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["auto-complete"],
+      files: [{
+        path: "registry/default/examples/auto-complete-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/auto-complete-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "auto-complete-multiple-demo": {
+      name: "auto-complete-multiple-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["auto-complete"],
+      files: [{
+        path: "registry/default/examples/auto-complete-multiple-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/auto-complete-multiple-demo.tsx")),
       source: "",
       meta: undefined,
     },
