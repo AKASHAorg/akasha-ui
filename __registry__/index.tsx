@@ -5,21 +5,6 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
-    "image": {
-      name: "image",
-      description: "",
-      type: "registry:ui",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/default/akasha-ui/image.tsx",
-        type: "registry:ui",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/image.tsx")),
-      source: "",
-      meta: undefined,
-    },
     "duplex-button": {
       name: "duplex-button",
       description: "",
@@ -47,6 +32,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/akasha-ui/icon-container.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "image": {
+      name: "image",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/image.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/image.tsx")),
       source: "",
       meta: undefined,
     },

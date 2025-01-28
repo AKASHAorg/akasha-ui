@@ -2,17 +2,6 @@ import { Registry } from "@/registry/schema";
 
 export const ui: Registry = [
   {
-    name: "image",
-    type: "registry:ui",
-    dependencies: ["next"],
-    files: [
-      {
-        path: "akasha-ui/image.tsx",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
     name: "duplex-button",
     type: "registry:ui",
     dependencies: [],
@@ -35,9 +24,19 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "image",
+    type: "registry:ui",
+    dependencies: ["next"],
+    files: [
+      {
+        path: "akasha-ui/image.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "profile-avatar",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-avatar"],
     files: [
       {
         path: "akasha-ui/profile-avatar.tsx",

@@ -1,18 +1,5 @@
 [
   {
-    "name": "image",
-    "type": "registry:ui",
-    "dependencies": [
-      "next"
-    ],
-    "files": [
-      {
-        "path": "akasha-ui/image.tsx",
-        "type": "registry:ui"
-      }
-    ]
-  },
-  {
     "name": "duplex-button",
     "type": "registry:ui",
     "dependencies": [],
@@ -35,11 +22,21 @@
     ]
   },
   {
-    "name": "profile-avatar",
+    "name": "image",
     "type": "registry:ui",
     "dependencies": [
-      "@radix-ui/react-avatar"
+      "next"
     ],
+    "files": [
+      {
+        "path": "akasha-ui/image.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "profile-avatar",
+    "type": "registry:ui",
     "files": [
       {
         "path": "akasha-ui/profile-avatar.tsx",

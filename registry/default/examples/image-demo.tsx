@@ -14,11 +14,7 @@ export default function ImageDemo() {
         width={256}
         height={256}
       />
-      <ImageFallback>
-        <div className="w-full p-2 h-full flex items-center justify-center bg-gray-200 text-gray-500">
-          Failed to load image
-        </div>
-      </ImageFallback>
+      <ImageFallback>Failed to load image</ImageFallback>
     </ImageRoot>
   );
 }
