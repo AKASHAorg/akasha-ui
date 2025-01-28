@@ -56,7 +56,7 @@ interface ImageProps extends NextImageProps {
 }
 
 const Image = React.forwardRef<HTMLDivElement, ImageProps>(
-  ({ showLoadingIndictor, ...props }) => {
+  ({ showLoadingIndictor, className, ...props }, ref) => {
     const { setLoading, setError, isLoading, hasError } = useImageContext();
 
     useEffect(() => {
@@ -64,7 +64,7 @@ const Image = React.forwardRef<HTMLDivElement, ImageProps>(
     }, [setLoading]);
 
     return (
-      <>
+      <div ref={ref} className={cn("relative", className)}>
         {showLoadingIndictor && isLoading && (
           <div
             className={cn("absolute inset-0 flex items-center justify-center")}
@@ -82,7 +82,7 @@ const Image = React.forwardRef<HTMLDivElement, ImageProps>(
             }}
           />
         )}
-      </>
+      </div>
     );
   }
 );
