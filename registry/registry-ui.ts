@@ -2,8 +2,10 @@ import { Registry } from "@/registry/schema";
 
 export const ui: Registry = [
   {
-    name: "auto-complete",
+    name: "autocomplete",
     type: "registry:ui",
+    registryDependencies: ["command", "skeleton"],
+    dependencies: ["cmdk", "lucide-react"],
     files: [
       {
         path: "akasha-ui/auto-complete.tsx",
@@ -12,8 +14,46 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "button",
+    type: "registry:ui",
+    dependencies: ["@radix-ui/react-slot"],
+    files: [
+      {
+        path: "akasha-ui/button.tsx",
+        type: "registry:ui",
+      },
+    ],
+    tailwind: {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              "primary-start": {
+                DEFAULT: "hsl(var(--primary-start))",
+              },
+              "primary-end": {
+                DEFAULT: "hsl(var(--primary-end))",
+              },
+            },
+          },
+        },
+      },
+    },
+    cssVars: {
+      light: {
+        "primary-start": "329 86% 70%;",
+        "primary-end": "239 84% 67%;",
+      },
+      dark: {
+        "primary-start": "329 86% 70%;",
+        "primary-end": "239 84% 67%;",
+      },
+    },
+  },
+  {
     name: "duplex-button",
     type: "registry:ui",
+    registryDependencies: ["custom/button"],
     files: [
       {
         path: "akasha-ui/duplex-button.tsx",
@@ -44,6 +84,7 @@ export const ui: Registry = [
   {
     name: "profile-avatar",
     type: "registry:ui",
+    dependencies: ["@radix-ui/react-avatar", "lucide-react"],
     files: [
       {
         path: "akasha-ui/profile-avatar.tsx",

@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/typography-h2.tsx",
-      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyH2() {\n  return <Typography variant=\"h2\">A secondary heading.</Typography>;\n}\n",
+      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyH2() {\n  return (\n    <Typography variant=\"h2\">\n      A secondary heading, used to organize and introduce main sections.\n    </Typography>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

@@ -17,7 +17,7 @@ export const docsConfig: DocsConfig = {
     },
     {
       title: "Components",
-      href: "/docs/components/icon-container",
+      href: "/docs/components/auto-complete",
     },
     {
       title: "Blocks",
@@ -51,6 +51,11 @@ export const docsConfig: DocsConfig = {
         {
           title: "Autocomplete",
           href: "/docs/components/auto-complete",
+          items: [],
+        },
+        {
+          title: "Button",
+          href: "/docs/components/button",
           items: [],
         },
         {

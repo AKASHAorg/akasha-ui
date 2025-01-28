@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/typography-h3.tsx",
-      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyH3() {\n  return <Typography variant=\"h3\">Subsection under H2.</Typography>;\n}\n",
+      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyH3() {\n  return (\n    <Typography variant=\"h3\">\n      A subheading to structure content under H2, offering a clear hierarchy.\n    </Typography>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

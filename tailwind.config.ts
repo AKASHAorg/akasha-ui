@@ -1,3 +1,4 @@
+import { start } from "repl";
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
@@ -28,6 +29,12 @@ const config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+        },
+        "primary-start": {
+          DEFAULT: "hsl(var(--primary-start))",
+        },
+        "primary-end": {
+          DEFAULT: "hsl(var(--primary-end))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",

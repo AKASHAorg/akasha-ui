@@ -15,7 +15,6 @@ export default function DuplexButtonDemo() {
   return (
     <DuplexButton active={follow}>
       <DuplexButtonInactive
-        variant="default"
         onClick={() => {
           setFollow(true);
         }}
@@ -24,7 +23,7 @@ export default function DuplexButtonDemo() {
       </DuplexButtonInactive>
 
       <DuplexButtonHover
-        variant="outline"
+        variant="destructive"
         onClick={() => {
           setFollow(false);
         }}
@@ -32,7 +31,7 @@ export default function DuplexButtonDemo() {
         Unfollow <UsersIcon className="h-4 w-4" />
       </DuplexButtonHover>
 
-      <DuplexButtonActive>
+      <DuplexButtonActive variant="secondary">
         Following <UserIcon className="h-4 w-4" />
       </DuplexButtonActive>
     </DuplexButton>

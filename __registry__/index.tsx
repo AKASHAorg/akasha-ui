@@ -5,11 +5,11 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
-    "auto-complete": {
-      name: "auto-complete",
+    "autocomplete": {
+      name: "autocomplete",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["command","skeleton"],
       files: [{
         path: "registry/default/akasha-ui/auto-complete.tsx",
         type: "registry:ui",
@@ -20,11 +20,26 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "button": {
+      name: "button",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/button.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/button.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "duplex-button": {
       name: "duplex-button",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["custom/button"],
       files: [{
         path: "registry/default/akasha-ui/duplex-button.tsx",
         type: "registry:ui",
@@ -170,8 +185,8 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "auto-complete-demo": {
-      name: "auto-complete-demo",
+    "autocomplete-demo": {
+      name: "autocomplete-demo",
       description: "",
       type: "registry:example",
       registryDependencies: ["auto-complete"],
@@ -185,8 +200,8 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "auto-complete-multiple-demo": {
-      name: "auto-complete-multiple-demo",
+    "autocomplete-multiple-demo": {
+      name: "autocomplete-multiple-demo",
       description: "",
       type: "registry:example",
       registryDependencies: ["auto-complete"],
@@ -197,6 +212,156 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/auto-complete-multiple-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "button-demo": {
+      name: "button-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/button-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "button-secondary": {
+      name: "button-secondary",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-secondary.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/button-secondary.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "button-destructive": {
+      name: "button-destructive",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-destructive.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/button-destructive.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "button-outline": {
+      name: "button-outline",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-outline.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/button-outline.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "button-ghost": {
+      name: "button-ghost",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-ghost.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/button-ghost.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "button-link": {
+      name: "button-link",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-link.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/button-link.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "button-with-icon": {
+      name: "button-with-icon",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-with-icon.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/button-with-icon.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "button-loading": {
+      name: "button-loading",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-loading.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/button-loading.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "button-icon": {
+      name: "button-icon",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-icon.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/button-icon.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "button-as-child": {
+      name: "button-as-child",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["button"],
+      files: [{
+        path: "registry/default/examples/button-as-child.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/button-as-child.tsx")),
       source: "",
       meta: undefined,
     },
@@ -212,6 +377,36 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/duplex-button-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "image-demo": {
+      name: "image-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["image"],
+      files: [{
+        path: "registry/default/examples/image-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/image-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "icon-container-demo": {
+      name: "icon-container-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["icon-container"],
+      files: [{
+        path: "registry/default/examples/icon-container-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/icon-container-demo.tsx")),
       source: "",
       meta: undefined,
     },
@@ -260,33 +455,93 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "image-demo": {
-      name: "image-demo",
+    "stack-demo": {
+      name: "stack-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["image"],
+      registryDependencies: ["stack"],
       files: [{
-        path: "registry/default/examples/image-demo.tsx",
+        path: "registry/default/examples/stack-demo.tsx",
         type: "registry:example",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/image-demo.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/stack-demo.tsx")),
       source: "",
       meta: undefined,
     },
-    "icon-container-demo": {
-      name: "icon-container-demo",
+    "stack-align-items": {
+      name: "stack-align-items",
       description: "",
       type: "registry:example",
-      registryDependencies: ["icon-container"],
+      registryDependencies: ["stack"],
       files: [{
-        path: "registry/default/examples/icon-container-demo.tsx",
+        path: "registry/default/examples/stack-align-items.tsx",
         type: "registry:example",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/icon-container-demo.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/stack-align-items.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "stack-direction": {
+      name: "stack-direction",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["stack"],
+      files: [{
+        path: "registry/default/examples/stack-direction.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/stack-direction.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "stack-divider": {
+      name: "stack-divider",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["stack"],
+      files: [{
+        path: "registry/default/examples/stack-divider.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/stack-divider.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "stack-justify-content": {
+      name: "stack-justify-content",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["stack"],
+      files: [{
+        path: "registry/default/examples/stack-justify-content.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/stack-justify-content.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "stacked-avatar-demo": {
+      name: "stacked-avatar-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["stack"],
+      files: [{
+        path: "registry/default/examples/stacked-avatar-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/stacked-avatar-demo.tsx")),
       source: "",
       meta: undefined,
     },
@@ -380,6 +635,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "typography-h6": {
+      name: "typography-h6",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["typography"],
+      files: [{
+        path: "registry/default/examples/typography-h6.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/typography-h6.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "typography-p": {
       name: "typography-p",
       description: "",
@@ -392,21 +662,6 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/typography-p.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "typography-regular-bold": {
-      name: "typography-regular-bold",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["typography"],
-      files: [{
-        path: "registry/default/examples/typography-regular-bold.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/typography-regular-bold.tsx")),
       source: "",
       meta: undefined,
     },
@@ -467,96 +722,6 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/typography-extra-small-bold.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "stack-demo": {
-      name: "stack-demo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["stack"],
-      files: [{
-        path: "registry/default/examples/stack-demo.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/stack-demo.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "stack-align-items": {
-      name: "stack-align-items",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["stack"],
-      files: [{
-        path: "registry/default/examples/stack-align-items.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/stack-align-items.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "stack-direction": {
-      name: "stack-direction",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["stack"],
-      files: [{
-        path: "registry/default/examples/stack-direction.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/stack-direction.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "stack-divider": {
-      name: "stack-divider",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["stack"],
-      files: [{
-        path: "registry/default/examples/stack-divider.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/stack-divider.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "stack-justify-content": {
-      name: "stack-justify-content",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["stack"],
-      files: [{
-        path: "registry/default/examples/stack-justify-content.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/stack-justify-content.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "stacked-avatar-demo": {
-      name: "stacked-avatar-demo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["stack"],
-      files: [{
-        path: "registry/default/examples/stacked-avatar-demo.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/stacked-avatar-demo.tsx")),
       source: "",
       meta: undefined,
     },

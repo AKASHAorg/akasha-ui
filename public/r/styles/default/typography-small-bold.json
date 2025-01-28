@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/typography-small-bold.tsx",
-      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographySmallBold() {\n  return (\n    <Typography variant=\"sm\" bold>\n      Smaller subtitles and labels.\n    </Typography>\n  );\n}\n",
+      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographySmallBold() {\n  return (\n    <Typography variant=\"sm\" bold>\n      Compact bold text for subtitles, Buttons & Links.\n    </Typography>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }
