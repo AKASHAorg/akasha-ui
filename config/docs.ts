@@ -49,6 +49,11 @@ export const docsConfig: DocsConfig = {
       title: "Components",
       items: [
         {
+          title: "Duplex Button",
+          href: "/docs/components/duplex-button",
+          items: [],
+        },
+        {
           title: "Icon Container",
           href: "/docs/components/icon-container",
           items: [],

@@ -13,6 +13,17 @@
     ]
   },
   {
+    "name": "duplex-button",
+    "type": "registry:ui",
+    "dependencies": [],
+    "files": [
+      {
+        "path": "akasha-ui/duplex-button.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "icon-container",
     "type": "registry:ui",
     "dependencies": [],

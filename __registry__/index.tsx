@@ -20,6 +20,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "duplex-button": {
+      name: "duplex-button",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/duplex-button.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/duplex-button.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "icon-container": {
       name: "icon-container",
       description: "",
@@ -137,6 +152,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/hooks/use-toast.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "duplex-button-demo": {
+      name: "duplex-button-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["duplex-button"],
+      files: [{
+        path: "registry/default/examples/duplex-button-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/duplex-button-demo.tsx")),
       source: "",
       meta: undefined,
     },
