@@ -3,12 +3,11 @@
 import React, {
   forwardRef,
   useCallback,
-  useImperativeHandle,
   useRef,
   useState,
   type KeyboardEvent,
 } from "react";
-import { Command as CommandPrimitive, CommandSeparator } from "cmdk";
+import { Command as CommandPrimitive } from "cmdk";
 import { Check } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -31,6 +30,7 @@ type AutoCompleteProps = {
   disabled?: boolean;
   placeholder?: string;
   multiple?: boolean;
+  className?: string;
 };
 
 export const Autocomplete = forwardRef<
@@ -47,6 +47,7 @@ export const Autocomplete = forwardRef<
       disabled,
       isLoading = false,
       multiple = false,
+      className,
       ...props
     },
     ref
@@ -127,7 +128,7 @@ export const Autocomplete = forwardRef<
 
     return (
       <CommandPrimitive onKeyDown={handleKeyDown} {...props} ref={ref}>
-        <div className="border rounded-lg">
+        <div className={cn("border rounded-lg", className)}>
           <CommandInput
             ref={inputRef}
             value={inputValue}
