@@ -65,11 +65,11 @@ export const DelayLoad: React.FC<DelayLoadProps> = ({
 };
 
 interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
-  showLoadingIndictor?: boolean;
+  showLoadingIndicator?: boolean;
 }
 
 const Image = React.forwardRef<HTMLImageElement, ImageProps>(
-  ({ showLoadingIndictor, className, onLoad, onError, ...props }, ref) => {
+  ({ showLoadingIndicator, className, onLoad, onError, ...props }, ref) => {
     const { setLoading, setError, isLoading, hasError } = useImageContext();
 
     React.useEffect(() => {
@@ -78,7 +78,7 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
 
     return (
       <div ref={ref} className={cn("relative", className)}>
-        {showLoadingIndictor && isLoading && (
+        {showLoadingIndicator && isLoading && (
           <DelayLoad>
             <div
               className={cn(

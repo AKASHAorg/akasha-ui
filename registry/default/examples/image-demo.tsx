@@ -8,7 +8,7 @@ export default function ImageDemo() {
   return (
     <ImageRoot>
       <Image
-        showLoadingIndictor={true}
+        showLoadingIndicator={true}
         src="https://picsum.photos/200/300"
         alt="Example"
         width={256}
