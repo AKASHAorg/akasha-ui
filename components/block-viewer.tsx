@@ -21,7 +21,7 @@ import { z } from "zod";
 import { trackEvent } from "@/lib/events";
 import { FileTree, createFileTreeForRegistryItemFiles } from "@/lib/registry";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
-import { V0Button } from "@/components/v0-button";
+// import { V0Button } from "@/components/v0-button";
 import { Button } from "@/registry/default/ui/button";
 import {
   Collapsible,
@@ -224,11 +224,11 @@ function BlockViewerToolbar() {
           </Button>
         </div>
         <Separator orientation="vertical" className="mx-1 hidden h-4 xl:flex" />
-        <V0Button
+        {/* <V0Button
           className="hidden shadow-none sm:flex"
           id={`v0-button-${item.name}`}
           name={`${item.name}`}
-        />
+        /> */}
       </div>
     </div>
   );

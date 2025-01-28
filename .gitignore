@@ -134,5 +134,7 @@ dist
 .DS_Store
 *.pem
 
+.vscode
+.idea
 .contentlayer
 tsconfig.tsbuildinfo
