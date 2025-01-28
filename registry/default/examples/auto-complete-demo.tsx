@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import {
-  AutoComplete,
+  Autocomplete,
   Option,
 } from "@/registry/default/akasha-ui/auto-complete";
 
@@ -25,7 +25,7 @@ export default function AutoCompleteDemo() {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <AutoComplete
+        <Autocomplete
           options={frameworks}
           value={singleValue}
           onValueChange={(value) => setSingleValue(value as Option)}

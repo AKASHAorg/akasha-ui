@@ -33,7 +33,7 @@ type AutoCompleteProps = {
   multiple?: boolean;
 };
 
-export const AutoComplete = forwardRef<
+export const Autocomplete = forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
   AutoCompleteProps
 >(
