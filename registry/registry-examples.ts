@@ -4,10 +4,10 @@ export const examples: Registry = [
   {
     name: "autocomplete-demo",
     type: "registry:example",
-    registryDependencies: ["auto-complete"],
+    registryDependencies: ["autocomplete"],
     files: [
       {
-        path: "examples/auto-complete-demo.tsx",
+        path: "examples/autocomplete-demo.tsx",
         type: "registry:example",
       },
     ],
@@ -15,10 +15,10 @@ export const examples: Registry = [
   {
     name: "autocomplete-multiple-demo",
     type: "registry:example",
-    registryDependencies: ["auto-complete"],
+    registryDependencies: ["autocomplete"],
     files: [
       {
-        path: "examples/auto-complete-multiple-demo.tsx",
+        path: "examples/autocomplete-multiple-demo.tsx",
         type: "registry:example",
       },
     ],

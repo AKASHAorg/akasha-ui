@@ -5,7 +5,7 @@ import { useState } from "react";
 import {
   Autocomplete,
   type Option,
-} from "@/registry/default/akasha-ui/auto-complete";
+} from "@/registry/default/akasha-ui/autocomplete";
 
 const frameworks = [
   { value: "next", label: "Next.js" },

@@ -8,7 +8,7 @@ export const ui: Registry = [
     dependencies: ["cmdk", "lucide-react"],
     files: [
       {
-        path: "akasha-ui/auto-complete.tsx",
+        path: "akasha-ui/autocomplete.tsx",
         type: "registry:ui",
       },
     ],

@@ -35,12 +35,12 @@ const nextConfig = {
       },
       {
         source: "/components",
-        destination: "/docs/components/auto-complete",
+        destination: "/docs/components/autocomplete",
         permanent: true,
       },
       {
         source: "/docs/components",
-        destination: "/docs/components/auto-complete",
+        destination: "/docs/components/autocomplete",
         permanent: true,
       },
       {

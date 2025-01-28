@@ -12,7 +12,7 @@
     ],
     "files": [
       {
-        "path": "akasha-ui/auto-complete.tsx",
+        "path": "akasha-ui/autocomplete.tsx",
         "type": "registry:ui"
       }
     ]
