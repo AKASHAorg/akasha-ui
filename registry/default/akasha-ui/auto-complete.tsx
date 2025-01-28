@@ -37,17 +37,20 @@ export const AutoComplete = forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
   AutoCompleteProps
 >(
-  ({
-    options,
-    placeholder,
-    emptyMessage,
-    value,
-    onValueChange,
-    disabled,
-    isLoading = false,
-    multiple = false,
-    ...props
-  }) => {
+  (
+    {
+      options,
+      placeholder,
+      emptyMessage,
+      value,
+      onValueChange,
+      disabled,
+      isLoading = false,
+      multiple = false,
+      ...props
+    },
+    ref
+  ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [isOpen, setOpen] = useState(false);
     const [inputValue, setInputValue] = useState<string>("");
@@ -123,7 +126,7 @@ export const AutoComplete = forwardRef<
     );
 
     return (
-      <CommandPrimitive onKeyDown={handleKeyDown} {...props}>
+      <CommandPrimitive onKeyDown={handleKeyDown} {...props} ref={ref}>
         <div className="border rounded-lg">
           <CommandInput
             ref={inputRef}
