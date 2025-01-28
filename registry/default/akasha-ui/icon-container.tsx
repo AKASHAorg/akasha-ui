@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { VariantProps, cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
@@ -82,8 +82,8 @@ const IconContainer = React.forwardRef<HTMLDivElement, IconContainerProps>(
   ) => {
     return (
       <div
-        className={iconContainerStyles({ variant, size, className })}
         ref={ref}
+        className={iconContainerStyles({ variant, size, className })}
         {...props}
       >
         {children}

@@ -24,6 +24,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "duplex-button-demo",
+    type: "registry:example",
+    registryDependencies: ["duplex-button"],
+    files: [
+      {
+        path: "examples/duplex-button-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "profile-avatar-demo",
     type: "registry:example",
     registryDependencies: ["avatar"],

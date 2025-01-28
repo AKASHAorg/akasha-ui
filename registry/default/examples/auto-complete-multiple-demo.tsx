@@ -4,7 +4,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 
 import {
-  AutoComplete,
+  Autocomplete,
   type Option,
 } from "@/registry/default/akasha-ui/auto-complete";
 import { Badge } from "@/registry/default/ui/badge";
@@ -37,14 +37,15 @@ export default function AutoCompleteMultipleDemo() {
   };
 
   return (
-    <div className="flex flex-col gap-2">
-      <AutoComplete
+    <div className="flex flex-col gap-2 items-center">
+      <Autocomplete
         options={frameworks}
         value={selectedValues}
         onValueChange={(value) => handleValueChange(value as Option[])}
         placeholder="Select frameworks..."
         emptyMessage="No framework found."
         multiple={true}
+        className="w-56"
       />
       <div className="flex flex-wrap gap-2">
         {selectedValues.map((framework) => (

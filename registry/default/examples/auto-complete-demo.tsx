@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import {
-  AutoComplete,
+  Autocomplete,
   Option,
 } from "@/registry/default/akasha-ui/auto-complete";
 
@@ -23,19 +23,17 @@ export default function AutoCompleteDemo() {
   const [singleValue, setSingleValue] = useState<Option | undefined>();
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="flex flex-col gap-2">
-        <AutoComplete
-          options={frameworks}
-          value={singleValue}
-          onValueChange={(value) => setSingleValue(value as Option)}
-          placeholder="Select a framework"
-          emptyMessage="No framework found."
-        />
-        <p className="text-sm text-muted-foreground">
-          Selected: {singleValue?.label || "None"}
-        </p>
-      </div>
+    <div className="flex flex-col gap-2">
+      <Autocomplete
+        options={frameworks}
+        value={singleValue}
+        onValueChange={(value) => setSingleValue(value as Option)}
+        placeholder="Select a framework"
+        emptyMessage="No framework found."
+      />
+      <p className="text-sm text-muted-foreground">
+        Selected: {singleValue?.label || "None"}
+      </p>
     </div>
   );
 }

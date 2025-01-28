@@ -4,7 +4,6 @@ export const ui: Registry = [
   {
     name: "auto-complete",
     type: "registry:ui",
-    dependencies: undefined,
     files: [
       {
         path: "akasha-ui/auto-complete.tsx",
@@ -13,12 +12,11 @@ export const ui: Registry = [
     ],
   },
   {
-    name: "image",
+    name: "duplex-button",
     type: "registry:ui",
-    dependencies: ["next"],
     files: [
       {
-        path: "akasha-ui/image.tsx",
+        path: "akasha-ui/duplex-button.tsx",
         type: "registry:ui",
       },
     ],
@@ -26,7 +24,6 @@ export const ui: Registry = [
   {
     name: "icon-container",
     type: "registry:ui",
-    dependencies: [],
     files: [
       {
         path: "akasha-ui/icon-container.tsx",
@@ -35,9 +32,18 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "image",
+    type: "registry:ui",
+    files: [
+      {
+        path: "akasha-ui/image.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "profile-avatar",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-avatar"],
     files: [
       {
         path: "akasha-ui/profile-avatar.tsx",

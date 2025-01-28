@@ -1,19 +1,11 @@
 "use client";
 
-import React, {
-  ReactNode,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-import NextImage, { ImageProps as NextImageProps } from "next/image";
+import * as React from "react";
 import { Loader2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-// Context for managing the image state
-const ImageContext = createContext<{
+const ImageContext = React.createContext<{
   isLoading: boolean;
   hasError: boolean;
   setLoading: (loading: boolean) => void;
@@ -21,7 +13,7 @@ const ImageContext = createContext<{
 } | null>(null);
 
 const useImageContext = () => {
-  const context = useContext(ImageContext);
+  const context = React.useContext(ImageContext);
   if (!context) {
     throw new Error(
       "`useImageContext` must be used within an `ImageRoot` component"
@@ -30,56 +22,90 @@ const useImageContext = () => {
   return context;
 };
 
-// Main Image Component
-const ImageRoot = ({ children }: { children: ReactNode }) => {
-  const [isLoading, setLoading] = useState(true);
-  const [hasError, setError] = useState(false);
+const ImageRoot = ({ children }: { children: React.ReactNode }) => {
+  const [isLoading, setLoading] = React.useState(true);
+  const [hasError, setError] = React.useState(false);
 
   return (
     <ImageContext.Provider
       value={{ isLoading, hasError, setLoading, setError }}
     >
-      <div className="relative">{children}</div>
+      {children}
     </ImageContext.Provider>
   );
 };
 
-// Fallback Subcomponent
-const ImageFallback = ({ children }: { children: ReactNode }) => {
+const ImageFallback = React.forwardRef<
+  HTMLSpanElement,
+  React.ButtonHTMLAttributes<HTMLSpanElement>
+>(({ children }, ref) => {
   const { hasError } = useImageContext();
-  return hasError ? <>{children}</> : null;
-};
+  return hasError ? <span ref={ref}>{children}</span> : null;
+});
 
-// Next.js Image Subcomponent
-interface ImageProps extends NextImageProps {
-  showLoadingIndictor?: boolean;
+interface DelayLoadProps {
+  children: React.ReactNode;
+  loadAfter?: number;
 }
 
-const Image = React.forwardRef<HTMLDivElement, ImageProps>(
-  ({ showLoadingIndictor, className, ...props }, ref) => {
+export const DelayLoad: React.FC<DelayLoadProps> = ({
+  children,
+  loadAfter = 300,
+}) => {
+  const [show, setShow] = React.useState(false);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setShow(true);
+    }, loadAfter);
+    return () => clearTimeout(timer);
+  }, [loadAfter]);
+
+  return <>{show ? children : null}</>;
+};
+
+interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  showLoadingIndicator?: boolean;
+}
+
+const Image = React.forwardRef<HTMLImageElement, ImageProps>(
+  ({ showLoadingIndicator, className, onLoad, onError, ...props }, ref) => {
     const { setLoading, setError, isLoading, hasError } = useImageContext();
 
-    useEffect(() => {
+    React.useEffect(() => {
       setLoading(true);
     }, [setLoading]);
 
     return (
       <div ref={ref} className={cn("relative", className)}>
-        {showLoadingIndictor && isLoading && (
-          <div
-            className={cn("absolute inset-0 flex items-center justify-center")}
-          >
-            <Loader2 className={cn("animate-spin text-secondary")} />
-          </div>
+        {showLoadingIndicator && isLoading && (
+          <DelayLoad>
+            <div
+              className={cn(
+                "flex items-center justify justify-center",
+                className
+              )}
+            >
+              <Loader2 className={cn("animate-spin text-muted")} />
+            </div>
+          </DelayLoad>
         )}
         {!hasError && (
-          <NextImage
-            {...props}
-            onLoadingComplete={() => setLoading(false)}
-            onError={() => {
+          <img
+            ref={ref}
+            loading="lazy"
+            decoding="async"
+            onLoad={(event) => {
+              setLoading(false);
+              onLoad?.(event);
+            }}
+            onError={(event) => {
               setError(true);
               setLoading(false);
+              onError?.(event);
             }}
+            className={cn("object-contain", className)}
+            {...props}
           />
         )}
       </div>
