@@ -80,7 +80,7 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
     }, [setLoading]);
 
     return (
-      <div ref={ref} className={cn("relative", className)}>
+      <>
         {showLoadingIndicator && isLoading && (
           <DelayLoad>
             <div
@@ -112,7 +112,7 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
             {...props}
           />
         )}
-      </div>
+      </>
     );
   }
 );
