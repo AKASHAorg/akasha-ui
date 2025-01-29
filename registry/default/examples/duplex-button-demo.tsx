@@ -18,6 +18,7 @@ export default function DuplexButtonDemo() {
         onClick={() => {
           setFollow(true);
         }}
+        variant="outline"
       >
         Follow <UsersIcon className="h-4 w-4" />
       </DuplexButtonInactive>
