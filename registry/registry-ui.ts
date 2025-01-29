@@ -2,6 +2,16 @@ import { Registry } from "@/registry/schema";
 
 export const ui: Registry = [
   {
+    name: "stepper",
+    type: "registry:ui",
+    files: [
+      {
+        path: "akasha-ui/stepper.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "autocomplete",
     type: "registry:ui",
     registryDependencies: ["command", "skeleton"],

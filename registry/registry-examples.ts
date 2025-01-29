@@ -2,6 +2,17 @@ import { Registry } from "@/registry/schema";
 
 export const examples: Registry = [
   {
+    name: "stepper-demo",
+    type: "registry:example",
+    registryDependencies: ["stepper"],
+    files: [
+      {
+        path: "examples/stepper-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "autocomplete-demo",
     type: "registry:example",
     registryDependencies: ["autocomplete"],
