@@ -4,10 +4,9 @@ import { useState } from "react";
 
 import {
   Autocomplete,
-  Option,
-} from "@/registry/default/akasha-ui/auto-complete";
+  type Option,
+} from "@/registry/default/akasha-ui/autocomplete";
 
-// Sample data for demonstrations
 const frameworks = [
   { value: "next", label: "Next.js" },
   { value: "sveltekit", label: "SvelteKit" },
@@ -20,14 +19,14 @@ const frameworks = [
 ];
 
 export default function AutoCompleteDemo() {
-  const [singleValue, setSingleValue] = useState<Option | undefined>();
+  const [singleValue, setSingleValue] = useState<Option>();
 
   return (
     <div className="flex flex-col gap-2">
       <Autocomplete
         options={frameworks}
         value={singleValue}
-        onValueChange={(value) => setSingleValue(value as Option)}
+        onValueChange={(value) => setSingleValue(value)}
         placeholder="Select a framework"
         emptyMessage="No framework found."
       />

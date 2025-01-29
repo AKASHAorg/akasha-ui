@@ -69,7 +69,10 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 }
 
 const Image = React.forwardRef<HTMLImageElement, ImageProps>(
-  ({ showLoadingIndicator, className, onLoad, onError, ...props }, ref) => {
+  (
+    { alt, showLoadingIndicator, className, onLoad, onError, ...props },
+    ref
+  ) => {
     const { setLoading, setError, isLoading, hasError } = useImageContext();
 
     React.useEffect(() => {
@@ -77,7 +80,7 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
     }, [setLoading]);
 
     return (
-      <div ref={ref} className={cn("relative", className)}>
+      <>
         {showLoadingIndicator && isLoading && (
           <DelayLoad>
             <div
@@ -104,11 +107,12 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
               setLoading(false);
               onError?.(event);
             }}
+            alt={alt}
             className={cn("object-contain", className)}
             {...props}
           />
         )}
-      </div>
+      </>
     );
   }
 );

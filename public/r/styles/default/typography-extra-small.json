@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/typography-extra-small.tsx",
-      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyExtraSmall() {\n  return (\n    <Typography variant=\"xs\">\n      Footnotes, small metadata, and supportive UI elements.\n    </Typography>\n  );\n}\n",
+      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyExtraSmall() {\n  return (\n    <Typography variant=\"xs\">\n      Minimal text for metadata, footnotes, or other supportive content.\n    </Typography>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

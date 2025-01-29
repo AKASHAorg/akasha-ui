@@ -2,23 +2,133 @@ import { Registry } from "@/registry/schema";
 
 export const examples: Registry = [
   {
-    name: "auto-complete-demo",
+    name: "autocomplete-demo",
     type: "registry:example",
-    registryDependencies: ["auto-complete"],
+    registryDependencies: ["autocomplete"],
     files: [
       {
-        path: "examples/auto-complete-demo.tsx",
+        path: "examples/autocomplete-demo.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "auto-complete-multiple-demo",
+    name: "autocomplete-multiple-demo",
     type: "registry:example",
-    registryDependencies: ["auto-complete"],
+    registryDependencies: ["autocomplete"],
     files: [
       {
-        path: "examples/auto-complete-multiple-demo.tsx",
+        path: "examples/autocomplete-multiple-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-demo",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-secondary",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button-secondary.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-destructive",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button-destructive.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-outline",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button-outline.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-ghost",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button-ghost.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-link",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button-link.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-with-icon",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button-with-icon.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-loading",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button-loading.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-icon",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button-icon.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "button-as-child",
+    type: "registry:example",
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "examples/button-as-child.tsx",
         type: "registry:example",
       },
     ],
@@ -30,6 +140,28 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/duplex-button-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "image-demo",
+    type: "registry:example",
+    registryDependencies: ["image"],
+    files: [
+      {
+        path: "examples/image-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "icon-container-demo",
+    type: "registry:example",
+    registryDependencies: ["icon-container"],
+    files: [
+      {
+        path: "examples/icon-container-demo.tsx",
         type: "registry:example",
       },
     ],
@@ -68,23 +200,67 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "image-demo",
+    name: "stack-demo",
     type: "registry:example",
-    registryDependencies: ["image"],
+    registryDependencies: ["stack"],
     files: [
       {
-        path: "examples/image-demo.tsx",
+        path: "examples/stack-demo.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "icon-container-demo",
+    name: "stack-align-items",
     type: "registry:example",
-    registryDependencies: ["icon-container"],
+    registryDependencies: ["stack"],
     files: [
       {
-        path: "examples/icon-container-demo.tsx",
+        path: "examples/stack-align-items.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "stack-direction",
+    type: "registry:example",
+    registryDependencies: ["stack"],
+    files: [
+      {
+        path: "examples/stack-direction.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "stack-divider",
+    type: "registry:example",
+    registryDependencies: ["stack"],
+    files: [
+      {
+        path: "examples/stack-divider.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "stack-justify-content",
+    type: "registry:example",
+    registryDependencies: ["stack"],
+    files: [
+      {
+        path: "examples/stack-justify-content.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "stacked-avatar-demo",
+    type: "registry:example",
+    registryDependencies: ["stack"],
+    files: [
+      {
+        path: "examples/stacked-avatar-demo.tsx",
         type: "registry:example",
       },
     ],
@@ -156,23 +332,23 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "typography-h6",
+    type: "registry:example",
+    registryDependencies: ["typography"],
+    files: [
+      {
+        path: "examples/typography-h6.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "typography-p",
     type: "registry:example",
     registryDependencies: ["typography"],
     files: [
       {
         path: "examples/typography-p.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "typography-regular-bold",
-    type: "registry:example",
-    registryDependencies: ["typography"],
-    files: [
-      {
-        path: "examples/typography-regular-bold.tsx",
         type: "registry:example",
       },
     ],
@@ -217,72 +393,6 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/typography-extra-small-bold.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "stack-demo",
-    type: "registry:example",
-    registryDependencies: ["stack"],
-    files: [
-      {
-        path: "examples/stack-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "stack-align-items",
-    type: "registry:example",
-    registryDependencies: ["stack"],
-    files: [
-      {
-        path: "examples/stack-align-items.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "stack-direction",
-    type: "registry:example",
-    registryDependencies: ["stack"],
-    files: [
-      {
-        path: "examples/stack-direction.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "stack-divider",
-    type: "registry:example",
-    registryDependencies: ["stack"],
-    files: [
-      {
-        path: "examples/stack-divider.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "stack-justify-content",
-    type: "registry:example",
-    registryDependencies: ["stack"],
-    files: [
-      {
-        path: "examples/stack-justify-content.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "stacked-avatar-demo",
-    type: "registry:example",
-    registryDependencies: ["stack"],
-    files: [
-      {
-        path: "examples/stacked-avatar-demo.tsx",
         type: "registry:example",
       },
     ],

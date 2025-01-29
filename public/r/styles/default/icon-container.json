@@ -1,7 +1,6 @@
 {
   "name": "icon-container",
   "type": "registry:ui",
-  "dependencies": [],
   "files": [
     {
       "path": "akasha-ui/icon-container.tsx",

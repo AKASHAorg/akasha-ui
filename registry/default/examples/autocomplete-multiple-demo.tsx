@@ -6,7 +6,7 @@ import { X } from "lucide-react";
 import {
   Autocomplete,
   type Option,
-} from "@/registry/default/akasha-ui/auto-complete";
+} from "@/registry/default/akasha-ui/autocomplete";
 import { Badge } from "@/registry/default/ui/badge";
 import { Button } from "@/registry/default/ui/button";
 

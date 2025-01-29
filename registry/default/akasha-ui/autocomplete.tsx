@@ -24,14 +24,22 @@ export type Option = Record<"value" | "label", string>;
 type AutoCompleteProps = {
   options: Option[];
   emptyMessage: string;
-  value?: Option | Option[];
-  onValueChange?: (value: Option | Option[]) => void;
   isLoading?: boolean;
   disabled?: boolean;
   placeholder?: string;
-  multiple?: boolean;
   className?: string;
-};
+} & (
+  | {
+      multiple: true;
+      value?: Option[];
+      onValueChange?: (value: Option[]) => void;
+    }
+  | {
+      multiple?: false;
+      value?: Option;
+      onValueChange?: (value: Option) => void;
+    }
+);
 
 export const Autocomplete = forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
@@ -40,13 +48,10 @@ export const Autocomplete = forwardRef<
   (
     {
       options,
-      placeholder,
       emptyMessage,
-      value,
-      onValueChange,
       disabled,
       isLoading = false,
-      multiple = false,
+      placeholder,
       className,
       ...props
     },
@@ -55,15 +60,6 @@ export const Autocomplete = forwardRef<
     const inputRef = useRef<HTMLInputElement>(null);
     const [isOpen, setOpen] = useState(false);
     const [inputValue, setInputValue] = useState<string>("");
-
-    // Convert value prop to array format for consistent handling
-    const selected = multiple
-      ? Array.isArray(value)
-        ? value
-        : []
-      : value
-      ? [value as Option]
-      : [];
 
     const handleKeyDown = useCallback(
       (event: KeyboardEvent<HTMLDivElement>) => {
@@ -83,7 +79,12 @@ export const Autocomplete = forwardRef<
             (option) => option.label === input.value
           );
           if (optionToSelect) {
-            onValueChange?.(optionToSelect);
+            if (props.multiple === true) {
+              const newSelected = [...(props.value || []), optionToSelect];
+              props.onValueChange?.(newSelected);
+            } else {
+              props.onValueChange?.(optionToSelect);
+            }
           }
         }
 
@@ -91,43 +92,45 @@ export const Autocomplete = forwardRef<
           input.blur();
         }
       },
-      [isOpen, options, onValueChange]
+      [isOpen, options, props]
     );
 
     const handleBlur = useCallback(() => {
       setOpen(false);
-      if (!multiple) {
-        setInputValue(selected[0]?.label || "");
+      if (props.multiple === false) {
+        setInputValue(props.value?.label || "");
       }
-    }, [selected, multiple]);
+    }, [props.value, props.multiple]);
 
     const handleSelectOption = useCallback(
       (selectedOption: Option) => {
-        if (multiple) {
-          const isSelected = selected.some(
+        if (props.multiple === true) {
+          const isSelected = props.value?.some(
             (option) => option.value === selectedOption.value
           );
 
           const newSelected = isSelected
-            ? selected.filter((option) => option.value !== selectedOption.value)
-            : [...selected, selectedOption];
+            ? props.value?.filter(
+                (option) => option.value !== selectedOption.value
+              ) || []
+            : [...(props.value || []), selectedOption];
 
           setInputValue("");
-          onValueChange?.(newSelected);
+          props.onValueChange?.(newSelected);
         } else {
           setInputValue(selectedOption.label);
-          onValueChange?.(selectedOption);
+          props.onValueChange?.(selectedOption);
 
           setTimeout(() => {
             inputRef?.current?.blur();
           }, 0);
         }
       },
-      [multiple, selected, onValueChange]
+      [props]
     );
 
     return (
-      <CommandPrimitive onKeyDown={handleKeyDown} {...props} ref={ref}>
+      <CommandPrimitive ref={ref} onKeyDown={handleKeyDown}>
         <div className={cn("border rounded-lg", className)}>
           <CommandInput
             ref={inputRef}
@@ -158,9 +161,12 @@ export const Autocomplete = forwardRef<
               {options.length > 0 && !isLoading ? (
                 <CommandGroup>
                   {options.map((option) => {
-                    const isSelected = selected.some(
-                      (item) => item.value === option.value
-                    );
+                    const isSelected =
+                      props.multiple === true
+                        ? props.value?.some(
+                            (item) => item.value === option.value
+                          )
+                        : props.value?.value === option.value;
 
                     return (
                       <CommandItem

@@ -1,0 +1,15 @@
+{
+  "name": "typography-h6",
+  "type": "registry:example",
+  "registryDependencies": [
+    "typography"
+  ],
+  "files": [
+    {
+      "path": "examples/typography-h6.tsx",
+      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyRegularBOld() {\n  return (\n    <Typography variant=\"h6\">\n      A lightweight heading style used for supporting information, metadata, or\n      minor section titles. Ideal for low-priority headers in UI or content\n      hierarchy.\n    </Typography>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { Button, ButtonProps } from "@/registry/default/ui/button";
+import { Button, ButtonProps } from "@/registry/default/akasha-ui/button";
 
 interface DuplexButtonContext {
   active: boolean;
