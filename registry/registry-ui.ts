@@ -4,7 +4,6 @@ export const ui: Registry = [
   {
     name: "stepper",
     type: "registry:ui",
-    dependencies: undefined,
     files: [
       {
         path: "akasha-ui/stepper.tsx",
