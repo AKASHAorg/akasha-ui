@@ -2,7 +2,7 @@
   "name": "duplex-button",
   "type": "registry:ui",
   "registryDependencies": [
-    "https://akasha-ui.pages.dev/r/styles/default/button.json"
+    "custom/button"
   ],
   "files": [
     {

@@ -5,6 +5,21 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
+    "stepper": {
+      name: "stepper",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/stepper.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/stepper.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "autocomplete": {
       name: "autocomplete",
       description: "",
@@ -182,6 +197,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/hooks/use-toast.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "stepper-demo": {
+      name: "stepper-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["stepper"],
+      files: [{
+        path: "registry/default/examples/stepper-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/stepper-demo.tsx")),
       source: "",
       meta: undefined,
     },
