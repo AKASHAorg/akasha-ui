@@ -1,0 +1,15 @@
+{
+  "name": "error-loader-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "error-loader"
+  ],
+  "files": [
+    {
+      "path": "examples/error-loader-demo.tsx",
+      "content": "import ErrorLoader, {\n  ErrorLoaderButton,\n  ErrorLoaderImage,\n} from \"../akasha-ui/error-loader\";\n\nexport default function ErrorLoaderDemo() {\n  return (\n    <ErrorLoader title=\"Error Title\" message=\"Error message\">\n      <ErrorLoaderButton>Action</ErrorLoaderButton>\n      <ErrorLoaderImage src=\"https://picsum.photos/200/200\" alt=\"Error Image\" />\n    </ErrorLoader>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

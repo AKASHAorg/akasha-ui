@@ -2,6 +2,22 @@ import { Registry } from "@/registry/schema";
 
 export const ui: Registry = [
   {
+    name: "error-loader",
+    type: "registry:ui",
+    registryDependencies: [
+      "custom/button",
+      "custom/image",
+      "custom/typography",
+      "card",
+    ],
+    files: [
+      {
+        path: "akasha-ui/error-loader.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "stepper",
     type: "registry:ui",
     files: [

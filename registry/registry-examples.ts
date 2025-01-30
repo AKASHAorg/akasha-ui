@@ -2,6 +2,17 @@ import { Registry } from "@/registry/schema";
 
 export const examples: Registry = [
   {
+    name: "error-loader-demo",
+    type: "registry:example",
+    registryDependencies: ["error-loader"],
+    files: [
+      {
+        path: "examples/error-loader-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "stepper-demo",
     type: "registry:example",
     registryDependencies: ["stepper"],
