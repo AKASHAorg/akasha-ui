@@ -1,4 +1,3 @@
-// ErrorLoader demo
 
 import {
   ErrorLoader,
