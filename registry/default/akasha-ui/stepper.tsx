@@ -1,5 +1,5 @@
-import React from "react";
-import { Check, Circle } from "lucide-react";
+import * as React from "react";
+import { Check, Dot } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -17,12 +17,16 @@ export const Stepper = React.forwardRef<HTMLElement, StepperProps>(
         {...props}
         aria-label="Progress"
       >
-        <ol role="list" className="flex items-center justify-between">
+        <ol className="flex items-center justify-between">
           {[...Array(numberOfSteps)].map((_, index) => {
             const stepNumber = index + 1;
             const isActive = stepNumber === currentStep;
             const isCompleted = stepNumber < currentStep;
             const isLast = index === numberOfSteps - 1;
+
+            const completedStyle = isCompleted
+              ? "border-primary bg-primary"
+              : "border-muted bg-background";
 
             return (
               <li
@@ -42,23 +46,17 @@ export const Stepper = React.forwardRef<HTMLElement, StepperProps>(
                 <div
                   className={cn(
                     "relative flex h-8 w-8 items-center justify-center rounded-full border-2 transition-all duration-300",
-                    isActive
-                      ? "border-primary bg-background"
-                      : isCompleted
-                      ? "border-primary bg-primary"
-                      : "border-muted bg-background"
+                    isActive ? "border-primary bg-background" : completedStyle
                   )}
                   aria-label={`Step ${stepNumber}`}
                 >
                   {isCompleted ? (
-                    <Check className="text-primary-foreground transition-colors duration-300 w-3.5" />
+                    <Check className="text-primary-foreground transition-colors duration-300" />
                   ) : (
-                    <Circle
+                    <Dot
                       className={cn(
-                        "h-2.5 w-2.5 transition-colors duration-300",
-                        isActive
-                          ? "fill-primary text-primary"
-                          : "fill-muted text-muted"
+                        isActive ? "text-primary" : "text-muted",
+                        "transition-colors duration-300"
                       )}
                     />
                   )}
