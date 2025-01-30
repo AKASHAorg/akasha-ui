@@ -51,7 +51,10 @@ export const Stepper = React.forwardRef<HTMLElement, StepperProps>(
                   aria-label={`Step ${stepNumber}`}
                 >
                   {isCompleted ? (
-                    <Check className="text-primary-foreground transition-colors duration-300" />
+                    <Check
+                      size={20}
+                      className="text-primary-foreground transition-colors duration-300"
+                    />
                   ) : (
                     <Dot
                       strokeWidth={8}
