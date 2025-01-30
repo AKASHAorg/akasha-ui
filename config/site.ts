@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "AKASHA UI",
-  url: "https://akasha.org/",
-  ogImage: "https://ui.shadcn.com/og.jpg",
+  url: "https://akasha-ui.pages.dev",
+  ogImage: "https://akasha-ui.pages.dev/og.jpg",
   description:
-    "Beautifully designed Web3 components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
+    "A curated set of components and blocks built with Shadcn UI and Tailwind CSS. Customizable. Free. Open Source.",
   links: {
     twitter: "https://x.com/AKASHAorg",
     github: "https://github.com/AKASHAorg/akasha-ui",
