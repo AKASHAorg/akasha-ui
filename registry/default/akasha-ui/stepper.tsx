@@ -54,6 +54,7 @@ export const Stepper = React.forwardRef<HTMLElement, StepperProps>(
                     <Check className="text-primary-foreground transition-colors duration-300" />
                   ) : (
                     <Dot
+                      strokeWidth={8}
                       className={cn(
                         isActive ? "text-primary" : "text-muted",
                         "transition-colors duration-300"
