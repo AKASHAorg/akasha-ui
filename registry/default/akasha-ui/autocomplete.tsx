@@ -125,7 +125,9 @@ export const Autocomplete = React.forwardRef<
 
     return (
       <CommandPrimitive ref={ref} onKeyDown={handleKeyDown}>
-        <div className={cn("border rounded-lg", className)}>
+        <div
+          className={cn("border rounded-lg h-10 items-center flex", className)}
+        >
           <CommandInput
             ref={inputRef}
             value={inputValue}
@@ -134,7 +136,7 @@ export const Autocomplete = React.forwardRef<
             onFocus={() => setOpen(true)}
             placeholder={placeholder}
             disabled={disabled}
-            className="text-base"
+            className="text-sm w-full"
           />
         </div>
         <div className="relative mt-1">
@@ -144,7 +146,7 @@ export const Autocomplete = React.forwardRef<
               isOpen ? "block" : "hidden"
             )}
           >
-            <CommandList className="rounded-lg ring-1 ring-muted">
+            <CommandList className="rounded-lg ring-1 ring-border">
               {isLoading ? (
                 <CommandPrimitive.Loading>
                   <div className="p-1">

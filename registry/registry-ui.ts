@@ -14,11 +14,23 @@ export const ui: Registry = [
   {
     name: "autocomplete",
     type: "registry:ui",
-    registryDependencies: ["command", "skeleton"],
+    registryDependencies: ["skeleton", "custom/command"],
     dependencies: ["cmdk", "lucide-react"],
     files: [
       {
         path: "akasha-ui/autocomplete.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "command",
+    type: "registry:ui",
+    registryDependencies: ["dialog"],
+    dependencies: ["cmdk", "lucide-react", "@radix-ui/react-dialog"],
+    files: [
+      {
+        path: "ui/command.tsx",
         type: "registry:ui",
       },
     ],
