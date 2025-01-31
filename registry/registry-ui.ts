@@ -27,7 +27,7 @@ export const ui: Registry = [
     name: "command",
     type: "registry:ui",
     registryDependencies: ["dialog"],
-    dependencies: ["cmdk", "lucide-react", "@radix-ui/react-dialog",],
+    dependencies: ["cmdk", "lucide-react", "@radix-ui/react-dialog"],
     files: [
       {
         path: "ui/command.tsx",
