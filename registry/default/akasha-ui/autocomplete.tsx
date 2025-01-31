@@ -1,12 +1,6 @@
 "use client";
 
-import React, {
-  forwardRef,
-  useCallback,
-  useRef,
-  useState,
-  type KeyboardEvent,
-} from "react";
+import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
 import { Check } from "lucide-react";
 
@@ -41,7 +35,7 @@ type AutoCompleteProps = {
     }
 );
 
-export const Autocomplete = forwardRef<
+export const Autocomplete = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
   AutoCompleteProps
 >(
@@ -57,12 +51,12 @@ export const Autocomplete = forwardRef<
     },
     ref
   ) => {
-    const inputRef = useRef<HTMLInputElement>(null);
-    const [isOpen, setOpen] = useState(false);
-    const [inputValue, setInputValue] = useState<string>("");
+    const inputRef = React.useRef<HTMLInputElement>(null);
+    const [isOpen, setOpen] = React.useState(false);
+    const [inputValue, setInputValue] = React.useState<string>("");
 
-    const handleKeyDown = useCallback(
-      (event: KeyboardEvent<HTMLDivElement>) => {
+    const handleKeyDown = React.useCallback(
+      (event: React.KeyboardEvent<HTMLDivElement>) => {
         const input = inputRef.current;
         if (!input) {
           return;
@@ -95,14 +89,14 @@ export const Autocomplete = forwardRef<
       [isOpen, options, props]
     );
 
-    const handleBlur = useCallback(() => {
+    const handleBlur = React.useCallback(() => {
       setOpen(false);
       if (props.multiple === false) {
         setInputValue(props.value?.label || "");
       }
     }, [props.value, props.multiple]);
 
-    const handleSelectOption = useCallback(
+    const handleSelectOption = React.useCallback(
       (selectedOption: Option) => {
         if (props.multiple === true) {
           const isSelected = props.value?.some(
