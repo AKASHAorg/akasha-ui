@@ -16,8 +16,9 @@
     --input: 240 4.88% 83.92%;
     --primary: 262.12 83.26% 57.84%;
     --primary-foreground: 0 0% 98.04%;
-    --primary-start: 329, 86%, 70%;
-    --primary-end: 239, 84%, 67%;
+
+    --primary-start: 329 86% 70%;
+    --primary-end: 239 84% 67%;
     --secondary: 250.5 95.24% 91.76%;
     --secondary-foreground: 263.39 69.96% 50.39%;
     --accent: 251.43 91.3% 95.49%;
@@ -46,31 +47,32 @@
   }
 
   .dark {
-    --background: 240 5.88% 10%;
-    --foreground: 0 0% 100%;
-    --muted: 240 0% 31.92%;
-    --muted-foreground: 240 0% 68.85%;
-    --popover: 240 3.7% 15.88%;
-    --popover-foreground: 0 0% 98.04%;
-    --card: 240 3.7% 15.88%;
-    --card-foreground: 0 0% 100%;
-    --border: 325 0% 28.85%;
-    --input: 325 0% 31.92%;
-    --primary: 262.12 92.95% 73.83%;
+    --background: 0 0% 100%;
+    --foreground: 240 5.88% 10%;
+    --muted: 240 5.88% 90%;
+    --muted-foreground: 240 0% 48.85%;
+    --popover: 0 0% 99%;
+    --popover-foreground: 325 50% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 5.88% 10%;
+    --border: 240 5.88% 90%;
+    --input: 240 4.88% 83.92%;
+    --primary: 262.12 83.26% 57.84%;
     --primary-foreground: 0 0% 98.04%;
-    --primary-start: 329, 86%, 70%;
-    --primary-end: 239, 84%, 67%;
-    --secondary: 251.67 94.74% 85.1%;
-    --secondary-foreground: 240 3.7% 15.88%;
-    --accent: 250.5 95.24% 91.76%;
-    --accent-foreground: 240 3.7% 15.88%;
-    --destructive: 0 90.6% 70.78%;
-    --destructive-foreground: 0 100% 96.05%;
-    --ring: 251.67 94.74% 85.1%;
-    --success: 152.4 76% 80.4%;
-    --success-foreground: 164.2 85.7% 16.5%;
-    --warning: 54.9 96.7% 88%;
-    --warning-foreground: 35.5 91.7% 32.9%;
+
+    --primary-start: 329 86% 70%;
+    --primary-end: 239 84% 67%;
+    --secondary: 250.5 95.24% 91.76%;
+    --secondary-foreground: 263.39 69.96% 50.39%;
+    --accent: 251.43 91.3% 95.49%;
+    --accent-foreground: 240 5.88% 10%;
+    --destructive: 0 85.71% 97.25%;
+    --destructive-foreground: 0 84.24% 60.2%;
+    --ring: 257.14 89.53% 66.27%;
+    --success: 160.1 84.1% 39.4%;
+    --success-foreground: 151.8 81% 95.9%;
+    --warning: 47.9 95.8% 53.1%;
+    --warning-foreground: 54.5 91.7% 95.3%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
