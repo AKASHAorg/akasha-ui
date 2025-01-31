@@ -2,7 +2,7 @@
   "name": "profile-avatar-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "avatar"
+    "profile-avatar"
   ],
   "files": [
     {

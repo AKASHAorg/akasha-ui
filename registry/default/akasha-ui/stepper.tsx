@@ -73,3 +73,4 @@ export const Stepper = React.forwardRef<HTMLElement, StepperProps>(
     );
   }
 );
+Stepper.displayName = "Stepper";

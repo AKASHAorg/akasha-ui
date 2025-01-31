@@ -1,0 +1,90 @@
+---
+title: Profile avatar
+description: A profile element which contains profile avatar, profile name and profile DID.
+component: true
+---
+
+<ComponentPreview
+  name="profile-avatar-button-demo"
+  description="A profile avatar button"
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/profile-avatar-button.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-avatar
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="profile-avatar-button" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  ProfileAvatarButton
+  ProfileAvatar,
+  ProfileAvatarFallback,
+  ProfileAvatarImage,
+  ProfileName
+  ProfileDidField
+} from "<path-to-ui-components>/profile-avatar-button";
+```
+
+```tsx
+<ProfileAvatarButton>
+  <ProfileAvatar>
+    <ProfileAvatarImage src="https://github.com/akashaorg.png" />
+    <ProfileAvatarFallback>CN</ProfileAvatarFallback>
+  </ProfileAvatar>
+  <ProfileName>coffeelover</ProfileName>
+  <ProfileDidField did={did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95}/>
+</ProfileAvatarButton>
+```
+
+## Examples
+
+### Large vertical
+
+<ComponentPreview name="profile-avatar-button-large-vertical" />
+
+### Large horizontal
+
+<ComponentPreview name="profile-avatar-button-large-horizontal" />
+
+### Medium
+
+<ComponentPreview name="profile-avatar-button-medium" />
+
+### Small
+
+<ComponentPreview name="profile-avatar-button-small" />

@@ -34,6 +34,7 @@ const ImageRoot = ({ children }: { children: React.ReactNode }) => {
     </ImageContext.Provider>
   );
 };
+ImageRoot.displayName = "ImageRoot";
 
 const ImageFallback = React.forwardRef<
   HTMLSpanElement,
@@ -42,6 +43,7 @@ const ImageFallback = React.forwardRef<
   const { hasError } = useImageContext();
   return hasError ? <span ref={ref}>{children}</span> : null;
 });
+ImageFallback.displayName = "ImageFallback";
 
 interface DelayLoadProps {
   children: React.ReactNode;
@@ -116,5 +118,6 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
     );
   }
 );
+Image.displayName = "Image";
 
 export { ImageRoot, ImageFallback, Image };

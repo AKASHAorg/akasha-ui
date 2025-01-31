@@ -178,9 +178,64 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "profile-avatar-button-demo",
+    type: "registry:example",
+    registryDependencies: ["profile-avatar-button"],
+    files: [
+      {
+        path: "examples/profile-avatar-button-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "profile-avatar-button-large-vertical",
+    type: "registry:example",
+    registryDependencies: ["profile-avatar-button"],
+    files: [
+      {
+        path: "examples/profile-avatar-button-large-vertical.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "profile-avatar-button-large-horizontal",
+    type: "registry:example",
+    registryDependencies: ["profile-avatar-button"],
+    files: [
+      {
+        path: "examples/profile-avatar-button-large-horizontal.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "profile-avatar-button-medium",
+    type: "registry:example",
+    registryDependencies: ["profile-avatar-button"],
+    files: [
+      {
+        path: "examples/profile-avatar-button-medium.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "profile-avatar-button-small",
+    type: "registry:example",
+    registryDependencies: ["profile-avatar-button"],
+    files: [
+      {
+        path: "examples/profile-avatar-button-small.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "profile-avatar-demo",
     type: "registry:example",
-    registryDependencies: ["avatar"],
+    registryDependencies: ["profile-avatar"],
     files: [
       {
         path: "examples/profile-avatar-demo.tsx",
@@ -191,7 +246,7 @@ export const examples: Registry = [
   {
     name: "profile-avatar-nsfw",
     type: "registry:example",
-    registryDependencies: ["avatar"],
+    registryDependencies: ["profile-avatar"],
     files: [
       {
         path: "examples/profile-avatar-nsfw.tsx",
@@ -202,7 +257,7 @@ export const examples: Registry = [
   {
     name: "profile-avatar-size",
     type: "registry:example",
-    registryDependencies: ["avatar"],
+    registryDependencies: ["profile-avatar"],
     files: [
       {
         path: "examples/profile-avatar-size.tsx",
