@@ -24,18 +24,6 @@ export const ui: Registry = [
     ],
   },
   {
-    name: "command",
-    type: "registry:ui",
-    registryDependencies: ["dialog"],
-    dependencies: ["cmdk", "lucide-react", "@radix-ui/react-dialog"],
-    files: [
-      {
-        path: "ui/command.tsx",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
     name: "button",
     type: "registry:ui",
     dependencies: ["@radix-ui/react-slot"],
@@ -50,11 +38,9 @@ export const ui: Registry = [
         theme: {
           extend: {
             colors: {
-              "primary-start": {
-                DEFAULT: "hsl(var(--primary-start))",
-              },
-              "primary-end": {
-                DEFAULT: "hsl(var(--primary-end))",
+              primary: {
+                start: "hsl(var(--primary-start))",
+                end: "hsl(var(--primary-end))",
               },
             },
           },
@@ -73,12 +59,53 @@ export const ui: Registry = [
     },
   },
   {
+    name: "card",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/card.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "command",
+    type: "registry:ui",
+    registryDependencies: ["dialog"],
+    dependencies: ["cmdk", "lucide-react", "@radix-ui/react-dialog"],
+    files: [
+      {
+        path: "ui/command.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "duplex-button",
     type: "registry:ui",
     registryDependencies: ["custom/button"],
     files: [
       {
         path: "akasha-ui/duplex-button.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "form",
+    type: "registry:ui",
+    dependencies: [
+      "@radix-ui/react-label",
+      "lucide-react",
+      "@radix-ui/react-slot",
+      "@hookform/resolvers",
+      "zod",
+      "react-hook-form",
+    ],
+    registryDependencies: ["label"],
+    files: [
+      {
+        path: "ui/form.tsx",
         type: "registry:ui",
       },
     ],
@@ -92,6 +119,42 @@ export const ui: Registry = [
         type: "registry:ui",
       },
     ],
+  },
+  {
+    name: "inline-notification",
+    type: "registry:ui",
+    files: [
+      {
+        path: "akasha-ui/inline-notification.tsx",
+        type: "registry:ui",
+      },
+    ],
+    tailwind: {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              success: {
+                DEFAULT: "hsl(var(--success)",
+                foreground: "hsl(var(--success-foreground)",
+              },
+              warning: {
+                DEFAULT: "hsl(var(--warning)",
+                foreground: "hsl(var(--warning-foreground)",
+              },
+            },
+          },
+        },
+      },
+    },
+    cssVars: {
+      light: {
+        success: "160.1 84.1% 39.4%",
+        "success-foreground": "151.8 81% 95.9%",
+        warning: "47.9 95.8% 53.1%",
+        "warning-foreground": "54.5 91.7% 95.3%",
+      },
+    },
   },
   {
     name: "image",

@@ -35,21 +35,6 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "command": {
-      name: "command",
-      description: "",
-      type: "registry:ui",
-      registryDependencies: ["dialog"],
-      files: [{
-        path: "registry/default/ui/command.tsx",
-        type: "registry:ui",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/ui/command.tsx")),
-      source: "",
-      meta: undefined,
-    },
     "button": {
       name: "button",
       description: "",
@@ -62,6 +47,36 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/akasha-ui/button.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "card": {
+      name: "card",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/card.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/card.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "command": {
+      name: "command",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["dialog"],
+      files: [{
+        path: "registry/default/ui/command.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/command.tsx")),
       source: "",
       meta: undefined,
     },
@@ -80,6 +95,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "form": {
+      name: "form",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["label"],
+      files: [{
+        path: "registry/default/ui/form.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/form.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "icon-container": {
       name: "icon-container",
       description: "",
@@ -92,6 +122,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/akasha-ui/icon-container.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "inline-notification": {
+      name: "inline-notification",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/inline-notification.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/inline-notification.tsx")),
       source: "",
       meta: undefined,
     },
@@ -425,6 +470,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "card-demo": {
+      name: "card-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["card","button","switch"],
+      files: [{
+        path: "registry/default/examples/card-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/card-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "duplex-button-demo": {
       name: "duplex-button-demo",
       description: "",
@@ -467,6 +527,81 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/icon-container-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "inline-notification-demo": {
+      name: "inline-notification-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["inline-notification"],
+      files: [{
+        path: "registry/default/examples/inline-notification-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/inline-notification-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "inline-notification-info": {
+      name: "inline-notification-info",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["icon-container"],
+      files: [{
+        path: "registry/default/examples/inline-notification-info.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/inline-notification-info.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "inline-notification-success": {
+      name: "inline-notification-success",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["icon-container"],
+      files: [{
+        path: "registry/default/examples/inline-notification-success.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/inline-notification-success.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "inline-notification-error": {
+      name: "inline-notification-error",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["icon-container"],
+      files: [{
+        path: "registry/default/examples/inline-notification-error.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/inline-notification-error.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "input-form": {
+      name: "input-form",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input","button","form"],
+      files: [{
+        path: "registry/default/examples/input-form.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/input-form.tsx")),
       source: "",
       meta: undefined,
     },

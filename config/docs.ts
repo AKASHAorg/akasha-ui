@@ -64,13 +64,28 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Card",
+          href: "/docs/components/card",
+          items: [],
+        },
+        {
           title: "Duplex Button",
           href: "/docs/components/duplex-button",
           items: [],
         },
         {
+          title: "Form",
+          href: "/docs/components/form",
+          items: [],
+        },
+        {
           title: "Icon Container",
           href: "/docs/components/icon-container",
+          items: [],
+        },
+        {
+          title: "Inline Notification",
+          href: "/docs/components/inline-notification",
           items: [],
         },
         {
