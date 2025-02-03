@@ -197,3 +197,4 @@ export const Autocomplete = React.forwardRef<
     );
   }
 );
+Autocomplete.displayName = "Autocomplete";

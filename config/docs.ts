@@ -79,6 +79,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Profile Avatar Button",
+          href: "/docs/components/profile-avatar-button",
+          items: [],
+        },
+        {
           title: "Profile Avatar",
           href: "/docs/components/profile-avatar",
           items: [],

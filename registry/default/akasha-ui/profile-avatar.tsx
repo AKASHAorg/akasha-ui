@@ -75,7 +75,7 @@ const ProfileAvatarImage = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const { nsfw } = useAvatarContext();
   return nsfw ? (
-    <EyeOff className={cn("text-destructive", className)} />
+    <EyeOff className={cn("text-destructive-foreground", className)} />
   ) : (
     <AvatarPrimitive.Image
       ref={ref}

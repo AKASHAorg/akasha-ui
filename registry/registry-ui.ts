@@ -104,6 +104,22 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "profile-avatar-button",
+    type: "registry:ui",
+    registryDependencies: [
+      "custom/profile-avatar",
+      "custom/stack",
+      "custom/icon-container",
+      "custom/typography",
+    ],
+    files: [
+      {
+        path: "akasha-ui/profile-avatar-button.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "profile-avatar",
     type: "registry:ui",
     dependencies: ["@radix-ui/react-avatar", "lucide-react"],

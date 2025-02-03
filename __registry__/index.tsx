@@ -110,6 +110,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "profile-avatar-button": {
+      name: "profile-avatar-button",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["custom/profile-avatar","custom/stack","custom/icon-container","custom/typography"],
+      files: [{
+        path: "registry/default/akasha-ui/profile-avatar-button.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/profile-avatar-button.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "profile-avatar": {
       name: "profile-avatar",
       description: "",
@@ -455,11 +470,86 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "profile-avatar-button-demo": {
+      name: "profile-avatar-button-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["profile-avatar-button"],
+      files: [{
+        path: "registry/default/examples/profile-avatar-button-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/profile-avatar-button-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "profile-avatar-button-large-vertical": {
+      name: "profile-avatar-button-large-vertical",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["profile-avatar-button"],
+      files: [{
+        path: "registry/default/examples/profile-avatar-button-large-vertical.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/profile-avatar-button-large-vertical.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "profile-avatar-button-large-horizontal": {
+      name: "profile-avatar-button-large-horizontal",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["profile-avatar-button"],
+      files: [{
+        path: "registry/default/examples/profile-avatar-button-large-horizontal.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/profile-avatar-button-large-horizontal.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "profile-avatar-button-medium": {
+      name: "profile-avatar-button-medium",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["profile-avatar-button"],
+      files: [{
+        path: "registry/default/examples/profile-avatar-button-medium.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/profile-avatar-button-medium.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "profile-avatar-button-small": {
+      name: "profile-avatar-button-small",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["profile-avatar-button"],
+      files: [{
+        path: "registry/default/examples/profile-avatar-button-small.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/profile-avatar-button-small.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "profile-avatar-demo": {
       name: "profile-avatar-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["avatar"],
+      registryDependencies: ["profile-avatar"],
       files: [{
         path: "registry/default/examples/profile-avatar-demo.tsx",
         type: "registry:example",
@@ -474,7 +564,7 @@ export const Index: Record<string, any> = {
       name: "profile-avatar-nsfw",
       description: "",
       type: "registry:example",
-      registryDependencies: ["avatar"],
+      registryDependencies: ["profile-avatar"],
       files: [{
         path: "registry/default/examples/profile-avatar-nsfw.tsx",
         type: "registry:example",
@@ -489,7 +579,7 @@ export const Index: Record<string, any> = {
       name: "profile-avatar-size",
       description: "",
       type: "registry:example",
-      registryDependencies: ["avatar"],
+      registryDependencies: ["profile-avatar"],
       files: [{
         path: "registry/default/examples/profile-avatar-size.tsx",
         type: "registry:example",
