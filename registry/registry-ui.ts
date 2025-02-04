@@ -61,6 +61,7 @@ export const ui: Registry = [
   {
     name: "card",
     type: "registry:ui",
+    registryDependencies: ["custom/typography"],
     files: [
       {
         path: "ui/card.tsx",

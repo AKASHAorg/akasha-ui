@@ -54,7 +54,7 @@ export const Index: Record<string, any> = {
       name: "card",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["custom/typography"],
       files: [{
         path: "registry/default/ui/card.tsx",
         type: "registry:ui",
