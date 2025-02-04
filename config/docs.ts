@@ -74,6 +74,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Error Loader",
+          href: "/docs/components/error-loader",
+          items: [],
+        },
+        {
           title: "Form",
           href: "/docs/components/form",
           items: [],

@@ -93,6 +93,17 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "error-loader",
+    type: "registry:ui",
+    registryDependencies: ["custom/card", "custom/image"],
+    files: [
+      {
+        path: "akasha-ui/error-loader.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "form",
     type: "registry:ui",
     dependencies: [

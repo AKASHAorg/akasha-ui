@@ -1,0 +1,16 @@
+{
+  "name": "error-loader-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "card",
+    "image"
+  ],
+  "files": [
+    {
+      "path": "examples/error-loader-demo.tsx",
+      "content": "import { Button } from \"@/registry/default/akasha-ui/button\";\nimport {\n  ErrorLoader,\n  ErrorLoaderDescription,\n  ErrorLoaderFooter,\n  ErrorLoaderTitle,\n} from \"@/registry/default/akasha-ui/error-loader\";\n\nexport default function ErrorLoaderDemo() {\n  return (\n    <ErrorLoader type=\"not-authenticated\">\n      <ErrorLoaderTitle>Uh-oh! You are not connected!</ErrorLoaderTitle>\n      <ErrorLoaderDescription>\n        To create post you must be connected ⚡️\n      </ErrorLoaderDescription>\n      <ErrorLoaderFooter>\n        <Button>Connect</Button>\n      </ErrorLoaderFooter>\n    </ErrorLoader>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
