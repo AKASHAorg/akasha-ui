@@ -92,7 +92,7 @@ const ErrorLoader = ({
         <Image
           src={imageSrc}
           alt="Error Image"
-          className="h-50 w-50 object-contain rounded-lg"
+          className="size-[12.5rem] object-contain rounded-lg"
         />
         <ImageFallback>Failed to load image</ImageFallback>
       </ImageRoot>
