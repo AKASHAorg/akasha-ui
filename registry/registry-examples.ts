@@ -200,6 +200,39 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "icon-container-round",
+    type: "registry:example",
+    registryDependencies: ["icon-container"],
+    files: [
+      {
+        path: "examples/icon-container-round.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "icon-container-square",
+    type: "registry:example",
+    registryDependencies: ["icon-container"],
+    files: [
+      {
+        path: "examples/icon-container-square.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "icon-container-notification-dot",
+    type: "registry:example",
+    registryDependencies: ["icon-container"],
+    files: [
+      {
+        path: "examples/icon-container-notification-dot.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "inline-notification-demo",
     type: "registry:example",
     registryDependencies: ["inline-notification"],
