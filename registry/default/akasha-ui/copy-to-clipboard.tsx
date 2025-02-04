@@ -37,8 +37,8 @@ export default function CopyToClipboard({
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger asChild>
-          <Button variant="default" size="sm" onClick={copyToClipboard}>
+        <TooltipTrigger onClick={copyToClipboard}>
+          <Button variant="default" size="sm">
             {copied ? (
               <span className="flex items-center gap-2.5">
                 <Check size={12} />

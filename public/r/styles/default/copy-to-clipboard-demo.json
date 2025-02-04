@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/copy-to-clipboard-demo.tsx",
-      "content": "import CopyToClipboard from \"@/registry/default/akasha-ui/copy-to-clipboard\";\n\nexport default function CopyToClipboardDemo() {\n  return (\n      <CopyToClipboard textToCopy=\"Hello, world!\" tooltipText=\"Copy the greeting 👋\"/>\n  );\n}\n",
+      "content": "import CopyToClipboard from \"@/registry/default/akasha-ui/copy-to-clipboard\";\n\nexport default function CopyToClipboardDemo() {\n  return (\n    <CopyToClipboard textToCopy=\"Hello, world!\" tooltipText=\"Copy the greeting 👋\" />\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }
