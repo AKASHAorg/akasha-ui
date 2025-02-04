@@ -126,7 +126,10 @@ export const Autocomplete = React.forwardRef<
     return (
       <CommandPrimitive ref={ref} onKeyDown={handleKeyDown}>
         <div
-          className={cn("border rounded-lg h-10 items-center flex", className)}
+          className={cn(
+            " overflow-hidden border rounded-lg h-10 items-center flex",
+            className
+          )}
         >
           <CommandInput
             ref={inputRef}

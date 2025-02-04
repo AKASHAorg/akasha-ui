@@ -51,21 +51,11 @@ export const docsConfig: DocsConfig = {
       ],
     },
     {
-      title: "Components",
+      title: "AKASHA Components",
       items: [
         {
           title: "Autocomplete",
           href: "/docs/components/autocomplete",
-          items: [],
-        },
-        {
-          title: "Button",
-          href: "/docs/components/button",
-          items: [],
-        },
-        {
-          title: "Card",
-          href: "/docs/components/card",
           items: [],
         },
         {
@@ -79,23 +69,18 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
-          title: "Form",
-          href: "/docs/components/form",
-          items: [],
-        },
-        {
           title: "Icon Container",
           href: "/docs/components/icon-container",
           items: [],
         },
         {
-          title: "Inline Notification",
-          href: "/docs/components/inline-notification",
+          title: "Image",
+          href: "/docs/components/image",
           items: [],
         },
         {
-          title: "Image",
-          href: "/docs/components/image",
+          title: "Inline Notification",
+          href: "/docs/components/inline-notification",
           items: [],
         },
         {
@@ -126,6 +111,26 @@ export const docsConfig: DocsConfig = {
         {
           title: "Typography",
           href: "/docs/components/typography",
+          items: [],
+        },
+      ],
+    },
+    {
+      title: "Custom ShadCN Components",
+      items: [
+        {
+          title: "Button",
+          href: "/docs/components/button",
+          items: [],
+        },
+        {
+          title: "Card",
+          href: "/docs/components/card",
+          items: [],
+        },
+        {
+          title: "Form",
+          href: "/docs/components/form",
           items: [],
         },
       ],

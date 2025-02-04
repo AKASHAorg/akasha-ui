@@ -41,12 +41,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [{
-        path: "registry/default/akasha-ui/button.tsx",
+        path: "registry/default/ui/button.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/button.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/button.tsx")),
       source: "",
       meta: undefined,
     },

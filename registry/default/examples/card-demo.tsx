@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Button } from "@/registry/default/akasha-ui/button";
+import { Button } from "@/registry/default/ui/button";
 import {
   Card,
   CardContent,
@@ -26,8 +26,8 @@ export default function CardDemo() {
         <CardTitle>Create project</CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
       </CardHeader>
-      <CardContent>
-        <form>
+      <CardContent className="justify-left">
+        <form className="w-full">
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="name">Name</Label>
@@ -50,7 +50,7 @@ export default function CardDemo() {
           </div>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-between">
+      <CardFooter>
         <Button variant="outline">Cancel</Button>
         <Button>Deploy</Button>
       </CardFooter>

@@ -35,7 +35,7 @@
     ],
     "files": [
       {
-        "path": "akasha-ui/button.tsx",
+        "path": "ui/button.tsx",
         "type": "registry:ui"
       }
     ],

@@ -4,8 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Button } from "@/registry/default/akasha-ui/button";
 import { toast } from "@/registry/default/hooks/use-toast";
+import { Button } from "@/registry/default/ui/button";
 import {
   Form,
   FormControl,

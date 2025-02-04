@@ -57,6 +57,7 @@ export const Stepper = React.forwardRef<HTMLElement, StepperProps>(
                     />
                   ) : (
                     <Dot
+                      size={20}
                       strokeWidth={8}
                       className={cn(
                         isActive ? "text-primary" : "text-muted",

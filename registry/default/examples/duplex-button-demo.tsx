@@ -20,7 +20,7 @@ export default function DuplexButtonDemo() {
         }}
         variant="outline"
       >
-        Follow <UsersIcon className="h-4 w-4" />
+        Follow <UsersIcon size={16} />
       </DuplexButtonInactive>
 
       <DuplexButtonHover
@@ -29,11 +29,11 @@ export default function DuplexButtonDemo() {
           setFollow(false);
         }}
       >
-        Unfollow <UsersIcon className="h-4 w-4" />
+        Unfollow <UsersIcon size={16} />
       </DuplexButtonHover>
 
       <DuplexButtonActive variant="secondary">
-        Following <UserIcon className="h-4 w-4" />
+        Following <UserIcon size={16} />
       </DuplexButtonActive>
     </DuplexButton>
   );
