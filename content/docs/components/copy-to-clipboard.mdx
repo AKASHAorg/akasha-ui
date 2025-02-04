@@ -1,6 +1,6 @@
 ---
 title: Copy to clipboard
-description: Copy text to clipboard with a button and tooltip.
+description: Component that wraps any children with copy to clipboard functionality and a tooltip.
 component: true
 ---
 
@@ -30,11 +30,6 @@ npx shadcn@latest add "https://github.com/AKASHAorg/akasha-ui/tree/main/public/r
 
 <Steps>
 
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install next
-```
 
 <Step>Copy and paste the following code into your project.</Step>
 
@@ -55,10 +50,11 @@ import { CopyToClipboard } from "<path-to-ui-components>/copy-to-clipboard";
 ```
 
 ```tsx
-<CopyToClipboard 
-  textToCopy="info@example.com" 
-  buttonText="Copy email" 
-  buttonSuccessText="Copied" 
-  tooltipText="Copy the email address" 
-/>
+<CopyToClipboard
+  textToCopy="This will be copied to the clipboard"
+  initialTooltipText="Copy text"
+  successTooltipText="Copied ✓"
+>
+    <p>Click here to copy</p>
+</CopyToClipboard>
 ```

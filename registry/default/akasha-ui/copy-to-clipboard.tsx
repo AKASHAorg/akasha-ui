@@ -1,9 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Check } from "lucide-react";
+import * as React from "react";
 
-import { Button } from "@/registry/default/ui/button";
 import {
   Tooltip,
   TooltipContent,
@@ -13,20 +11,20 @@ import {
 
 interface CopyToClipboardProps {
   textToCopy: string;
-  tooltipText?: string;
-  buttonText?: string;
-  buttonSuccessText?: string;
+  initialTooltipText?: string;
+  successTooltipText?: string;
   resetDuration?: number;
 }
 
 export default function CopyToClipboard({
   textToCopy,
-  tooltipText = "Copy to clipboard",
-  buttonText = "Copy to clipboard",
-  buttonSuccessText = "Copied",
+  initialTooltipText: tooltipInitialText = "Copy to clipboard",
+  successTooltipText: tooltipSuccessText = "Copied",
   resetDuration = 5000,
-}: CopyToClipboardProps) {
-  const [copied, setCopied] = useState(false);
+  children,
+}: React.PropsWithChildren<CopyToClipboardProps>) {
+  const [copied, setCopied] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(textToCopy);
@@ -34,23 +32,40 @@ export default function CopyToClipboard({
     setTimeout(() => setCopied(false), resetDuration);
   };
 
+  const handleTooltipOpen = () => {
+    setOpen(true);
+  };
+
+  const handleTooltipClose = () => {
+    setOpen(false);
+  };
+
+  const triggerRef = React.useRef<HTMLButtonElement>(null);
+
+  const handlePointerDown = (event: { target: EventTarget | null }) => {
+    const target = event.target as Node;
+    // Only clicking outside the trigger closes the tooltip
+    if (!triggerRef.current?.contains(target)) {
+      handleTooltipClose();
+    }
+  };
+
   return (
     <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger onClick={copyToClipboard}>
-          <Button variant="default" size="sm">
-            {copied ? (
-              <span className="flex items-center gap-2.5">
-                <Check size={12} />
-                {buttonSuccessText}
-              </span>
-            ) : (
-              <span>{buttonText}</span>
-            )}
-          </Button>
+      <Tooltip open={open}>
+        <TooltipTrigger
+          onClick={copyToClipboard}
+          ref={triggerRef}
+          onMouseEnter={handleTooltipOpen}
+          onMouseLeave={handleTooltipClose}
+        >
+          {children}
         </TooltipTrigger>
-        <TooltipContent>{tooltipText}</TooltipContent>
+        <TooltipContent onPointerDownOutside={handlePointerDown}>
+          {copied ? tooltipSuccessText : tooltipInitialText}
+        </TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );
 }
+  

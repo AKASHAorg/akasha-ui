@@ -4,7 +4,7 @@ export const ui: Registry = [
   {
     name: "copy-to-clipboard",
     type: "registry:ui",
-    dependencies: ["lucide-react"],
+    registryDependencies: ["tooltip"],
     files: [
       {
         path: "akasha-ui/copy-to-clipboard.tsx",
