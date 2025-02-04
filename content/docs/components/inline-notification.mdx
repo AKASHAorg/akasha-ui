@@ -1,0 +1,81 @@
+---
+title: Inline Notification
+description: Displays an inline callout for user attention.
+component: true
+---
+
+<ComponentPreview
+  name="inline-notification-demo"
+  description="An inline notification."
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/inline-notification.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-avatar
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="inline-notification" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  InlineNotification,
+  InlineNotificationDescription,
+  InlineNotificationTitle,
+} from "<path-to-ui-components>/alert";
+```
+
+```tsx
+<InlineNotification>
+  <InlineNotificationTitle>Alert title</InlineNotificationTitle>
+  <InlineNotificationDescription>
+    You can add components and dependencies to your app using the cli.
+  </InlineNotificationDescription>
+</InlineNotification>
+```
+
+## Examples
+
+### Info
+
+<ComponentPreview name="inline-notification-info" />
+
+### Success
+
+<ComponentPreview name="inline-notification-success" />
+
+### Error
+
+<ComponentPreview name="inline-notification-error" />

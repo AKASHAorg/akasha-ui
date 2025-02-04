@@ -145,6 +145,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "card-demo",
+    type: "registry:example",
+    registryDependencies: ["card", "button", "switch"],
+    files: [
+      {
+        path: "examples/card-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "duplex-button-demo",
     type: "registry:example",
     registryDependencies: ["duplex-button"],
@@ -173,6 +184,61 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/icon-container-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "inline-notification-demo",
+    type: "registry:example",
+    registryDependencies: ["inline-notification"],
+    files: [
+      {
+        path: "examples/inline-notification-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "inline-notification-info",
+    type: "registry:example",
+    registryDependencies: ["icon-container"],
+    files: [
+      {
+        path: "examples/inline-notification-info.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "inline-notification-success",
+    type: "registry:example",
+    registryDependencies: ["icon-container"],
+    files: [
+      {
+        path: "examples/inline-notification-success.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "inline-notification-error",
+    type: "registry:example",
+    registryDependencies: ["icon-container"],
+    files: [
+      {
+        path: "examples/inline-notification-error.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "input-form",
+    type: "registry:example",
+    registryDependencies: ["input", "button", "form"],
+    files: [
+      {
+        path: "examples/input-form.tsx",
         type: "registry:example",
       },
     ],

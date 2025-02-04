@@ -17,11 +17,9 @@
       "theme": {
         "extend": {
           "colors": {
-            "primary-start": {
-              "DEFAULT": "hsl(var(--primary-start))"
-            },
-            "primary-end": {
-              "DEFAULT": "hsl(var(--primary-end))"
+            "primary": {
+              "start": "hsl(var(--primary-start))",
+              "end": "hsl(var(--primary-end))"
             }
           }
         }

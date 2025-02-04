@@ -22,7 +22,10 @@ const useImageContext = () => {
   return context;
 };
 
-const ImageRoot = ({ children }: { children: React.ReactNode }) => {
+const ImageRoot = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ children, ...props }, ref) => {
   const [isLoading, setLoading] = React.useState(true);
   const [hasError, setError] = React.useState(false);
 
@@ -30,11 +33,12 @@ const ImageRoot = ({ children }: { children: React.ReactNode }) => {
     <ImageContext.Provider
       value={{ isLoading, hasError, setLoading, setError }}
     >
-      {children}
+      <div ref={ref} {...props}>
+        {children}
+      </div>
     </ImageContext.Provider>
   );
-};
-ImageRoot.displayName = "ImageRoot";
+});
 
 const ImageFallback = React.forwardRef<
   HTMLSpanElement,
@@ -43,7 +47,6 @@ const ImageFallback = React.forwardRef<
   const { hasError } = useImageContext();
   return hasError ? <span ref={ref}>{children}</span> : null;
 });
-ImageFallback.displayName = "ImageFallback";
 
 interface DelayLoadProps {
   children: React.ReactNode;
@@ -85,12 +88,7 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
       <>
         {showLoadingIndicator && isLoading && (
           <DelayLoad>
-            <div
-              className={cn(
-                "flex items-center justify justify-center",
-                className
-              )}
-            >
+            <div className={cn("flex items-center justify-center", className)}>
               <Loader2 className={cn("animate-spin text-muted")} />
             </div>
           </DelayLoad>
