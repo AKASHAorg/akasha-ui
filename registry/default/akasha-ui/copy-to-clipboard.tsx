@@ -31,7 +31,7 @@ export default function CopyToClipboard({
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(textToCopy);
     setCopied(true);
-    setTimeout(() => setCopied(false), resetDuration); // Reset after 5 seconds
+    setTimeout(() => setCopied(false), resetDuration);
   };
 
   return (
