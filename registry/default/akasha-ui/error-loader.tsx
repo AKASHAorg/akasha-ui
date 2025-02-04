@@ -84,7 +84,7 @@ const ErrorLoader = ({
 
   return (
     <Card className={cn(className)} {...props}>
-      <ImageRoot className={cn("justify-items-center px-6 pt-6")}>
+      <ImageRoot className={cn("flex justify-center px-6 pt-6")}>
         <Image
           src={imageSrc}
           alt="Error Image"
