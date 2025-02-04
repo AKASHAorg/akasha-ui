@@ -95,6 +95,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "error-loader": {
+      name: "error-loader",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["custom/card","custom/image"],
+      files: [{
+        path: "registry/default/akasha-ui/error-loader.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/error-loader.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "form": {
       name: "form",
       description: "",
@@ -497,6 +512,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/duplex-button-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "error-loader-demo": {
+      name: "error-loader-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["card","image"],
+      files: [{
+        path: "registry/default/examples/error-loader-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/error-loader-demo.tsx")),
       source: "",
       meta: undefined,
     },
