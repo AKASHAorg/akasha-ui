@@ -5,6 +5,21 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
+    "copy-to-clipboard": {
+      name: "copy-to-clipboard",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/copy-to-clipboard.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/copy-to-clipboard.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "stepper": {
       name: "stepper",
       description: "",
@@ -287,6 +302,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/hooks/use-toast.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "copy-to-clipboard-demo": {
+      name: "copy-to-clipboard-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["copy-to-clipboard"],
+      files: [{
+        path: "registry/default/examples/copy-to-clipboard-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/copy-to-clipboard-demo.tsx")),
       source: "",
       meta: undefined,
     },

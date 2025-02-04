@@ -59,6 +59,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Copy to clipboard",
+          href: "/docs/components/copy-to-clipboard",
+          items: [],
+        },
+        {
           title: "Duplex Button",
           href: "/docs/components/duplex-button",
           items: [],
