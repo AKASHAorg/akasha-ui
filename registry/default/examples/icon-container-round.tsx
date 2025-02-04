@@ -3,12 +3,12 @@ import { Heart } from "lucide-react";
 
 import { IconContainer } from "@/registry/default/akasha-ui/icon-container";
 
-const IconContainerDemo = () => {
+const IconContainerNotificationRound = () => {
   return (
-    <IconContainer>
+    <IconContainer variant="round" size="xl">
       <Heart />
     </IconContainer>
   );
 };
 
-export default IconContainerDemo;
+export default IconContainerNotificationRound;

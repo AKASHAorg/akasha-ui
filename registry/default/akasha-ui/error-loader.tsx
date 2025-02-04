@@ -14,16 +14,12 @@ import {
 } from "@/registry/default/ui/card";
 
 interface ErrorLoaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Error type
-   */
   type:
     | "no-apps"
     | "not-authenticated"
     | "script-error"
     | "page-not-found"
     | "list-not-available";
-  /* Path to public folder */
   publicImgPath?: string;
 }
 

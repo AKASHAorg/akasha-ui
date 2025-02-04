@@ -5,7 +5,7 @@ import {
 } from "@/registry/default/akasha-ui/profile-avatar";
 import { StackedAvatar } from "@/registry/default/akasha-ui/stacked-avatar";
 
-export default function ProfileAvatarDemo() {
+export default function StackedAvatarDemo() {
   const avatars = [
     { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },
     { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },

@@ -1,6 +1,6 @@
 ---
 title: Error Loader
-description: Displays error message based on error type
+description: Displays error message based on error type.
 component: true
 ---
 
@@ -25,12 +25,12 @@ npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/error-loader
 <TabsContent value="manual">
 
 <Steps>
+<Step> Add the following images to your project </Step>
 
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install @radix-ui/react-slot
-```
+1.  https://akasha-ui.pages.dev/images/not-authenticated.webp
+2.  https://akasha-ui.pages.dev/images/new404.webp
+3.  https://akasha-ui.pages.dev/images/list-not-available.webp
+4.  https://akasha-ui.pages.dev/images/general-error.webp
 
 <Step>Copy and paste the following code into your project.</Step>
 
@@ -57,12 +57,23 @@ import {
 
 ```tsx
 <ErrorLoader type="not-authenticated">
-  <ErrorLoaderTitle>{"Uh-oh! You are not connected!"}</ErrorLoaderTitle>
+  <ErrorLoaderTitle>Uh-oh! You are not connected!</ErrorLoaderTitle>
   <ErrorLoaderDescription>
-    {"To create post you must be connected ⚡️"}
+    To create post you must be connected ⚡️
   </ErrorLoaderDescription>
   <ErrorLoaderFooter>
     <Button>Connect</Button>
   </ErrorLoaderFooter>
 </ErrorLoader>
 ```
+
+## Props
+
+| Name            | Type                 | Description                 |
+| --------------- | -------------------- | --------------------------- |
+| `type`          | `no-apps`            | No application found        |
+|                 | `not-authenticated`  | Not authenticated           |
+|                 | `script-error`       | Script error                |
+|                 | `page-not-found`     | 404 (page not found)        |
+|                 | `list-not-available` | Data contains empty list    |
+| `publicImgPath` | `string`             | Path to public image folder |

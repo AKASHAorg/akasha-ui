@@ -4,6 +4,8 @@ description: Displays a button or a component that looks like a button.
 component: true
 ---
 
+A ShadCN button component customized by adding gradient color and adjusting hover states.
+
 <ComponentPreview name="button-demo" description="A button" />
 
 ## Installation
@@ -16,9 +18,33 @@ component: true
 </TabsList>
 <TabsContent value="cli">
 
+<Steps>
+
+<Step>Run the following command to install `button.tsx`</Step>
+
 ```bash
 npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/button.json"
 ```
+
+<Step>Add the following colors to your CSS file</Step>
+
+The command above should install the colors for you. If not, copy and paste the following in your CSS file.
+
+```css title="app/globals.css"
+@layer base {
+  :root {
+    --primary-start: 72.4% 0.177 350.2;
+    --primary-end: 58.7% 0.204 277.4;
+  }
+
+  .dark {
+    --primary-start: 72.4% 0.177 350.2;
+    --primary-end: 58.7% 0.204 277.4;
+  }
+}
+```
+
+</Steps>
 
 </TabsContent>
 
@@ -38,6 +64,36 @@ npm install @radix-ui/react-slot
 
 <Step>Update the import paths to match your project setup.</Step>
 
+<Step>Add the following colors to your CSS file</Step>
+
+```css title="app/globals.css"
+@layer base {
+  :root {
+    --primary-start: 72.4% 0.177 350.2;
+    --primary-end: 58.7% 0.204 277.4;
+  }
+
+  .dark {
+    --primary-start: 72.4% 0.177 350.2;
+    --primary-end: 58.7% 0.204 277.4;
+  }
+}
+```
+
+<Step>Add the Button tailwind config into `tailwind.config.js`</Step>
+
+Add the following object in the `theme.extend.colors` section of your `tailwind.config.js` file
+this config enable button related style utilities like `from-primary-start`
+
+```javascript title="tailwind.config.js"
+// ...
+primary: {
+  start: 'hsl(var(--primary-start))',
+  end: 'hsl(var(--primary-end))',
+},
+// ...
+```
+
 </Steps>
 
 </TabsContent>
@@ -52,6 +108,26 @@ import { Button } from "<path-to-ui-components>/button";
 
 ```tsx
 <Button variant="outline">Button</Button>
+```
+
+## Link
+
+You can use the `link` variant to create a link button.
+
+```tsx
+import { Button } from "@/components/ui/button";
+```
+
+```tsx
+<Button variant="link">Click here</Button>
+```
+
+Alternatively, you can set the `asChild` parameter and nest the anchor element.
+
+```tsx
+<Button asChild>
+  <a href="/link">Link</a>
+</Button>
 ```
 
 ## Examples

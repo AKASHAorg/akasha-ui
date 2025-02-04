@@ -61,7 +61,8 @@ const IconContainer = React.forwardRef<HTMLDivElement, IconContainerProps>(
         {showNotificationDot && (
           <div
             className={cn(
-              "absolute rounded-full w-3 h-3 bg-orange-500 top-0 right-0"
+              "absolute rounded-full w-3 h-3 bg-orange-500 top-0 right-0",
+              variant === "square" && "-right-1"
             )}
           />
         )}

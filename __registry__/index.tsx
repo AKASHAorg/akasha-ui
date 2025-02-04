@@ -41,12 +41,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [{
-        path: "registry/default/akasha-ui/button.tsx",
+        path: "registry/default/ui/button.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/button.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/button.tsx")),
       source: "",
       meta: undefined,
     },
@@ -557,6 +557,51 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/icon-container-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "icon-container-round": {
+      name: "icon-container-round",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["icon-container"],
+      files: [{
+        path: "registry/default/examples/icon-container-round.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/icon-container-round.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "icon-container-square": {
+      name: "icon-container-square",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["icon-container"],
+      files: [{
+        path: "registry/default/examples/icon-container-square.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/icon-container-square.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "icon-container-notification-dot": {
+      name: "icon-container-notification-dot",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["icon-container"],
+      files: [{
+        path: "registry/default/examples/icon-container-notification-dot.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/icon-container-notification-dot.tsx")),
       source: "",
       meta: undefined,
     },

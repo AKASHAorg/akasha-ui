@@ -29,7 +29,7 @@ export const ui: Registry = [
     dependencies: ["@radix-ui/react-slot"],
     files: [
       {
-        path: "akasha-ui/button.tsx",
+        path: "ui/button.tsx",
         type: "registry:ui",
       },
     ],
