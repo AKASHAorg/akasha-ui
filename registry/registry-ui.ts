@@ -70,6 +70,16 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "circular-progress",
+    type: "registry:ui",
+    files: [
+      {
+        path: "akasha-ui/circular-progress.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "command",
     type: "registry:ui",
     registryDependencies: ["dialog"],

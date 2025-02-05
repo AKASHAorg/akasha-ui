@@ -156,6 +156,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "circular-progress-demo",
+    type: "registry:example",
+    registryDependencies: ["circular-progress"],
+    files: [
+      {
+        path: "examples/circular-progress-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "duplex-button-demo",
     type: "registry:example",
     registryDependencies: ["duplex-button"],

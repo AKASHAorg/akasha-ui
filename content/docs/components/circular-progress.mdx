@@ -1,0 +1,55 @@
+---
+title: Circular Progress
+description: Displays the remaining character count, ensuring users are always aware of their input limit on a text editor.
+component: true
+---
+
+<ComponentPreview
+  name="circular-progress-demo"
+  description="A circular progress"
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/circular-progress.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="circular-progress" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { CircularProgress } from "<path-to-ui-components>/circular-progress";
+```
+
+```tsx
+<CircularProgress value={40} />
+```
+
+The `value` is a percentage.
