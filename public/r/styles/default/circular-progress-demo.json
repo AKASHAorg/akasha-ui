@@ -1,0 +1,15 @@
+{
+  "name": "circular-progress-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "circular-progress"
+  ],
+  "files": [
+    {
+      "path": "examples/circular-progress-demo.tsx",
+      "content": "import { CircularProgress } from \"@/registry/default/akasha-ui/circular-progress\";\n\nexport default function CircularProgressDemo() {\n  return <CircularProgress />;\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

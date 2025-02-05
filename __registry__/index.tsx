@@ -65,6 +65,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "circular-progress": {
+      name: "circular-progress",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/circular-progress.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/circular-progress.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "command": {
       name: "command",
       description: "",
@@ -497,6 +512,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/card-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "circular-progress-demo": {
+      name: "circular-progress-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["circular-progress"],
+      files: [{
+        path: "registry/default/examples/circular-progress-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/circular-progress-demo.tsx")),
       source: "",
       meta: undefined,
     },

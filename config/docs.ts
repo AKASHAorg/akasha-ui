@@ -59,6 +59,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Circular Progress",
+          href: "/docs/components/circular-progress",
+          items: [],
+        },
+        {
           title: "Duplex Button",
           href: "/docs/components/duplex-button",
           items: [],

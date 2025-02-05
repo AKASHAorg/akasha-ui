@@ -1,0 +1,12 @@
+{
+  "name": "circular-progress",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "akasha-ui/circular-progress.tsx",
+      "content": "import * as React from \"react\";\n\ninterface CircularProgressProps extends React.HTMLAttributes<HTMLDivElement> {\n  value?: number;\n  max?: number;\n  size?: number;\n  label?: string;\n}\n\nconst CircularProgress = React.forwardRef<\n  HTMLDivElement,\n  CircularProgressProps\n>(({ value = 0, max = 100, label = \"\", size = 24, ...props }, ref) => {\n  const percentage = Math.min(Math.max(value, 0), max);\n  const radius = size / 2 - 5;\n  const circumference = 2 * Math.PI * radius;\n  const offset = circumference - (percentage / max) * circumference;\n\n  const getColor = () => {\n    if (percentage < 100) return \"stroke-primary\";\n    if (percentage === 100) return \"stroke-warning-foreground\";\n    return \"stroke-destructive\";\n  };\n\n  return (\n    <div className=\"relative flex items-center justify-center\" {...props}>\n      <svg\n        width={size}\n        height={size}\n        viewBox={`0 0 ${size} ${size}`}\n        className=\"rotate-[-90deg]\"\n      >\n        <circle\n          cx={size / 2}\n          cy={size / 2}\n          r={radius}\n          strokeWidth=\"10\"\n          className=\"stroke-muted fill-none\"\n        />\n        <circle\n          cx={size / 2}\n          cy={size / 2}\n          r={radius}\n          strokeWidth=\"10\"\n          className={`fill-none transition-all ${getColor()}`}\n          strokeDasharray={circumference}\n          strokeDashoffset={offset}\n          strokeLinecap=\"round\"\n        />\n      </svg>\n      <div className=\"absolute text-center\">\n        {label && <p className=\"text-sm text-gray-700 font-medium\">{label}</p>}\n      </div>\n    </div>\n  );\n});\n\nexport { CircularProgress };\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}
