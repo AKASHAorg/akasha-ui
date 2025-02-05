@@ -9,7 +9,7 @@ export const Index: Record<string, any> = {
       name: "copy-to-clipboard",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["tooltip"],
       files: [{
         path: "registry/default/akasha-ui/copy-to-clipboard.tsx",
         type: "registry:ui",

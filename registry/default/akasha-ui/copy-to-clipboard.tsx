@@ -11,15 +11,15 @@ import {
 
 interface CopyToClipboardProps {
   textToCopy: string;
-  initialTooltipText?: string;
-  successTooltipText?: string;
+  ctaText?: string;
+  successText?: string;
   resetDuration?: number;
 }
 
 export default function CopyToClipboard({
   textToCopy,
-  initialTooltipText: tooltipInitialText = "Copy to clipboard",
-  successTooltipText: tooltipSuccessText = "Copied",
+  ctaText = "Copy to clipboard",
+  successText = "Copied",
   resetDuration = 5000,
   children,
 }: React.PropsWithChildren<CopyToClipboardProps>) {
@@ -62,10 +62,9 @@ export default function CopyToClipboard({
           {children}
         </TooltipTrigger>
         <TooltipContent onPointerDownOutside={handlePointerDown}>
-          {copied ? tooltipSuccessText : tooltipInitialText}
+          {copied ? successText : ctaText}
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );
 }
-  

@@ -2,8 +2,8 @@
   {
     "name": "copy-to-clipboard",
     "type": "registry:ui",
-    "dependencies": [
-      "lucide-react"
+    "registryDependencies": [
+      "tooltip"
     ],
     "files": [
       {
