@@ -10,6 +10,8 @@ const CIRCLE_SIZE = 24;
 
 const SIZE = CIRCLE_SIZE + 10;
 
+const RADIUS = SIZE / 2 - 5;
+
 interface CircularProgressProps extends React.HTMLAttributes<HTMLDivElement> {
   value?: number;
 }
@@ -19,8 +21,7 @@ const CircularProgress = React.forwardRef<
   CircularProgressProps
 >(({ value = 0, className, ...props }, ref) => {
   const percentage = Math.min(Math.max(value, 0), MAX);
-  const radius = SIZE / 2 - 5;
-  const circumference = 2 * Math.PI * radius;
+  const circumference = 2 * Math.PI * RADIUS;
   const offset = circumference - (percentage / MAX) * circumference;
 
   const getColor = React.useCallback(() => {
@@ -50,14 +51,14 @@ const CircularProgress = React.forwardRef<
         <circle
           cx={SIZE / 2}
           cy={SIZE / 2}
-          r={radius}
+          r={RADIUS}
           strokeWidth="2"
           className={cn("stroke-muted fill-none")}
         />
         <circle
           cx={SIZE / 2}
           cy={SIZE / 2}
-          r={radius}
+          r={RADIUS}
           stroke="currentColor"
           strokeWidth="2"
           className={cn("fill-none transition-all", getColor())}
