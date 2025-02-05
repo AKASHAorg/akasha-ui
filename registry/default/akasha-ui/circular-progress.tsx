@@ -25,9 +25,9 @@ const CircularProgress = React.forwardRef<
   const offset = circumference - (percentage / MAX) * circumference;
 
   const getColor = React.useCallback(() => {
-    if (value < 100) return "text-primary";
-    if (value === 100) return "text-warning";
-    return "text-destructive";
+    if (value < 100) return "stroke-primary";
+    if (value === 100) return "stroke-warning";
+    return "stroke-destructive";
   }, [value]);
 
   const label = React.useMemo(() => {
@@ -70,9 +70,8 @@ const CircularProgress = React.forwardRef<
       {label && (
         <p
           className={cn(
-            "absolute",
-            typographyVariants({ variant: "xs" }),
-            getColor()
+            "absolute text-foreground",
+            typographyVariants({ variant: "xs" })
           )}
         >
           {label}
