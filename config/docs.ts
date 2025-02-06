@@ -59,6 +59,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Copy to clipboard",
+          href: "/docs/components/copy-to-clipboard",
+          items: [],
+        },
+        {
           title: "Circular Progress",
           href: "/docs/components/circular-progress",
           items: [],

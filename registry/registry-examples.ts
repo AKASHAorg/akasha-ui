@@ -2,6 +2,17 @@ import { Registry } from "@/registry/schema";
 
 export const examples: Registry = [
   {
+    name: "copy-to-clipboard-demo",
+    type: "registry:example",
+    registryDependencies: ["copy-to-clipboard"],
+    files: [
+      {
+        path: "examples/copy-to-clipboard-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "stepper-demo",
     type: "registry:example",
     registryDependencies: ["stepper"],

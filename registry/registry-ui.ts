@@ -2,6 +2,17 @@ import { Registry } from "@/registry/schema";
 
 export const ui: Registry = [
   {
+    name: "copy-to-clipboard",
+    type: "registry:ui",
+    registryDependencies: ["tooltip"],
+    files: [
+      {
+        path: "akasha-ui/copy-to-clipboard.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "stepper",
     type: "registry:ui",
     files: [
