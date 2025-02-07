@@ -27,7 +27,7 @@ const ErrorLoaderTitle = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <CardTitle ref={ref} className={cn("px-6 pt-4", className)} {...props} />
+  <CardTitle ref={ref} className={cn("pt-4", className)} {...props} />
 ));
 ErrorLoaderTitle.displayName = CardTitle.displayName;
 
@@ -35,11 +35,7 @@ const ErrorLoaderDescription = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <CardDescription
-    ref={ref}
-    className={cn("pt-2 pb-6", className)}
-    {...props}
-  />
+  <CardDescription ref={ref} className={cn("pt-2", className)} {...props} />
 ));
 ErrorLoaderDescription.displayName = CardDescription.displayName;
 
@@ -79,7 +75,7 @@ const ErrorLoader = React.forwardRef<HTMLDivElement, ErrorLoaderProps>(
 
     return (
       <Card ref={ref} className={cn(className)} {...props}>
-        <ImageRoot className={cn("flex justify-center px-6 pt-6")}>
+        <ImageRoot className={cn("flex justify-center px-6")}>
           <Image
             src={imageSrc}
             alt="Error Image"
