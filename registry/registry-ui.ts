@@ -176,6 +176,10 @@ export const ui: Registry = [
         path: "hooks/use-scroll-restoration.ts",
         type: "registry:hook",
       },
+      {
+        path: "hooks/use-mobile.ts",
+        type: "registry:hook",
+      },
     ],
   },
   {

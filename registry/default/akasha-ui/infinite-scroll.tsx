@@ -7,6 +7,7 @@ import {
 
 import { cn } from "@/lib/utils";
 import { Stack } from "@/registry/default/akasha-ui/stack";
+import { useIsMobile } from "@/registry/default/hooks/use-mobile";
 import {
   getHeaderHeight,
   getInitialMeasurementsCache,
@@ -64,7 +65,7 @@ const InfiniteScroll: React.FC<InfiniteScrollProps> = ({
   const parentRef = React.useRef<HTMLDivElement>(null);
   const parentOffsetRef = React.useRef(0);
   const headerRef = React.useRef<HTMLDivElement>(null);
-  const isMobile = window.matchMedia("(max-width: 640px)").matches;
+  const isMobile = useIsMobile();
 
   React.useLayoutEffect(() => {
     parentOffsetRef.current = parentRef.current?.offsetTop ?? 0;

@@ -198,6 +198,10 @@ export const Index: Record<string, any> = {
         path: "registry/default/hooks/use-scroll-restoration.ts",
         type: "registry:hook",
         target: ""
+      },{
+        path: "registry/default/hooks/use-mobile.ts",
+        type: "registry:hook",
+        target: ""
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/akasha-ui/infinite-scroll.tsx")),
