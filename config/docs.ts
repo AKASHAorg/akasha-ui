@@ -43,11 +43,6 @@ export const docsConfig: DocsConfig = {
           href: "/docs/theming",
           items: [],
         },
-        {
-          title: "Changelog",
-          href: "/docs/changelog",
-          items: [],
-        },
       ],
     },
     {
