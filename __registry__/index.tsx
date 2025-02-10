@@ -170,21 +170,6 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "inline-notification": {
-      name: "inline-notification",
-      description: "",
-      type: "registry:ui",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/default/akasha-ui/inline-notification.tsx",
-        type: "registry:ui",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/inline-notification.tsx")),
-      source: "",
-      meta: undefined,
-    },
     "image": {
       name: "image",
       description: "",
@@ -197,6 +182,36 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/akasha-ui/image.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "infinite-scroll": {
+      name: "infinite-scroll",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/infinite-scroll.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/infinite-scroll.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "inline-notification": {
+      name: "inline-notification",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/akasha-ui/inline-notification.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/akasha-ui/inline-notification.tsx")),
       source: "",
       meta: undefined,
     },
@@ -257,6 +272,29 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/akasha-ui/stacked-avatar.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "toast": {
+      name: "toast",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/toast.tsx",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/hooks/use-toast.ts",
+        type: "registry:hook",
+        target: ""
+      },{
+        path: "registry/default/ui/toaster.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/toast.tsx")),
       source: "",
       meta: undefined,
     },
@@ -590,21 +628,6 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "image-demo": {
-      name: "image-demo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["image"],
-      files: [{
-        path: "registry/default/examples/image-demo.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/image-demo.tsx")),
-      source: "",
-      meta: undefined,
-    },
     "icon-container-demo": {
       name: "icon-container-demo",
       description: "",
@@ -665,6 +688,36 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "image-demo": {
+      name: "image-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["image"],
+      files: [{
+        path: "registry/default/examples/image-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/image-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "infinite-scroll-demo": {
+      name: "infinite-scroll-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["infinite-scroll-demo"],
+      files: [{
+        path: "registry/default/examples/infinite-scroll-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/infinite-scroll-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "inline-notification-demo": {
       name: "inline-notification-demo",
       description: "",
@@ -710,18 +763,18 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "inline-notification-error": {
-      name: "inline-notification-error",
+    "inline-notification-destructive": {
+      name: "inline-notification-destructive",
       description: "",
       type: "registry:example",
       registryDependencies: ["icon-container"],
       files: [{
-        path: "registry/default/examples/inline-notification-error.tsx",
+        path: "registry/default/examples/inline-notification-destructive.tsx",
         type: "registry:example",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/inline-notification-error.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/inline-notification-destructive.tsx")),
       source: "",
       meta: undefined,
     },
@@ -947,6 +1000,81 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/stacked-avatar-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "toast-demo": {
+      name: "toast-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["toast"],
+      files: [{
+        path: "registry/default/examples/toast-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/toast-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "toast-info": {
+      name: "toast-info",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["toast"],
+      files: [{
+        path: "registry/default/examples/toast-info.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/toast-info.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "toast-success": {
+      name: "toast-success",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["toast"],
+      files: [{
+        path: "registry/default/examples/toast-success.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/toast-success.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "toast-warning": {
+      name: "toast-warning",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["toast"],
+      files: [{
+        path: "registry/default/examples/toast-warning.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/toast-warning.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "toast-destructive": {
+      name: "toast-destructive",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["toast"],
+      files: [{
+        path: "registry/default/examples/toast-destructive.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/toast-destructive.tsx")),
       source: "",
       meta: undefined,
     },

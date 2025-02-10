@@ -13,7 +13,7 @@ const inlineNotificationVariants = cva(
       variant: {
         info: "",
         success: "",
-        error: "",
+        destructive: "",
       },
     },
     defaultVariants: {
@@ -25,7 +25,7 @@ const inlineNotificationVariants = cva(
 const variantToIconMap = {
   info: <CircleAlert size={16} className="text-primary" />,
   success: <CircleCheck size={16} className="text-success" />,
-  error: <CircleX size={16} className="text-destructive" />,
+  destructive: <CircleX size={16} className="text-destructive" />,
 };
 
 const InlineNotification = React.forwardRef<

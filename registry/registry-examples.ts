@@ -200,17 +200,6 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "image-demo",
-    type: "registry:example",
-    registryDependencies: ["image"],
-    files: [
-      {
-        path: "examples/image-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "icon-container-demo",
     type: "registry:example",
     registryDependencies: ["icon-container"],
@@ -255,6 +244,28 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "image-demo",
+    type: "registry:example",
+    registryDependencies: ["image"],
+    files: [
+      {
+        path: "examples/image-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "infinite-scroll-demo",
+    type: "registry:example",
+    registryDependencies: ["infinite-scroll-demo"],
+    files: [
+      {
+        path: "examples/infinite-scroll-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "inline-notification-demo",
     type: "registry:example",
     registryDependencies: ["inline-notification"],
@@ -288,12 +299,12 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "inline-notification-error",
+    name: "inline-notification-destructive",
     type: "registry:example",
     registryDependencies: ["icon-container"],
     files: [
       {
-        path: "examples/inline-notification-error.tsx",
+        path: "examples/inline-notification-destructive.tsx",
         type: "registry:example",
       },
     ],
@@ -459,6 +470,61 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/stacked-avatar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toast-demo",
+    type: "registry:example",
+    registryDependencies: ["toast"],
+    files: [
+      {
+        path: "examples/toast-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toast-info",
+    type: "registry:example",
+    registryDependencies: ["toast"],
+    files: [
+      {
+        path: "examples/toast-info.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toast-success",
+    type: "registry:example",
+    registryDependencies: ["toast"],
+    files: [
+      {
+        path: "examples/toast-success.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toast-warning",
+    type: "registry:example",
+    registryDependencies: ["toast"],
+    files: [
+      {
+        path: "examples/toast-warning.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "toast-destructive",
+    type: "registry:example",
+    registryDependencies: ["toast"],
+    files: [
+      {
+        path: "examples/toast-destructive.tsx",
         type: "registry:example",
       },
     ],

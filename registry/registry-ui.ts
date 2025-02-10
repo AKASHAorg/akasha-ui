@@ -37,7 +37,7 @@ export const ui: Registry = [
   {
     name: "button",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-slot"],
+    dependencies: ["@radix-ui/react-slot", "lucide-react"],
     files: [
       {
         path: "ui/button.tsx",
@@ -154,6 +154,27 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "image",
+    type: "registry:ui",
+    files: [
+      {
+        path: "akasha-ui/image.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "infinite-scroll",
+    type: "registry:ui",
+    dependencies: ["@tanstack/react-virtual", "custom/stack"],
+    files: [
+      {
+        path: "akasha-ui/infinite-scroll.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "inline-notification",
     type: "registry:ui",
     files: [
@@ -188,16 +209,6 @@ export const ui: Registry = [
         "warning-foreground": "54.5 91.7% 95.3%",
       },
     },
-  },
-  {
-    name: "image",
-    type: "registry:ui",
-    files: [
-      {
-        path: "akasha-ui/image.tsx",
-        type: "registry:ui",
-      },
-    ],
   },
   {
     name: "profile-avatar-button",
@@ -242,6 +253,25 @@ export const ui: Registry = [
     files: [
       {
         path: "akasha-ui/stacked-avatar.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "toast",
+    type: "registry:ui",
+    dependencies: ["@radix-ui/react-toast"],
+    files: [
+      {
+        path: "ui/toast.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "hooks/use-toast.ts",
+        type: "registry:hook",
+      },
+      {
+        path: "ui/toaster.tsx",
         type: "registry:ui",
       },
     ],
