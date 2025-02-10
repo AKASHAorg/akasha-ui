@@ -123,9 +123,7 @@ const InfiniteScroll: React.FC<InfiniteScrollProps> = ({
         ref={parentRef}
         className={cn("relative w-full", className)}
         style={{
-          ...{
-            minHeight: `${minHeight}px`,
-          },
+          minHeight: `${minHeight}px`,
         }}
         {...props}
       >
