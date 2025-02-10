@@ -21,4 +21,14 @@ export const hooks: Registry = [
       },
     ],
   },
+  {
+    name: "use-scroll-restoration",
+    type: "registry:hook",
+    files: [
+      {
+        path: "hooks/use-scroll-restoration.ts",
+        type: "registry:hook",
+      },
+    ],
+  },
 ];

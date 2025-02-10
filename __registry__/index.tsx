@@ -194,6 +194,10 @@ export const Index: Record<string, any> = {
         path: "registry/default/akasha-ui/infinite-scroll.tsx",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/hooks/use-scroll-restoration.ts",
+        type: "registry:hook",
+        target: ""
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/akasha-ui/infinite-scroll.tsx")),
@@ -355,6 +359,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/hooks/use-toast.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "use-scroll-restoration": {
+      name: "use-scroll-restoration",
+      description: "",
+      type: "registry:hook",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/hooks/use-scroll-restoration.ts",
+        type: "registry:hook",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/hooks/use-scroll-restoration.ts")),
       source: "",
       meta: undefined,
     },

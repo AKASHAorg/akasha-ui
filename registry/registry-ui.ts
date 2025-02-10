@@ -172,6 +172,10 @@ export const ui: Registry = [
         path: "akasha-ui/infinite-scroll.tsx",
         type: "registry:ui",
       },
+      {
+        path: "hooks/use-scroll-restoration.ts",
+        type: "registry:hook",
+      },
     ],
   },
   {
