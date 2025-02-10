@@ -1,0 +1,76 @@
+---
+title: Infinite Scroll
+description: A component which virtualize large element lists
+component: true
+links:
+  doc: https://tanstack.com/virtual/latest/docs/introduction
+  api: https://tanstack.com/virtual/latest/docs/api/virtualizer
+---
+
+<ComponentPreview
+  name="infinite-scroll-demo"
+  description="An infinite scroll"
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/infinite-scroll.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @tanstack/react-virtual
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="infinite-scroll" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  InfiniteScroll,
+  InfiniteScrollList,
+} from "<path-to-ui-components>/infinite-scroll";
+```
+
+```tsx
+return (
+    <InfiniteScroll
+      count={count}
+      estimatedHeight={100}
+      overScan={10}
+      itemSpacing={itemSpacing}
+    >
+       <InfiniteScrollList>
+        {(index) => {
+          return <div>{sentences[index]}</div>;
+        }}
+    </InfiniteScroll>
+```

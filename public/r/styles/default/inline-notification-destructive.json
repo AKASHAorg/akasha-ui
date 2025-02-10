@@ -1,0 +1,15 @@
+{
+  "name": "inline-notification-destructive",
+  "type": "registry:example",
+  "registryDependencies": [
+    "icon-container"
+  ],
+  "files": [
+    {
+      "path": "examples/inline-notification-destructive.tsx",
+      "content": "import {\n  InlineNotification,\n  InlineNotificationDescription,\n  InlineNotificationTitle,\n} from \"@/registry/default/akasha-ui/inline-notification\";\n\nexport default function InlineNotificationError() {\n  return (\n    <InlineNotification variant=\"destructive\">\n      <InlineNotificationTitle>Heads up!</InlineNotificationTitle>\n      <InlineNotificationDescription>\n        You can add components and dependencies to your app using the cli.\n      </InlineNotificationDescription>\n    </InlineNotification>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

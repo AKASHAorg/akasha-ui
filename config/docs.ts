@@ -43,11 +43,6 @@ export const docsConfig: DocsConfig = {
           href: "/docs/theming",
           items: [],
         },
-        {
-          title: "Changelog",
-          href: "/docs/changelog",
-          items: [],
-        },
       ],
     },
     {
@@ -89,8 +84,8 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
-          title: "Inline Notification",
-          href: "/docs/components/inline-notification",
+          title: "Infinite Scroll",
+          href: "/docs/components/infinite-scroll",
           items: [],
         },
         {
@@ -141,6 +136,16 @@ export const docsConfig: DocsConfig = {
         {
           title: "Form",
           href: "/docs/components/form",
+          items: [],
+        },
+        {
+          title: "Inline Notification",
+          href: "/docs/components/inline-notification",
+          items: [],
+        },
+        {
+          title: "Toast",
+          href: "/docs/components/toast",
           items: [],
         },
       ],
