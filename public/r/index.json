@@ -47,6 +47,9 @@
       "@radix-ui/react-slot",
       "lucide-react"
     ],
+    "registryDependencies": [
+      "custom/typography"
+    ],
     "files": [
       {
         "path": "ui/button.tsx",
