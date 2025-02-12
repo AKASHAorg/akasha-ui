@@ -7,7 +7,7 @@ import { NpmCommands } from "types/unist";
 
 import { Event, trackEvent } from "@/lib/events";
 import { cn } from "@/lib/utils";
-import { Button, ButtonProps } from "@/registry/default/ui/button";
+import { Button } from "@/registry/default/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/registry/default/ui/dropdown-menu";
 
-interface CopyButtonProps extends ButtonProps {
+interface CopyButtonProps extends React.ComponentProps<typeof Button> {
   value: string;
   src?: string;
   event?: Event["name"];
@@ -31,7 +31,6 @@ export async function copyToClipboardWithMeta(value: string, event?: Event) {
 export function CopyButton({
   value,
   className,
-  src,
   variant = "ghost",
   event,
   ...props
@@ -84,7 +83,6 @@ export function CopyWithClassNames({
   value,
   classNames,
   className,
-  ...props
 }: CopyWithClassNamesProps) {
   const [hasCopied, setHasCopied] = React.useState(false);
 
@@ -137,7 +135,6 @@ interface CopyNpmCommandButtonProps extends DropdownMenuTriggerProps {
 export function CopyNpmCommandButton({
   commands,
   className,
-  ...props
 }: CopyNpmCommandButtonProps) {
   const [hasCopied, setHasCopied] = React.useState(false);
 

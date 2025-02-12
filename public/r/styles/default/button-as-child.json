@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/button-as-child.tsx",
-      "content": "import { Button } from \"@/registry/default/ui/button\";\n\nexport default function ButtonAsChild() {\n  return (\n    <Button variant=\"link\" asChild>\n      <a href=\"#primary\">Primary</a>\n    </Button>\n  );\n}\n",
+      "content": "import { Button } from \"@/registry/default/ui/button\";\n\nexport default function ButtonAsChild() {\n  return (\n    <Button variant=\"link\" asChild>\n      <a rel=\"noreferrer\" href=\"#primary\">\n        Primary\n      </a>\n    </Button>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

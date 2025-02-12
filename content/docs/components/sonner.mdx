@@ -1,14 +1,14 @@
 ---
-title: Toast
+title: Sonner
 description: A succinct message that is displayed temporarily.
 component: true
 links:
-  doc: https://ui.shadcn.com/docs/components/toast
+  doc: https://ui.shadcn.com/docs/components/sonner
 ---
 
 A ShadCN Toast component customized by re-styling and adding variants.
 
-<ComponentPreview name="toast-demo" />
+<ComponentPreview name="sonner-demo" description="A sonner component" />
 
 ## Installation
 
@@ -57,22 +57,22 @@ export default function RootLayout({ children }) {
 <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install @radix-ui/react-toast
+npm install sonner
 ```
 
 <Step>Copy and paste the following code into your project.</Step>
 
-`toast.tsx`
+`sonner.tsx`
 
-<ComponentSource name="toast" />
+<ComponentSource name="sonner" />
 
 `toaster.tsx`
 
-<ComponentSource name="toast" fileName="toaster" />
+<ComponentSource name="sonner" fileName="toaster" />
 
-`use-toast.tsx`
+`use-sonner.tsx`
 
-<ComponentSource name="toast" fileName="use-toast" />
+<ComponentSource name="sonner" fileName="use-sonner" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -102,20 +102,20 @@ export default function RootLayout({ children }) {
 
 ## Usage
 
-The `useToast` hook returns a `toast` function that you can use to display a toast.
+The `useToast` hook returns a `sonner` function that you can use to display a sonner.
 
 ```tsx
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/use-sonner";
 ```
 
 ```tsx {2,7-10}
 export const ToastDemo = () => {
-  const { toast } = useToast();
+  const { sonner } = useToast();
 
   return (
     <Button
       onClick={() => {
-        toast({
+        sonner({
           title: "Scheduled: Catch up",
           description: "Friday, February 10, 2023 at 5:57 PM",
         });
@@ -127,34 +127,26 @@ export const ToastDemo = () => {
 };
 ```
 
-<Callout>
-
-To display multiple toasts at the same time, you can update the `TOAST_LIMIT` in `use-toast.tsx`.
-
-</Callout>
-
 ## Examples
 
 ### Info
 
-This is the **default** variant.
-
-<ComponentPreview name="toast-info" />
+<ComponentPreview name="sonner-info" />
 
 ### Success
 
-Use `toast({ variant: "success" })` to display a warning toast.
+Use `sonner.success("message")` to display a warning sonner.
 
-<ComponentPreview name="toast-success" />
+<ComponentPreview name="sonner-success" />
 
 ### Warning
 
-Use `toast({ variant: "warning" })` to display a warning toast.
+Use `sonner.warning("warning")` to display a warning sonner.
 
-<ComponentPreview name="toast-warning" />
+<ComponentPreview name="sonner-warning" />
 
-### Destructive
+### Error
 
-Use `toast({ variant: "destructive" })` to display a destructive toast.
+Use `sonner.error("message")` to display a destructive sonner.
 
-<ComponentPreview name="toast-destructive" />
+<ComponentPreview name="sonner-error" />

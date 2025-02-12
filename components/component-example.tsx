@@ -12,7 +12,6 @@ import {
 } from "@/registry/default/ui/tabs";
 
 interface ComponentExampleProps extends React.HTMLAttributes<HTMLDivElement> {
-  extractClassname?: boolean;
   extractedClassNames?: string;
   align?: "center" | "start" | "end";
   src?: string;
@@ -21,15 +20,13 @@ interface ComponentExampleProps extends React.HTMLAttributes<HTMLDivElement> {
 export function ComponentExample({
   children,
   className,
-  extractClassname,
   extractedClassNames,
   align = "center",
-  src: _,
   ...props
 }: ComponentExampleProps) {
   const [Example, Code, ...Children] = React.Children.toArray(
     children
-  ) as React.ReactElement[];
+  ) as React.ReactElement<any>[];
 
   const codeString = React.useMemo(() => {
     if (
@@ -37,7 +34,7 @@ export function ComponentExample({
     ) {
       const [, Button] = React.Children.toArray(
         Code.props.children
-      ) as React.ReactElement[];
+      ) as React.ReactElement<any>[];
       return Button?.props?.value || Button?.props?.__rawString__ || null;
     }
   }, [Code]);

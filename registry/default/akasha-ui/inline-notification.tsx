@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { typographyVariants } from "./typography";
 
 const inlineNotificationVariants = cva(
-  "relative bg-background text-foreground w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4",
+  "relative bg-background text-foreground w-full rounded-lg border px-4 py-3 grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5",
   {
     variants: {
       variant: {
@@ -28,13 +28,15 @@ const variantToIconMap = {
   destructive: <CircleX size={16} className="text-destructive" />,
 };
 
-const InlineNotification = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> &
-    VariantProps<typeof inlineNotificationVariants>
->(({ className, variant = "info", children, ...props }, ref) => (
+const InlineNotification = ({
+  className,
+  variant = "info",
+  children,
+  ...props
+}: React.ComponentProps<"div"> &
+  VariantProps<typeof inlineNotificationVariants>) => (
   <div
-    ref={ref}
+    data-slot="inline-notification"
     role="alert"
     className={cn(inlineNotificationVariants({ variant }), className)}
     {...props}
@@ -42,42 +44,38 @@ const InlineNotification = React.forwardRef<
     {variant && variantToIconMap[variant]}
     {children}
   </div>
-));
-InlineNotification.displayName = "InlineNotification";
+);
 
-const InlineNotificationTitle = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
+const InlineNotificationTitle = ({
+  className,
+  ...props
+}: React.ComponentProps<"h5">) => (
   <h5
-    ref={ref}
+    data-slot="inline-notification-title"
     className={cn(
-      "mb-2",
+      "col-start-2 line-clamp-1 min-h-4",
       typographyVariants({ variant: "sm" }),
       "font-bold",
-      "leading-none",
       className
     )}
     {...props}
   />
-));
-InlineNotificationTitle.displayName = "InlineNotificationTitle";
+);
 
-const InlineNotificationDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
+const InlineNotificationDescription = ({
+  className,
+  ...props
+}: React.ComponentProps<"div">) => (
   <div
-    ref={ref}
+    data-slot="inline-notification-description"
     className={cn(
-      "[&_p]:leading-relaxed",
+      "col-start-2 grid justify-items-start gap-1",
       typographyVariants({ variant: "sm" }),
       className
     )}
     {...props}
   />
-));
-InlineNotificationDescription.displayName = "InlineNotificationDescription";
+);
 
 export {
   InlineNotification,

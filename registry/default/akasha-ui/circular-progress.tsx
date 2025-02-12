@@ -12,14 +12,11 @@ const SIZE = CIRCLE_SIZE + 10;
 
 const RADIUS = SIZE / 2 - 5;
 
-interface CircularProgressProps extends React.HTMLAttributes<HTMLDivElement> {
-  value?: number;
-}
-
-const CircularProgress = React.forwardRef<
-  HTMLDivElement,
-  CircularProgressProps
->(({ value = 0, className, ...props }, ref) => {
+const CircularProgress = ({
+  value = 0,
+  className,
+  ...props
+}: React.ComponentProps<"div"> & { value?: number }) => {
   const percentage = Math.min(Math.max(value, 0), MAX);
   const circumference = 2 * Math.PI * RADIUS;
   const offset = circumference - (percentage / MAX) * circumference;
@@ -38,7 +35,7 @@ const CircularProgress = React.forwardRef<
 
   return (
     <div
-      ref={ref}
+      data-slot="circular-progress"
       className={cn("relative flex items-center justify-center", className)}
       {...props}
     >
@@ -79,6 +76,6 @@ const CircularProgress = React.forwardRef<
       )}
     </div>
   );
-});
+};
 
 export { CircularProgress };

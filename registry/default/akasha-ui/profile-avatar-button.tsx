@@ -20,11 +20,6 @@ type Orientation = "horizontal" | "vertical";
 
 type ProfileAvatarButtonSize = "lg" | "md" | "sm";
 
-interface ProfileAvatarButtonProps
-  extends React.ButtonHTMLAttributes<HTMLDivElement> {
-  nsfw?: boolean;
-}
-
 const ProfileAvatarButtonContext = React.createContext<{
   size: ProfileAvatarButtonSize;
   nsfw: boolean;
@@ -64,28 +59,29 @@ const getDidFieldIconType = (didKey: string) => {
   return didKey.includes("eip155")
     ? "ethereum"
     : didKey.includes("solana")
-    ? "solana"
-    : "did";
+      ? "solana"
+      : "did";
 };
 
-const ProfileAvatarButton = React.forwardRef<
-  HTMLDivElement,
-  ProfileAvatarButtonProps &
-    (
-      | { size?: Exclude<ProfileAvatarButtonSize, "lg"> }
-      | {
-          size?: "lg";
-          orientation?: Orientation;
-        }
-    )
->(({ nsfw = false, children, className, ...props }, ref) => {
+const ProfileAvatarButton = ({
+  nsfw = false,
+  children,
+  className,
+  ...props
+}: React.ComponentProps<"div"> & { nsfw?: boolean } & (
+    | { size?: Exclude<ProfileAvatarButtonSize, "lg"> }
+    | {
+        size?: "lg";
+        orientation?: Orientation;
+      }
+  )) => {
   const size = props.size || "md";
   const orientation =
     props.size === "lg" ? props.orientation || "vertical" : null;
   return (
     <ProfileAvatarButtonContext.Provider value={{ size, nsfw, orientation }}>
       <div
-        ref={ref}
+        data-slot="profile-avatar-button"
         className={cn(
           {
             "grid grid-cols-[0.5fr_1fr] grid-rows-2":
@@ -104,19 +100,18 @@ const ProfileAvatarButton = React.forwardRef<
       </div>
     </ProfileAvatarButtonContext.Provider>
   );
-});
-ProfileAvatarButton.displayName = "ProfileAvatarButton";
+};
 
 const sizeMap = { lg: "xl", md: "lg", sm: "xs" } as const;
 
-const ProfileAvatar = React.forwardRef<
-  React.ElementRef<typeof ProfileAvatarRoot>,
-  Omit<React.ComponentProps<typeof ProfileAvatarRoot>, "size">
->(({ className, ...props }, ref) => {
+const ProfileAvatar = ({
+  className,
+  ...props
+}: Omit<React.ComponentProps<typeof ProfileAvatarRoot>, "size">) => {
   const { size, nsfw, orientation } = useProfileAvatarButtonContext();
   return (
     <ProfileAvatarRoot
-      ref={ref}
+      data-slot="profile-avatar"
       size={sizeMap[size]}
       nsfw={nsfw}
       className={cn(
@@ -129,18 +124,19 @@ const ProfileAvatar = React.forwardRef<
       {...props}
     />
   );
-});
-ProfileAvatar.displayName = "ProfileAvatar";
+};
 
-const ProfileName = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { nsfwLabel?: string }
->(({ nsfwLabel, className, children, ...props }, ref) => {
+const ProfileName = ({
+  nsfwLabel,
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"div"> & { nsfwLabel?: string }) => {
   const { size, orientation, nsfw } = useProfileAvatarButtonContext();
   return (
     size && (
       <Stack
-        ref={ref}
+        data-slot="profile-name"
         alignItems="center"
         spacing={1}
         className={cn(
@@ -160,8 +156,7 @@ const ProfileName = React.forwardRef<
       </Stack>
     )
   );
-});
-ProfileName.displayName = "ProfileName";
+};
 
 const didNetworkIconMapping = {
   ethereum: <Ethereum />,
@@ -170,15 +165,20 @@ const didNetworkIconMapping = {
   noDid: <NoEth />,
 };
 
-const ProfileDidField = React.forwardRef<
-  HTMLDivElement,
-  { did: string; isValid?: boolean; className?: string }
->(({ did, isValid = true, className }, ref) => {
+const ProfileDidField = ({
+  did,
+  isValid = true,
+  className,
+}: React.ComponentProps<"div"> & {
+  did: string;
+  isValid?: boolean;
+  className?: string;
+}) => {
   const { size, orientation } = useProfileAvatarButtonContext();
   const networkType = getDidFieldIconType(did);
   return (
     <Stack
-      ref={ref}
+      data-slot="profile-did-field"
       direction="row"
       spacing={1.5}
       alignItems="center"
@@ -199,7 +199,7 @@ const ProfileDidField = React.forwardRef<
       </Typography>
     </Stack>
   );
-});
+};
 
 export {
   ProfileAvatarButton,

@@ -475,56 +475,56 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "toast-demo",
+    name: "sonner-demo",
     type: "registry:example",
-    registryDependencies: ["toast"],
+    registryDependencies: ["sonner"],
     files: [
       {
-        path: "examples/toast-demo.tsx",
+        path: "examples/sonner-demo.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "toast-info",
+    name: "sonner-info",
     type: "registry:example",
-    registryDependencies: ["toast"],
+    registryDependencies: ["sonner"],
     files: [
       {
-        path: "examples/toast-info.tsx",
+        path: "examples/sonner-info.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "toast-success",
+    name: "sonner-success",
     type: "registry:example",
-    registryDependencies: ["toast"],
+    registryDependencies: ["sonner"],
     files: [
       {
-        path: "examples/toast-success.tsx",
+        path: "examples/sonner-success.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "toast-warning",
+    name: "sonner-warning",
     type: "registry:example",
-    registryDependencies: ["toast"],
+    registryDependencies: ["sonner"],
     files: [
       {
-        path: "examples/toast-warning.tsx",
+        path: "examples/sonner-warning.tsx",
         type: "registry:example",
       },
     ],
   },
   {
-    name: "toast-destructive",
+    name: "sonner-error",
     type: "registry:example",
-    registryDependencies: ["toast"],
+    registryDependencies: ["sonner"],
     files: [
       {
-        path: "examples/toast-destructive.tsx",
+        path: "examples/sonner-error.tsx",
         type: "registry:example",
       },
     ],

@@ -297,7 +297,7 @@ interface IScrollRestoration {
   /*
    * Reference to a header element in a virtual list
    **/
-  headerRef?: React.RefObject<HTMLDivElement>;
+  headerRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 /*

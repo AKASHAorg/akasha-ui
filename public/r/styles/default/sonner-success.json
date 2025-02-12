@@ -1,0 +1,15 @@
+{
+  "name": "sonner-success",
+  "type": "registry:example",
+  "registryDependencies": [
+    "sonner"
+  ],
+  "files": [
+    {
+      "path": "examples/sonner-success.tsx",
+      "content": "import { toast } from \"sonner\";\n\nimport { Button } from \"@/registry/default/ui/button\";\n\nexport default function SonnerInfo() {\n  return (\n    <Button\n      variant=\"outline\"\n      onClick={() =>\n        toast.success(\"Success text\", {\n          description: \"Some important information will appear here\",\n          action: {\n            label: \"ok\",\n            onClick: () => console.log(\"ok\"),\n          },\n        })\n      }\n    >\n      Show Toast\n    </Button>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

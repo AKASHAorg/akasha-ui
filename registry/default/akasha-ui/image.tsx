@@ -22,41 +22,29 @@ const useImageContext = () => {
   return context;
 };
 
-const ImageRoot = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ children, ...props }, ref) => {
+const ImageRoot = ({ children, ...props }: React.ComponentProps<"div">) => {
   const [isLoading, setLoading] = React.useState(true);
   const [hasError, setError] = React.useState(false);
 
   return (
     <ImageContext.Provider
+      data-slot="image-root"
       value={{ isLoading, hasError, setLoading, setError }}
     >
-      <div ref={ref} {...props}>
-        {children}
-      </div>
+      <div {...props}>{children}</div>
     </ImageContext.Provider>
   );
-});
+};
 
-const ImageFallback = React.forwardRef<
-  HTMLSpanElement,
-  React.ButtonHTMLAttributes<HTMLSpanElement>
->(({ children }, ref) => {
+const ImageFallback = ({ children }: React.ComponentProps<"span">) => {
   const { hasError } = useImageContext();
-  return hasError ? <span ref={ref}>{children}</span> : null;
-});
+  return hasError ? <span data-slot="image-fallback">{children}</span> : null;
+};
 
-interface DelayLoadProps {
+const DelayLoad: React.FC<{
   children: React.ReactNode;
   loadAfter?: number;
-}
-
-export const DelayLoad: React.FC<DelayLoadProps> = ({
-  children,
-  loadAfter = 300,
-}) => {
+}> = ({ children, loadAfter = 300 }) => {
   const [show, setShow] = React.useState(false);
 
   React.useEffect(() => {
@@ -69,53 +57,55 @@ export const DelayLoad: React.FC<DelayLoadProps> = ({
   return <>{show ? children : null}</>;
 };
 
-interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+const Image = ({
+  alt,
+  showLoadingIndicator,
+  className,
+  onLoad,
+  onError,
+  ...props
+}: React.ComponentProps<"img"> & {
   showLoadingIndicator?: boolean;
-}
+}) => {
+  const { setLoading, setError, isLoading, hasError } = useImageContext();
 
-const Image = React.forwardRef<HTMLImageElement, ImageProps>(
-  (
-    { alt, showLoadingIndicator, className, onLoad, onError, ...props },
-    ref
-  ) => {
-    const { setLoading, setError, isLoading, hasError } = useImageContext();
+  React.useEffect(() => {
+    setLoading(true);
+  }, [setLoading]);
 
-    React.useEffect(() => {
-      setLoading(true);
-    }, [setLoading]);
-
-    return (
-      <>
-        {showLoadingIndicator && isLoading && (
-          <DelayLoad>
-            <div className={cn("flex items-center justify-center", className)}>
-              <Loader2 className={cn("animate-spin text-muted")} />
-            </div>
-          </DelayLoad>
-        )}
-        {!hasError && (
-          <img
-            ref={ref}
-            loading="lazy"
-            decoding="async"
-            onLoad={(event) => {
-              setLoading(false);
-              onLoad?.(event);
-            }}
-            onError={(event) => {
-              setError(true);
-              setLoading(false);
-              onError?.(event);
-            }}
-            alt={alt}
-            className={cn("object-contain", className)}
-            {...props}
-          />
-        )}
-      </>
-    );
-  }
-);
-Image.displayName = "Image";
+  return (
+    <>
+      {showLoadingIndicator && isLoading && (
+        <DelayLoad>
+          <div
+            data-slot="image-loader"
+            className={cn("flex items-center justify-center", className)}
+          >
+            <Loader2 className={cn("animate-spin text-muted")} />
+          </div>
+        </DelayLoad>
+      )}
+      {!hasError && (
+        <img
+          data-slot="image"
+          loading="lazy"
+          decoding="async"
+          onLoad={(event) => {
+            setLoading(false);
+            onLoad?.(event);
+          }}
+          onError={(event) => {
+            setError(true);
+            setLoading(false);
+            onError?.(event);
+          }}
+          alt={alt}
+          className={cn("object-contain", className)}
+          {...props}
+        />
+      )}
+    </>
+  );
+};
 
 export { ImageRoot, ImageFallback, Image };

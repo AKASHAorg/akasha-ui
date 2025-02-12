@@ -2,27 +2,6 @@ import { Registry } from "@/registry/schema";
 
 export const ui: Registry = [
   {
-    name: "copy-to-clipboard",
-    type: "registry:ui",
-    registryDependencies: ["tooltip"],
-    files: [
-      {
-        path: "akasha-ui/copy-to-clipboard.tsx",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
-    name: "stepper",
-    type: "registry:ui",
-    files: [
-      {
-        path: "akasha-ui/stepper.tsx",
-        type: "registry:ui",
-      },
-    ],
-  },
-  {
     name: "autocomplete",
     type: "registry:ui",
     registryDependencies: ["skeleton", "custom/command"],
@@ -86,6 +65,17 @@ export const ui: Registry = [
     files: [
       {
         path: "akasha-ui/circular-progress.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "copy-to-clipboard",
+    type: "registry:ui",
+    registryDependencies: ["tooltip"],
+    files: [
+      {
+        path: "akasha-ui/copy-to-clipboard.tsx",
         type: "registry:ui",
       },
     ],
@@ -246,6 +236,17 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "sonner",
+    type: "registry:ui",
+    dependencies: ["sonner", "next-themes"],
+    files: [
+      {
+        path: "ui/sonner.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "stack",
     type: "registry:ui",
     files: [
@@ -266,20 +267,11 @@ export const ui: Registry = [
     ],
   },
   {
-    name: "toast",
+    name: "stepper",
     type: "registry:ui",
-    dependencies: ["@radix-ui/react-toast"],
     files: [
       {
-        path: "ui/toast.tsx",
-        type: "registry:ui",
-      },
-      {
-        path: "hooks/use-toast.ts",
-        type: "registry:hook",
-      },
-      {
-        path: "ui/toaster.tsx",
+        path: "akasha-ui/stepper.tsx",
         type: "registry:ui",
       },
     ],

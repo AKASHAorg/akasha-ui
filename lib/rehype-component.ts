@@ -46,7 +46,7 @@ export function rehypeComponent() {
                     }
                     return false;
                   }) || component.files[0]?.path
-                : component.files[0]?.path;
+                : component?.files[0]?.path;
             }
 
             // Read the source file.
@@ -109,7 +109,7 @@ export function rehypeComponent() {
         try {
           for (const style of styles) {
             const component = Index[style.name][name];
-            const src = component.files[0]?.path;
+            const src = component?.files[0]?.path;
 
             // Read the source file.
             const filePath = src;
@@ -265,18 +265,4 @@ export function rehypeComponent() {
 
 function getNodeAttributeByName(node: UnistNode, name: string) {
   return node.attributes?.find((attribute) => attribute.name === name);
-}
-
-function getComponentSourceFileContent(node: UnistNode) {
-  const src = getNodeAttributeByName(node, "src")?.value as string;
-
-  if (!src) {
-    return null;
-  }
-
-  // Read the source file.
-  const filePath = path.join(process.cwd(), src);
-  const source = fs.readFileSync(filePath, "utf8");
-
-  return source;
 }

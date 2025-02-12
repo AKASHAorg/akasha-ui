@@ -9,20 +9,20 @@ import {
   TooltipTrigger,
 } from "@/registry/default/ui/tooltip";
 
-interface CopyToClipboardProps {
-  textToCopy: string;
-  ctaText?: string;
-  successText?: string;
-  resetDuration?: number;
-}
-
-export default function CopyToClipboard({
+function CopyToClipboard({
   textToCopy,
   ctaText = "Copy to clipboard",
   successText = "Copied",
   resetDuration = 5000,
   children,
-}: React.PropsWithChildren<CopyToClipboardProps>) {
+  ...props
+}: React.ComponentProps<typeof TooltipProvider> &
+  React.PropsWithChildren<{
+    textToCopy: string;
+    ctaText?: string;
+    successText?: string;
+    resetDuration?: number;
+  }>) {
   const [copied, setCopied] = React.useState(false);
   const [open, setOpen] = React.useState(false);
 
@@ -51,7 +51,7 @@ export default function CopyToClipboard({
   };
 
   return (
-    <TooltipProvider>
+    <TooltipProvider data-slot="copy-to-clipboard" {...props}>
       <Tooltip open={open}>
         <TooltipTrigger
           onClick={copyToClipboard}
@@ -68,3 +68,5 @@ export default function CopyToClipboard({
     </TooltipProvider>
   );
 }
+
+export { CopyToClipboard };

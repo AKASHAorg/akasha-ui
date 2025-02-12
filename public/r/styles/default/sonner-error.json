@@ -1,0 +1,15 @@
+{
+  "name": "sonner-error",
+  "type": "registry:example",
+  "registryDependencies": [
+    "sonner"
+  ],
+  "files": [
+    {
+      "path": "examples/sonner-error.tsx",
+      "content": "import { toast } from \"sonner\";\n\nimport { Button } from \"@/registry/default/ui/button\";\n\nexport default function SonnerError() {\n  return (\n    <Button\n      variant=\"outline\"\n      onClick={() =>\n        toast.error(\"\", {\n          description: \"Some important information will appear here\",\n          action: {\n            label: \"ok\",\n            onClick: () => console.log(\"ok\"),\n          },\n        })\n      }\n    >\n      Show Toast\n    </Button>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
