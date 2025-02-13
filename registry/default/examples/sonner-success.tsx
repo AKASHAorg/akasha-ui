@@ -2,7 +2,7 @@ import { toast } from "sonner";
 
 import { Button } from "@/registry/default/ui/button";
 
-export default function SonnerInfo() {
+export default function SonnerSuccess() {
   return (
     <Button
       variant="outline"

@@ -27,10 +27,6 @@ const stackVariants = cva("flex divide-accent", {
       column: "flex-col",
       columnReverse: "flex-col-reverse",
     },
-    divider: {
-      row: "divide-x",
-      column: "divide-y",
-    },
   },
   defaultVariants: {
     direction: "column",
@@ -41,13 +37,14 @@ const Stack = ({
   className,
   justifyContent,
   alignItems,
-  direction,
+  direction = "column",
   divider,
   spacing,
   ...props
 }: React.ComponentProps<"div"> &
   VariantProps<typeof stackVariants> & {
     spacing?: number;
+    divider?: boolean;
   }) => {
   return (
     <div
@@ -57,10 +54,13 @@ const Stack = ({
           justifyContent,
           alignItems,
           direction,
-          divider,
           className,
         }),
-        spacing && `gap-${spacing}`
+        spacing && `gap-${spacing}`,
+        divider && {
+          "divide-y": direction === "column" || direction === "columnReverse",
+          "divide-x": direction === "row" || direction === "rowReverse",
+        }
       )}
       {...props}
     />

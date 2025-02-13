@@ -16,14 +16,12 @@ import { Ethereum } from "@/registry/default/custom-icons/ethereum";
 import { NoEth } from "@/registry/default/custom-icons/no-eth";
 import { Solana } from "@/registry/default/custom-icons/solana";
 
-type Orientation = "horizontal" | "vertical";
-
-type ProfileAvatarButtonSize = "lg" | "md" | "sm";
+type ProfileAvatarButtonSize = "sm" | "lg" | "md";
 
 const ProfileAvatarButtonContext = React.createContext<{
   size: ProfileAvatarButtonSize;
   nsfw: boolean;
-  orientation: Orientation | null;
+  vertical: boolean;
 } | null>(null);
 
 const useProfileAvatarButtonContext = () => {
@@ -72,23 +70,21 @@ const ProfileAvatarButton = ({
     | { size?: Exclude<ProfileAvatarButtonSize, "lg"> }
     | {
         size?: "lg";
-        orientation?: Orientation;
+        vertical?: boolean;
       }
   )) => {
   const size = props.size || "md";
-  const orientation =
-    props.size === "lg" ? props.orientation || "vertical" : null;
+  const vertical = props.size === "lg" ? !!props.vertical : false;
   return (
-    <ProfileAvatarButtonContext.Provider value={{ size, nsfw, orientation }}>
+    <ProfileAvatarButtonContext.Provider value={{ size, nsfw, vertical }}>
       <div
         data-slot="profile-avatar-button"
         className={cn(
           {
             "grid grid-cols-[0.5fr_1fr] grid-rows-2":
-              size === "lg" && orientation === "horizontal",
+              size === "lg" && !vertical,
             "grid grid-cols-[0fr_1fr] grid-rows-2": size === "md",
-            "flex items-center flex-col":
-              size === "lg" && orientation === "vertical",
+            "flex items-center flex-col": size === "lg" && vertical,
             "flex items-center": size === "sm",
           },
           "gap-1",
@@ -108,7 +104,7 @@ const ProfileAvatar = ({
   className,
   ...props
 }: Omit<React.ComponentProps<typeof ProfileAvatarRoot>, "size">) => {
-  const { size, nsfw, orientation } = useProfileAvatarButtonContext();
+  const { size, nsfw, vertical } = useProfileAvatarButtonContext();
   return (
     <ProfileAvatarRoot
       data-slot="profile-avatar"
@@ -117,7 +113,7 @@ const ProfileAvatar = ({
       className={cn(
         {
           "self-center row-span-2":
-            size === "md" || (size === "lg" && orientation === "horizontal"),
+            size === "md" || (size === "lg" && !vertical),
         },
         className
       )}
@@ -132,7 +128,7 @@ const ProfileName = ({
   children,
   ...props
 }: React.ComponentProps<"div"> & { nsfwLabel?: string }) => {
-  const { size, orientation, nsfw } = useProfileAvatarButtonContext();
+  const { size, vertical, nsfw } = useProfileAvatarButtonContext();
   return (
     size && (
       <Stack
@@ -141,9 +137,8 @@ const ProfileName = ({
         spacing={1}
         className={cn(
           {
-            "self-end": size === "lg" && orientation === "horizontal",
-            "justify-self-start":
-              size === "md" || (size === "lg" && orientation === "horizontal"),
+            "self-end": size === "lg" && !vertical,
+            "justify-self-start": size === "md" || (size === "lg" && !vertical),
           },
           className
         )}
@@ -174,7 +169,7 @@ const ProfileDidField = ({
   isValid?: boolean;
   className?: string;
 }) => {
-  const { size, orientation } = useProfileAvatarButtonContext();
+  const { size, vertical } = useProfileAvatarButtonContext();
   const networkType = getDidFieldIconType(did);
   return (
     <Stack
@@ -185,8 +180,7 @@ const ProfileDidField = ({
       className={cn(
         "h-4",
         {
-          "col-start-2":
-            size === "md" || (size === "lg" && orientation === "horizontal"),
+          "col-start-2": size === "md" || (size === "lg" && !vertical),
         },
         className
       )}

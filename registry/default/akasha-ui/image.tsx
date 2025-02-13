@@ -6,7 +6,7 @@ import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const ImageContext = React.createContext<{
-  isLoading: boolean;
+  loading: boolean;
   hasError: boolean;
   setLoading: (loading: boolean) => void;
   setError: (error: boolean) => void;
@@ -23,13 +23,13 @@ const useImageContext = () => {
 };
 
 const ImageRoot = ({ children, ...props }: React.ComponentProps<"div">) => {
-  const [isLoading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(true);
   const [hasError, setError] = React.useState(false);
 
   return (
     <ImageContext.Provider
       data-slot="image-root"
-      value={{ isLoading, hasError, setLoading, setError }}
+      value={{ loading, hasError, setLoading, setError }}
     >
       <div {...props}>{children}</div>
     </ImageContext.Provider>
@@ -67,7 +67,7 @@ const Image = ({
 }: React.ComponentProps<"img"> & {
   showLoadingIndicator?: boolean;
 }) => {
-  const { setLoading, setError, isLoading, hasError } = useImageContext();
+  const { setLoading, setError, loading, hasError } = useImageContext();
 
   React.useEffect(() => {
     setLoading(true);
@@ -75,7 +75,7 @@ const Image = ({
 
   return (
     <>
-      {showLoadingIndicator && isLoading && (
+      {showLoadingIndicator && loading && (
         <DelayLoad>
           <div
             data-slot="image-loader"
