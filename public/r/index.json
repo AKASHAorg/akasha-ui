@@ -8,7 +8,8 @@
     ],
     "registryDependencies": [
       "skeleton",
-      "custom/command"
+      "command",
+      "input"
     ],
     "files": [
       {
@@ -90,24 +91,6 @@
     "files": [
       {
         "path": "akasha-ui/copy-to-clipboard.tsx",
-        "type": "registry:ui"
-      }
-    ]
-  },
-  {
-    "name": "command",
-    "type": "registry:ui",
-    "dependencies": [
-      "cmdk",
-      "lucide-react",
-      "@radix-ui/react-dialog"
-    ],
-    "registryDependencies": [
-      "dialog"
-    ],
-    "files": [
-      {
-        "path": "ui/command.tsx",
         "type": "registry:ui"
       }
     ]

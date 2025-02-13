@@ -9,7 +9,7 @@ export const Index: Record<string, any> = {
       name: "autocomplete",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["skeleton","custom/command"],
+      registryDependencies: ["skeleton","command","input"],
       files: [{
         path: "registry/default/akasha-ui/autocomplete.tsx",
         type: "registry:ui",
@@ -77,21 +77,6 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/akasha-ui/copy-to-clipboard.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "command": {
-      name: "command",
-      description: "",
-      type: "registry:ui",
-      registryDependencies: ["dialog"],
-      files: [{
-        path: "registry/default/ui/command.tsx",
-        type: "registry:ui",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/ui/command.tsx")),
       source: "",
       meta: undefined,
     },

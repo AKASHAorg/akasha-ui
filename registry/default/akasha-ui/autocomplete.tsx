@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
-import { Check, Loader2 } from "lucide-react";
+import { Check, Loader2, Search } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import {
@@ -127,21 +127,24 @@ export const Autocomplete = ({
         className
       )}
     >
-      <Input
-        ref={inputRef}
-        value={value}
-        onChange={(event) => {
-          setValue(event.target.value);
-          setTyping(true);
-        }}
-        onBlur={handleBlur}
-        onFocus={() => {
-          setOpen(true);
-          setTyping(false);
-        }}
-        placeholder={placeholder}
-        disabled={disabled}
-      />
+      <div className="flex items-center">
+        <Input
+          ref={inputRef}
+          value={value}
+          onChange={(event) => {
+            setValue(event.target.value);
+            setTyping(true);
+          }}
+          onBlur={handleBlur}
+          onFocus={() => {
+            setOpen(true);
+            setTyping(false);
+          }}
+          placeholder={placeholder}
+          disabled={disabled}
+        />
+        <Search className="-ml-6 size-3 shrink-0 opacity-50" />
+      </div>
       <CommandInput value={typing ? value : ""} className="hidden" />
       <div className="relative">
         <CommandList
