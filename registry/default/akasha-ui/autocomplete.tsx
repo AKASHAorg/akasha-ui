@@ -2,23 +2,24 @@
 
 import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
-import { Check } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import {
+  Command,
+  CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
 } from "@/registry/default/ui/command";
-import { Skeleton } from "@/registry/default/ui/skeleton";
 
 export type Option = Record<"value" | "label", string>;
 
 type AutoCompleteProps = {
   options: Option[];
   emptyMessage: string;
-  isLoading?: boolean;
+  loading?: boolean;
   disabled?: boolean;
   placeholder?: string;
   className?: string;
@@ -39,7 +40,7 @@ export const Autocomplete = ({
   options,
   emptyMessage,
   disabled,
-  isLoading = false,
+  loading = false,
   placeholder,
   className,
   ...props
@@ -117,76 +118,72 @@ export const Autocomplete = ({
   );
 
   return (
-    <CommandPrimitive data-slot="autocomplete" onKeyDown={handleKeyDown}>
-      <div
-        className={cn(
-          "flex items-center overflow-hidden border rounded-lg h-10",
-          className
-        )}
-      >
-        <CommandInput
-          ref={inputRef}
-          value={inputValue}
-          onValueChange={isLoading ? undefined : setInputValue}
-          onBlur={handleBlur}
-          onFocus={() => setOpen(true)}
-          placeholder={placeholder}
-          disabled={disabled}
-          className="text-sm w-full"
-        />
-      </div>
-      <div className="relative mt-1">
-        <div
+    <Command
+      data-slot="autocomplete"
+      onKeyDown={handleKeyDown}
+      className={cn(
+        "flex flex-col gap-1 bg-transparent rounded-lg text-sm **:data-[slot=command-input-wrapper]:h-10 **:data-[slot=command-input-wrapper]:border **:data-[slot=command-input-wrapper]:rounded-lg **:data-[slot=command-input-wrapper]:bg-card overflow-visible",
+        className
+      )}
+    >
+      <CommandInput
+        ref={inputRef}
+        value={inputValue}
+        onValueChange={loading ? undefined : setInputValue}
+        onBlur={handleBlur}
+        onFocus={() => setOpen(true)}
+        placeholder={placeholder}
+        disabled={disabled}
+        className={cn("w-full")}
+      />
+      <div className="relative">
+        <CommandList
           className={cn(
-            "animate-in fade-in-0 zoom-in-95 absolute top-0 z-10 w-full rounded-xl bg-background outline-none",
-            isOpen ? "block" : "hidden"
+            "absolute animate-in fade-in-0 zoom-in-95 z-10 w-full border rounded-lg bg-card p-1",
+            { hidden: !isOpen }
           )}
         >
-          <CommandList className="rounded-lg ring-1 ring-border">
-            {isLoading ? (
-              <CommandPrimitive.Loading>
-                <div className="p-1">
-                  <Skeleton className="h-8 w-full" />
-                </div>
-              </CommandPrimitive.Loading>
-            ) : null}
-            {options.length > 0 && !isLoading ? (
-              <CommandGroup>
-                {options.map((option) => {
-                  const isSelected =
-                    props.multiple === true
-                      ? props.value?.some((item) => item.value === option.value)
-                      : props.value?.value === option.value;
+          {!loading && (
+            <CommandEmpty className="flex justify-center p-2">
+              {emptyMessage}
+            </CommandEmpty>
+          )}
+          {loading && (
+            <CommandPrimitive.Loading className="flex justify-center p-1">
+              <Loader2 className="animate-spin" />
+            </CommandPrimitive.Loading>
+          )}
+          {options.length > 0 && !loading && (
+            <CommandGroup>
+              {options.map((option) => {
+                const isSelected =
+                  props.multiple === true
+                    ? props.value?.some((item) => item.value === option.value)
+                    : props.value?.value === option.value;
 
-                  return (
-                    <CommandItem
-                      key={option.value}
-                      value={option.label}
-                      onMouseDown={(event) => {
-                        event.preventDefault();
-                        event.stopPropagation();
-                      }}
-                      onSelect={() => handleSelectOption(option)}
-                      className={cn(
-                        "flex w-full items-center gap-2",
-                        !isSelected ? "pl-8" : null
-                      )}
-                    >
-                      {isSelected ? <Check className="w-4" /> : null}
-                      {option.label}
-                    </CommandItem>
-                  );
-                })}
-              </CommandGroup>
-            ) : null}
-            {!isLoading ? (
-              <CommandPrimitive.Empty className="select-none rounded-sm px-2 py-3 text-center text-sm">
-                {emptyMessage}
-              </CommandPrimitive.Empty>
-            ) : null}
-          </CommandList>
-        </div>
+                return (
+                  <CommandItem
+                    key={option.value}
+                    value={option.label}
+                    onMouseDown={(event) => {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }}
+                    onSelect={() => handleSelectOption(option)}
+                    className={cn(
+                      "flex w-full items-center gap-2",
+                      !isSelected ? "pl-8" : null
+                    )}
+                  >
+                    {isSelected ? <Check className="w-4 text-current" /> : null}
+                    {option.label}
+                  </CommandItem>
+                );
+              })}
+            </CommandGroup>
+          )}
+        </CommandList>
       </div>
-    </CommandPrimitive>
+    </Command>
   );
 };
