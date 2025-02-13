@@ -13,6 +13,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/registry/default/ui/command";
+import { Input } from "@/registry/default/ui/input";
 
 export type Option = Record<"value" | "label", string>;
 
@@ -46,8 +47,9 @@ export const Autocomplete = ({
   ...props
 }: AutoCompleteProps) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
-  const [isOpen, setOpen] = React.useState(false);
-  const [inputValue, setInputValue] = React.useState<string>("");
+  const [open, setOpen] = React.useState(false);
+  const [value, setValue] = React.useState("");
+  const [typing, setTyping] = React.useState(false);
 
   const handleKeyDown = React.useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -56,12 +58,10 @@ export const Autocomplete = ({
         return;
       }
 
-      // Keep the options displayed when the user is typing
-      if (!isOpen) {
+      if (!open) {
         setOpen(true);
       }
 
-      // This is not a default behaviour of the <input /> field
       if (event.key === "Enter" && input.value !== "") {
         const optionToSelect = options.find(
           (option) => option.label === input.value
@@ -80,13 +80,13 @@ export const Autocomplete = ({
         input.blur();
       }
     },
-    [isOpen, options, props]
+    [open, options, props]
   );
 
   const handleBlur = React.useCallback(() => {
     setOpen(false);
     if (props.multiple === false) {
-      setInputValue(props.value?.label || "");
+      setValue(props.value?.label || "");
     }
   }, [props.value, props.multiple]);
 
@@ -103,16 +103,17 @@ export const Autocomplete = ({
             ) || []
           : [...(props.value || []), selectedOption];
 
-        setInputValue("");
+        setValue("");
         props.onValueChange?.(newSelected);
       } else {
-        setInputValue(selectedOption.label);
+        setValue(selectedOption.label);
         props.onValueChange?.(selectedOption);
 
         setTimeout(() => {
           inputRef?.current?.blur();
         }, 0);
       }
+      setTyping(true);
     },
     [props]
   );
@@ -122,25 +123,31 @@ export const Autocomplete = ({
       data-slot="autocomplete"
       onKeyDown={handleKeyDown}
       className={cn(
-        "flex flex-col gap-1 bg-transparent rounded-lg text-sm **:data-[slot=command-input-wrapper]:h-10 **:data-[slot=command-input-wrapper]:border **:data-[slot=command-input-wrapper]:rounded-lg **:data-[slot=command-input-wrapper]:bg-card overflow-visible",
+        "flex flex-col gap-2 bg-transparent rounded-lg text-sm **:data-[slot=command-input-wrapper]:hidden overflow-visible",
         className
       )}
     >
-      <CommandInput
+      <Input
         ref={inputRef}
-        value={inputValue}
-        onValueChange={loading ? undefined : setInputValue}
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+          setTyping(true);
+        }}
         onBlur={handleBlur}
-        onFocus={() => setOpen(true)}
+        onFocus={() => {
+          setOpen(true);
+          setTyping(false);
+        }}
         placeholder={placeholder}
         disabled={disabled}
-        className={cn("w-full")}
       />
+      <CommandInput value={typing ? value : ""} className="hidden" />
       <div className="relative">
         <CommandList
           className={cn(
             "absolute animate-in fade-in-0 zoom-in-95 z-10 w-full border rounded-lg bg-card p-1",
-            { hidden: !isOpen }
+            { hidden: !open }
           )}
         >
           {!loading && (
