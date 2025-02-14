@@ -1,8 +1,8 @@
 import "dotenv/config";
+
 import { existsSync, promises as fs } from "fs";
 import { tmpdir } from "os";
 import path from "path";
-import { cwd } from "process";
 import template from "lodash/template";
 import { rimraf } from "rimraf";
 import { Project, ScriptKind } from "ts-morph";
@@ -33,7 +33,7 @@ const REGISTRY_INDEX_WHITELIST: z.infer<typeof registryItemTypeSchema>[] = [
   "registry:example",
 ];
 
-const REGISTRY_URL = process.env.REGISTRY_URL;
+const REGISTRY_URL = process.env.PUBLIC_REGISTRY_URL;
 
 const project = new Project({
   compilerOptions: {},
