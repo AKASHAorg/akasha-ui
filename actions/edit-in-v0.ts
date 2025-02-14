@@ -1,6 +1,5 @@
 "use server";
 
-import { track } from "@vercel/analytics/server";
 import { capitalCase } from "change-case";
 
 import { getRegistryItem } from "@/lib/registry";
@@ -22,14 +21,6 @@ export async function editInV0({
     if (!registryItem) {
       return { error: "Something went wrong. Please try again later." };
     }
-
-    await track("edit_in_v0", {
-      name,
-      title: registryItem.name,
-      description: registryItem.description ?? registryItem.name,
-      style,
-      url,
-    });
 
     // Remove v0 prefix from the name
     registryItem.name = registryItem.name.replace(/^v0-/, "");

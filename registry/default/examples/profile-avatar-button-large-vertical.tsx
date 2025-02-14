@@ -9,7 +9,7 @@ import {
 
 export default function ProfileAvatarButtonLargeVertical() {
   return (
-    <ProfileAvatarButton size="lg" vertical={true}>
+    <ProfileAvatarButton size="lg" vertical>
       <ProfileAvatar>
         <ProfileAvatarImage
           src="https://github.com/akashaorg.png"

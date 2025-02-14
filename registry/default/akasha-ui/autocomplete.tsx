@@ -37,7 +37,7 @@ type AutoCompleteProps = {
     }
 );
 
-export const Autocomplete = ({
+const Autocomplete = ({
   options,
   emptyMessage,
   disabled,
@@ -197,3 +197,5 @@ export const Autocomplete = ({
     </Command>
   );
 };
+
+export { Autocomplete };

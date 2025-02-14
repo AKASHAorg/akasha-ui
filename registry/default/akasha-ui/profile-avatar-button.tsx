@@ -64,17 +64,18 @@ const getDidFieldIconType = (didKey: string) => {
 const ProfileAvatarButton = ({
   nsfw = false,
   children,
+  size = "md",
+  vertical = false,
   className,
   ...props
-}: React.ComponentProps<"div"> & { nsfw?: boolean } & (
-    | { size?: Exclude<ProfileAvatarButtonSize, "lg"> }
-    | {
-        size?: "lg";
-        vertical?: boolean;
-      }
-  )) => {
-  const size = props.size || "md";
-  const vertical = props.size === "lg" ? !!props.vertical : false;
+}: { nsfw?: boolean } & (
+  | { size?: Exclude<ProfileAvatarButtonSize, "lg">; vertical?: false }
+  | {
+      size?: "lg";
+      vertical?: true;
+    }
+) &
+  React.ComponentProps<"div">) => {
   return (
     <ProfileAvatarButtonContext.Provider value={{ size, nsfw, vertical }}>
       <div

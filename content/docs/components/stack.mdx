@@ -52,40 +52,35 @@ import { Stack } from "<path-to-ui-components>/stack";
 </Stack>
 ```
 
+## Props
+
+| Name           | Type                                                                 | Description                                                                                                                                                                                      |
+| -------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| justifyContent | `start`, `center`, `end`, `between`, `evenly`, `around` or `stretch` | Determines the alignment of flex items along the container's main axis. For more details on Tailwind utilities for each value, refer to the [doc](https://tailwindcss.com/docs/justify-content). |
+| alignItems     | `start`, `center`, `end`, `baseline` or `stretch`                    | Defines the alignment of flex items along the container's cross axis. For more details on Tailwind utilities for each value, refer to the [doc](https://tailwindcss.com/docs/align-items).       |
+| direction      | `row`, `rowReverse`, `column` or `columnReverse`                     | Determines the direction of flex items. For more details on Tailwind utilities for each value, refer to the [doc](https://tailwindcss.com/docs/flex-direction).                                  |
+| divider        | `boolean`                                                            | Add borders between items. For detailed information about the associated Tailwind utilities, please refer to the [doc](https://tailwindcss.com/docs/border-width#between-children).              |
+
+<Callout>
+
+The **default** value of `direction` is `column`.
+
+</Callout>
+
 ## Examples
 
 ### Align Items
-
-Supported values are `start`, `center`, `end`, `baseline`, and `stretch`.
-For detailed information about the Tailwind utilities associated with each value, please refer to the [doc](https://tailwindcss.com/docs/align-items).
-
-E.g. use `center` to align items along the center of the container’s cross axis:
 
 <ComponentPreview name="stack-align-items" />
 
 ### Direction
 
-Supported values are `row`, `rowReverse`, `column` and `columnReverse`. For detailed information about the Tailwind utilities associated with each value, please refer to the [doc](https://tailwindcss.com/docs/flex-direction).
-
-The **default** value is `column`.
-
-E.g. use `row` to position flex items horizontally:
-
 <ComponentPreview name="stack-direction" />
 
 ### Divider
 
-Supported values are `row` and `column`. For detailed information about the Tailwind utilities associated with each value, please refer to the [doc](https://tailwindcss.com/docs/divide-width).
-
-E.g. use `column` to add borders between vertical elements:
-
 <ComponentPreview name="stack-divider" />
 
 ### Justify Content
-
-Supported values are `start`, `center`, `end`, `between`, `evenly`, `around`, and `stretch`.
-For detailed information about the Tailwind utilities associated with each value, please refer to the [doc](https://tailwindcss.com/docs/justify-content).
-
-E.g. use `center` to justify items along the center of the container’s main axis:
 
 <ComponentPreview name="stack-justify-content" />

@@ -2,12 +2,9 @@
 title: Image
 description: An image component.
 component: true
-links:
-  doc: https://nextjs.org/docs/pages/api-reference/components/image
-  api: https://nextjs.org/docs/pages/api-reference/components/image#props
 ---
 
-<ComponentPreview name="image-demo" description="An image with fallback." />
+<ComponentPreview name="image-demo" />
 
 ## Installation
 
@@ -57,7 +54,7 @@ import { Image } from "<path-to-ui-components>/image";
 ```tsx
 <ImageRoot>
   <Image
-    enableLoader={true}
+    showLoadingIndicator={true}
     src="https://picsum.photos/200/300"
     alt="Example"
     width={256}
@@ -70,3 +67,9 @@ import { Image } from "<path-to-ui-components>/image";
   </ImageFallback>
 </ImageRoot>
 ```
+
+## Props
+
+| Name                 | Type      | Description            |
+| -------------------- | --------- | ---------------------- |
+| showLoadingIndicator | `boolean` | Show loading indicator |

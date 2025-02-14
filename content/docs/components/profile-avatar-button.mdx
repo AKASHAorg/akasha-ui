@@ -29,12 +29,6 @@ npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/profile-avat
 
 <Steps>
 
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install @radix-ui/react-avatar
-```
-
 <Step>Copy and paste the following code into your project.</Step>
 
 <ComponentSource name="profile-avatar-button" />
@@ -51,12 +45,12 @@ npm install @radix-ui/react-avatar
 
 ```tsx
 import {
-  ProfileAvatarButton
   ProfileAvatar,
+  ProfileAvatarButton,
   ProfileAvatarFallback,
   ProfileAvatarImage,
-  ProfileName
-  ProfileDidField
+  ProfileDidField,
+  ProfileName,
 } from "<path-to-ui-components>/profile-avatar-button";
 ```
 
@@ -70,6 +64,14 @@ import {
   <ProfileDidField did={did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95}/>
 </ProfileAvatarButton>
 ```
+
+## Props
+
+| Name     | Type                | Description                                                                                    |
+| -------- | ------------------- | ---------------------------------------------------------------------------------------------- |
+| size     | `sm`, `md`, or `lg` | Component sizes                                                                                |
+| nsfw     | `boolean`           | Not safe for work                                                                              |
+| vertical | `boolean`           | Positions the profile avatar above other components, applicable only when the `size` is large. |
 
 ## Examples
 

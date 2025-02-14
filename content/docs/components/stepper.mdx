@@ -18,7 +18,7 @@ component: true
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add "https://github.com/AKASHAorg/akasha-ui/tree/main/public/r/styles/default/stepper.json"
+npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/stepper.json"
 ```
 
 </TabsContent>
@@ -54,3 +54,10 @@ import { Stepper } from "<path-to-ui-components>/stepper";
 ```tsx
 <Stepper currentStep={1} numberOfSteps={5} />
 ```
+
+## Props
+
+| Name          | Type     | Description           |
+| ------------- | -------- | --------------------- |
+| currentStep   | `number` | Current step          |
+| numberOfSteps | `number` | Total number of steps |

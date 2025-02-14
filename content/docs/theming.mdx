@@ -1,4 +1,22 @@
 ---
 title: Theming
-description: Using CSS Variables or Tailwind CSS for theming.
+description: List of CSS Variables
 ---
+
+Here is a list of CSS variables to add to your CSS file, in addition to those described in the [theming](https://ui.shadcn.com/docs/theming) section of the shadcn website.
+
+```css title="app/globals.css"
+:root {
+  --success: oklch(69.6% 0.149 162.5);
+  --success-foreground: oklch(97.9% 0.021 166.1);
+  --warning: oklch(86% 0.173 91.8);
+  --warning-foreground: oklch(98.7% 0.026 102.2);
+}
+
+.dark {
+  --success: oklch(90.5% 0.089 164.2);
+  --success-foreground: oklch(37.8% 0.073 168.9);
+  --warning: oklch(97.3% 0.07 103.2);
+  --warning-foreground: oklch(55.4% 0.121 66.4);
+}
+```

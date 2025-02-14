@@ -2,6 +2,8 @@
 title: Inline Notification
 description: Displays an inline callout for user attention.
 component: true
+links:
+  doc: https://ui.shadcn.com/docs/components/alert
 ---
 
 A ShadCN Alert component customized by adding variants.
@@ -68,11 +70,21 @@ import {
 </InlineNotification>
 ```
 
+## Props
+
+| Name    | Type                               | Description        |
+| ------- | ---------------------------------- | ------------------ |
+| variant | `info`, `success` or `destructive` | Component variants |
+
+<Callout>
+
+The **default** value of `variant` is `info`.
+
+</Callout>
+
 ## Examples
 
 ### Info
-
-This is the **default** variant.
 
 <ComponentPreview name="inline-notification-info" />
 

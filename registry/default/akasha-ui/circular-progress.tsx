@@ -1,8 +1,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-
-import { typographyVariants } from "./typography";
+import { typographyVariants } from "@/registry/default/akasha-ui/typography";
 
 const MAX = 100;
 
