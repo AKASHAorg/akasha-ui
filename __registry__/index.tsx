@@ -9,7 +9,7 @@ export const Index: Record<string, any> = {
       name: "autocomplete",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["skeleton","command","input"],
+      registryDependencies: ["command","input"],
       files: [{
         path: "registry/default/akasha-ui/autocomplete.tsx",
         type: "registry:ui",
@@ -54,7 +54,7 @@ export const Index: Record<string, any> = {
       name: "circular-progress",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["custom/typography"],
       files: [{
         path: "registry/default/akasha-ui/circular-progress.tsx",
         type: "registry:ui",

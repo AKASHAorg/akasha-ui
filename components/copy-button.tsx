@@ -5,7 +5,6 @@ import { DropdownMenuTriggerProps } from "@radix-ui/react-dropdown-menu";
 import { CheckIcon, ClipboardIcon } from "lucide-react";
 import { NpmCommands } from "types/unist";
 
-import { Event, trackEvent } from "@/lib/events";
 import { cn } from "@/lib/utils";
 import { Button } from "@/registry/default/ui/button";
 import {
@@ -18,21 +17,16 @@ import {
 interface CopyButtonProps extends React.ComponentProps<typeof Button> {
   value: string;
   src?: string;
-  event?: Event["name"];
 }
 
-export async function copyToClipboardWithMeta(value: string, event?: Event) {
+export async function copyToClipboardWithMeta(value: string) {
   navigator.clipboard.writeText(value);
-  if (event) {
-    trackEvent(event);
-  }
 }
 
 export function CopyButton({
   value,
   className,
   variant = "ghost",
-  event,
   ...props
 }: CopyButtonProps) {
   const [hasCopied, setHasCopied] = React.useState(false);
@@ -52,17 +46,7 @@ export function CopyButton({
         className
       )}
       onClick={() => {
-        copyToClipboardWithMeta(
-          value,
-          event
-            ? {
-                name: event,
-                properties: {
-                  code: value,
-                },
-              }
-            : undefined
-        );
+        copyToClipboardWithMeta(value);
         setHasCopied(true);
       }}
       {...props}
@@ -144,19 +128,10 @@ export function CopyNpmCommandButton({
     }, 2000);
   }, [hasCopied]);
 
-  const copyCommand = React.useCallback(
-    (value: string, pm: "npm" | "pnpm" | "yarn" | "bun") => {
-      copyToClipboardWithMeta(value, {
-        name: "copy_npm_command",
-        properties: {
-          command: value,
-          pm,
-        },
-      });
-      setHasCopied(true);
-    },
-    []
-  );
+  const copyCommand = React.useCallback((value: string) => {
+    copyToClipboardWithMeta(value);
+    setHasCopied(true);
+  }, []);
 
   return (
     <DropdownMenu>
@@ -178,24 +153,16 @@ export function CopyNpmCommandButton({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem
-          onClick={() => copyCommand(commands.__npmCommand__, "npm")}
-        >
+        <DropdownMenuItem onClick={() => copyCommand(commands.__npmCommand__)}>
           npm
         </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => copyCommand(commands.__yarnCommand__, "yarn")}
-        >
+        <DropdownMenuItem onClick={() => copyCommand(commands.__yarnCommand__)}>
           yarn
         </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => copyCommand(commands.__pnpmCommand__, "pnpm")}
-        >
+        <DropdownMenuItem onClick={() => copyCommand(commands.__pnpmCommand__)}>
           pnpm
         </DropdownMenuItem>
-        <DropdownMenuItem
-          onClick={() => copyCommand(commands.__bunCommand__, "bun")}
-        >
+        <DropdownMenuItem onClick={() => copyCommand(commands.__bunCommand__)}>
           bun
         </DropdownMenuItem>
       </DropdownMenuContent>

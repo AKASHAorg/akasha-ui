@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import { NpmCommands } from "types/unist";
 
-import { Event } from "@/lib/events";
 import { cn } from "@/lib/utils";
 import { useConfig } from "@/hooks/use-config";
 import { Callout } from "@/components/callout";
@@ -182,7 +181,6 @@ const components = {
     __bunCommand__,
     __withMeta__,
     __src__,
-    __event__,
     __style__,
     ...props
   }: React.HTMLAttributes<HTMLPreElement> & {
@@ -190,7 +188,6 @@ const components = {
     __rawString__?: string;
     __withMeta__?: boolean;
     __src__?: string;
-    __event__?: Event["name"];
   } & NpmCommands) => {
     const isNpmCommand =
       __npmCommand__ && __yarnCommand__ && __pnpmCommand__ && __bunCommand__;
@@ -219,7 +216,6 @@ const components = {
           <CopyButton
             value={__rawString__}
             src={__src__}
-            event={__event__}
             className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
           />
         )}

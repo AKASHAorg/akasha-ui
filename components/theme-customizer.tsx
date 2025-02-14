@@ -236,13 +236,7 @@ function CopyCodeButton({
       {activeTheme && (
         <Button
           onClick={() => {
-            copyToClipboardWithMeta(getThemeCode(activeTheme, config.radius), {
-              name: "copy_theme_code",
-              properties: {
-                theme: activeTheme.name,
-                radius: config.radius,
-              },
-            });
+            copyToClipboardWithMeta(getThemeCode(activeTheme, config.radius));
             setHasCopied(true);
           }}
           className={cn("md:hidden", className)}
@@ -272,14 +266,7 @@ function CopyCodeButton({
                 size="sm"
                 onClick={() => {
                   copyToClipboardWithMeta(
-                    getThemeCode(activeTheme, config.radius),
-                    {
-                      name: "copy_theme_code",
-                      properties: {
-                        theme: activeTheme.name,
-                        radius: config.radius,
-                      },
-                    }
+                    getThemeCode(activeTheme, config.radius)
                   );
                   setHasCopied(true);
                 }}

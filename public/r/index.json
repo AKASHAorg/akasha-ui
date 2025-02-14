@@ -7,7 +7,6 @@
       "lucide-react"
     ],
     "registryDependencies": [
-      "skeleton",
       "command",
       "input"
     ],
@@ -75,6 +74,9 @@
   {
     "name": "circular-progress",
     "type": "registry:ui",
+    "registryDependencies": [
+      "custom/typography"
+    ],
     "files": [
       {
         "path": "akasha-ui/circular-progress.tsx",

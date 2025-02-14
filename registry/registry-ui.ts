@@ -4,7 +4,7 @@ export const ui: Registry = [
   {
     name: "autocomplete",
     type: "registry:ui",
-    registryDependencies: ["skeleton", "command", "input"],
+    registryDependencies: ["command", "input"],
     dependencies: ["cmdk", "lucide-react"],
     files: [
       {
@@ -63,6 +63,7 @@ export const ui: Registry = [
   {
     name: "circular-progress",
     type: "registry:ui",
+    registryDependencies: ["custom/typography"],
     files: [
       {
         path: "akasha-ui/circular-progress.tsx",
