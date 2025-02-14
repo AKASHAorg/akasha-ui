@@ -33,7 +33,8 @@ const REGISTRY_INDEX_WHITELIST: z.infer<typeof registryItemTypeSchema>[] = [
   "registry:example",
 ];
 
-const REGISTRY_URL = process.env.PUBLIC_REGISTRY_URL;
+const REGISTRY_URL =
+  process.env.PUBLIC_REGISTRY_URL || "https://akasha-ui.pages.dev/r";
 
 const project = new Project({
   compilerOptions: {},
