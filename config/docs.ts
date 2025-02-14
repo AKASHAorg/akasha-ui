@@ -144,8 +144,18 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Input",
+          href: "/docs/components/input",
+          items: [],
+        },
+        {
           title: "Sonner",
           href: "/docs/components/sonner",
+          items: [],
+        },
+        {
+          title: "Textarea",
+          href: "/docs/components/textarea",
           items: [],
         },
       ],

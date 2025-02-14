@@ -1,0 +1,15 @@
+{
+  "name": "input",
+  "type": "registry:ui",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "ui/input.tsx",
+      "content": "import * as React from \"react\";\nimport { Search } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Input({\n  className,\n  type,\n  searchIcon,\n  ...props\n}: React.ComponentProps<\"input\"> & { searchIcon?: boolean }) {\n  return (\n    <div className=\"relative\">\n      <input\n        type={type}\n        data-slot=\"input\"\n        className={cn(\n          \"flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm\",\n          className\n        )}\n        {...props}\n      />\n      {searchIcon && (\n        <Search\n          size={24}\n          className=\"absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground\"\n        />\n      )}\n    </div>\n  );\n}\n\nexport { Input };\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}
