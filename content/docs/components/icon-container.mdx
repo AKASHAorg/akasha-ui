@@ -4,10 +4,7 @@ description: A customizable container of icons.
 component: true
 ---
 
-<ComponentPreview
-  name="icon-container-demo"
-  description="An IconContainer component."
-/>
+<ComponentPreview name="icon-container-demo" />
 
 ## Installation
 
@@ -19,6 +16,8 @@ component: true
 </TabsList>
 
 <TabsContent value="cli">
+
+<Step>Run the following command to install `button.tsx`</Step>
 
 ```bash
 npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/icon-container.json"
@@ -54,23 +53,27 @@ import { IconContainer } from "<path-to-ui-components>/icon-container";
 </IconContainer>
 ```
 
-The **default** `variant` of icon container is `round` with `size` of `md`.
+## Props
+
+| Name                | Type                           | Description                           |
+| ------------------- | ------------------------------ | ------------------------------------- |
+| variant             | `round` or `square`            | Component variants                    |
+| size                | `xs`, `sm`, `md`, `lg` or `xl` | Component sizes                       |
+| showNotificationDot | `boolean`                      | Whether to display a notification dot |
+
+<Callout>
+
+The **default** value of `variant` is `round` and that of `size` is `md`.
+
+</Callout>
 
 ## Examples
 
 ### Round
 
-Supported sizes for round variants are `xs`, `sm`, `md`, `lg`, and `xl`.
-
-E.g. use xl for extra large icon container:
-
 <ComponentPreview name="icon-container-round" />
 
 ### Square
-
-Supported sizes for square variants are `xs`, `sm`, `md`, `lg`, and `xl`.
-
-E.g. use xl for extra large icon container:
 
 <ComponentPreview name="icon-container-square" />
 

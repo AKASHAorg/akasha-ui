@@ -4,10 +4,7 @@ description: Component that wraps any children with copy to clipboard functional
 component: true
 ---
 
-<ComponentPreview
-  name="copy-to-clipboard-demo"
-  description="CopyToClipboard example"
-/>
+<ComponentPreview name="copy-to-clipboard-demo" />
 
 ## Installation
 
@@ -50,10 +47,25 @@ import { CopyToClipboard } from "<path-to-ui-components>/copy-to-clipboard";
 
 ```tsx
 <CopyToClipboard
-  textToCopy="This will be copied to the clipboard"
-  initialTooltipText="Copy text"
-  successTooltipText="Copied ✓"
+  textToCopy="0x8a022905463998860516390fb27548479a098b95"
+  ctaText="Copy address"
+  successText="Copied ✓"
 >
   <p>Click here to copy</p>
 </CopyToClipboard>
 ```
+
+## Props
+
+| Name          | Type     | Description                                              |
+| ------------- | -------- | -------------------------------------------------------- |
+| textToCopy    | `string` | Text to copy                                             |
+| ctaText       | `string` | Call to action text                                      |
+| successText   | `string` | Success message to display once text is copied           |
+| resetDuration | `number` | Duration in milliseconds before success message is reset |
+
+<Callout>
+ 
+The **default** value of `resetDuration` is 5000 milliseconds.
+
+</Callout>

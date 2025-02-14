@@ -4,10 +4,7 @@ description: A component that allows users to search and select single or multip
 component: true
 ---
 
-<ComponentPreview
-  name="autocomplete-demo"
-  description="Autocomplete with selection of single option example"
-/>
+<ComponentPreview name="autocomplete-demo" />
 
 ## Installation
 
@@ -57,17 +54,30 @@ import { Autocomplete } from "<path-to-ui-components>/autocomplete";
 ```tsx
 <Autocomplete
   options={frameworks}
-  placeholder="Select framework..."
+  value={singleValue}
+  onValueChange={(value) => setSingleValue(value)}
+  placeholder="Select a framework"
   emptyMessage="No framework found."
-  value={selected}
-  onValueChange={(value) => setSelected(value)}
 />
 ```
+
+## Props
+
+| Name         | Type       | Description                           |
+| ------------ | ---------- | ------------------------------------- |
+| options      | `Option[]` | Array of options                      |
+| emptyMessage | `string`   | Message to display when list is empty |
+| loading      | `boolean`  | Shows spinner while list loads        |
+| multiple     | `boolean`  | Allows single or multiple selections  |
+
+<Callout>
+
+Single selection is supported by default.
+
+</Callout>
 
 ## Example
 
 ### Multiple options selection
-
-Passing `multiple={true}` will allow users to select multiple options.
 
 <ComponentPreview name="autocomplete-multiple-demo" />

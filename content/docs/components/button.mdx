@@ -2,11 +2,13 @@
 title: Button
 description: Displays a button or a component that looks like a button.
 component: true
+links:
+  doc: https://ui.shadcn.com/docs/components/button
 ---
 
-A ShadCN button component customized by adding gradient color and adjusting hover states.
+A ShadCN Button component customized by adding gradient color and adjusting hover states.
 
-<ComponentPreview name="button-demo" description="A button" />
+<ComponentPreview name="button-demo" />
 
 ## Installation
 
@@ -31,16 +33,14 @@ npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/button.json"
 The command above should install the colors for you. If not, copy and paste the following in your CSS file.
 
 ```css title="app/globals.css"
-@layer base {
-  :root {
-    --primary-start: 72.4% 0.177 350.2;
-    --primary-end: 58.7% 0.204 277.4;
-  }
+:root {
+  --primary-start: 72.4% 0.177 350.2;
+  --primary-end: 58.7% 0.204 277.4;
+}
 
-  .dark {
-    --primary-start: 72.4% 0.177 350.2;
-    --primary-end: 58.7% 0.204 277.4;
-  }
+.dark {
+  --primary-start: 72.4% 0.177 350.2;
+  --primary-end: 58.7% 0.204 277.4;
 }
 ```
 
@@ -67,20 +67,24 @@ npm install @radix-ui/react-slot lucide-react
 <Step>Add the following colors to your CSS file</Step>
 
 ```css title="app/globals.css"
-@layer base {
-  :root {
-    --primary-start: 72.4% 0.177 350.2;
-    --primary-end: 58.7% 0.204 277.4;
-  }
+:root {
+  --primary-start: 72.4% 0.177 350.2;
+  --primary-end: 58.7% 0.204 277.4;
+}
 
-  .dark {
-    --primary-start: 72.4% 0.177 350.2;
-    --primary-end: 58.7% 0.204 277.4;
-  }
+.dark {
+  --primary-start: 72.4% 0.177 350.2;
+  --primary-end: 58.7% 0.204 277.4;
 }
 ```
 
 <Step>Add the Button tailwind config into `tailwind.config.js`</Step>
+
+<Callout>
+
+**This is not necessary if you are on tailwind version 4 and above.**
+
+</Callout>
 
 Add the following object in the `theme.extend.colors` section of your `tailwind.config.js` file
 this config enable button related style utilities like `from-primary-start`

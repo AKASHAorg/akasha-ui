@@ -69,6 +69,26 @@ export const ui: Registry = [
         type: "registry:ui",
       },
     ],
+    tailwind: {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              warning: {
+                DEFAULT: "hsl(var(--warning)",
+                foreground: "hsl(var(--warning-foreground)",
+              },
+            },
+          },
+        },
+      },
+    },
+    cssVars: {
+      light: {
+        warning: "47.9 95.8% 53.1%",
+        "warning-foreground": "54.5 91.7% 95.3%",
+      },
+    },
   },
   {
     name: "copy-to-clipboard",
@@ -234,6 +254,32 @@ export const ui: Registry = [
         type: "registry:ui",
       },
     ],
+    tailwind: {
+      config: {
+        theme: {
+          extend: {
+            colors: {
+              success: {
+                DEFAULT: "hsl(var(--success)",
+                foreground: "hsl(var(--success-foreground)",
+              },
+              warning: {
+                DEFAULT: "hsl(var(--warning)",
+                foreground: "hsl(var(--warning-foreground)",
+              },
+            },
+          },
+        },
+      },
+    },
+    cssVars: {
+      light: {
+        success: "160.1 84.1% 39.4%",
+        "success-foreground": "151.8 81% 95.9%",
+        warning: "47.9 95.8% 53.1%",
+        "warning-foreground": "54.5 91.7% 95.3%",
+      },
+    },
   },
   {
     name: "stack",

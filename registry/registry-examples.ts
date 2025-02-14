@@ -2,28 +2,6 @@ import { Registry } from "@/registry/schema";
 
 export const examples: Registry = [
   {
-    name: "copy-to-clipboard-demo",
-    type: "registry:example",
-    registryDependencies: ["copy-to-clipboard"],
-    files: [
-      {
-        path: "examples/copy-to-clipboard-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
-    name: "stepper-demo",
-    type: "registry:example",
-    registryDependencies: ["stepper"],
-    files: [
-      {
-        path: "examples/stepper-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "autocomplete-demo",
     type: "registry:example",
     registryDependencies: ["autocomplete"],
@@ -173,6 +151,17 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/circular-progress-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "copy-to-clipboard-demo",
+    type: "registry:example",
+    registryDependencies: ["copy-to-clipboard"],
+    files: [
+      {
+        path: "examples/copy-to-clipboard-demo.tsx",
         type: "registry:example",
       },
     ],
@@ -470,6 +459,17 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/stacked-avatar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "stepper-demo",
+    type: "registry:example",
+    registryDependencies: ["stepper"],
+    files: [
+      {
+        path: "examples/stepper-demo.tsx",
         type: "registry:example",
       },
     ],

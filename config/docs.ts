@@ -35,7 +35,7 @@ export const docsConfig: DocsConfig = {
         },
         {
           title: "Installation",
-          href: "/docs/installation/manual",
+          href: "/docs/installation",
           items: [],
         },
         {
@@ -54,13 +54,13 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
-          title: "Copy to clipboard",
-          href: "/docs/components/copy-to-clipboard",
+          title: "Circular Progress",
+          href: "/docs/components/circular-progress",
           items: [],
         },
         {
-          title: "Circular Progress",
-          href: "/docs/components/circular-progress",
+          title: "Copy to clipboard",
+          href: "/docs/components/copy-to-clipboard",
           items: [],
         },
         {

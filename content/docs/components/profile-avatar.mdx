@@ -1,6 +1,6 @@
 ---
 title: Profile avatar
-description: An image element with a fallback for representing the user.
+description: A profile image component with size variants, nsfw avatars and a fallback image.
 component: true
 links:
   doc: https://www.radix-ui.com/docs/primitives/components/avatar
@@ -67,6 +67,13 @@ import {
 </ProfileAvatar>
 ```
 
+## Props
+
+| Name | Type                           | Description       |
+| ---- | ------------------------------ | ----------------- |
+| size | `xs`, `sm`, `md`, `lg` or `xl` | Component sizes   |
+| nsfw | `boolean`                      | Not safe for work |
+
 ## Examples
 
 ### Not safe for work(NSFW)
@@ -74,9 +81,5 @@ import {
 <ComponentPreview name="profile-avatar-nsfw" />
 
 ### Size
-
-Supported values are `xs`, `sm`, `md`, `lg`, and `xl`.
-
-E.g. use `xl` for extra large profile avatar:
 
 <ComponentPreview name="profile-avatar-size" />
