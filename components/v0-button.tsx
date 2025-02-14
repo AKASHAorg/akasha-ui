@@ -7,7 +7,7 @@ import { useFormStatus } from "react-dom";
 import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
-import { Button, ButtonProps } from "@/registry/default/ui/button";
+import { Button } from "@/registry/default/ui/button";
 import {
   Tooltip,
   TooltipContent,
@@ -19,7 +19,6 @@ type Size = "default" | "icon";
 
 function V0Tooltip({
   size,
-  style = "default",
   children,
 }: React.PropsWithChildren<{ size: Size; style?: Style["name"] }>) {
   if (size === "default") {
@@ -47,7 +46,7 @@ export function V0Button({
 }: {
   name: string;
   size?: Size;
-} & ButtonProps) {
+} & React.ComponentProps<typeof Button>) {
   const [url, setUrl] = React.useState("https://ui.shadcn.com");
 
   React.useEffect(() => {

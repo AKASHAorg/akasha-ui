@@ -34,17 +34,14 @@ export function ComponentPreview({
   type,
   children,
   className,
-  extractClassname,
-  extractedClassNames,
   align = "center",
-  description,
   hideCode = false,
   ...props
 }: ComponentPreviewProps) {
   const [config] = useConfig();
   const index = styles.findIndex((style) => style.name === config.style);
 
-  const Codes = React.Children.toArray(children) as React.ReactElement[];
+  const Codes = React.Children.toArray(children) as React.ReactElement<any>[];
   const Code = Codes[index];
 
   const Preview = React.useMemo(() => {
@@ -71,7 +68,7 @@ export function ComponentPreview({
     ) {
       const [Button] = React.Children.toArray(
         Code.props.children
-      ) as React.ReactElement[];
+      ) as React.ReactElement<any>[];
       return Button?.props?.value || Button?.props?.__rawString__ || null;
     }
   }, [Code]);

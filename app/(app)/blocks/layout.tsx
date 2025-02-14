@@ -11,6 +11,7 @@ import {
 import { Button } from "@/registry/default/ui/button";
 
 import "@/styles/mdx.css";
+
 import Link from "next/link";
 
 export const metadata: Metadata = {

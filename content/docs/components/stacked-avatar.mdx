@@ -49,22 +49,19 @@ import { StackedAvatar } from "<path-to-ui-components>/stacked-avatar";
 
 ```tsx
 const avatars = [
-    { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },
-    { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },
-    { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },
-    { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },
-  ];
-  return (
-    <StackedAvatar size={avatars.length}>
-      {(index) => (
-        <ProfileAvatar>
-          <ProfileAvatarImage
-            src={avatars[index].src}
-            alt={avatars[index].alt}
-          />
-          <ProfileAvatarFallback>AK</ProfileAvatarFallback>
-        </ProfileAvatar>
-      )}
-    </StackedAvatar>
-  );
+  { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },
+  { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },
+  { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },
+  { src: "https://github.com/akashaorg.png", alt: "@akashaorg" },
+];
+return (
+  <StackedAvatar size={avatars.length}>
+    {(index) => (
+      <ProfileAvatar>
+        <ProfileAvatarImage src={avatars[index].src} alt={avatars[index].alt} />
+        <ProfileAvatarFallback>AK</ProfileAvatarFallback>
+      </ProfileAvatar>
+    )}
+  </StackedAvatar>
+);
 ```

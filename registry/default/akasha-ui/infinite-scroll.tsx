@@ -1,8 +1,8 @@
 import * as React from "react";
 import {
-  Virtualizer,
   measureElement,
   useWindowVirtualizer,
+  Virtualizer,
 } from "@tanstack/react-virtual";
 
 import { cn } from "@/lib/utils";
@@ -14,18 +14,6 @@ import {
   useScrollRestoration,
 } from "@/registry/default/hooks/use-scroll-restoration";
 
-interface InfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {
-  count: number;
-  estimatedHeight: number;
-  lanes?: number;
-  overScan?: number;
-  itemSpacing?: number;
-  hasNextPage?: boolean;
-  loading?: boolean;
-  header?: React.ReactNode;
-  onLoadMore?: () => void;
-}
-
 const InfiniteScrollContext = React.createContext<{
   listOffset: number;
   itemSpacing?: number;
@@ -35,7 +23,7 @@ const InfiniteScrollContext = React.createContext<{
   virtualizer: Virtualizer<Window, Element>;
   count: number;
   overScan: number;
-  headerRef: React.RefObject<HTMLDivElement>;
+  headerRef: React.RefObject<HTMLDivElement | null>;
 } | null>(null);
 
 const useInfiniteScrollContext = () => {
@@ -48,7 +36,7 @@ const useInfiniteScrollContext = () => {
   return context;
 };
 
-const InfiniteScroll: React.FC<InfiniteScrollProps> = ({
+const InfiniteScroll = ({
   count,
   estimatedHeight,
   lanes,
@@ -61,6 +49,16 @@ const InfiniteScroll: React.FC<InfiniteScrollProps> = ({
   children,
   onLoadMore,
   ...props
+}: React.ComponentProps<"div"> & {
+  count: number;
+  estimatedHeight: number;
+  lanes?: number;
+  overScan?: number;
+  itemSpacing?: number;
+  hasNextPage?: boolean;
+  loading?: boolean;
+  header?: React.ReactNode;
+  onLoadMore?: () => void;
 }) => {
   const parentRef = React.useRef<HTMLDivElement>(null);
   const parentOffsetRef = React.useRef(0);
@@ -120,6 +118,7 @@ const InfiniteScroll: React.FC<InfiniteScrollProps> = ({
     <>
       {header && <div ref={headerRef}>{header}</div>}
       <div
+        data-slot="infinite-scroll"
         ref={parentRef}
         className={cn("relative w-full", className)}
         style={{
@@ -147,16 +146,15 @@ const InfiniteScroll: React.FC<InfiniteScrollProps> = ({
   );
 };
 
-interface InfiniteScrollListProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
+const InfiniteScrollList = ({
+  loadingIndicator,
+  className,
+  children,
+  ...props
+}: Omit<React.ComponentProps<"div">, "children"> & {
   loadingIndicator?: React.ReactNode;
-  children: (index: number) => React.ReactElement;
-}
-
-const InfiniteScrollList = React.forwardRef<
-  HTMLDivElement,
-  InfiniteScrollListProps
->(({ loadingIndicator, className, children, ...props }, ref) => {
+  children: (index: number) => React.ReactElement<any>;
+}) => {
   const {
     listOffset,
     itemSpacing,
@@ -170,7 +168,7 @@ const InfiniteScrollList = React.forwardRef<
   const { initialMeasurementsCache } = virtualizer.options;
   return (
     <Stack
-      ref={ref}
+      data-slot="infinite-scroll-list"
       data-offset={listOffset}
       className={cn("absolute w-full top-0 left-0", className)}
       style={{
@@ -202,17 +200,15 @@ const InfiniteScrollList = React.forwardRef<
       {loading && hasNextPage && virtualItems.length > 0 && loadingIndicator}
     </Stack>
   );
-});
-
-type ScrollRestorationProps = {
-  offsetAttribute: string;
-  scrollRestorationStorageKey?: string;
-  lastScrollRestorationKey?: string;
 };
 
-const ScrollRestoration: React.FC<
-  React.PropsWithChildren<ScrollRestorationProps>
-> = (props) => {
+const ScrollRestoration = (
+  props: React.PropsWithChildren<{
+    offsetAttribute: string;
+    scrollRestorationStorageKey?: string;
+    lastScrollRestorationKey?: string;
+  }>
+) => {
   const {
     scrollRestorationStorageKey = "storage-key",
     lastScrollRestorationKey,

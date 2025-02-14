@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+
 import { Metadata, Viewport } from "next";
 
 import { META_THEME_COLORS, siteConfig } from "@/config/site";
@@ -8,7 +9,7 @@ import { Analytics } from "@/components/analytics";
 import { ThemeProvider } from "@/components/providers";
 import { TailwindIndicator } from "@/components/tailwind-indicator";
 import { ThemeSwitcher } from "@/components/theme-switcher";
-import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster";
+import { Toaster as DefaultToaster } from "@/registry/default/ui/sonner";
 
 export const metadata: Metadata = {
   title: {

@@ -5,41 +5,11 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
-    "copy-to-clipboard": {
-      name: "copy-to-clipboard",
-      description: "",
-      type: "registry:ui",
-      registryDependencies: ["tooltip"],
-      files: [{
-        path: "registry/default/akasha-ui/copy-to-clipboard.tsx",
-        type: "registry:ui",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/copy-to-clipboard.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "stepper": {
-      name: "stepper",
-      description: "",
-      type: "registry:ui",
-      registryDependencies: undefined,
-      files: [{
-        path: "registry/default/akasha-ui/stepper.tsx",
-        type: "registry:ui",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/stepper.tsx")),
-      source: "",
-      meta: undefined,
-    },
     "autocomplete": {
       name: "autocomplete",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["skeleton","custom/command"],
+      registryDependencies: ["skeleton","command","input"],
       files: [{
         path: "registry/default/akasha-ui/autocomplete.tsx",
         type: "registry:ui",
@@ -95,18 +65,18 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "command": {
-      name: "command",
+    "copy-to-clipboard": {
+      name: "copy-to-clipboard",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["dialog"],
+      registryDependencies: ["tooltip"],
       files: [{
-        path: "registry/default/ui/command.tsx",
+        path: "registry/default/akasha-ui/copy-to-clipboard.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/ui/command.tsx")),
+      component: React.lazy(() => import("@/registry/default/akasha-ui/copy-to-clipboard.tsx")),
       source: "",
       meta: undefined,
     },
@@ -253,6 +223,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "sonner": {
+      name: "sonner",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/sonner.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/sonner.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "stack": {
       name: "stack",
       description: "",
@@ -283,26 +268,18 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "toast": {
-      name: "toast",
+    "stepper": {
+      name: "stepper",
       description: "",
       type: "registry:ui",
       registryDependencies: undefined,
       files: [{
-        path: "registry/default/ui/toast.tsx",
-        type: "registry:ui",
-        target: ""
-      },{
-        path: "registry/default/hooks/use-toast.ts",
-        type: "registry:hook",
-        target: ""
-      },{
-        path: "registry/default/ui/toaster.tsx",
+        path: "registry/default/akasha-ui/stepper.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/ui/toast.tsx")),
+      component: React.lazy(() => import("@/registry/default/akasha-ui/stepper.tsx")),
       source: "",
       meta: undefined,
     },
@@ -1026,78 +1003,78 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "toast-demo": {
-      name: "toast-demo",
+    "sonner-demo": {
+      name: "sonner-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toast"],
+      registryDependencies: ["sonner"],
       files: [{
-        path: "registry/default/examples/toast-demo.tsx",
+        path: "registry/default/examples/sonner-demo.tsx",
         type: "registry:example",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/toast-demo.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/sonner-demo.tsx")),
       source: "",
       meta: undefined,
     },
-    "toast-info": {
-      name: "toast-info",
+    "sonner-info": {
+      name: "sonner-info",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toast"],
+      registryDependencies: ["sonner"],
       files: [{
-        path: "registry/default/examples/toast-info.tsx",
+        path: "registry/default/examples/sonner-info.tsx",
         type: "registry:example",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/toast-info.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/sonner-info.tsx")),
       source: "",
       meta: undefined,
     },
-    "toast-success": {
-      name: "toast-success",
+    "sonner-success": {
+      name: "sonner-success",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toast"],
+      registryDependencies: ["sonner"],
       files: [{
-        path: "registry/default/examples/toast-success.tsx",
+        path: "registry/default/examples/sonner-success.tsx",
         type: "registry:example",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/toast-success.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/sonner-success.tsx")),
       source: "",
       meta: undefined,
     },
-    "toast-warning": {
-      name: "toast-warning",
+    "sonner-warning": {
+      name: "sonner-warning",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toast"],
+      registryDependencies: ["sonner"],
       files: [{
-        path: "registry/default/examples/toast-warning.tsx",
+        path: "registry/default/examples/sonner-warning.tsx",
         type: "registry:example",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/toast-warning.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/sonner-warning.tsx")),
       source: "",
       meta: undefined,
     },
-    "toast-destructive": {
-      name: "toast-destructive",
+    "sonner-error": {
+      name: "sonner-error",
       description: "",
       type: "registry:example",
-      registryDependencies: ["toast"],
+      registryDependencies: ["sonner"],
       files: [{
-        path: "registry/default/examples/toast-destructive.tsx",
+        path: "registry/default/examples/sonner-error.tsx",
         type: "registry:example",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/toast-destructive.tsx")),
+      component: React.lazy(() => import("@/registry/default/examples/sonner-error.tsx")),
       source: "",
       meta: undefined,
     },

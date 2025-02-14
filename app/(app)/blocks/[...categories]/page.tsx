@@ -13,11 +13,11 @@ export async function generateStaticParams() {
 export default async function BlocksPage({
   params,
 }: {
-  params: { categories?: string[] };
+  params: Promise<{ categories?: string[] }>;
 }) {
   const blocks = await getAllBlockIds(
     ["registry:block"],
-    params.categories ?? []
+    (await params).categories ?? []
   );
 
   return blocks.map((name) => (

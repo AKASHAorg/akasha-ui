@@ -9,7 +9,7 @@ import {
 
 export default function ProfileAvatarButtonLargeHorizontal() {
   return (
-    <ProfileAvatarButton size="lg" orientation="horizontal">
+    <ProfileAvatarButton size="lg">
       <ProfileAvatar>
         <ProfileAvatarImage
           src="https://github.com/akashaorg.png"

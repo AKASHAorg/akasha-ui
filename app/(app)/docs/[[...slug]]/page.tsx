@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { allDocs } from "contentlayer/generated";
 
 import "@/styles/mdx.css";
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, ExternalLink } from "lucide-react";
@@ -16,13 +17,13 @@ import { DashboardTableOfContents } from "@/components/toc";
 import { badgeVariants } from "@/registry/default/ui/badge";
 
 interface DocPageProps {
-  params: {
+  params: Promise<{
     slug: string[];
-  };
+  }>;
 }
 
 async function getDocFromParams({ params }: DocPageProps) {
-  const slug = params.slug?.join("/") || "";
+  const slug = (await params).slug?.join("/") || "";
   const doc = allDocs.find((doc) => doc.slugAsParams === slug);
 
   if (!doc) {
@@ -69,7 +70,9 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<
-  DocPageProps["params"][]
+  {
+    slug: string[];
+  }[]
 > {
   return allDocs.map((doc) => ({
     slug: doc.slugAsParams.split("/"),

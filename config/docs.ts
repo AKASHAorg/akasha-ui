@@ -144,8 +144,8 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
-          title: "Toast",
-          href: "/docs/components/toast",
+          title: "Sonner",
+          href: "/docs/components/sonner",
           items: [],
         },
       ],

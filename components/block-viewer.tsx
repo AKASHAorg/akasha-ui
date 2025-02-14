@@ -19,7 +19,7 @@ import { ImperativePanelHandle } from "react-resizable-panels";
 import { z } from "zod";
 
 import { trackEvent } from "@/lib/events";
-import { FileTree, createFileTreeForRegistryItemFiles } from "@/lib/registry";
+import { createFileTreeForRegistryItemFiles, FileTree } from "@/lib/registry";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 // import { V0Button } from "@/components/v0-button";
 import { Button } from "@/registry/default/ui/button";
@@ -61,7 +61,7 @@ type BlockViewerContext = {
   setStyle: (style: Style["name"]) => void;
   activeFile: string | null;
   setActiveFile: (file: string) => void;
-  resizablePanelRef: React.RefObject<ImperativePanelHandle> | null;
+  resizablePanelRef: React.RefObject<ImperativePanelHandle | null> | null;
   tree: ReturnType<typeof createFileTreeForRegistryItemFiles> | null;
   highlightedFiles:
     | (z.infer<typeof registryItemFileSchema> & {

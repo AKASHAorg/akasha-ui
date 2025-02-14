@@ -30,24 +30,11 @@ import {
   PopoverTrigger,
 } from "@/registry/default/ui/popover";
 import { Skeleton } from "@/registry/default/ui/skeleton";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/registry/default/ui/tooltip";
 import { BaseColor, baseColors } from "@/registry/registry-base-colors";
 
 import "@/styles/mdx.css";
 
 export function ThemeCustomizer() {
-  const [config, setConfig] = useConfig();
-  const { resolvedTheme: mode } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <div className="flex items-center gap-2">
       <Drawer>

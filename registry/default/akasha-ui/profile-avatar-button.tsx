@@ -16,19 +16,12 @@ import { Ethereum } from "@/registry/default/custom-icons/ethereum";
 import { NoEth } from "@/registry/default/custom-icons/no-eth";
 import { Solana } from "@/registry/default/custom-icons/solana";
 
-type Orientation = "horizontal" | "vertical";
-
-type ProfileAvatarButtonSize = "lg" | "md" | "sm";
-
-interface ProfileAvatarButtonProps
-  extends React.ButtonHTMLAttributes<HTMLDivElement> {
-  nsfw?: boolean;
-}
+type ProfileAvatarButtonSize = "sm" | "lg" | "md";
 
 const ProfileAvatarButtonContext = React.createContext<{
   size: ProfileAvatarButtonSize;
   nsfw: boolean;
-  orientation: Orientation | null;
+  vertical: boolean;
 } | null>(null);
 
 const useProfileAvatarButtonContext = () => {
@@ -64,35 +57,34 @@ const getDidFieldIconType = (didKey: string) => {
   return didKey.includes("eip155")
     ? "ethereum"
     : didKey.includes("solana")
-    ? "solana"
-    : "did";
+      ? "solana"
+      : "did";
 };
 
-const ProfileAvatarButton = React.forwardRef<
-  HTMLDivElement,
-  ProfileAvatarButtonProps &
-    (
-      | { size?: Exclude<ProfileAvatarButtonSize, "lg"> }
-      | {
-          size?: "lg";
-          orientation?: Orientation;
-        }
-    )
->(({ nsfw = false, children, className, ...props }, ref) => {
+const ProfileAvatarButton = ({
+  nsfw = false,
+  children,
+  className,
+  ...props
+}: React.ComponentProps<"div"> & { nsfw?: boolean } & (
+    | { size?: Exclude<ProfileAvatarButtonSize, "lg"> }
+    | {
+        size?: "lg";
+        vertical?: boolean;
+      }
+  )) => {
   const size = props.size || "md";
-  const orientation =
-    props.size === "lg" ? props.orientation || "vertical" : null;
+  const vertical = props.size === "lg" ? !!props.vertical : false;
   return (
-    <ProfileAvatarButtonContext.Provider value={{ size, nsfw, orientation }}>
+    <ProfileAvatarButtonContext.Provider value={{ size, nsfw, vertical }}>
       <div
-        ref={ref}
+        data-slot="profile-avatar-button"
         className={cn(
           {
             "grid grid-cols-[0.5fr_1fr] grid-rows-2":
-              size === "lg" && orientation === "horizontal",
+              size === "lg" && !vertical,
             "grid grid-cols-[0fr_1fr] grid-rows-2": size === "md",
-            "flex items-center flex-col":
-              size === "lg" && orientation === "vertical",
+            "flex items-center flex-col": size === "lg" && vertical,
             "flex items-center": size === "sm",
           },
           "gap-1",
@@ -104,50 +96,49 @@ const ProfileAvatarButton = React.forwardRef<
       </div>
     </ProfileAvatarButtonContext.Provider>
   );
-});
-ProfileAvatarButton.displayName = "ProfileAvatarButton";
+};
 
 const sizeMap = { lg: "xl", md: "lg", sm: "xs" } as const;
 
-const ProfileAvatar = React.forwardRef<
-  React.ElementRef<typeof ProfileAvatarRoot>,
-  Omit<React.ComponentProps<typeof ProfileAvatarRoot>, "size">
->(({ className, ...props }, ref) => {
-  const { size, nsfw, orientation } = useProfileAvatarButtonContext();
+const ProfileAvatar = ({
+  className,
+  ...props
+}: Omit<React.ComponentProps<typeof ProfileAvatarRoot>, "size">) => {
+  const { size, nsfw, vertical } = useProfileAvatarButtonContext();
   return (
     <ProfileAvatarRoot
-      ref={ref}
+      data-slot="profile-avatar"
       size={sizeMap[size]}
       nsfw={nsfw}
       className={cn(
         {
           "self-center row-span-2":
-            size === "md" || (size === "lg" && orientation === "horizontal"),
+            size === "md" || (size === "lg" && !vertical),
         },
         className
       )}
       {...props}
     />
   );
-});
-ProfileAvatar.displayName = "ProfileAvatar";
+};
 
-const ProfileName = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { nsfwLabel?: string }
->(({ nsfwLabel, className, children, ...props }, ref) => {
-  const { size, orientation, nsfw } = useProfileAvatarButtonContext();
+const ProfileName = ({
+  nsfwLabel,
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"div"> & { nsfwLabel?: string }) => {
+  const { size, vertical, nsfw } = useProfileAvatarButtonContext();
   return (
     size && (
       <Stack
-        ref={ref}
+        data-slot="profile-name"
         alignItems="center"
         spacing={1}
         className={cn(
           {
-            "self-end": size === "lg" && orientation === "horizontal",
-            "justify-self-start":
-              size === "md" || (size === "lg" && orientation === "horizontal"),
+            "self-end": size === "lg" && !vertical,
+            "justify-self-start": size === "md" || (size === "lg" && !vertical),
           },
           className
         )}
@@ -160,8 +151,7 @@ const ProfileName = React.forwardRef<
       </Stack>
     )
   );
-});
-ProfileName.displayName = "ProfileName";
+};
 
 const didNetworkIconMapping = {
   ethereum: <Ethereum />,
@@ -170,23 +160,27 @@ const didNetworkIconMapping = {
   noDid: <NoEth />,
 };
 
-const ProfileDidField = React.forwardRef<
-  HTMLDivElement,
-  { did: string; isValid?: boolean; className?: string }
->(({ did, isValid = true, className }, ref) => {
-  const { size, orientation } = useProfileAvatarButtonContext();
+const ProfileDidField = ({
+  did,
+  isValid = true,
+  className,
+}: React.ComponentProps<"div"> & {
+  did: string;
+  isValid?: boolean;
+  className?: string;
+}) => {
+  const { size, vertical } = useProfileAvatarButtonContext();
   const networkType = getDidFieldIconType(did);
   return (
     <Stack
-      ref={ref}
+      data-slot="profile-did-field"
       direction="row"
       spacing={1.5}
       alignItems="center"
       className={cn(
         "h-4",
         {
-          "col-start-2":
-            size === "md" || (size === "lg" && orientation === "horizontal"),
+          "col-start-2": size === "md" || (size === "lg" && !vertical),
         },
         className
       )}
@@ -199,7 +193,7 @@ const ProfileDidField = React.forwardRef<
       </Typography>
     </Stack>
   );
-});
+};
 
 export {
   ProfileAvatarButton,

@@ -25,12 +25,6 @@ const profileAvatarVariants = cva(
   }
 );
 
-export interface ProfileAvatarProps
-  extends React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>,
-    VariantProps<typeof profileAvatarVariants> {
-  nsfw?: boolean;
-}
-
 const ProfileAvatarContext = React.createContext<{
   nsfw: boolean;
 } | null>(null);
@@ -45,14 +39,19 @@ const useAvatarContext = () => {
   return context;
 };
 
-const ProfileAvatar = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Root>,
-  ProfileAvatarProps
->(({ className, size, nsfw = false, ...props }, ref) => {
+const ProfileAvatar = ({
+  className,
+  size,
+  nsfw = false,
+  ...props
+}: React.ComponentProps<typeof AvatarPrimitive.Root> &
+  VariantProps<typeof profileAvatarVariants> & {
+    nsfw?: boolean;
+  }) => {
   return (
     <ProfileAvatarContext.Provider value={{ nsfw }}>
       <AvatarPrimitive.Root
-        ref={ref}
+        data-slot="profile-avatar"
         className={cn(
           profileAvatarVariants({
             size,
@@ -64,38 +63,36 @@ const ProfileAvatar = React.forwardRef<
       />
     </ProfileAvatarContext.Provider>
   );
-});
-ProfileAvatar.displayName = "ProfileAvatar";
+};
 
-const ProfileAvatarImage = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Image>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> & {
-    nsfw?: boolean;
-  }
->(({ className, ...props }, ref) => {
+const ProfileAvatarImage = ({
+  className,
+  ...props
+}: React.ComponentProps<typeof AvatarPrimitive.Image> & {
+  nsfw?: boolean;
+}) => {
   const { nsfw } = useAvatarContext();
   return nsfw ? (
     <EyeOff className={cn("text-destructive", className)} />
   ) : (
     <AvatarPrimitive.Image
-      ref={ref}
+      data-slot="profile-avatar-image"
       className={cn("aspect-square h-full w-full", className)}
       {...props}
       onLoadingStatusChange={() => {}}
     />
   );
-});
-ProfileAvatarImage.displayName = "ProfileAvatarImage";
+};
 
-const ProfileAvatarFallback = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Fallback>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
->(({ className, ...props }, ref) => {
+const ProfileAvatarFallback = ({
+  className,
+  ...props
+}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) => {
   const { nsfw } = useAvatarContext();
   return (
     !nsfw && (
       <AvatarPrimitive.Fallback
-        ref={ref}
+        data-slot="profile-avatar-fallback"
         className={cn(
           "flex h-full w-full items-center justify-center rounded-full bg-muted",
           className
@@ -104,8 +101,7 @@ const ProfileAvatarFallback = React.forwardRef<
       />
     )
   );
-});
-ProfileAvatarFallback.displayName = "ProfileAvatarFallback";
+};
 
 export {
   ProfileAvatar,

@@ -1,4 +1,4 @@
-import CopyToClipboard from "@/registry/default/akasha-ui/copy-to-clipboard";
+import { CopyToClipboard } from "@/registry/default/akasha-ui/copy-to-clipboard";
 import {
   ProfileAvatarButton,
   ProfileDidField,

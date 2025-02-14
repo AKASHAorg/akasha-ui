@@ -1,15 +1,11 @@
+import type { NextConfig } from "next";
 import { createContentlayerPlugin } from "next-contentlayer2";
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    outputFileTracingIncludes: {
-      "/blocks/*": ["./registry/**/*"],
-    },
+const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    "/*": ["./registry/**/*"],
   },
   output: "export",
-  reactStrictMode: true,
-  swcMinify: true,
   images: {
     remotePatterns: [
       {
@@ -27,7 +23,7 @@ const nextConfig = {
     ],
   },
   redirects() {
-    return [
+    return Promise.resolve([
       {
         source: "/",
         destination: "/docs",
@@ -78,7 +74,7 @@ const nextConfig = {
         destination: "/docs/react-19",
         permanent: true,
       },
-    ];
+    ]);
   },
 };
 
