@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import "@/styles/border-radius.css";
 
 import { Metadata, Viewport } from "next";
 
