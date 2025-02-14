@@ -145,6 +145,28 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "input-demo",
+    type: "registry:example",
+    registryDependencies: ["input"],
+    files: [
+      {
+        path: "examples/input-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "textarea-demo",
+    type: "registry:example",
+    registryDependencies: ["textarea"],
+    files: [
+      {
+        path: "examples/textarea-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "circular-progress-demo",
     type: "registry:example",
     registryDependencies: ["circular-progress"],
