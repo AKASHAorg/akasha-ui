@@ -2,10 +2,10 @@ import * as React from "react";
 
 import { Input } from "@/registry/default/ui/input";
 
-export default function InputDemo() {
+export default function InputSearchDemo() {
   return (
     <div>
-      <Input type="email" placeholder="Email" />
+      <Input type="search" placeholder="Search..." />
     </div>
   );
 }

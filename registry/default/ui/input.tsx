@@ -3,12 +3,7 @@ import { Search } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-function Input({
-  className,
-  type,
-  searchIcon,
-  ...props
-}: React.ComponentProps<"input"> & { searchIcon?: boolean }) {
+function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   return (
     <div className="relative">
       <input
@@ -20,7 +15,7 @@ function Input({
         )}
         {...props}
       />
-      {searchIcon && (
+      {type === "search" && (
         <Search
           size={24}
           className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"

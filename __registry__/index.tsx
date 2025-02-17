@@ -598,6 +598,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "input-search-demo": {
+      name: "input-search-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["input"],
+      files: [{
+        path: "registry/default/examples/input-search-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/input-search-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "textarea-demo": {
       name: "textarea-demo",
       description: "",

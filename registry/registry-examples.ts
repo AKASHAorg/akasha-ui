@@ -156,6 +156,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "input-search-demo",
+    type: "registry:example",
+    registryDependencies: ["input"],
+    files: [
+      {
+        path: "examples/input-search-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "textarea-demo",
     type: "registry:example",
     registryDependencies: ["textarea"],
