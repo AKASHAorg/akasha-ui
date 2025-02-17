@@ -61,6 +61,27 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "input",
+    type: "registry:ui",
+    dependencies: ["lucide-react"],
+    files: [
+      {
+        path: "ui/input.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "textarea",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/textarea.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "circular-progress",
     type: "registry:ui",
     registryDependencies: ["custom/typography"],
