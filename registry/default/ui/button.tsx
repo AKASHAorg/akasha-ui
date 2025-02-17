@@ -38,7 +38,7 @@ const buttonVariants = cva(
 function Button({
   className,
   variant,
-  size,
+  size = "default",
   loading,
   asChild = false,
   disabled,
@@ -59,9 +59,10 @@ function Button({
           [typographyVariants({ variant: "sm" })]: size === "default",
           [typographyVariants({ variant: "xs" })]: size === "sm",
         },
-        buttonVariants({ variant, size, className })
+        buttonVariants({ variant, size, className }),
+        { "p-0": variant === "link" || asChild }
       )}
-      disabled={loading ? true : disabled}
+      disabled={loading || disabled}
       {...props}
     >
       {loading ? <Loader2 className="animate-spin" /> : children}
