@@ -192,6 +192,11 @@
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--border)) transparent;
   }
+
+  /* Custom styling for search input */
+  input[type="search"]::-webkit-search-cancel-button{
+    -webkit-appearance: none;
+  }
 }
 
 @layer utilities {

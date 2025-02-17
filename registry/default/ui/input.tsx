@@ -1,12 +1,70 @@
 import * as React from "react";
-import { Search } from "lucide-react";
-
+import { Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+interface InputProps extends React.ComponentProps<"input"> {
+  className?: string;
+  type?: string;
+}
+
+function Input({ className, type, defaultValue, value, ...props }: InputProps) {
+  const [internalValue, setInternalValue] = React.useState(defaultValue || "");
+  const [isFocused, setIsFocused] = React.useState(false);
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  const isControlled = value !== undefined;
+
+  const handleClear = React.useCallback(
+    (e: React.MouseEvent<SVGSVGElement>) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (inputRef.current) {
+        setInternalValue("");
+        inputRef.current.value = "";
+        inputRef.current.dispatchEvent(new Event("input", { bubbles: true }));
+        inputRef.current.focus();
+      }
+    },
+    []
+  );
+
+  const handleChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (!isControlled) {
+        setInternalValue(e.target.value);
+      }
+      props.onChange?.(e);
+    },
+    [isControlled, props.onChange]
+  );
+
+  const handleFocus = React.useCallback(
+    (e: React.FocusEvent<HTMLInputElement>) => {
+      setIsFocused(true);
+      props.onFocus?.(e);
+    },
+    [props.onFocus]
+  );
+
+  const handleBlur = React.useCallback(
+    (e: React.FocusEvent<HTMLInputElement>) => {
+      setIsFocused(false);
+      props.onBlur?.(e);
+    },
+    [props.onBlur]
+  );
+
+  const showClearButton =
+    type === "search" && isFocused && (internalValue || value);
+  const showSearchIcon = type === "search" && !showClearButton;
+
   return (
     <div className="relative">
       <input
+        ref={inputRef}
+        value={isControlled ? value : internalValue}
+        onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         type={type}
         data-slot="input"
         className={cn(
@@ -15,10 +73,17 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
         )}
         {...props}
       />
-      {type === "search" && (
+      {showClearButton && (
+        <X
+          onMouseDown={handleClear}
+          size={24}
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground ml-2 cursor-pointer hover:text-foreground transition-colors"
+        />
+      )}
+      {showSearchIcon && (
         <Search
           size={24}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground bg-card"
         />
       )}
     </div>
