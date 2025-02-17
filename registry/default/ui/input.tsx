@@ -15,12 +15,6 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
         )}
         {...props}
       />
-      {type === "search" && (
-        <Search
-          size={24}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
-        />
-      )}
     </div>
   );
 }
