@@ -1,15 +1,14 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-
-import { typographyVariants } from "../akasha-ui/typography";
+import { typographyVariants } from "@/registry/default/akasha-ui/typography";
 
 function Card({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card"
       className={cn(
-        "bg-card text-card-foreground rounded-xl border shadow-sm p-6",
+        "bg-card text-card-foreground rounded-lg border overflow-hidden p-6",
         className
       )}
       {...props}
