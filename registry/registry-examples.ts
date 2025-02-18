@@ -387,6 +387,28 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "profile-avatar-button-metadata",
+    type: "registry:example",
+    registryDependencies: ["profile-avatar-button"],
+    files: [
+      {
+        path: "examples/profile-avatar-button-metadata.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "profile-avatar-button-nsfw",
+    type: "registry:example",
+    registryDependencies: ["profile-avatar-button"],
+    files: [
+      {
+        path: "examples/profile-avatar-button-nsfw.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "profile-avatar-button-small",
     type: "registry:example",
     registryDependencies: ["profile-avatar-button"],
