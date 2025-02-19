@@ -1,5 +1,5 @@
 ---
-title: Profile avatar
+title: Profile Avatar Button
 description: A profile element which contains profile avatar, profile name and profile DID.
 component: true
 ---
@@ -67,11 +67,13 @@ import {
 
 ## Props
 
-| Name     | Type                | Description                                                                                    |
-| -------- | ------------------- | ---------------------------------------------------------------------------------------------- |
-| size     | `sm`, `md`, or `lg` | Component sizes                                                                                |
-| nsfw     | `boolean`           | Not safe for work                                                                              |
-| vertical | `boolean`           | Positions the profile avatar above other components, applicable only when the `size` is large. |
+| Name      | Type                | Description                                                                                    |
+| --------- | ------------------- | ---------------------------------------------------------------------------------------------- |
+| size      | `sm`, `md`, or `lg` | Component sizes                                                                                |
+| nsfw      | `boolean`           | Not safe for work                                                                              |
+| nsfwLabel | `string`            | Not safe for work label                                                                        |
+| vertical  | `boolean`           | Positions the profile avatar above other components, applicable only when the `size` is large. |
+| metadata  | `ReactNode`         | Metadata element                                                                               |
 
 ## Examples
 
@@ -90,3 +92,11 @@ import {
 ### Small
 
 <ComponentPreview name="profile-avatar-button-small" />
+
+### Metadata
+
+<ComponentPreview name="profile-avatar-button-metadata" />
+
+### Not safe for work(NSFW)
+
+<ComponentPreview name="profile-avatar-button-nsfw" />
