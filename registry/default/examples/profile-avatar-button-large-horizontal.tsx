@@ -5,7 +5,7 @@ import {
   ProfileAvatarImage,
   ProfileDidField,
   ProfileName,
-} from "@/registry/default/akasha-ui/profile-avatar-button";
+} from "@/registry/default/ui/profile-avatar-button";
 
 export default function ProfileAvatarButtonLargeHorizontal() {
   return (

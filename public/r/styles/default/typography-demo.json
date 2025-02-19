@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/typography-demo.tsx",
-      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyDemo() {\n  return <Typography>Typography</Typography>;\n}\n",
+      "content": "import { Typography } from \"@/registry/default/ui/typography\";\n\nexport default function TypographyDemo() {\n  return <Typography>Typography</Typography>;\n}\n",
       "type": "registry:example",
       "target": ""
     }

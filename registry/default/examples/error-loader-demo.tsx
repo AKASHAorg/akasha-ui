@@ -1,10 +1,10 @@
+import { Button } from "@/registry/default/ui/button";
 import {
   ErrorLoader,
   ErrorLoaderDescription,
   ErrorLoaderFooter,
   ErrorLoaderTitle,
-} from "@/registry/default/akasha-ui/error-loader";
-import { Button } from "@/registry/default/ui/button";
+} from "@/registry/default/ui/error-loader";
 
 export default function ErrorLoaderDemo() {
   return (

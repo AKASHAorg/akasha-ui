@@ -2,10 +2,7 @@
 
 import { useState } from "react";
 
-import {
-  Autocomplete,
-  type Option,
-} from "@/registry/default/akasha-ui/autocomplete";
+import { Autocomplete, type Option } from "@/registry/default/ui/autocomplete";
 
 const frameworks = [
   { value: "next", label: "Next.js" },

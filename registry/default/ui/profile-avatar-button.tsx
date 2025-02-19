@@ -3,18 +3,18 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { IconContainer } from "@/registry/default/akasha-ui/icon-container";
-import {
-  ProfileAvatarFallback,
-  ProfileAvatarImage,
-  ProfileAvatar as ProfileAvatarRoot,
-} from "@/registry/default/akasha-ui/profile-avatar";
-import { Stack } from "@/registry/default/akasha-ui/stack";
-import { Typography } from "@/registry/default/akasha-ui/typography";
 import { DidKey } from "@/registry/default/custom-icons/did-key";
 import { Ethereum } from "@/registry/default/custom-icons/ethereum";
 import { NoEth } from "@/registry/default/custom-icons/no-eth";
 import { Solana } from "@/registry/default/custom-icons/solana";
+import { IconContainer } from "@/registry/default/ui/icon-container";
+import {
+  ProfileAvatarFallback,
+  ProfileAvatarImage,
+  ProfileAvatar as ProfileAvatarRoot,
+} from "@/registry/default/ui/profile-avatar";
+import { Stack } from "@/registry/default/ui/stack";
+import { Typography } from "@/registry/default/ui/typography";
 
 type ProfileAvatarButtonSize = "sm" | "lg" | "md";
 

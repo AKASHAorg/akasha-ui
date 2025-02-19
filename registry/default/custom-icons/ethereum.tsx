@@ -1,10 +1,7 @@
 import React from "react";
 import { LucideProps } from "lucide-react";
 
-export const Ethereum = React.forwardRef<
-  SVGSVGElement,
-  Omit<LucideProps, "ref">
->((props, ref) => (
+export const Ethereum = (props: LucideProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -14,7 +11,6 @@ export const Ethereum = React.forwardRef<
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    ref={ref}
     {...props}
   >
     <path
@@ -36,5 +32,4 @@ export const Ethereum = React.forwardRef<
       fill="#8E5298"
     />
   </svg>
-));
-Ethereum.displayName = "Ethereum";
+);

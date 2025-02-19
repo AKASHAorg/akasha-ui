@@ -6,13 +6,13 @@ import {
 } from "@tanstack/react-virtual";
 
 import { cn } from "@/lib/utils";
-import { Stack } from "@/registry/default/akasha-ui/stack";
 import { useIsMobile } from "@/registry/default/hooks/use-mobile";
 import {
   getHeaderHeight,
   getInitialMeasurementsCache,
   useScrollRestoration,
 } from "@/registry/default/hooks/use-scroll-restoration";
+import { Stack } from "@/registry/default/ui/stack";
 
 const InfiniteScrollContext = React.createContext<{
   listOffset: number;
@@ -236,7 +236,7 @@ const ScrollRestoration = (
         "className",
         `${headerRef.current.className} min-h-[${headerHeight}px]`
       );
-  }, [getHeaderHeight]);
+  }, [headerRef, lastScrollRestorationKey, scrollRestorationStorageKey]);
 
   useScrollRestoration({
     virtualizer,

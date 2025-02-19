@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/typography-small.tsx",
-      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographySmall() {\n  return (\n    <Typography variant=\"sm\">\n      Used for explanatory text and supporting details. Used in input &\n      tooltips.\n    </Typography>\n  );\n}\n",
+      "content": "import { Typography } from \"@/registry/default/ui/typography\";\n\nexport default function TypographySmall() {\n  return (\n    <Typography variant=\"sm\">\n      Used for explanatory text and supporting details. Used in input &\n      tooltips.\n    </Typography>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

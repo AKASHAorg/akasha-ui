@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/typography-p.tsx",
-      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyParagraph() {\n  return (\n    <Typography variant=\"p\">\n      Standard body text for posts, comments & general written content.\n    </Typography>\n  );\n}\n",
+      "content": "import { Typography } from \"@/registry/default/ui/typography\";\n\nexport default function TypographyParagraph() {\n  return (\n    <Typography variant=\"p\">\n      Standard body text for posts, comments & general written content.\n    </Typography>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

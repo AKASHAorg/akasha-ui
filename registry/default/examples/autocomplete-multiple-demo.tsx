@@ -3,10 +3,7 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 
-import {
-  Autocomplete,
-  type Option,
-} from "@/registry/default/akasha-ui/autocomplete";
+import { Autocomplete, type Option } from "@/registry/default/ui/autocomplete";
 import { Badge } from "@/registry/default/ui/badge";
 import { Button } from "@/registry/default/ui/button";
 

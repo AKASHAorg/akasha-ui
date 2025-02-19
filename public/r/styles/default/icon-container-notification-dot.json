@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/icon-container-notification-dot.tsx",
-      "content": "import React from \"react\";\nimport { Heart } from \"lucide-react\";\n\nimport { IconContainer } from \"@/registry/default/akasha-ui/icon-container\";\n\nconst IconContainerNotificationDot = () => {\n  return (\n    <IconContainer showNotificationDot={true}>\n      <Heart />\n    </IconContainer>\n  );\n};\n\nexport default IconContainerNotificationDot;\n",
+      "content": "import React from \"react\";\nimport { Heart } from \"lucide-react\";\n\nimport { IconContainer } from \"@/registry/default/ui/icon-container\";\n\nconst IconContainerNotificationDot = () => {\n  return (\n    <IconContainer showNotificationDot={true}>\n      <Heart />\n    </IconContainer>\n  );\n};\n\nexport default IconContainerNotificationDot;\n",
       "type": "registry:example",
       "target": ""
     }
