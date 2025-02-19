@@ -5,9 +5,8 @@ import {
   ProfileAvatarImage,
   ProfileDidField,
   ProfileName,
-} from "@/registry/default/akasha-ui/profile-avatar-button";
-
-import { Typography } from "../akasha-ui/typography";
+} from "@/registry/default/ui/profile-avatar-button";
+import { Typography } from "@/registry/default/ui/typography";
 
 export default function ProfileAvatarButtonMetadata() {
   return (
