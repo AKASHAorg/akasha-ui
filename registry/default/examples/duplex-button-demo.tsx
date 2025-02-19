@@ -8,7 +8,7 @@ import {
   DuplexButtonActive,
   DuplexButtonHover,
   DuplexButtonInactive,
-} from "@/registry/default/akasha-ui/duplex-button";
+} from "@/registry/default/ui/duplex-button";
 
 export default function DuplexButtonDemo() {
   const [follow, setFollow] = useState(false);

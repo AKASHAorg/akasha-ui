@@ -2,16 +2,12 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 import {
-  Image,
-  ImageFallback,
-  ImageRoot,
-} from "@/registry/default/akasha-ui/image";
-import {
   Card,
   CardDescription,
   CardFooter,
   CardTitle,
 } from "@/registry/default/ui/card";
+import { Image, ImageFallback, ImageRoot } from "@/registry/default/ui/image";
 
 const ErrorLoaderTitle = ({
   className,

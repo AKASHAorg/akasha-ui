@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { typographyVariants } from "@/registry/default/akasha-ui/typography";
+import { typographyVariants } from "@/registry/default/ui/typography";
 
 const ToastProvider = ToastPrimitives.Provider;
 

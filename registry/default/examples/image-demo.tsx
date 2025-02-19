@@ -1,8 +1,4 @@
-import {
-  Image,
-  ImageFallback,
-  ImageRoot,
-} from "@/registry/default/akasha-ui/image";
+import { Image, ImageFallback, ImageRoot } from "@/registry/default/ui/image";
 
 export default function ImageDemo() {
   return (

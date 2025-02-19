@@ -2,8 +2,8 @@
 
 import React from "react";
 
-import { Stepper } from "@/registry/default/akasha-ui/stepper";
 import { Button } from "@/registry/default/ui/button";
+import { Stepper } from "@/registry/default/ui/stepper";
 
 export default function StepperDemo() {
   const [currentStep, setCurrentStep] = React.useState(1);

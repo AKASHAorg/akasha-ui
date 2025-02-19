@@ -4,7 +4,7 @@ import { faker } from "@faker-js/faker";
 import {
   InfiniteScroll,
   InfiniteScrollList,
-} from "@/registry/default/akasha-ui/infinite-scroll";
+} from "@/registry/default/ui/infinite-scroll";
 
 const randomNumber = (min: number, max: number) =>
   faker.number.int({ min, max });

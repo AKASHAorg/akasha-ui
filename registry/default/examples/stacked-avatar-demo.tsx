@@ -2,8 +2,8 @@ import {
   ProfileAvatar,
   ProfileAvatarFallback,
   ProfileAvatarImage,
-} from "@/registry/default/akasha-ui/profile-avatar";
-import { StackedAvatar } from "@/registry/default/akasha-ui/stacked-avatar";
+} from "@/registry/default/ui/profile-avatar";
+import { StackedAvatar } from "@/registry/default/ui/stacked-avatar";
 
 export default function StackedAvatarDemo() {
   const avatars = [

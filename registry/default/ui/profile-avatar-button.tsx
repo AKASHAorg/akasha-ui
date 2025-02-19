@@ -3,24 +3,26 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { IconContainer } from "@/registry/default/akasha-ui/icon-container";
-import {
-  ProfileAvatarFallback,
-  ProfileAvatarImage,
-  ProfileAvatar as ProfileAvatarRoot,
-} from "@/registry/default/akasha-ui/profile-avatar";
-import { Stack } from "@/registry/default/akasha-ui/stack";
-import { Typography } from "@/registry/default/akasha-ui/typography";
 import { DidKey } from "@/registry/default/custom-icons/did-key";
 import { Ethereum } from "@/registry/default/custom-icons/ethereum";
 import { NoEth } from "@/registry/default/custom-icons/no-eth";
 import { Solana } from "@/registry/default/custom-icons/solana";
+import { IconContainer } from "@/registry/default/ui/icon-container";
+import {
+  ProfileAvatarFallback,
+  ProfileAvatarImage,
+  ProfileAvatar as ProfileAvatarRoot,
+} from "@/registry/default/ui/profile-avatar";
+import { Stack } from "@/registry/default/ui/stack";
+import { Typography } from "@/registry/default/ui/typography";
 
 type ProfileAvatarButtonSize = "sm" | "lg" | "md";
 
 const ProfileAvatarButtonContext = React.createContext<{
   size: ProfileAvatarButtonSize;
   nsfw: boolean;
+  nsfwLabel?: string;
+  metadata?: React.ReactNode;
   vertical: boolean;
 } | null>(null);
 
@@ -63,12 +65,14 @@ const getDidFieldIconType = (didKey: string) => {
 
 const ProfileAvatarButton = ({
   nsfw = false,
+  nsfwLabel,
+  metadata,
   children,
   size = "md",
   vertical = false,
   className,
   ...props
-}: { nsfw?: boolean } & (
+}: { nsfw?: boolean; nsfwLabel?: string; metadata?: React.ReactNode } & (
   | { size?: Exclude<ProfileAvatarButtonSize, "lg">; vertical?: false }
   | {
       size?: "lg";
@@ -77,7 +81,9 @@ const ProfileAvatarButton = ({
 ) &
   React.ComponentProps<"div">) => {
   return (
-    <ProfileAvatarButtonContext.Provider value={{ size, nsfw, vertical }}>
+    <ProfileAvatarButtonContext.Provider
+      value={{ size, nsfw, nsfwLabel, metadata, vertical }}
+    >
       <div
         data-slot="profile-avatar-button"
         className={cn(
@@ -124,31 +130,43 @@ const ProfileAvatar = ({
 };
 
 const ProfileName = ({
-  nsfwLabel,
   className,
   children,
   ...props
-}: React.ComponentProps<"div"> & { nsfwLabel?: string }) => {
-  const { size, vertical, nsfw } = useProfileAvatarButtonContext();
+}: React.ComponentProps<"div">) => {
+  const { size, vertical, nsfw, nsfwLabel, metadata } =
+    useProfileAvatarButtonContext();
   return (
     size && (
       <Stack
         data-slot="profile-name"
+        direction="row"
         alignItems="center"
         spacing={1}
-        className={cn(
-          {
-            "self-end": size === "lg" && !vertical,
-            "justify-self-start": size === "md" || (size === "lg" && !vertical),
-          },
-          className
-        )}
+        className={cn({
+          "self-end": size === "lg" && !vertical,
+          "justify-self-start": size === "md" || (size === "lg" && !vertical),
+        })}
         {...props}
       >
-        <Typography variant={size === "sm" ? "xs" : "sm"} bold={size !== "sm"}>
+        <Typography
+          variant={size === "sm" ? "xs" : "sm"}
+          bold={size !== "sm"}
+          className={className}
+        >
           {children}
         </Typography>
-        {nsfw && <Typography>{nsfwLabel}</Typography>}
+        {nsfw && size !== "sm" && (
+          <Typography
+            data-slot="nsfw-label"
+            variant="xs"
+            bold={true}
+            className="text-destructive"
+          >
+            {nsfwLabel}
+          </Typography>
+        )}
+        {metadata}
       </Stack>
     )
   );

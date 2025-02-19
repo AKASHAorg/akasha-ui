@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/typography-h1.tsx",
-      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyH1() {\n  return (\n    <Typography variant=\"h1\">\n      The primary headline for a page or section, designed to grab attention\n      with maximum prominence.\n    </Typography>\n  );\n}\n",
+      "content": "import { Typography } from \"@/registry/default/ui/typography\";\n\nexport default function TypographyH1() {\n  return (\n    <Typography variant=\"h1\">\n      The primary headline for a page or section, designed to grab attention\n      with maximum prominence.\n    </Typography>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

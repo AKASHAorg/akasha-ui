@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/circular-progress-demo.tsx",
-      "content": "import * as React from \"react\";\n\nimport { CircularProgress } from \"@/registry/default/akasha-ui/circular-progress\";\n\nexport default function CircularProgressDemo() {\n  const [progress, setProgress] = React.useState(20);\n\n  React.useEffect(() => {\n    const timer1 = setTimeout(() => setProgress(80), 500);\n    const timer2 = setTimeout(() => setProgress(100), 1000);\n    const timer3 = setTimeout(() => setProgress(105), 1500);\n    const timer4 = setTimeout(() => setProgress(80), 3000);\n    return () => {\n      clearTimeout(timer1);\n      clearTimeout(timer2);\n      clearTimeout(timer3);\n      clearTimeout(timer4);\n    };\n  }, []);\n  return <CircularProgress value={progress} />;\n}\n",
+      "content": "import * as React from \"react\";\n\nimport { CircularProgress } from \"@/registry/default/ui/circular-progress\";\n\nexport default function CircularProgressDemo() {\n  const [progress, setProgress] = React.useState(20);\n\n  React.useEffect(() => {\n    const timer1 = setTimeout(() => setProgress(80), 500);\n    const timer2 = setTimeout(() => setProgress(100), 1000);\n    const timer3 = setTimeout(() => setProgress(105), 1500);\n    const timer4 = setTimeout(() => setProgress(80), 3000);\n    return () => {\n      clearTimeout(timer1);\n      clearTimeout(timer2);\n      clearTimeout(timer3);\n      clearTimeout(timer4);\n    };\n  }, []);\n  return <CircularProgress value={progress} />;\n}\n",
       "type": "registry:example",
       "target": ""
     }

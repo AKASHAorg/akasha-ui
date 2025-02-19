@@ -1,8 +1,8 @@
-import { CopyToClipboard } from "@/registry/default/akasha-ui/copy-to-clipboard";
+import { CopyToClipboard } from "@/registry/default/ui/copy-to-clipboard";
 import {
   ProfileAvatarButton,
   ProfileDidField,
-} from "@/registry/default/akasha-ui/profile-avatar-button";
+} from "@/registry/default/ui/profile-avatar-button";
 
 export default function CopyToClipboardDemo() {
   return (

@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/input-search-demo.tsx",
-      "content": "import * as React from \"react\";\n\nimport { Input } from \"@/registry/default/ui/input\";\n\nexport default function InputSearchDemo() {\n  return (\n    <div>\n      <Input type=\"search\" placeholder=\"Search...\" />;\n    </div>\n  );\n}\n",
+      "content": "import * as React from \"react\";\n\nimport { Input } from \"@/registry/default/ui/input\";\n\nexport default function InputSearchDemo() {\n  return (\n    <div>\n      <Input type=\"search\" placeholder=\"Search...\" />\n    </div>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }
