@@ -913,6 +913,36 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "profile-avatar-button-metadata": {
+      name: "profile-avatar-button-metadata",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["profile-avatar-button"],
+      files: [{
+        path: "registry/default/examples/profile-avatar-button-metadata.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/profile-avatar-button-metadata.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "profile-avatar-button-nsfw": {
+      name: "profile-avatar-button-nsfw",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["profile-avatar-button"],
+      files: [{
+        path: "registry/default/examples/profile-avatar-button-nsfw.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/profile-avatar-button-nsfw.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "profile-avatar-button-small": {
       name: "profile-avatar-button-small",
       description: "",

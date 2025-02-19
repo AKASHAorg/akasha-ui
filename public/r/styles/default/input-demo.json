@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/input-demo.tsx",
-      "content": "import * as React from \"react\";\n\nimport { Input } from \"@/registry/default/ui/input\";\n\nexport default function InputDemo() {\n  return (\n    <div>\n      <Input />;\n    </div>\n  );\n}\n",
+      "content": "import * as React from \"react\";\n\nimport { Input } from \"@/registry/default/ui/input\";\n\nexport default function InputDemo() {\n  return (\n    <div>\n      <Input type=\"email\" placeholder=\"Email\" />\n    </div>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }
