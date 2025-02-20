@@ -193,26 +193,10 @@
     scrollbar-color: hsl(var(--border)) transparent;
   }
 
-  /* Default state: Show search icon */
-  div:has(> input[type="search"])::after {
-    content: '';
-    position: absolute;
-    right: 0.75em;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.5;
-    width: 1.5em;
-    height: 1.5em;
-    background: url(https://unpkg.com/lucide-static@0.473.0/icons/search.svg) no-repeat center;
-    pointer-events: none;
-  }
 
-  /* When input has text, hide search icon. (Use div, input cannot have after element) */
-  div:has(> input[type="search"]:not(:placeholder-shown))::after {
-    display: none;
-  }
 
-  /* When input has text, show clear button (overriding search icon) */
+
+  /* When input has text, show "X" button*/
   input[type="search"]::-webkit-search-cancel-button {
     background: url(https://unpkg.com/lucide-static@0.473.0/icons/x.svg) no-repeat center;
     opacity: 0.5;
@@ -221,17 +205,9 @@
     width: 1em;
   }
 
-  /* Hide search icon when input has text (using :not(:placeholder-shown)) */
-  input[type="search"]:not(:placeholder-shown) {
-    background-image: none;
-  }
   
   .dark{
     input[type = 'search']::-webkit-search-cancel-button {
-      filter: invert(1); 
-    }
-
-    div:has(> input[type="search"])::after {
       filter: invert(1); 
     }
   }
