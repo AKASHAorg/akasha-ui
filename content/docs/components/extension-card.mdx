@@ -61,12 +61,18 @@ import {
 
 ```tsx
 <ExtensionCard>
-  <ExtensionCardAvatar>Avatar</ExtensionCardAvatar>
+  <ExtensionCardAvatar>
+    <ExtensionAvatar size="lg" extensionId="">
+      <ExtensionAvatarImage
+        src="https://github.com/akashaorg.png"
+        alt="@akashaorg"
+      />
+      <ExtensionAvatarFallback />
+    </ExtensionAvatar>
+  </ExtensionCardAvatar>{" "}
   <ExtensionCardContent>
-    <ExtensionCardName>Antenna</ExtensionCardName>
-    <ExtensionCardDescription>
-      Extension card description
-    </ExtensionCardDescription>
+    <ExtensionCardName>Extensions</ExtensionCardName>
+    <ExtensionCardDescription>Extension description</ExtensionCardDescription>
   </ExtensionCardContent>
   <ExtensionCardAction active={active}>
     <ExtensionCardActionInactive
