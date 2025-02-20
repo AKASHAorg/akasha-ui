@@ -192,6 +192,25 @@
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--border)) transparent;
   }
+
+  /* When input has text, show "X" button*/
+  input[type="search"]::-webkit-search-cancel-button {
+    background: url(https://unpkg.com/lucide-static@0.473.0/icons/x.svg)
+      no-repeat center;
+    -webkit-appearance: none;
+    height: 0.8em;
+    width: 0.8em;
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(24%) sepia(86%) saturate(2382%)
+      hue-rotate(252deg) brightness(93%) contrast(100%);
+  }
+
+  .dark {
+    input[type="search"]::-webkit-search-cancel-button {
+      filter: brightness(0) saturate(100%) invert(78%) sepia(55%)
+        saturate(5921%) hue-rotate(219deg) brightness(96%) contrast(105%);
+    }
+  }
 }
 
 @layer component {
