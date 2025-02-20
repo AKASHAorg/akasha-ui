@@ -219,11 +219,10 @@ const ProfileDidField = ({ className }: React.ComponentProps<"div">) => {
   );
 };
 
-export {
-  ProfileAvatarButton,
-  ProfileAvatar,
-  ProfileAvatarFallback,
-  ProfileAvatarImage,
-  ProfileName,
-  ProfileDidField,
-};
+ProfileAvatarButton.Avatar = ProfileAvatar;
+
+ProfileAvatarButton.AvatarFallback = ProfileAvatarFallback;
+
+ProfileAvatarButton.AvatarImage = ProfileAvatarImage;
+
+export { ProfileAvatarButton, ProfileName, ProfileDidField };
