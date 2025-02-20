@@ -63,9 +63,13 @@ const ExtensionCardAvatar = (
   );
 };
 
-const ExtensionCardAvatarFallback = ExtensionAvatarFallback;
+const ExtensionCardAvatarFallback = (
+  props: React.ComponentProps<typeof ExtensionAvatarFallback>
+) => <ExtensionAvatarFallback {...props} />;
 
-const ExtensionCardAvatarImage = ExtensionAvatarImage;
+const ExtensionCardAvatarImage = (
+  props: React.ComponentProps<typeof ExtensionAvatarImage>
+) => <ExtensionAvatarImage {...props} />;
 
 const ExtensionCardContent = ({
   className,
