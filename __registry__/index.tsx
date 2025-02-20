@@ -140,6 +140,25 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "extension-card": {
+      name: "extension-card",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["custom/typography","custom/extension-type-icon","badge"],
+      files: [{
+        path: "registry/default/ui/extension-card.tsx",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/types/extension-type.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/extension-card.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "form": {
       name: "form",
       description: "",
@@ -677,7 +696,7 @@ export const Index: Record<string, any> = {
       name: "error-loader-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["card","image"],
+      registryDependencies: ["error-loader"],
       files: [{
         path: "registry/default/examples/error-loader-demo.tsx",
         type: "registry:example",
@@ -685,6 +704,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/error-loader-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "extension-card-demo": {
+      name: "extension-card-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["extension-card"],
+      files: [{
+        path: "registry/default/examples/extension-card-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/extension-card-demo.tsx")),
       source: "",
       meta: undefined,
     },

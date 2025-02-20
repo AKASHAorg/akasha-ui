@@ -20,7 +20,7 @@ export default function StackedAvatarDemo() {
             src={avatars[index].src}
             alt={avatars[index].alt}
           />
-          <ProfileAvatarFallback>AK</ProfileAvatarFallback>
+          <ProfileAvatarFallback />
         </ProfileAvatar>
       )}
     </StackedAvatar>

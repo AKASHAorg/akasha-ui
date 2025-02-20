@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { z } from "zod";
 
 import { cn } from "@/lib/utils";
 import { DidKey } from "@/registry/default/custom-icons/did-key";
@@ -18,11 +19,17 @@ import { Typography } from "@/registry/default/ui/typography";
 
 type ProfileAvatarButtonSize = "sm" | "lg" | "md";
 
+const DID_SCHEMA = z
+  .string()
+  .min(5)
+  .refine((x: string) => x.startsWith("did:"));
+
 const ProfileAvatarButtonContext = React.createContext<{
+  profileDID: string;
   size: ProfileAvatarButtonSize;
   nsfw: boolean;
-  nsfwLabel?: string;
-  metadata?: React.ReactNode;
+  nsfwLabel: string;
+  metadata: React.ReactNode;
   vertical: boolean;
 } | null>(null);
 
@@ -64,15 +71,21 @@ const getDidFieldIconType = (didKey: string) => {
 };
 
 const ProfileAvatarButton = ({
+  profileDID = "",
   nsfw = false,
-  nsfwLabel,
+  nsfwLabel = "",
   metadata,
   children,
   size = "md",
   vertical = false,
   className,
   ...props
-}: { nsfw?: boolean; nsfwLabel?: string; metadata?: React.ReactNode } & (
+}: {
+  profileDID?: string;
+  nsfw?: boolean;
+  nsfwLabel?: string;
+  metadata?: React.ReactNode;
+} & (
   | { size?: Exclude<ProfileAvatarButtonSize, "lg">; vertical?: false }
   | {
       size?: "lg";
@@ -82,7 +95,7 @@ const ProfileAvatarButton = ({
   React.ComponentProps<"div">) => {
   return (
     <ProfileAvatarButtonContext.Provider
-      value={{ size, nsfw, nsfwLabel, metadata, vertical }}
+      value={{ profileDID, nsfw, nsfwLabel, size, metadata, vertical }}
     >
       <div
         data-slot="profile-avatar-button"
@@ -111,10 +124,11 @@ const ProfileAvatar = ({
   className,
   ...props
 }: Omit<React.ComponentProps<typeof ProfileAvatarRoot>, "size">) => {
-  const { size, nsfw, vertical } = useProfileAvatarButtonContext();
+  const { profileDID, size, nsfw, vertical } = useProfileAvatarButtonContext();
   return (
     <ProfileAvatarRoot
       data-slot="profile-avatar"
+      profileDID={profileDID}
       size={sizeMap[size]}
       nsfw={nsfw}
       className={cn(
@@ -179,17 +193,11 @@ const didNetworkIconMapping = {
   noDid: <NoEth />,
 };
 
-const ProfileDidField = ({
-  did,
-  isValid = true,
-  className,
-}: React.ComponentProps<"div"> & {
-  did: string;
-  isValid?: boolean;
-  className?: string;
-}) => {
-  const { size, vertical } = useProfileAvatarButtonContext();
-  const networkType = getDidFieldIconType(did);
+const ProfileDidField = ({ className }: React.ComponentProps<"div">) => {
+  const { profileDID, size, vertical } = useProfileAvatarButtonContext();
+  const networkType = getDidFieldIconType(profileDID);
+  const { success: isValidDID } = DID_SCHEMA.safeParse(profileDID);
+
   return (
     <Stack
       data-slot="profile-did-field"
@@ -205,10 +213,10 @@ const ProfileDidField = ({
       )}
     >
       <IconContainer size="xs" className="text-secondary-foreground">
-        {isValid ? didNetworkIconMapping[networkType] : <NoEth />}
+        {isValidDID ? didNetworkIconMapping[networkType] : <NoEth />}
       </IconContainer>
       <Typography variant="xs" className="text-secondary-foreground">
-        {truncateDid(did, networkType)}
+        {isValidDID ? truncateDid(profileDID, networkType) : "Invalid DID"}
       </Typography>
     </Stack>
   );

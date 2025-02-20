@@ -1,0 +1,100 @@
+---
+title: Extension Card
+description: A card containing basic information about an extension(an app, widget or plugin)
+component: true
+---
+
+<ComponentPreview name="extension-card-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/extension-card.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install lucide-react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="extension-card" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  ExtensionCard,
+  ExtensionCardAction,
+  ExtensionCardActionActive,
+  ExtensionCardActionInactive,
+  ExtensionCardAvatar,
+  ExtensionCardContent,
+  ExtensionCardDescription,
+  ExtensionCardName,
+} from "<path-to-ui-component>/extension-card";
+```
+
+```tsx
+<ExtensionCard>
+  <ExtensionCardAvatar>Avatar</ExtensionCardAvatar>
+  <ExtensionCardContent>
+    <ExtensionCardName>Antenna</ExtensionCardName>
+    <ExtensionCardDescription>
+      Extension card description
+    </ExtensionCardDescription>
+  </ExtensionCardContent>
+  <ExtensionCardAction active={active}>
+    <ExtensionCardActionInactive
+      onClick={() => {
+        setActive(true);
+      }}
+    >
+      Add
+    </ExtensionCardActionInactive>
+    <ExtensionCardActionActive
+      onClick={() => {
+        setActive(false);
+      }}
+    >
+      Added
+    </ExtensionCardActionActive>
+  </ExtensionCardAction>
+</ExtensionCard>
+```
+
+## Props
+
+| Name          | Type            | Description    |
+| ------------- | --------------- | -------------- |
+| extensionType | `ExtensionType` | Extension type |
+
+`ExtensionCardAction`
+
+| Name   | Type      | Description                               |
+| ------ | --------- | ----------------------------------------- |
+| active | `boolean` | Whether a badge button is in active state |

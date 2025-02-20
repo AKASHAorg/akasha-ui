@@ -213,10 +213,21 @@ export const examples: Registry = [
   {
     name: "error-loader-demo",
     type: "registry:example",
-    registryDependencies: ["card", "image"],
+    registryDependencies: ["error-loader"],
     files: [
       {
         path: "examples/error-loader-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "extension-card-demo",
+    type: "registry:example",
+    registryDependencies: ["extension-card"],
+    files: [
+      {
+        path: "examples/extension-card-demo.tsx",
         type: "registry:example",
       },
     ],

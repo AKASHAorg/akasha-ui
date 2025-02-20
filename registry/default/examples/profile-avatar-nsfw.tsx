@@ -11,7 +11,7 @@ export default function ProfileAvatarNSFW() {
         src="https://github.com/akashaorg.png"
         alt="@akashaorg"
       />
-      <ProfileAvatarFallback>AK</ProfileAvatarFallback>
+      <ProfileAvatarFallback />
     </ProfileAvatar>
   );
 }

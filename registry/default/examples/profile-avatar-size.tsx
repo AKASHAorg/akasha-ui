@@ -11,7 +11,7 @@ export default function ProfileAvatarExtraLarge() {
         src="https://github.com/akashaorg.png"
         alt="@akashaorg"
       />
-      <ProfileAvatarFallback>AK</ProfileAvatarFallback>
+      <ProfileAvatarFallback />
     </ProfileAvatar>
   );
 }

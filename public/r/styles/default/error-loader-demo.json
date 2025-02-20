@@ -2,8 +2,7 @@
   "name": "error-loader-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "card",
-    "image"
+    "error-loader"
   ],
   "files": [
     {

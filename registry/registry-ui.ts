@@ -102,6 +102,25 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "extension-card",
+    type: "registry:ui",
+    registryDependencies: [
+      "custom/typography",
+      "custom/extension-type-icon",
+      "badge",
+    ],
+    files: [
+      {
+        path: "ui/extension-card.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "types/extension-type.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "form",
     type: "registry:ui",
     dependencies: [
