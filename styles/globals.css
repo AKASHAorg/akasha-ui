@@ -201,8 +201,9 @@
     background: url(https://unpkg.com/lucide-static@0.473.0/icons/x.svg) no-repeat center;
     opacity: 0.5;
     -webkit-appearance: none;
-    height: 1em;
-    width: 1em;
+    height: 0.8em;
+    width: 0.8em;
+
   }
 
   
