@@ -213,10 +213,21 @@ export const examples: Registry = [
   {
     name: "error-loader-demo",
     type: "registry:example",
-    registryDependencies: ["card", "image"],
+    registryDependencies: ["error-loader"],
     files: [
       {
         path: "examples/error-loader-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "extension-card-demo",
+    type: "registry:example",
+    registryDependencies: ["extension-card"],
+    files: [
+      {
+        path: "examples/extension-card-demo.tsx",
         type: "registry:example",
       },
     ],
@@ -382,6 +393,28 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/profile-avatar-button-medium.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "profile-avatar-button-metadata",
+    type: "registry:example",
+    registryDependencies: ["profile-avatar-button"],
+    files: [
+      {
+        path: "examples/profile-avatar-button-metadata.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "profile-avatar-button-nsfw",
+    type: "registry:example",
+    registryDependencies: ["profile-avatar-button"],
+    files: [
+      {
+        path: "examples/profile-avatar-button-nsfw.tsx",
         type: "registry:example",
       },
     ],

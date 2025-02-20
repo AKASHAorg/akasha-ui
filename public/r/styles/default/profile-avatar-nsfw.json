@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/profile-avatar-nsfw.tsx",
-      "content": "import {\n  ProfileAvatar,\n  ProfileAvatarFallback,\n  ProfileAvatarImage,\n} from \"@/registry/default/akasha-ui/profile-avatar\";\n\nexport default function ProfileAvatarNSFW() {\n  return (\n    <ProfileAvatar nsfw>\n      <ProfileAvatarImage\n        src=\"https://github.com/akashaorg.png\"\n        alt=\"@akashaorg\"\n      />\n      <ProfileAvatarFallback>AK</ProfileAvatarFallback>\n    </ProfileAvatar>\n  );\n}\n",
+      "content": "import {\n  ProfileAvatar,\n  ProfileAvatarFallback,\n  ProfileAvatarImage,\n} from \"@/registry/default/ui/profile-avatar\";\n\nexport default function ProfileAvatarNSFW() {\n  return (\n    <ProfileAvatar nsfw>\n      <ProfileAvatarImage\n        src=\"https://github.com/akashaorg.png\"\n        alt=\"@akashaorg\"\n      />\n      <ProfileAvatarFallback />\n    </ProfileAvatar>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

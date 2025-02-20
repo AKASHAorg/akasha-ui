@@ -1,26 +1,35 @@
 "use client";
 
 import * as React from "react";
+import { z } from "zod";
 
 import { cn } from "@/lib/utils";
-import { IconContainer } from "@/registry/default/akasha-ui/icon-container";
-import {
-  ProfileAvatarFallback,
-  ProfileAvatarImage,
-  ProfileAvatar as ProfileAvatarRoot,
-} from "@/registry/default/akasha-ui/profile-avatar";
-import { Stack } from "@/registry/default/akasha-ui/stack";
-import { Typography } from "@/registry/default/akasha-ui/typography";
 import { DidKey } from "@/registry/default/custom-icons/did-key";
 import { Ethereum } from "@/registry/default/custom-icons/ethereum";
 import { NoEth } from "@/registry/default/custom-icons/no-eth";
 import { Solana } from "@/registry/default/custom-icons/solana";
+import { IconContainer } from "@/registry/default/ui/icon-container";
+import {
+  ProfileAvatarFallback,
+  ProfileAvatarImage,
+  ProfileAvatar as ProfileAvatarRoot,
+} from "@/registry/default/ui/profile-avatar";
+import { Stack } from "@/registry/default/ui/stack";
+import { Typography } from "@/registry/default/ui/typography";
 
 type ProfileAvatarButtonSize = "sm" | "lg" | "md";
 
+const DID_SCHEMA = z
+  .string()
+  .min(5)
+  .refine((x: string) => x.startsWith("did:"));
+
 const ProfileAvatarButtonContext = React.createContext<{
+  profileDID: string;
   size: ProfileAvatarButtonSize;
   nsfw: boolean;
+  nsfwLabel: string;
+  metadata: React.ReactNode;
   vertical: boolean;
 } | null>(null);
 
@@ -54,21 +63,26 @@ const truncateDid = (didKey: string, type = "eth") => {
 
 const getDidFieldIconType = (didKey: string) => {
   if (!didKey) return "noDid";
-  return didKey.includes("eip155")
-    ? "ethereum"
-    : didKey.includes("solana")
-      ? "solana"
-      : "did";
+  if (didKey.includes("eip155")) return "ethereum";
+  return didKey.includes("solana") ? "solana" : "did";
 };
 
 const ProfileAvatarButton = ({
+  profileDID = "",
   nsfw = false,
+  nsfwLabel = "",
+  metadata,
   children,
   size = "md",
   vertical = false,
   className,
   ...props
-}: { nsfw?: boolean } & (
+}: {
+  profileDID?: string;
+  nsfw?: boolean;
+  nsfwLabel?: string;
+  metadata?: React.ReactNode;
+} & (
   | { size?: Exclude<ProfileAvatarButtonSize, "lg">; vertical?: false }
   | {
       size?: "lg";
@@ -77,7 +91,9 @@ const ProfileAvatarButton = ({
 ) &
   React.ComponentProps<"div">) => {
   return (
-    <ProfileAvatarButtonContext.Provider value={{ size, nsfw, vertical }}>
+    <ProfileAvatarButtonContext.Provider
+      value={{ profileDID, nsfw, nsfwLabel, size, metadata, vertical }}
+    >
       <div
         data-slot="profile-avatar-button"
         className={cn(
@@ -105,10 +121,11 @@ const ProfileAvatar = ({
   className,
   ...props
 }: Omit<React.ComponentProps<typeof ProfileAvatarRoot>, "size">) => {
-  const { size, nsfw, vertical } = useProfileAvatarButtonContext();
+  const { profileDID, size, nsfw, vertical } = useProfileAvatarButtonContext();
   return (
     <ProfileAvatarRoot
       data-slot="profile-avatar"
+      profileDID={profileDID}
       size={sizeMap[size]}
       nsfw={nsfw}
       className={cn(
@@ -124,31 +141,43 @@ const ProfileAvatar = ({
 };
 
 const ProfileName = ({
-  nsfwLabel,
   className,
   children,
   ...props
-}: React.ComponentProps<"div"> & { nsfwLabel?: string }) => {
-  const { size, vertical, nsfw } = useProfileAvatarButtonContext();
+}: React.ComponentProps<"div">) => {
+  const { size, vertical, nsfw, nsfwLabel, metadata } =
+    useProfileAvatarButtonContext();
   return (
     size && (
       <Stack
         data-slot="profile-name"
+        direction="row"
         alignItems="center"
         spacing={1}
-        className={cn(
-          {
-            "self-end": size === "lg" && !vertical,
-            "justify-self-start": size === "md" || (size === "lg" && !vertical),
-          },
-          className
-        )}
+        className={cn({
+          "self-end": size === "lg" && !vertical,
+          "justify-self-start": size === "md" || (size === "lg" && !vertical),
+        })}
         {...props}
       >
-        <Typography variant={size === "sm" ? "xs" : "sm"} bold={size !== "sm"}>
+        <Typography
+          variant={size === "sm" ? "xs" : "sm"}
+          bold={size !== "sm"}
+          className={className}
+        >
           {children}
         </Typography>
-        {nsfw && <Typography>{nsfwLabel}</Typography>}
+        {nsfw && size !== "sm" && (
+          <Typography
+            data-slot="nsfw-label"
+            variant="xs"
+            bold={true}
+            className="text-destructive"
+          >
+            {nsfwLabel}
+          </Typography>
+        )}
+        {metadata}
       </Stack>
     )
   );
@@ -161,17 +190,11 @@ const didNetworkIconMapping = {
   noDid: <NoEth />,
 };
 
-const ProfileDidField = ({
-  did,
-  isValid = true,
-  className,
-}: React.ComponentProps<"div"> & {
-  did: string;
-  isValid?: boolean;
-  className?: string;
-}) => {
-  const { size, vertical } = useProfileAvatarButtonContext();
-  const networkType = getDidFieldIconType(did);
+const ProfileDidField = ({ className }: React.ComponentProps<"div">) => {
+  const { profileDID, size, vertical } = useProfileAvatarButtonContext();
+  const networkType = getDidFieldIconType(profileDID);
+  const { success: isValidDID } = DID_SCHEMA.safeParse(profileDID);
+
   return (
     <Stack
       data-slot="profile-did-field"
@@ -187,20 +210,19 @@ const ProfileDidField = ({
       )}
     >
       <IconContainer size="xs" className="text-secondary-foreground">
-        {isValid ? didNetworkIconMapping[networkType] : <NoEth />}
+        {isValidDID ? didNetworkIconMapping[networkType] : <NoEth />}
       </IconContainer>
       <Typography variant="xs" className="text-secondary-foreground">
-        {truncateDid(did, networkType)}
+        {isValidDID ? truncateDid(profileDID, networkType) : "Invalid DID"}
       </Typography>
     </Stack>
   );
 };
 
-export {
-  ProfileAvatarButton,
-  ProfileAvatar,
-  ProfileAvatarFallback,
-  ProfileAvatarImage,
-  ProfileName,
-  ProfileDidField,
-};
+ProfileAvatarButton.Avatar = ProfileAvatar;
+
+ProfileAvatarButton.AvatarFallback = ProfileAvatarFallback;
+
+ProfileAvatarButton.AvatarImage = ProfileAvatarImage;
+
+export { ProfileAvatarButton, ProfileName, ProfileDidField };

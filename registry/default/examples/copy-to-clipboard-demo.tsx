@@ -1,8 +1,8 @@
-import { CopyToClipboard } from "@/registry/default/akasha-ui/copy-to-clipboard";
+import { CopyToClipboard } from "@/registry/default/ui/copy-to-clipboard";
 import {
   ProfileAvatarButton,
   ProfileDidField,
-} from "@/registry/default/akasha-ui/profile-avatar-button";
+} from "@/registry/default/ui/profile-avatar-button";
 
 export default function CopyToClipboardDemo() {
   return (
@@ -11,8 +11,8 @@ export default function CopyToClipboardDemo() {
       ctaText="Copy address"
       successText="Copied ✓"
     >
-      <ProfileAvatarButton>
-        <ProfileDidField did="did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95" />
+      <ProfileAvatarButton profileDID="did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95">
+        <ProfileDidField />
       </ProfileAvatarButton>
     </CopyToClipboard>
   );

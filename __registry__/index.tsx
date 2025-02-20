@@ -11,12 +11,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["command","input"],
       files: [{
-        path: "registry/default/akasha-ui/autocomplete.tsx",
+        path: "registry/default/ui/autocomplete.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/autocomplete.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/autocomplete.tsx")),
       source: "",
       meta: undefined,
     },
@@ -86,12 +86,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["custom/typography"],
       files: [{
-        path: "registry/default/akasha-ui/circular-progress.tsx",
+        path: "registry/default/ui/circular-progress.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/circular-progress.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/circular-progress.tsx")),
       source: "",
       meta: undefined,
     },
@@ -101,12 +101,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["tooltip"],
       files: [{
-        path: "registry/default/akasha-ui/copy-to-clipboard.tsx",
+        path: "registry/default/ui/copy-to-clipboard.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/copy-to-clipboard.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/copy-to-clipboard.tsx")),
       source: "",
       meta: undefined,
     },
@@ -116,12 +116,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["custom/button"],
       files: [{
-        path: "registry/default/akasha-ui/duplex-button.tsx",
+        path: "registry/default/ui/duplex-button.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/duplex-button.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/duplex-button.tsx")),
       source: "",
       meta: undefined,
     },
@@ -131,12 +131,31 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["custom/card","custom/image"],
       files: [{
-        path: "registry/default/akasha-ui/error-loader.tsx",
+        path: "registry/default/ui/error-loader.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/error-loader.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/error-loader.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "extension-card": {
+      name: "extension-card",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["custom/typography","custom/extension-type-icon","badge"],
+      files: [{
+        path: "registry/default/ui/extension-card.tsx",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/types/extension-type.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/extension-card.tsx")),
       source: "",
       meta: undefined,
     },
@@ -161,12 +180,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [{
-        path: "registry/default/akasha-ui/icon-container.tsx",
+        path: "registry/default/ui/icon-container.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/icon-container.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/icon-container.tsx")),
       source: "",
       meta: undefined,
     },
@@ -176,12 +195,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [{
-        path: "registry/default/akasha-ui/image.tsx",
+        path: "registry/default/ui/image.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/image.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/image.tsx")),
       source: "",
       meta: undefined,
     },
@@ -189,9 +208,9 @@ export const Index: Record<string, any> = {
       name: "infinite-scroll",
       description: "",
       type: "registry:ui",
-      registryDependencies: undefined,
+      registryDependencies: ["custom/stack"],
       files: [{
-        path: "registry/default/akasha-ui/infinite-scroll.tsx",
+        path: "registry/default/ui/infinite-scroll.tsx",
         type: "registry:ui",
         target: ""
       },{
@@ -199,12 +218,12 @@ export const Index: Record<string, any> = {
         type: "registry:hook",
         target: ""
       },{
-        path: "registry/default/hooks/use-mobile.ts",
+        path: "registry/default/hooks/use-mobile.tsx",
         type: "registry:hook",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/infinite-scroll.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/infinite-scroll.tsx")),
       source: "",
       meta: undefined,
     },
@@ -214,12 +233,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [{
-        path: "registry/default/akasha-ui/inline-notification.tsx",
+        path: "registry/default/ui/inline-notification.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/inline-notification.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/inline-notification.tsx")),
       source: "",
       meta: undefined,
     },
@@ -229,12 +248,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: ["custom/profile-avatar","custom/stack","custom/icon-container","custom/typography"],
       files: [{
-        path: "registry/default/akasha-ui/profile-avatar-button.tsx",
+        path: "registry/default/ui/profile-avatar-button.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/profile-avatar-button.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/profile-avatar-button.tsx")),
       source: "",
       meta: undefined,
     },
@@ -244,12 +263,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [{
-        path: "registry/default/akasha-ui/profile-avatar.tsx",
+        path: "registry/default/ui/profile-avatar.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/profile-avatar.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/profile-avatar.tsx")),
       source: "",
       meta: undefined,
     },
@@ -274,12 +293,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [{
-        path: "registry/default/akasha-ui/stack.tsx",
+        path: "registry/default/ui/stack.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/stack.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/stack.tsx")),
       source: "",
       meta: undefined,
     },
@@ -289,12 +308,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [{
-        path: "registry/default/akasha-ui/stacked-avatar.tsx",
+        path: "registry/default/ui/stacked-avatar.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/stacked-avatar.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/stacked-avatar.tsx")),
       source: "",
       meta: undefined,
     },
@@ -304,12 +323,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [{
-        path: "registry/default/akasha-ui/stepper.tsx",
+        path: "registry/default/ui/stepper.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/stepper.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/stepper.tsx")),
       source: "",
       meta: undefined,
     },
@@ -319,12 +338,12 @@ export const Index: Record<string, any> = {
       type: "registry:ui",
       registryDependencies: undefined,
       files: [{
-        path: "registry/default/akasha-ui/typography.tsx",
+        path: "registry/default/ui/typography.tsx",
         type: "registry:ui",
         target: ""
       }],
       categories: undefined,
-      component: React.lazy(() => import("@/registry/default/akasha-ui/typography.tsx")),
+      component: React.lazy(() => import("@/registry/default/ui/typography.tsx")),
       source: "",
       meta: undefined,
     },
@@ -677,7 +696,7 @@ export const Index: Record<string, any> = {
       name: "error-loader-demo",
       description: "",
       type: "registry:example",
-      registryDependencies: ["card","image"],
+      registryDependencies: ["error-loader"],
       files: [{
         path: "registry/default/examples/error-loader-demo.tsx",
         type: "registry:example",
@@ -685,6 +704,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/error-loader-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "extension-card-demo": {
+      name: "extension-card-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["extension-card"],
+      files: [{
+        path: "registry/default/examples/extension-card-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/extension-card-demo.tsx")),
       source: "",
       meta: undefined,
     },
@@ -910,6 +944,36 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/profile-avatar-button-medium.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "profile-avatar-button-metadata": {
+      name: "profile-avatar-button-metadata",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["profile-avatar-button"],
+      files: [{
+        path: "registry/default/examples/profile-avatar-button-metadata.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/profile-avatar-button-metadata.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "profile-avatar-button-nsfw": {
+      name: "profile-avatar-button-nsfw",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["profile-avatar-button"],
+      files: [{
+        path: "registry/default/examples/profile-avatar-button-nsfw.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/profile-avatar-button-nsfw.tsx")),
       source: "",
       meta: undefined,
     },

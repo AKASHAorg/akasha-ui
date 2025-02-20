@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/icon-container-demo.tsx",
-      "content": "import React from \"react\";\nimport { Heart } from \"lucide-react\";\n\nimport { IconContainer } from \"@/registry/default/akasha-ui/icon-container\";\n\nconst IconContainerDemo = () => {\n  return (\n    <IconContainer>\n      <Heart />\n    </IconContainer>\n  );\n};\n\nexport default IconContainerDemo;\n",
+      "content": "import React from \"react\";\nimport { Heart } from \"lucide-react\";\n\nimport { IconContainer } from \"@/registry/default/ui/icon-container\";\n\nconst IconContainerDemo = () => {\n  return (\n    <IconContainer>\n      <Heart />\n    </IconContainer>\n  );\n};\n\nexport default IconContainerDemo;\n",
       "type": "registry:example",
       "target": ""
     }

@@ -1,4 +1,4 @@
-import { Typography } from "@/registry/default/akasha-ui/typography";
+import { Typography } from "@/registry/default/ui/typography";
 
 export default function TypographyExtraSmallBold() {
   return (

@@ -213,6 +213,23 @@
   }
 }
 
+@layer component {
+  [data-slot="card"] {
+    --radius: 1.25rem;
+  }
+  [data-slot="card"] * {
+    --radius: 0.5rem;
+  }
+  [data-slot="card"] [data-slot="card"] {
+    --radius: 0.625rem;
+  }
+
+  [data-slot="button"],
+  [data-slot="badge"] {
+    --radius: 1.5rem;
+  }
+}
+
 @layer utilities {
   .step {
     counter-increment: step;

@@ -1,4 +1,4 @@
-import { Stack } from "@/registry/default/akasha-ui/stack";
+import { Stack } from "@/registry/default/ui/stack";
 
 export default function StackJustifyContent() {
   return (

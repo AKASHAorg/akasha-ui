@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/inline-notification-demo.tsx",
-      "content": "import {\n  InlineNotification,\n  InlineNotificationDescription,\n  InlineNotificationTitle,\n} from \"@/registry/default/akasha-ui/inline-notification\";\n\nexport default function InlineNotificationDemo() {\n  return (\n    <InlineNotification>\n      <InlineNotificationTitle>Heads up!</InlineNotificationTitle>\n      <InlineNotificationDescription>\n        You can add components and dependencies to your app using the cli.\n      </InlineNotificationDescription>\n    </InlineNotification>\n  );\n}\n",
+      "content": "import {\n  InlineNotification,\n  InlineNotificationDescription,\n  InlineNotificationTitle,\n} from \"@/registry/default/ui/inline-notification\";\n\nexport default function InlineNotificationDemo() {\n  return (\n    <InlineNotification>\n      <InlineNotificationTitle>Heads up!</InlineNotificationTitle>\n      <InlineNotificationDescription>\n        You can add components and dependencies to your app using the cli.\n      </InlineNotificationDescription>\n    </InlineNotification>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Loader2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { typographyVariants } from "@/registry/default/akasha-ui/typography";
+import { typographyVariants } from "@/registry/default/ui/typography";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-bold transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 ring-ring/10 dark:ring-ring/20 dark:outline-ring/40 outline-ring/50 focus-visible:ring-4 focus-visible:outline-1 aria-invalid:focus-visible:ring-0 cursor-pointer",
@@ -38,7 +38,7 @@ const buttonVariants = cva(
 function Button({
   className,
   variant,
-  size,
+  size = "default",
   loading,
   asChild = false,
   disabled,
@@ -59,9 +59,10 @@ function Button({
           [typographyVariants({ variant: "sm" })]: size === "default",
           [typographyVariants({ variant: "xs" })]: size === "sm",
         },
-        buttonVariants({ variant, size, className })
+        buttonVariants({ variant, size, className }),
+        { "p-0": variant === "link" || asChild }
       )}
-      disabled={loading ? true : disabled}
+      disabled={loading || disabled}
       {...props}
     >
       {loading ? <Loader2 className="animate-spin" /> : children}

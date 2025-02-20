@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/typography-h5.tsx",
-      "content": "import { Typography } from \"@/registry/default/akasha-ui/typography\";\n\nexport default function TypographyH5() {\n  return (\n    <Typography variant=\"h5\">\n      The smallest heading, suitable for page headings.\n    </Typography>\n  );\n}\n",
+      "content": "import { Typography } from \"@/registry/default/ui/typography\";\n\nexport default function TypographyH5() {\n  return (\n    <Typography variant=\"h5\">\n      The smallest heading, suitable for page headings.\n    </Typography>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

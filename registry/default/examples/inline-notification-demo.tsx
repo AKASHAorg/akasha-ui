@@ -2,7 +2,7 @@ import {
   InlineNotification,
   InlineNotificationDescription,
   InlineNotificationTitle,
-} from "@/registry/default/akasha-ui/inline-notification";
+} from "@/registry/default/ui/inline-notification";
 
 export default function InlineNotificationDemo() {
   return (

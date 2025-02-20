@@ -8,7 +8,7 @@ export const ui: Registry = [
     dependencies: ["cmdk", "lucide-react"],
     files: [
       {
-        path: "akasha-ui/autocomplete.tsx",
+        path: "ui/autocomplete.tsx",
         type: "registry:ui",
       },
     ],
@@ -24,30 +24,6 @@ export const ui: Registry = [
         type: "registry:ui",
       },
     ],
-    tailwind: {
-      config: {
-        theme: {
-          extend: {
-            colors: {
-              primary: {
-                start: "hsl(var(--primary-start))",
-                end: "hsl(var(--primary-end))",
-              },
-            },
-          },
-        },
-      },
-    },
-    cssVars: {
-      light: {
-        "primary-start": "329 86% 70%;",
-        "primary-end": "239 84% 67%;",
-      },
-      dark: {
-        "primary-start": "329 86% 70%;",
-        "primary-end": "239 84% 67%;",
-      },
-    },
   },
   {
     name: "card",
@@ -87,30 +63,10 @@ export const ui: Registry = [
     registryDependencies: ["custom/typography"],
     files: [
       {
-        path: "akasha-ui/circular-progress.tsx",
+        path: "ui/circular-progress.tsx",
         type: "registry:ui",
       },
     ],
-    tailwind: {
-      config: {
-        theme: {
-          extend: {
-            colors: {
-              warning: {
-                DEFAULT: "hsl(var(--warning)",
-                foreground: "hsl(var(--warning-foreground)",
-              },
-            },
-          },
-        },
-      },
-    },
-    cssVars: {
-      light: {
-        warning: "47.9 95.8% 53.1%",
-        "warning-foreground": "54.5 91.7% 95.3%",
-      },
-    },
   },
   {
     name: "copy-to-clipboard",
@@ -118,7 +74,7 @@ export const ui: Registry = [
     registryDependencies: ["tooltip"],
     files: [
       {
-        path: "akasha-ui/copy-to-clipboard.tsx",
+        path: "ui/copy-to-clipboard.tsx",
         type: "registry:ui",
       },
     ],
@@ -129,7 +85,7 @@ export const ui: Registry = [
     registryDependencies: ["custom/button"],
     files: [
       {
-        path: "akasha-ui/duplex-button.tsx",
+        path: "ui/duplex-button.tsx",
         type: "registry:ui",
       },
     ],
@@ -140,7 +96,26 @@ export const ui: Registry = [
     registryDependencies: ["custom/card", "custom/image"],
     files: [
       {
-        path: "akasha-ui/error-loader.tsx",
+        path: "ui/error-loader.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "extension-card",
+    type: "registry:ui",
+    registryDependencies: [
+      "custom/typography",
+      "custom/extension-type-icon",
+      "badge",
+    ],
+    files: [
+      {
+        path: "ui/extension-card.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "types/extension-type.tsx",
         type: "registry:ui",
       },
     ],
@@ -169,7 +144,7 @@ export const ui: Registry = [
     type: "registry:ui",
     files: [
       {
-        path: "akasha-ui/icon-container.tsx",
+        path: "ui/icon-container.tsx",
         type: "registry:ui",
       },
     ],
@@ -179,7 +154,7 @@ export const ui: Registry = [
     type: "registry:ui",
     files: [
       {
-        path: "akasha-ui/image.tsx",
+        path: "ui/image.tsx",
         type: "registry:ui",
       },
     ],
@@ -187,10 +162,11 @@ export const ui: Registry = [
   {
     name: "infinite-scroll",
     type: "registry:ui",
-    dependencies: ["@tanstack/react-virtual", "custom/stack"],
+    registryDependencies: ["custom/stack"],
+    dependencies: ["@tanstack/react-virtual"],
     files: [
       {
-        path: "akasha-ui/infinite-scroll.tsx",
+        path: "ui/infinite-scroll.tsx",
         type: "registry:ui",
       },
       {
@@ -198,7 +174,7 @@ export const ui: Registry = [
         type: "registry:hook",
       },
       {
-        path: "hooks/use-mobile.ts",
+        path: "hooks/use-mobile.tsx",
         type: "registry:hook",
       },
     ],
@@ -208,36 +184,10 @@ export const ui: Registry = [
     type: "registry:ui",
     files: [
       {
-        path: "akasha-ui/inline-notification.tsx",
+        path: "ui/inline-notification.tsx",
         type: "registry:ui",
       },
     ],
-    tailwind: {
-      config: {
-        theme: {
-          extend: {
-            colors: {
-              success: {
-                DEFAULT: "hsl(var(--success)",
-                foreground: "hsl(var(--success-foreground)",
-              },
-              warning: {
-                DEFAULT: "hsl(var(--warning)",
-                foreground: "hsl(var(--warning-foreground)",
-              },
-            },
-          },
-        },
-      },
-    },
-    cssVars: {
-      light: {
-        success: "160.1 84.1% 39.4%",
-        "success-foreground": "151.8 81% 95.9%",
-        warning: "47.9 95.8% 53.1%",
-        "warning-foreground": "54.5 91.7% 95.3%",
-      },
-    },
   },
   {
     name: "profile-avatar-button",
@@ -250,7 +200,7 @@ export const ui: Registry = [
     ],
     files: [
       {
-        path: "akasha-ui/profile-avatar-button.tsx",
+        path: "ui/profile-avatar-button.tsx",
         type: "registry:ui",
       },
     ],
@@ -261,7 +211,7 @@ export const ui: Registry = [
     dependencies: ["@radix-ui/react-avatar", "lucide-react"],
     files: [
       {
-        path: "akasha-ui/profile-avatar.tsx",
+        path: "ui/profile-avatar.tsx",
         type: "registry:ui",
       },
     ],
@@ -276,39 +226,13 @@ export const ui: Registry = [
         type: "registry:ui",
       },
     ],
-    tailwind: {
-      config: {
-        theme: {
-          extend: {
-            colors: {
-              success: {
-                DEFAULT: "hsl(var(--success)",
-                foreground: "hsl(var(--success-foreground)",
-              },
-              warning: {
-                DEFAULT: "hsl(var(--warning)",
-                foreground: "hsl(var(--warning-foreground)",
-              },
-            },
-          },
-        },
-      },
-    },
-    cssVars: {
-      light: {
-        success: "160.1 84.1% 39.4%",
-        "success-foreground": "151.8 81% 95.9%",
-        warning: "47.9 95.8% 53.1%",
-        "warning-foreground": "54.5 91.7% 95.3%",
-      },
-    },
   },
   {
     name: "stack",
     type: "registry:ui",
     files: [
       {
-        path: "akasha-ui/stack.tsx",
+        path: "ui/stack.tsx",
         type: "registry:ui",
       },
     ],
@@ -318,7 +242,7 @@ export const ui: Registry = [
     type: "registry:ui",
     files: [
       {
-        path: "akasha-ui/stacked-avatar.tsx",
+        path: "ui/stacked-avatar.tsx",
         type: "registry:ui",
       },
     ],
@@ -328,7 +252,7 @@ export const ui: Registry = [
     type: "registry:ui",
     files: [
       {
-        path: "akasha-ui/stepper.tsx",
+        path: "ui/stepper.tsx",
         type: "registry:ui",
       },
     ],
@@ -339,7 +263,7 @@ export const ui: Registry = [
     dependencies: ["@radix-ui/react-slot"],
     files: [
       {
-        path: "akasha-ui/typography.tsx",
+        path: "ui/typography.tsx",
         type: "registry:ui",
       },
     ],
