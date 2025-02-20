@@ -26,6 +26,7 @@ export default function ExtensionCardDemo() {
         <ExtensionCardAvatarImage
           src="https://github.com/akashaorg.png"
           alt="@akashaorg"
+          showLoadingIndicator={true}
         />
         <ExtensionCardAvatarFallback />
       </ExtensionCardAvatar>
