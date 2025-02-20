@@ -63,11 +63,8 @@ const truncateDid = (didKey: string, type = "eth") => {
 
 const getDidFieldIconType = (didKey: string) => {
   if (!didKey) return "noDid";
-  return didKey.includes("eip155")
-    ? "ethereum"
-    : didKey.includes("solana")
-      ? "solana"
-      : "did";
+  if (didKey.includes("eip155")) return "ethereum";
+  return didKey.includes("solana") ? "solana" : "did";
 };
 
 const ProfileAvatarButton = ({
