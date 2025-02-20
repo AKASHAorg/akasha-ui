@@ -4,10 +4,7 @@ description: Stacked avatar.
 component: true
 ---
 
-<ComponentPreview
-  name="stacked-avatar-demo"
-  description="A stacked avatar component."
-/>
+<ComponentPreview name="stacked-avatar-demo" />
 
 ## Installation
 
@@ -59,7 +56,7 @@ return (
     {(index) => (
       <ProfileAvatar>
         <ProfileAvatarImage src={avatars[index].src} alt={avatars[index].alt} />
-        <ProfileAvatarFallback>AK</ProfileAvatarFallback>
+        <ProfileAvatarFallback />
       </ProfileAvatar>
     )}
   </StackedAvatar>

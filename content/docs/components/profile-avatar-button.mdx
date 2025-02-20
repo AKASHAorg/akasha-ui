@@ -4,10 +4,7 @@ description: A profile element which contains profile avatar, profile name and p
 component: true
 ---
 
-<ComponentPreview
-  name="profile-avatar-button-demo"
-  description="A profile avatar button"
-/>
+<ComponentPreview name="profile-avatar-button-demo" />
 
 ## Installation
 
@@ -55,25 +52,29 @@ import {
 ```
 
 ```tsx
-<ProfileAvatarButton>
-  <ProfileAvatar>
-    <ProfileAvatarImage src="https://github.com/akashaorg.png" />
-    <ProfileAvatarFallback>CN</ProfileAvatarFallback>
-  </ProfileAvatar>
+<ProfileAvatarButton profileDID="did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95">
+  <ProfileAvatarButton.Avatar>
+    <ProfileAvatarButton.AvatarImage
+      src="https://github.com/akashaorg.png"
+      alt="@akashaorg"
+    />
+    <ProfileAvatarButton.AvatarFallback />
+  </ProfileAvatarButton.Avatar>
   <ProfileName>coffeelover</ProfileName>
-  <ProfileDidField did={did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95}/>
+  <ProfileDidField />
 </ProfileAvatarButton>
 ```
 
 ## Props
 
-| Name      | Type                | Description                                                                                    |
-| --------- | ------------------- | ---------------------------------------------------------------------------------------------- |
-| size      | `sm`, `md`, or `lg` | Component sizes                                                                                |
-| nsfw      | `boolean`           | Not safe for work                                                                              |
-| nsfwLabel | `string`            | Not safe for work label                                                                        |
-| vertical  | `boolean`           | Positions the profile avatar above other components, applicable only when the `size` is large. |
-| metadata  | `ReactNode`         | Metadata element                                                                               |
+| Name       | Type                | Description                                                                                    |
+| ---------- | ------------------- | ---------------------------------------------------------------------------------------------- |
+| profileDID | `string`            | DID of a profile                                                                               |
+| size       | `sm`, `md`, or `lg` | Component sizes                                                                                |
+| nsfw       | `boolean`           | Not safe for work                                                                              |
+| nsfwLabel  | `string`            | Not safe for work label                                                                        |
+| vertical   | `boolean`           | Positions the profile avatar above other components, applicable only when the `size` is large. |
+| metadata   | `ReactNode`         | Metadata element                                                                               |
 
 ## Examples
 

@@ -27,11 +27,10 @@ const ImageRoot = ({ children, ...props }: React.ComponentProps<"div">) => {
   const [hasError, setError] = React.useState(false);
 
   return (
-    <ImageContext.Provider
-      data-slot="image-root"
-      value={{ loading, hasError, setLoading, setError }}
-    >
-      <div {...props}>{children}</div>
+    <ImageContext.Provider value={{ loading, hasError, setLoading, setError }}>
+      <div data-slot="image-root" {...props}>
+        {children}
+      </div>
     </ImageContext.Provider>
   );
 };
