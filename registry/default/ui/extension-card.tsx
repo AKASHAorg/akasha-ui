@@ -74,7 +74,7 @@ const ExtensionCardContent = ({
   return (
     <div
       data-slot="extension-card-content"
-      className={cn("flex flex-col gap-1 w-max", className)}
+      className={cn("flex flex-col gap-1", className)}
       {...props}
     />
   );
@@ -108,7 +108,7 @@ const ExtensionCardDescription = ({
     <Typography
       variant="xs"
       data-slot="extension-card-description"
-      className={cn("text-muted-foreground", className)}
+      className={cn("text-muted-foreground line-clamp-1", className)}
       {...props}
     />
   );
