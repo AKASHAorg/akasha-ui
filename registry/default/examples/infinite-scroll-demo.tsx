@@ -19,7 +19,7 @@ export default function InfiniteScrollDemo() {
       count={sentences.length}
       estimatedHeight={350}
       overScan={5}
-      itemSpacing={10}
+      gap={10}
     >
       <InfiniteScrollList>
         {(index) => {

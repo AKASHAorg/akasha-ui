@@ -17,7 +17,7 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
         )}
         {...props}
       />
-       {isSearch && (
+      {isSearch && (
         <Search
           size={20}
           className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground bg-card peer-focus:text-foreground"

@@ -3,17 +3,48 @@ import { Virtualizer, VirtualizerOptions } from "@tanstack/react-virtual";
 
 const SCROLL_RESTORATION_CONFIG = "scroll-restoration-config";
 
+type ScrollRestoration = {
+  /*
+   * Virtualizer's instance.
+   **/
+  virtualizer: Virtualizer<Window, Element>;
+  /*
+   * The total number of items to virtualize.
+   **/
+  count: number;
+  /*
+   * The number of items to render above and below the visible area.
+   **/
+  overScan: number;
+  /*
+   * Key used to store scroll restoration configuration.
+   **/
+  scrollConfigStorageKey: string;
+  /*
+   * Last scroll restoration prevents scroll restoration unless the user navigates back to the last key they visited.
+   **/
+  lastScrollRestorationKey: string;
+  /*
+   * The offset attribute for the virtual list container.
+   **/
+  offsetAttribute: string;
+  /*
+   * Reference to a header element in a virtual list.
+   **/
+  headerRef?: React.RefObject<HTMLDivElement | null>;
+};
+
 type Config = {
   /*
-   * The last scroll offset position
+   * The last scroll offset position.
    **/
-  scrollOffset: number;
+  lastScrollOffset: number;
   /*
-   * The offset of the parent container holding the virtual list
+   * The offset of the parent container holding the virtual list.
    **/
   topOffset: number;
   /*
-   * Index of the reference item used for scroll restoration
+   * Index of the reference item used for scroll restoration.
    **/
   referenceItemIndex: number;
   /*
@@ -21,25 +52,23 @@ type Config = {
    **/
   options: VirtualizerOptions<Window, Element>;
   /*
-   * Last scroll restoration session key used to either reset the scroll restoration config
-   * if the current key and the one before do not match or to use the scroll config.
-   **/
-  lastScrollRestorationKey: string;
-  /*
-   * Height of a header element in a virtual list
+   * Height of a header element in a virtual list.
    **/
   headerHeight?: number;
   /*
-   * Flag to check if a scroll restoration is done
+   * Flag to check if a scroll restoration is done.
    **/
   done?: boolean;
-} & { [key: string]: unknown };
+} & { [key: string]: unknown } & Pick<
+    ScrollRestoration,
+    "lastScrollRestorationKey"
+  >;
 
 interface IRestoreScrollPosition {
   virtualizer: Virtualizer<Window, Element>;
   overScan: number;
   offsetAttribute: string;
-  scrollRestorationStorageKey: string;
+  scrollConfigStorageKey: string;
 }
 
 /*
@@ -49,12 +78,12 @@ async function restoreScrollPosition({
   virtualizer,
   overScan,
   offsetAttribute,
-  scrollRestorationStorageKey,
+  scrollConfigStorageKey,
 }: IRestoreScrollPosition) {
   try {
-    const scrollConfig = restoreScrollConfig(scrollRestorationStorageKey);
+    const scrollConfig = restoreScrollConfig(scrollConfigStorageKey);
     if (!scrollConfig) return;
-    const { referenceItemIndex, topOffset, scrollOffset, options, done } =
+    const { referenceItemIndex, topOffset, lastScrollOffset, options, done } =
       scrollConfig;
     /*
      * Validate scroll restoration config fields
@@ -63,7 +92,7 @@ async function restoreScrollPosition({
       typeof referenceItemIndex !== "number" ||
       !options ||
       typeof options !== "object" ||
-      typeof scrollOffset !== "number"
+      typeof lastScrollOffset !== "number"
     )
       return;
 
@@ -101,8 +130,8 @@ async function restoreScrollPosition({
         const offsetDelta = topOffset - currentTopOffset;
         const scrollToOffset =
           typeof offsetDelta === "number"
-            ? scrollOffset - offsetDelta
-            : scrollOffset;
+            ? lastScrollOffset - offsetDelta
+            : lastScrollOffset;
         virtualizer.scrollToOffset(scrollToOffset, {
           align: "start",
           behavior: "auto",
@@ -115,35 +144,32 @@ async function restoreScrollPosition({
             });
           }, 0);
         }
-        storeScrollConfig(scrollRestorationStorageKey, {
+        storeScrollConfig(scrollConfigStorageKey, {
           ...scrollConfig,
           done: true,
         });
         setTimeout(() => {
-          removeItemFromScrollConfig(scrollRestorationStorageKey);
+          removeItemFromScrollConfig(scrollConfigStorageKey);
         }, 500);
       }
     }
   } catch (error) {
     console.error(error);
-    removeItemFromScrollConfig(scrollRestorationStorageKey);
+    removeItemFromScrollConfig(scrollConfigStorageKey);
   }
 }
 
 /*
  * Restore scroll config
  **/
-function restoreScrollConfig(
-  scrollRestorationStorageKey?: string
-): Config | null {
+function restoreScrollConfig(scrollConfigStorageKey?: string): Config | null {
   try {
     const config = JSON.parse(
       sessionStorage.getItem(SCROLL_RESTORATION_CONFIG) || ""
     );
-    return scrollRestorationStorageKey
-      ? config[scrollRestorationStorageKey]
-      : config;
-  } catch (e) {
+    return scrollConfigStorageKey ? config[scrollConfigStorageKey] : config;
+  } catch (error) {
+    console.error(error);
     return null;
   }
 }
@@ -151,16 +177,13 @@ function restoreScrollConfig(
 /*
  * Store scroll restoration configuration
  **/
-function storeScrollConfig(
-  scrollRestorationStorageKey: string,
-  config: Config
-) {
+function storeScrollConfig(scrollConfigStorageKey: string, config: Config) {
   const currentConfig = restoreScrollConfig();
   sessionStorage.setItem(
     SCROLL_RESTORATION_CONFIG,
     JSON.stringify({
       ...(currentConfig ? currentConfig : {}),
-      [scrollRestorationStorageKey]: config,
+      [scrollConfigStorageKey]: config,
     })
   );
 }
@@ -235,13 +258,13 @@ function requiredItemsLoaded({
 }
 
 const getHeaderHeight = ({
-  scrollRestorationStorageKey,
+  scrollConfigStorageKey,
   lastScrollRestorationKey,
 }: {
-  scrollRestorationStorageKey: string;
+  scrollConfigStorageKey: string;
   lastScrollRestorationKey: string;
 }) => {
-  const scrollConfig = restoreScrollConfig(scrollRestorationStorageKey);
+  const scrollConfig = restoreScrollConfig(scrollConfigStorageKey);
   if (!scrollConfig || typeof scrollConfig !== "object") return null;
   if (
     scrollConfig.lastScrollRestorationKey &&
@@ -254,11 +277,11 @@ const getHeaderHeight = ({
 };
 
 const getInitialMeasurementsCache = ({
-  scrollRestorationStorageKey,
+  scrollConfigStorageKey,
 }: {
-  scrollRestorationStorageKey: string;
+  scrollConfigStorageKey: string;
 }) => {
-  const scrollConfig = restoreScrollConfig(scrollRestorationStorageKey);
+  const scrollConfig = restoreScrollConfig(scrollConfigStorageKey);
   if (
     !scrollConfig ||
     typeof scrollConfig !== "object" ||
@@ -268,38 +291,6 @@ const getInitialMeasurementsCache = ({
   return scrollConfig.options.initialMeasurementsCache;
 };
 
-interface IScrollRestoration {
-  /*
-   * Virtualizer's instance
-   **/
-  virtualizer: Virtualizer<Window, Element>;
-  /*
-   * The total number of items virtualized
-   **/
-  count: number;
-  /*
-   * The number of items rendered above and below the visible area
-   **/
-  overScan: number;
-  /*
-   * Scroll restoration session storage key
-   **/
-  scrollRestorationStorageKey: string;
-  /*
-   * Last scroll restoration session key used to either reset the scroll restoration config
-   * if the current key and the one before do not match or to use the scroll config.
-   **/
-  lastScrollRestorationKey: string;
-  /*
-   * The offset attribute for the virtual list container
-   **/
-  offsetAttribute: string;
-  /*
-   * Reference to a header element in a virtual list
-   **/
-  headerRef?: React.RefObject<HTMLDivElement | null>;
-}
-
 /*
  * Restores the last scroll position
  * @param virtualizer - instance of virtualizer
@@ -308,17 +299,15 @@ export function useScrollRestoration({
   virtualizer,
   count,
   overScan,
-  scrollRestorationStorageKey,
+  scrollConfigStorageKey,
   lastScrollRestorationKey,
   offsetAttribute,
   headerRef,
-}: IScrollRestoration) {
+}: ScrollRestoration) {
   const virtualizerRef = React.useRef(virtualizer);
   const overScanRef = React.useRef(overScan);
   const offsetAttributeRef = React.useRef(offsetAttribute);
-  const scrollRestorationStorageKeyRef = React.useRef(
-    scrollRestorationStorageKey
-  );
+  const scrollConfigStorageKeyRef = React.useRef(scrollConfigStorageKey);
   const lastScrollRestorationKeyRef = React.useRef(lastScrollRestorationKey);
   const headerHeightRef = React.useRef<number | null>(null);
 
@@ -341,9 +330,7 @@ export function useScrollRestoration({
 
   React.useEffect(() => {
     const virtualizer = virtualizerRef.current;
-    const scrollConfig = restoreScrollConfig(
-      scrollRestorationStorageKeyRef.current
-    );
+    const scrollConfig = restoreScrollConfig(scrollConfigStorageKeyRef.current);
     if (scrollConfig) {
       const { referenceItemIndex, options, done, lastScrollRestorationKey } =
         scrollConfig;
@@ -355,7 +342,7 @@ export function useScrollRestoration({
         lastScrollRestorationKey &&
         lastScrollRestorationKey !== lastScrollRestorationKeyRef.current
       ) {
-        removeItemFromScrollConfig(scrollRestorationStorageKeyRef.current);
+        removeItemFromScrollConfig(scrollConfigStorageKeyRef.current);
         return;
       }
 
@@ -393,17 +380,18 @@ export function useScrollRestoration({
 
   React.useEffect(() => {
     const overScan = overScanRef.current;
-    const scrollRestorationStorageKey = scrollRestorationStorageKeyRef.current;
+    const scrollConfigStorageKey = scrollConfigStorageKeyRef.current;
     const lastScrollRestorationKey = lastScrollRestorationKeyRef.current;
-    const scrollOffset = virtualizerRef.current?.scrollOffset || 0;
+
     /*
      * Store scroll restoration configs after unmounting the component where the scroll restoration is used.
      **/
     return () => {
+      const lastScrollOffset = virtualizerRef.current?.scrollOffset || 0;
       /*
        * Store scroll restoration config only if a scroll occurred
        **/
-      if (scrollOffset > 0) {
+      if (lastScrollOffset > 0) {
         const headerHeight = headerHeightRef.current;
         const virtualItems = virtualizerRef.current.getVirtualItems();
         const stepBackArr = Array(overScan)
@@ -433,8 +421,8 @@ export function useScrollRestoration({
           }
         }
 
-        storeScrollConfig(scrollRestorationStorageKey, {
-          scrollOffset,
+        storeScrollConfig(scrollConfigStorageKey, {
+          lastScrollOffset,
           topOffset:
             virtualItems?.[0]?.start -
             virtualizerRef.current.options.scrollMargin,
@@ -451,9 +439,7 @@ export function useScrollRestoration({
   }, []);
 
   React.useEffect(() => {
-    const scrollConfig = restoreScrollConfig(
-      scrollRestorationStorageKeyRef.current
-    );
+    const scrollConfig = restoreScrollConfig(scrollConfigStorageKeyRef.current);
 
     /*
      * Observe changes in the dimension of body element to check scroll position restoration requirements and if all check passes commit the restoration.
@@ -463,7 +449,7 @@ export function useScrollRestoration({
         virtualizer: virtualizerRef.current,
         overScan: overScanRef.current,
         offsetAttribute: offsetAttributeRef.current,
-        scrollRestorationStorageKey: scrollRestorationStorageKeyRef.current,
+        scrollConfigStorageKey: scrollConfigStorageKeyRef.current,
       });
     });
     if (scrollConfig) observer.observe(document.body);

@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/infinite-scroll-demo.tsx",
-      "content": "import * as React from \"react\";\nimport { faker } from \"@faker-js/faker\";\n\nimport {\n  InfiniteScroll,\n  InfiniteScrollList,\n} from \"@/registry/default/ui/infinite-scroll\";\n\nconst randomNumber = (min: number, max: number) =>\n  faker.number.int({ min, max });\n\nconst sentences = new Array(100)\n  .fill(true)\n  .map(() => faker.lorem.sentence(randomNumber(20, 70)));\n\nexport default function InfiniteScrollDemo() {\n  return (\n    <InfiniteScroll\n      count={sentences.length}\n      estimatedHeight={350}\n      overScan={5}\n      itemSpacing={10}\n    >\n      <InfiniteScrollList>\n        {(index) => {\n          return <div>{sentences[index]}</div>;\n        }}\n      </InfiniteScrollList>\n    </InfiniteScroll>\n  );\n}\n",
+      "content": "import * as React from \"react\";\nimport { faker } from \"@faker-js/faker\";\n\nimport {\n  InfiniteScroll,\n  InfiniteScrollList,\n} from \"@/registry/default/ui/infinite-scroll\";\n\nconst randomNumber = (min: number, max: number) =>\n  faker.number.int({ min, max });\n\nconst sentences = new Array(100)\n  .fill(true)\n  .map(() => faker.lorem.sentence(randomNumber(20, 70)));\n\nexport default function InfiniteScrollDemo() {\n  return (\n    <InfiniteScroll\n      count={sentences.length}\n      estimatedHeight={350}\n      overScan={5}\n      gap={10}\n    >\n      <InfiniteScrollList>\n        {(index) => {\n          return <div>{sentences[index]}</div>;\n        }}\n      </InfiniteScrollList>\n    </InfiniteScroll>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

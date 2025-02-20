@@ -63,7 +63,7 @@ return (
       count={count}
       estimatedHeight={100}
       overScan={10}
-      itemSpacing={itemSpacing}
+      gap={gap}
     >
        <InfiniteScrollList>
         {(index) => {
@@ -71,3 +71,54 @@ return (
         }}
     </InfiniteScroll>
 ```
+
+## Props
+
+| Name             | Type         | Description                                                                                                                                                                         |
+| ---------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| count            | `number`     | The total number of items to virtualize.                                                                                                                                            |
+| estimatedHeight  | `number`     | Estimated height of each virtual item.                                                                                                                                              |
+| lanes            | `number`     | The number of lanes the list is divided into.                                                                                                                                       |
+| overScan         | `number`     | The number of items rendered above and below the visible area. A higher number reduces the chance of blank items during slow rendering but increases the virtualizer's render time. |
+| gap              | number       | Set's the spacing between items in the virtualized list.                                                                                                                            |
+| header           | `ReactNode`  | Component which is at the top of a virtual list. Including it inside the infinite scroll helps to accurately calculate the scroll restoration position.                             |
+| hasNextPage      | `boolean`    | Determines there is a next page to be fetched in paginated query.                                                                                                                   |
+| loading          | `boolean`    | Signals if a queried data is loading.                                                                                                                                               |
+| loadingIndicator | `ReactNode`  | Component used to represent loading data.                                                                                                                                           |
+| onLoadMore       | `() => void` | Callback to load more data.                                                                                                                                                         |
+
+## Scroll Restoration
+
+### Usage
+
+```tsx
+import {
+  InfiniteScroll,
+  InfiniteScrollList,
+  ScrollRestoration,
+} from "<path-to-ui-components>/infinite-scroll";
+```
+
+```tsx
+return (
+    <InfiniteScroll
+      count={count}
+      estimatedHeight={100}
+      overScan={10}
+      gap={gap}
+    >
+      <ScrollRestoration>
+       <InfiniteScrollList>
+        {(index) => {
+          return <div>{sentences[index]}</div>;
+        }}
+      </ScrollRestoration>
+    </InfiniteScroll>
+```
+
+### Props
+
+| Name                     | Type     | Description                                                                                                      |
+| ------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| scrollConfigStorageKey   | `string` | Key used to store scroll restoration configuration.                                                              |
+| lastScrollRestorationKey | `string` | Last scroll restoration prevents scroll restoration unless the user navigates back to the last key they visited. |
