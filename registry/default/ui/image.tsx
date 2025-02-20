@@ -78,7 +78,10 @@ const Image = ({
         <DelayLoad>
           <div
             data-slot="image-loader"
-            className={cn("flex items-center justify-center", className)}
+            className={cn(
+              "flex items-center justify-center w-full h-full",
+              className
+            )}
           >
             <Loader2 className={cn("animate-spin text-muted")} />
           </div>
