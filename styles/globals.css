@@ -203,6 +203,7 @@
     -webkit-appearance: none;
     height: 0.8em;
     width: 0.8em;
+    cursor: pointer;
 
   }
 
