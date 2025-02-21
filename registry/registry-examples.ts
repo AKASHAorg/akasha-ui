@@ -222,12 +222,34 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "extension-avatar-demo",
+    type: "registry:example",
+    registryDependencies: ["extension-avatar"],
+    files: [
+      {
+        path: "examples/extension-avatar-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "extension-card-demo",
     type: "registry:example",
     registryDependencies: ["extension-card"],
     files: [
       {
         path: "examples/extension-card-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "extension-type-icon-demo",
+    type: "registry:example",
+    registryDependencies: ["extension-type-icon"],
+    files: [
+      {
+        path: "examples/extension-type-icon-demo.tsx",
         type: "registry:example",
       },
     ],

@@ -1,0 +1,15 @@
+{
+  "name": "extension-type-icon-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "extension-type-icon"
+  ],
+  "files": [
+    {
+      "path": "examples/extension-type-icon-demo.tsx",
+      "content": "import * as React from \"react\";\n\nimport { ExtensionTypeIcon } from \"@/registry/default/ui/extension-type-icon\";\n\nexport default function ExtensionTypeIconDemo() {\n  return <ExtensionTypeIcon />;\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

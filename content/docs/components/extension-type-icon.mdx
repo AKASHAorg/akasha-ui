@@ -1,0 +1,65 @@
+---
+title: Extension Type Icon
+description: Icon in a container that indicates an extension type.
+component: true
+---
+
+<ComponentPreview name="extension-type-icon-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/extension-type-icon.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install lucide-react
+```
+
+<Step>Add the following type into your project.</Step>
+
+<ComponentSource name="extension-type" />
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="extension-type-icon" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { ExtensionTypeIcon } from "<path-to-ui-component>/extension-type-icon";
+```
+
+```tsx
+<ExtensionTypeIcon />
+```
+
+## Props
+
+| Name          | Type            | Description     |
+| ------------- | --------------- | --------------- |
+| extensionType | `ExtensionType` | Extension type. |

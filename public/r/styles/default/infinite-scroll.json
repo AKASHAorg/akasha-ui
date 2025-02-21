@@ -4,9 +4,6 @@
   "dependencies": [
     "@tanstack/react-virtual"
   ],
-  "registryDependencies": [
-    "https://akasha-ui.pages.dev/r/styles/default/stack.json"
-  ],
   "files": [
     {
       "path": "ui/infinite-scroll.tsx",

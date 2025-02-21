@@ -140,11 +140,34 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "extension-avatar": {
+      name: "extension-avatar",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["custom/image"],
+      files: [{
+        path: "registry/default/ui/extension-avatar.tsx",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/types/get-image-from-seed.tsx",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/types/extension-type.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/extension-avatar.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "extension-card": {
       name: "extension-card",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["custom/typography","custom/extension-type-icon","badge"],
+      registryDependencies: ["badge","custom/extension-avatar","custom/extension-type-icon","custom/typography"],
       files: [{
         path: "registry/default/ui/extension-card.tsx",
         type: "registry:ui",
@@ -156,6 +179,25 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/ui/extension-card.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "extension-type-icon": {
+      name: "extension-type-icon",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/extension-type-icon.tsx",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/types/extension-type.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/extension-type-icon.tsx")),
       source: "",
       meta: undefined,
     },
@@ -208,7 +250,7 @@ export const Index: Record<string, any> = {
       name: "infinite-scroll",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["custom/stack"],
+      registryDependencies: undefined,
       files: [{
         path: "registry/default/ui/infinite-scroll.tsx",
         type: "registry:ui",
@@ -250,6 +292,22 @@ export const Index: Record<string, any> = {
       files: [{
         path: "registry/default/ui/profile-avatar-button.tsx",
         type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/custom-icons/did-key.tsx",
+        type: "registry:lib",
+        target: ""
+      },{
+        path: "registry/default/custom-icons/ethereum.tsx",
+        type: "registry:lib",
+        target: ""
+      },{
+        path: "registry/default/custom-icons/no-eth.tsx",
+        type: "registry:lib",
+        target: ""
+      },{
+        path: "registry/default/custom-icons/solana.tsx",
+        type: "registry:lib",
         target: ""
       }],
       categories: undefined,
@@ -359,6 +417,96 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/lib/utils.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "get-image-from-seed": {
+      name: "get-image-from-seed",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/lib/get-image-from-seed.ts",
+        type: "registry:lib",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/lib/get-image-from-seed.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "extension-type": {
+      name: "extension-type",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/types/extension-type.ts",
+        type: "registry:lib",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/types/extension-type.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "did-key": {
+      name: "did-key",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/custom-icons/did-key.tsx",
+        type: "registry:lib",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/custom-icons/did-key.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "ethereum": {
+      name: "ethereum",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/custom-icons/ethereum.tsx",
+        type: "registry:lib",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/custom-icons/ethereum.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "no-eth": {
+      name: "no-eth",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/custom-icons/no-eth.tsx",
+        type: "registry:lib",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/custom-icons/no-eth.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "solana": {
+      name: "solana",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/custom-icons/solana.tsx",
+        type: "registry:lib",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/custom-icons/solana.tsx")),
       source: "",
       meta: undefined,
     },
@@ -707,6 +855,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "extension-avatar-demo": {
+      name: "extension-avatar-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["extension-avatar"],
+      files: [{
+        path: "registry/default/examples/extension-avatar-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/extension-avatar-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "extension-card-demo": {
       name: "extension-card-demo",
       description: "",
@@ -719,6 +882,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/extension-card-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "extension-type-icon-demo": {
+      name: "extension-type-icon-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["extension-type-icon"],
+      files: [{
+        path: "registry/default/examples/extension-type-icon-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/extension-type-icon-demo.tsx")),
       source: "",
       meta: undefined,
     },
