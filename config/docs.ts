@@ -74,8 +74,18 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Extension Avatar",
+          href: "/docs/components/extension-avatar",
+          items: [],
+        },
+        {
           title: "Extension Card",
           href: "/docs/components/extension-card",
+          items: [],
+        },
+        {
+          title: "Extension Type Icon",
+          href: "/docs/components/extension-type-icon",
           items: [],
         },
         {

@@ -102,16 +102,53 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "extension-avatar",
+    type: "registry:ui",
+    dependencies: ["lucide-react"],
+    registryDependencies: ["custom/image"],
+    files: [
+      {
+        path: "ui/extension-avatar.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "types/get-image-from-seed.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "types/extension-type.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "extension-card",
     type: "registry:ui",
+    dependencies: ["lucide-react"],
     registryDependencies: [
-      "custom/typography",
-      "custom/extension-type-icon",
       "badge",
+      "custom/extension-avatar",
+      "custom/extension-type-icon",
+      "custom/typography",
     ],
     files: [
       {
         path: "ui/extension-card.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "types/extension-type.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "extension-type-icon",
+    type: "registry:ui",
+    dependencies: ["lucide-react"],
+    files: [
+      {
+        path: "ui/extension-type-icon.tsx",
         type: "registry:ui",
       },
       {
@@ -162,7 +199,6 @@ export const ui: Registry = [
   {
     name: "infinite-scroll",
     type: "registry:ui",
-    registryDependencies: ["custom/stack"],
     dependencies: ["@tanstack/react-virtual"],
     files: [
       {
@@ -202,6 +238,22 @@ export const ui: Registry = [
       {
         path: "ui/profile-avatar-button.tsx",
         type: "registry:ui",
+      },
+      {
+        path: "custom-icons/did-key.tsx",
+        type: "registry:lib",
+      },
+      {
+        path: "custom-icons/ethereum.tsx",
+        type: "registry:lib",
+      },
+      {
+        path: "custom-icons/no-eth.tsx",
+        type: "registry:lib",
+      },
+      {
+        path: "custom-icons/solana.tsx",
+        type: "registry:lib",
       },
     ],
   },
