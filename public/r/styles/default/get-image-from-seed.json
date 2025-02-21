@@ -1,0 +1,12 @@
+{
+  "name": "get-image-from-seed",
+  "type": "registry:lib",
+  "files": [
+    {
+      "path": "lib/get-image-from-seed.ts",
+      "content": "export const getImageFromSeed = (\n  seed: string | null,\n  numberOfPlaceholders: number\n) => {\n  let str = seed;\n\n  if (seed && seed.search(\"0x\") != -1) {\n    str = seed.replace(\"0x\", \"\");\n  }\n\n  if (str && str.length) {\n    const avatarOption = Array.from(str).reduce(\n      (sum: number, letter: string) => {\n        if (parseInt(letter, 10)) {\n          return sum + parseInt(letter, 10);\n        }\n        return sum;\n      },\n      0\n    );\n\n    /**\n     * if user is a visitor his address is 0x0000... so sum is 0\n     * you can give him a specific placeholder\n     */\n    if (avatarOption === 0) {\n      return numberOfPlaceholders;\n    }\n\n    return (avatarOption % (numberOfPlaceholders - 1)) + 1;\n  }\n  // load the first placeholder, just to not throw and error\n  return numberOfPlaceholders;\n};\n",
+      "type": "registry:lib",
+      "target": ""
+    }
+  ]
+}

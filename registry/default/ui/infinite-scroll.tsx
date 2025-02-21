@@ -12,18 +12,16 @@ import {
   getInitialMeasurementsCache,
   useScrollRestoration,
 } from "@/registry/default/hooks/use-scroll-restoration";
-import { Stack } from "@/registry/default/ui/stack";
 
 const InfiniteScrollContext = React.createContext<{
-  listOffset: number;
-  itemSpacing?: number;
-  estimatedHeight: number;
+  gap?: number;
   loading?: boolean;
   hasNextPage?: boolean;
   virtualizer: Virtualizer<Window, Element>;
   count: number;
   overScan: number;
   headerRef: React.RefObject<HTMLDivElement | null>;
+  loadingIndicator?: React.ReactNode;
 } | null>(null);
 
 const useInfiniteScrollContext = () => {
@@ -41,10 +39,11 @@ const InfiniteScroll = ({
   estimatedHeight,
   lanes,
   overScan = 5,
-  itemSpacing,
+  gap,
+  header,
   hasNextPage,
   loading,
-  header,
+  loadingIndicator,
   className,
   children,
   onLoadMore,
@@ -54,10 +53,11 @@ const InfiniteScroll = ({
   estimatedHeight: number;
   lanes?: number;
   overScan?: number;
-  itemSpacing?: number;
+  gap?: number;
+  header?: React.ReactNode;
   hasNextPage?: boolean;
   loading?: boolean;
-  header?: React.ReactNode;
+  loadingIndicator?: React.ReactNode;
   onLoadMore?: () => void;
 }) => {
   const parentRef = React.useRef<HTMLDivElement>(null);
@@ -73,7 +73,7 @@ const InfiniteScroll = ({
     count,
     lanes,
     overscan: overScan,
-    gap: itemSpacing,
+    gap,
     scrollMargin: parentOffsetRef.current,
     measureElement: isMobile
       ? (element, entry, instance) => {
@@ -93,10 +93,6 @@ const InfiniteScroll = ({
   const virtualItems = virtualizer.getVirtualItems();
   const totalSize = virtualizer.getTotalSize();
 
-  const vListOffset = virtualItems?.[0]?.start
-    ? virtualItems[0].start - virtualizer.options.scrollMargin
-    : 0;
-
   const minHeight =
     virtualizer.isScrolling && loading && hasNextPage
       ? totalSize + overScan * estimatedHeight
@@ -107,10 +103,7 @@ const InfiniteScroll = ({
 
     const lastItem = virtualItems[virtualItems.length - 1];
     if (lastItem && lastItem.index >= count - 1) {
-      const timeout = setTimeout(() => {
-        onLoadMore?.();
-      }, 100);
-      return () => clearTimeout(timeout);
+      onLoadMore?.();
     }
   }, [hasNextPage, count, loading, virtualItems, onLoadMore]);
 
@@ -128,14 +121,13 @@ const InfiniteScroll = ({
       >
         <InfiniteScrollContext.Provider
           value={{
-            listOffset: vListOffset,
-            itemSpacing,
-            estimatedHeight,
+            gap,
             loading,
             hasNextPage,
             virtualizer,
             count,
             overScan,
+            loadingIndicator,
             headerRef,
           }}
         >
@@ -147,104 +139,86 @@ const InfiniteScroll = ({
 };
 
 const InfiniteScrollList = ({
-  loadingIndicator,
   className,
   children,
   ...props
 }: Omit<React.ComponentProps<"div">, "children"> & {
-  loadingIndicator?: React.ReactNode;
   children: (index: number) => React.ReactElement<any>;
 }) => {
-  const {
-    listOffset,
-    itemSpacing,
-    estimatedHeight,
-    loading,
-    hasNextPage,
-    virtualizer,
-  } = useInfiniteScrollContext();
+  const { gap, loading, hasNextPage, virtualizer, loadingIndicator } =
+    useInfiniteScrollContext();
 
   const virtualItems = virtualizer.getVirtualItems();
-  const { initialMeasurementsCache } = virtualizer.options;
+  const listOffset = virtualItems?.[0]?.start
+    ? virtualItems[0].start - virtualizer.options.scrollMargin
+    : 0;
+
   return (
-    <Stack
+    <div
       data-slot="infinite-scroll-list"
       data-offset={listOffset}
-      className={cn("absolute w-full top-0 left-0", className)}
+      className={cn("flex flex-col absolute w-full top-0 left-0", className)}
       style={{
         transform: `translateY(${listOffset}px)`,
-        gap: `${itemSpacing}px`,
+        gap: `${gap}px`,
       }}
       {...props}
     >
       {virtualItems.map((virtualItem) => {
-        const cachedSize =
-          initialMeasurementsCache?.[virtualItem.index]?.size || 0;
-        const minHeight = loading ? estimatedHeight : cachedSize;
-
         return (
           <div
             key={virtualItem.key}
-            data-index={virtualItem.index}
             ref={virtualizer.measureElement}
-            style={{
-              ...(minHeight && {
-                minHeight: `${minHeight}px`,
-              }),
-            }}
+            data-index={virtualItem.index}
           >
             {children(virtualItem.index)}
           </div>
         );
       })}
       {loading && hasNextPage && virtualItems.length > 0 && loadingIndicator}
-    </Stack>
+    </div>
   );
 };
 
-const ScrollRestoration = (
-  props: React.PropsWithChildren<{
-    offsetAttribute: string;
-    scrollRestorationStorageKey?: string;
-    lastScrollRestorationKey?: string;
-  }>
-) => {
-  const {
-    scrollRestorationStorageKey = "storage-key",
-    lastScrollRestorationKey,
-    offsetAttribute,
-    children,
-  } = props;
-
+const ScrollRestoration = ({
+  scrollConfigStorageKey = "storage-key",
+  lastScrollRestorationKey = "",
+  children,
+}: React.PropsWithChildren<{
+  scrollConfigStorageKey?: string;
+  lastScrollRestorationKey?: string;
+}>) => {
   const { count, overScan, headerRef, virtualizer } =
     useInfiniteScrollContext();
 
-  virtualizer.setOptions({
-    ...virtualizer.options,
-    initialMeasurementsCache: getInitialMeasurementsCache({
-      scrollRestorationStorageKey,
-    }),
-  });
+  React.useEffect(() => {
+    virtualizer.setOptions({
+      ...virtualizer.options,
+      initialMeasurementsCache: getInitialMeasurementsCache({
+        scrollConfigStorageKey,
+      }),
+    });
+  }, [scrollConfigStorageKey, virtualizer]);
 
   React.useLayoutEffect(() => {
     const headerHeight = getHeaderHeight({
-      scrollRestorationStorageKey,
-      lastScrollRestorationKey: lastScrollRestorationKey ?? "",
+      scrollConfigStorageKey,
+      lastScrollRestorationKey,
     });
     if (headerHeight)
       headerRef.current?.setAttribute(
         "className",
         `${headerRef.current.className} min-h-[${headerHeight}px]`
       );
-  }, [headerRef, lastScrollRestorationKey, scrollRestorationStorageKey]);
+  }, [headerRef, lastScrollRestorationKey, scrollConfigStorageKey]);
 
   useScrollRestoration({
     virtualizer,
     count,
     overScan,
-    scrollRestorationStorageKey,
-    offsetAttribute,
-    lastScrollRestorationKey: lastScrollRestorationKey ?? "",
+    scrollConfigStorageKey,
+    offsetAttribute: "data-offset",
+    lastScrollRestorationKey,
     headerRef,
   });
   return <>{children}</>;

@@ -1,6 +1,6 @@
 ---
 title: Extension Card
-description: A card containing basic information about an extension(an app, widget or plugin)
+description: A card containing basic information about an extension(an app, widget or plugin).
 component: true
 ---
 
@@ -31,6 +31,10 @@ npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/extension-ca
 ```bash
 npm install lucide-react
 ```
+
+<Step>Add the following type into your project.</Step>
+
+<ComponentSource name="extension-type" />
 
 <Step>Copy and paste the following code into your project.</Step>
 
@@ -95,12 +99,13 @@ import {
 
 ## Props
 
-| Name          | Type            | Description    |
-| ------------- | --------------- | -------------- |
-| extensionType | `ExtensionType` | Extension type |
+| Name          | Type            | Description     |
+| ------------- | --------------- | --------------- |
+| extensionId   | `string`        | Extension id.   |
+| extensionType | `ExtensionType` | Extension type. |
 
 `ExtensionCardAction`
 
-| Name   | Type      | Description                               |
-| ------ | --------- | ----------------------------------------- |
-| active | `boolean` | Whether a badge button is in active state |
+| Name   | Type      | Description                                     |
+| ------ | --------- | ----------------------------------------------- |
+| active | `boolean` | Indicates if a badge button is in active state. |

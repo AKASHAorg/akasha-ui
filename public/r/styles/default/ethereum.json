@@ -1,0 +1,12 @@
+{
+  "name": "ethereum",
+  "type": "registry:lib",
+  "files": [
+    {
+      "path": "custom-icons/ethereum.tsx",
+      "content": "import React from \"react\";\nimport { LucideProps } from \"lucide-react\";\n\nexport const Ethereum = (props: LucideProps) => (\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"24\"\n    height=\"24\"\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    strokeWidth=\"2\"\n    strokeLinecap=\"round\"\n    strokeLinejoin=\"round\"\n    {...props}\n  >\n    <path\n      d=\"M11.9999 16.4904V1.6001L5.5 12.606L11.9999 16.4904Z\"\n      fill=\"#FFE644\"\n    />\n    <path\n      d=\"M11.9999 1.6001L18.5 12.606L11.9999 16.4904V1.6001Z\"\n      fill=\"#EC7463\"\n    />\n    <path d=\"M5.5 13.4421L11.9999 17.3263V22.3507\" fill=\"#009ECB\" />\n    <path d=\"M18.5 13.4421L11.9999 17.3263V22.3507\" fill=\"#4D68AE\" />\n    <path\n      d=\"M11.9999 8.72216L5.5 12.606L11.9999 16.4904V8.72216Z\"\n      fill=\"#57A759\"\n    />\n    <path\n      d=\"M11.9999 8.72216L18.5 12.606L11.9999 16.4904V8.72216Z\"\n      fill=\"#8E5298\"\n    />\n  </svg>\n);\n",
+      "type": "registry:lib",
+      "target": ""
+    }
+  ]
+}
