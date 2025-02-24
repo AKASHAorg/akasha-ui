@@ -333,6 +333,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "infinite-scroll-element-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/infinite-scroll"],
+    files: [
+      {
+        path: "examples/infinite-scroll-element-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "inline-notification-demo",
     type: "registry:example",
     registryDependencies: ["custom/inline-notification"],

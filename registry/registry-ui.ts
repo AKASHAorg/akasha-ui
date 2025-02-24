@@ -111,14 +111,6 @@ export const ui: Registry = [
         path: "ui/extension-avatar.tsx",
         type: "registry:ui",
       },
-      {
-        path: "types/get-image-from-seed.tsx",
-        type: "registry:ui",
-      },
-      {
-        path: "types/extension-type.tsx",
-        type: "registry:ui",
-      },
     ],
   },
   {
@@ -136,10 +128,6 @@ export const ui: Registry = [
         path: "ui/extension-card.tsx",
         type: "registry:ui",
       },
-      {
-        path: "types/extension-type.tsx",
-        type: "registry:ui",
-      },
     ],
   },
   {
@@ -149,10 +137,6 @@ export const ui: Registry = [
     files: [
       {
         path: "ui/extension-type-icon.tsx",
-        type: "registry:ui",
-      },
-      {
-        path: "types/extension-type.tsx",
         type: "registry:ui",
       },
     ],

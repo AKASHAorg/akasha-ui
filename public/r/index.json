@@ -136,14 +136,6 @@
       {
         "path": "ui/extension-avatar.tsx",
         "type": "registry:ui"
-      },
-      {
-        "path": "types/get-image-from-seed.tsx",
-        "type": "registry:ui"
-      },
-      {
-        "path": "types/extension-type.tsx",
-        "type": "registry:ui"
       }
     ]
   },
@@ -163,10 +155,6 @@
       {
         "path": "ui/extension-card.tsx",
         "type": "registry:ui"
-      },
-      {
-        "path": "types/extension-type.tsx",
-        "type": "registry:ui"
       }
     ]
   },
@@ -179,10 +167,6 @@
     "files": [
       {
         "path": "ui/extension-type-icon.tsx",
-        "type": "registry:ui"
-      },
-      {
-        "path": "types/extension-type.tsx",
         "type": "registry:ui"
       }
     ]

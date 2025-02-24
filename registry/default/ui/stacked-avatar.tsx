@@ -11,23 +11,23 @@ const StackedAvatar = ({
   count: number;
   children: (index: number) => React.ReactNode;
 }) => {
+  const safeCount = Math.max(0, Math.floor(count));
+
   return (
     <div
       data-slot="stacked-avatar"
       className={cn("flex flex-row", className)}
       {...props}
     >
-      {Array(Math.abs(count))
-        .fill(0)
-        .map((_, index) => (
-          <div
-            key={index}
-            className={cn("rounded-full border border-border")}
-            style={{ transform: `translateX(-${index * 50}%)` }}
-          >
-            {children(index)}
-          </div>
-        ))}
+      {Array.from({ length: safeCount }, (_, index) => (
+        <div
+          key={index}
+          className={cn("rounded-full border border-border")}
+          style={{ transform: `translateX(-${index * 50}%)` }}
+        >
+          {children(index)}
+        </div>
+      ))}
     </div>
   );
 };

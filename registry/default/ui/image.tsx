@@ -22,38 +22,52 @@ const useImageContext = () => {
   return context;
 };
 
-const ImageRoot = ({ children, ...props }: React.ComponentProps<"div">) => {
+const ImageRoot = ({
+  children,
+  className,
+  ...props
+}: React.ComponentProps<"div">) => {
   const [loading, setLoading] = React.useState(true);
   const [hasError, setError] = React.useState(false);
 
   return (
     <ImageContext.Provider value={{ loading, hasError, setLoading, setError }}>
-      <div data-slot="image-root" {...props}>
+      <div
+        data-slot="image-root"
+        className={cn("relative", className)}
+        {...props}
+      >
         {children}
       </div>
     </ImageContext.Provider>
   );
 };
 
-const ImageFallback = ({ children }: React.ComponentProps<"span">) => {
+const ImageFallback = ({ children }: { children: React.ReactNode }) => {
   const { hasError } = useImageContext();
-  return hasError ? <span data-slot="image-fallback">{children}</span> : null;
+  if (!hasError) return null;
+  return (
+    <div data-slot="image-fallback" className="absolute inset-0">
+      {children}
+    </div>
+  );
 };
 
-const DelayLoad: React.FC<{
+const DelayLoad = ({
+  children,
+  loadAfter = 300,
+}: {
   children: React.ReactNode;
   loadAfter?: number;
-}> = ({ children, loadAfter = 300 }) => {
+}) => {
   const [show, setShow] = React.useState(false);
 
   React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setShow(true);
-    }, loadAfter);
+    const timer = setTimeout(() => setShow(true), loadAfter);
     return () => clearTimeout(timer);
   }, [loadAfter]);
 
-  return <>{show ? children : null}</>;
+  return show ? <>{children}</> : null;
 };
 
 const Image = ({
@@ -72,42 +86,36 @@ const Image = ({
     setLoading(true);
   }, [setLoading]);
 
+  if (hasError) return null;
+
   return (
     <>
       {showLoadingIndicator && loading && (
         <DelayLoad>
-          <div
-            data-slot="image-loader"
-            className={cn(
-              "flex items-center justify-center w-full h-full",
-              className
-            )}
-          >
-            <Loader2 className={cn("animate-spin text-muted")} />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
           </div>
         </DelayLoad>
       )}
-      {!hasError && (
-        <img
-          data-slot="image"
-          loading="lazy"
-          decoding="async"
-          onLoad={(event) => {
-            setLoading(false);
-            onLoad?.(event);
-          }}
-          onError={(event) => {
-            setError(true);
-            setLoading(false);
-            onError?.(event);
-          }}
-          alt={alt}
-          className={cn("object-contain", className)}
-          {...props}
-        />
-      )}
+      <img
+        data-slot="image"
+        className={cn("h-full w-full object-cover", className)}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        onLoad={(event) => {
+          setLoading(false);
+          onLoad?.(event);
+        }}
+        onError={(event) => {
+          setError(true);
+          setLoading(false);
+          onError?.(event);
+        }}
+        {...props}
+      />
     </>
   );
 };
 
-export { ImageRoot, ImageFallback, Image };
+export { Image, ImageRoot, ImageFallback };
