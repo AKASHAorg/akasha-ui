@@ -10,7 +10,7 @@ import { CopyButton } from "@/components/copy-button";
 import { Icons } from "@/components/icons";
 import { StyleSwitcher } from "@/components/style-switcher";
 import { ThemeWrapper } from "@/components/theme-wrapper";
-// import { V0Button } from "@/components/v0-button";
+import { OpenInV0Button } from "@/components/v0-button";
 import {
   Tabs,
   TabsContent,
@@ -18,6 +18,9 @@ import {
   TabsTrigger,
 } from "@/registry/default/ui/tabs";
 import { styles } from "@/registry/registry-styles";
+
+const REGISTRY_URL =
+  process.env.REGISTRY_URL || "https://akasha-ui.pages.dev/r";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
@@ -128,7 +131,11 @@ export function ComponentPreview({
           <div className="flex items-center justify-between p-4">
             <StyleSwitcher />
             <div className="flex items-center gap-2">
-              {/* {description ? <V0Button name={name} /> : null} */}
+              {
+                <OpenInV0Button
+                  url={`${REGISTRY_URL}/styles/default/${name}.json`}
+                />
+              }
               <CopyButton
                 value={codeString}
                 variant="outline"

@@ -2,7 +2,8 @@
   "name": "sonner-warning",
   "type": "registry:example",
   "registryDependencies": [
-    "sonner"
+    "https://akasha-ui.pages.dev/r/styles/default/sonner.json",
+    "https://akasha-ui.pages.dev/r/styles/default/button.json"
   ],
   "files": [
     {

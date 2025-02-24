@@ -2,7 +2,7 @@
   "name": "circular-progress-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "circular-progress"
+    "https://akasha-ui.pages.dev/r/styles/default/circular-progress.json"
   ],
   "files": [
     {

@@ -2,7 +2,8 @@
   "name": "extension-card-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "extension-card"
+    "https://akasha-ui.pages.dev/r/styles/default/extension-card.json",
+    "https://akasha-ui.pages.dev/r/styles/default/profile-avatar-button.json"
   ],
   "files": [
     {

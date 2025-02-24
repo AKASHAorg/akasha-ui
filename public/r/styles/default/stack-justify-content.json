@@ -2,7 +2,7 @@
   "name": "stack-justify-content",
   "type": "registry:example",
   "registryDependencies": [
-    "stack"
+    "https://akasha-ui.pages.dev/r/styles/default/stack.json"
   ],
   "files": [
     {

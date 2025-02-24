@@ -2,7 +2,7 @@
   "name": "typography-h5",
   "type": "registry:example",
   "registryDependencies": [
-    "typography"
+    "https://akasha-ui.pages.dev/r/styles/default/typography.json"
   ],
   "files": [
     {

@@ -2,7 +2,7 @@
   "name": "textarea-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "textarea"
+    "https://akasha-ui.pages.dev/r/styles/default/textarea.json"
   ],
   "files": [
     {

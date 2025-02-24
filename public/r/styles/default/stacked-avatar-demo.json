@@ -2,7 +2,7 @@
   "name": "stacked-avatar-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "stack"
+    "https://akasha-ui.pages.dev/r/styles/default/stacked-avatar.json"
   ],
   "files": [
     {

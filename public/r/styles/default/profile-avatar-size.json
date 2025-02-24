@@ -2,7 +2,7 @@
   "name": "profile-avatar-size",
   "type": "registry:example",
   "registryDependencies": [
-    "profile-avatar"
+    "https://akasha-ui.pages.dev/r/styles/default/profile-avatar.json"
   ],
   "files": [
     {

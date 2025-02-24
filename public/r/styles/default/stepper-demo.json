@@ -2,7 +2,8 @@
   "name": "stepper-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "stepper"
+    "https://akasha-ui.pages.dev/r/styles/default/stepper.json",
+    "https://akasha-ui.pages.dev/r/styles/default/button.json"
   ],
   "files": [
     {

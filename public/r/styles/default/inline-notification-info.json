@@ -2,7 +2,7 @@
   "name": "inline-notification-info",
   "type": "registry:example",
   "registryDependencies": [
-    "icon-container"
+    "https://akasha-ui.pages.dev/r/styles/default/inline-notification.json"
   ],
   "files": [
     {

@@ -2,7 +2,7 @@
   "name": "typography-small",
   "type": "registry:example",
   "registryDependencies": [
-    "typography"
+    "https://akasha-ui.pages.dev/r/styles/default/typography.json"
   ],
   "files": [
     {

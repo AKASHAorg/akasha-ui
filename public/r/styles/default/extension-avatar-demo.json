@@ -2,7 +2,7 @@
   "name": "extension-avatar-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "extension-avatar"
+    "https://akasha-ui.pages.dev/r/styles/default/extension-avatar.json"
   ],
   "files": [
     {

@@ -2,7 +2,7 @@
   "name": "infinite-scroll-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "infinite-scroll-demo"
+    "https://akasha-ui.pages.dev/r/styles/default/infinite-scroll.json"
   ],
   "files": [
     {

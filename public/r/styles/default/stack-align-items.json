@@ -2,7 +2,7 @@
   "name": "stack-align-items",
   "type": "registry:example",
   "registryDependencies": [
-    "stack"
+    "https://akasha-ui.pages.dev/r/styles/default/stack.json"
   ],
   "files": [
     {
