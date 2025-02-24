@@ -43,7 +43,7 @@ const ImageRoot = ({
   );
 };
 
-const ImageFallback = ({ children }: { children: React.ReactNode }) => {
+const ImageFallback = ({ children }: React.ComponentProps<"span">) => {
   const { hasError } = useImageContext();
   if (!hasError) return null;
   return (
