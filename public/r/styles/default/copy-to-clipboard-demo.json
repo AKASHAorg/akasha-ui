@@ -2,7 +2,8 @@
   "name": "copy-to-clipboard-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "copy-to-clipboard"
+    "https://akasha-ui.pages.dev/r/styles/default/copy-to-clipboard.json",
+    "https://akasha-ui.pages.dev/r/styles/default/profile-avatar-button.json"
   ],
   "files": [
     {

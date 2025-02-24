@@ -2,7 +2,7 @@
   "name": "autocomplete-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "autocomplete"
+    "https://akasha-ui.pages.dev/r/styles/default/autocomplete.json"
   ],
   "files": [
     {

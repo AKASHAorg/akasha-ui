@@ -2,7 +2,7 @@
   "name": "extension-type-icon-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "extension-type-icon"
+    "https://akasha-ui.pages.dev/r/styles/default/extension-type-icon.json"
   ],
   "files": [
     {

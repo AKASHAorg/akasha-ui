@@ -2,7 +2,9 @@
   "name": "autocomplete-multiple-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "autocomplete"
+    "https://akasha-ui.pages.dev/r/styles/default/autocomplete.json",
+    "badge",
+    "https://akasha-ui.pages.dev/r/styles/default/button.json"
   ],
   "files": [
     {

@@ -2,7 +2,7 @@
   "name": "error-loader-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "error-loader"
+    "https://akasha-ui.pages.dev/r/styles/default/error-loader.json"
   ],
   "files": [
     {

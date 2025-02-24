@@ -2,9 +2,11 @@
   "name": "card-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "card",
-    "button",
-    "switch"
+    "https://akasha-ui.pages.dev/r/styles/default/button.json",
+    "https://akasha-ui.pages.dev/r/styles/default/card.json",
+    "https://akasha-ui.pages.dev/r/styles/default/input.json",
+    "label",
+    "select"
   ],
   "files": [
     {

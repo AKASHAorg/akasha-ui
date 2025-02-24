@@ -2,7 +2,7 @@
   "name": "icon-container-round",
   "type": "registry:example",
   "registryDependencies": [
-    "icon-container"
+    "https://akasha-ui.pages.dev/r/styles/default/icon-container.json"
   ],
   "files": [
     {

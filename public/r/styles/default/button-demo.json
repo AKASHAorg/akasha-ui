@@ -2,7 +2,7 @@
   "name": "button-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "button"
+    "https://akasha-ui.pages.dev/r/styles/default/button.json"
   ],
   "files": [
     {

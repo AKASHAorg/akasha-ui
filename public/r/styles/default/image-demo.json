@@ -2,7 +2,7 @@
   "name": "image-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "image"
+    "https://akasha-ui.pages.dev/r/styles/default/image.json"
   ],
   "files": [
     {

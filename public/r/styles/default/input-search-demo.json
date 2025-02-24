@@ -2,7 +2,7 @@
   "name": "input-search-demo",
   "type": "registry:example",
   "registryDependencies": [
-    "input"
+    "https://akasha-ui.pages.dev/r/styles/default/input.json"
   ],
   "files": [
     {
