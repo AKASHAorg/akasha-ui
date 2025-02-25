@@ -36,10 +36,14 @@ export default function BlocksLayout({
         </PageHeaderDescription>
         <PageActions>
           <Button asChild size="sm">
-            <a href="#blocks">Browse Blocks</a>
+            <a href="#blocks" className="px-4">
+              Browse Blocks
+            </a>
           </Button>
           <Button asChild variant="ghost" size="sm">
-            <Link href="/docs/blocks">Add a block</Link>
+            <Link href="/docs/blocks" className="px-4">
+              Add a block
+            </Link>
           </Button>
         </PageActions>
       </PageHeader>
