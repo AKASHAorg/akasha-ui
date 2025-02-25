@@ -1,6 +1,7 @@
 import * as React from "react";
 import {
   measureElement,
+  useVirtualizer,
   useWindowVirtualizer,
   Virtualizer,
 } from "@tanstack/react-virtual";
@@ -17,7 +18,9 @@ const InfiniteScrollContext = React.createContext<{
   gap?: number;
   loading?: boolean;
   hasNextPage?: boolean;
-  virtualizer: Virtualizer<Window, Element>;
+  virtualizer:
+    | Virtualizer<Window, Element>
+    | Virtualizer<HTMLDivElement, Element>;
   count: number;
   overScan: number;
   headerRef: React.RefObject<HTMLDivElement | null>;
@@ -44,6 +47,7 @@ const InfiniteScroll = ({
   hasNextPage,
   loading,
   loadingIndicator,
+  scrollElementType = "window",
   className,
   children,
   onLoadMore,
@@ -58,6 +62,7 @@ const InfiniteScroll = ({
   hasNextPage?: boolean;
   loading?: boolean;
   loadingIndicator?: React.ReactNode;
+  scrollElementType?: "window" | "element";
   onLoadMore?: () => void;
 }) => {
   const parentRef = React.useRef<HTMLDivElement>(null);
@@ -69,14 +74,18 @@ const InfiniteScroll = ({
     parentOffsetRef.current = parentRef.current?.offsetTop ?? 0;
   }, [parentRef.current?.offsetTop]);
 
-  const virtualizer = useWindowVirtualizer({
+  const commonOptions = {
     count,
     lanes,
     overscan: overScan,
     gap,
     scrollMargin: parentOffsetRef.current,
     measureElement: isMobile
-      ? (element, entry, instance) => {
+      ? (
+          element: any,
+          entry: ResizeObserverEntry | undefined,
+          instance: Virtualizer<any, any>
+        ) => {
           const dataIndex = instance.indexFromElement(element);
           if (
             instance.scrollDirection === "backward" &&
@@ -88,7 +97,17 @@ const InfiniteScroll = ({
         }
       : measureElement,
     estimateSize: () => estimatedHeight,
+  };
+
+  const windowVirtualizer = useWindowVirtualizer(commonOptions);
+
+  const elementVirtualizer = useVirtualizer({
+    ...commonOptions,
+    getScrollElement: () => parentRef.current,
   });
+
+  const virtualizer =
+    scrollElementType === "window" ? windowVirtualizer : elementVirtualizer;
 
   const virtualItems = virtualizer.getVirtualItems();
   const totalSize = virtualizer.getTotalSize();
@@ -111,28 +130,36 @@ const InfiniteScroll = ({
     <>
       {header && <div ref={headerRef}>{header}</div>}
       <div
-        data-slot="infinite-scroll"
         ref={parentRef}
-        className={cn("relative w-full", className)}
-        style={{
-          minHeight: `${minHeight}px`,
-        }}
-        {...props}
+        data-slot="infinite-scroll-container"
+        className={cn(
+          "w-full",
+          scrollElementType === "element" && "overflow-y-auto h-100"
+        )}
       >
-        <InfiniteScrollContext.Provider
-          value={{
-            gap,
-            loading,
-            hasNextPage,
-            virtualizer,
-            count,
-            overScan,
-            loadingIndicator,
-            headerRef,
+        <div
+          data-slot="infinite-scroll"
+          className={cn("relative w-full", className)}
+          style={{
+            minHeight: `${minHeight}px`,
           }}
+          {...props}
         >
-          {children}
-        </InfiniteScrollContext.Provider>
+          <InfiniteScrollContext.Provider
+            value={{
+              gap,
+              loading,
+              hasNextPage,
+              virtualizer,
+              count,
+              overScan,
+              loadingIndicator,
+              headerRef,
+            }}
+          >
+            {children}
+          </InfiniteScrollContext.Provider>
+        </div>
       </div>
     </>
   );
@@ -180,24 +207,32 @@ const InfiniteScrollList = ({
   );
 };
 
-const ScrollRestoration = ({
+const isWindowVirtualizer = (
+  virtualizer: Virtualizer<any, Element>
+): virtualizer is Virtualizer<Window, Element> =>
+  virtualizer.scrollElement instanceof Window;
+
+const WindowScrollRestoration = ({
   scrollConfigStorageKey = "storage-key",
   lastScrollRestorationKey = "",
+  virtualizer,
   children,
 }: React.PropsWithChildren<{
   scrollConfigStorageKey?: string;
   lastScrollRestorationKey?: string;
+  virtualizer: Virtualizer<Window, Element>;
 }>) => {
-  const { count, overScan, headerRef, virtualizer } =
-    useInfiniteScrollContext();
+  const { count, overScan, headerRef } = useInfiniteScrollContext();
 
   React.useEffect(() => {
-    virtualizer.setOptions({
-      ...virtualizer.options,
-      initialMeasurementsCache: getInitialMeasurementsCache({
-        scrollConfigStorageKey,
-      }),
-    });
+    if (isWindowVirtualizer(virtualizer)) {
+      virtualizer.setOptions({
+        ...virtualizer.options,
+        initialMeasurementsCache: getInitialMeasurementsCache({
+          scrollConfigStorageKey,
+        }),
+      });
+    }
   }, [scrollConfigStorageKey, virtualizer]);
 
   React.useLayoutEffect(() => {
@@ -222,6 +257,27 @@ const ScrollRestoration = ({
     headerRef,
   });
   return <>{children}</>;
+};
+
+const ScrollRestoration = ({
+  children,
+  ...props
+}: React.PropsWithChildren<{
+  scrollConfigStorageKey?: string;
+  lastScrollRestorationKey?: string;
+}>) => {
+  const { virtualizer } = useInfiniteScrollContext();
+
+  if (isWindowVirtualizer(virtualizer))
+    return (
+      <WindowScrollRestoration virtualizer={virtualizer} {...props}>
+        {children}
+      </WindowScrollRestoration>
+    );
+
+  throw new Error(
+    "Scroll restoration is currently only supported when the scroll element is the window."
+  );
 };
 
 export { InfiniteScroll, InfiniteScrollList, ScrollRestoration };

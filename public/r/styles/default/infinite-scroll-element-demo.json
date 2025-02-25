@@ -1,0 +1,15 @@
+{
+  "name": "infinite-scroll-element-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://akasha-ui.pages.dev/r/styles/default/infinite-scroll.json"
+  ],
+  "files": [
+    {
+      "path": "examples/infinite-scroll-element-demo.tsx",
+      "content": "import * as React from \"react\";\nimport { faker } from \"@faker-js/faker\";\nimport {\n  QueryClient,\n  QueryClientProvider,\n  useInfiniteQuery,\n} from \"@tanstack/react-query\";\n\nimport {\n  InfiniteScroll,\n  InfiniteScrollList,\n} from \"@/registry/default/ui/infinite-scroll\";\n\nconst queryClient = new QueryClient();\n\nconst randomNumber = (min: number, max: number) =>\n  faker.number.int({ min, max });\n\nasync function fetchServerPage(\n  limit: number,\n  offset: number = 0\n): Promise<{ rows: Array<string>; nextOffset: number }> {\n  const rows = new Array(limit)\n    .fill(0)\n    .map(() => faker.lorem.sentence(randomNumber(20, 70)));\n\n  await new Promise((r) => setTimeout(r, 500));\n\n  return { rows, nextOffset: offset + 1 };\n}\n\nfunction InfiniteScrollElement() {\n  const {\n    status,\n    data,\n    error,\n    isFetchingNextPage,\n    fetchNextPage,\n    hasNextPage,\n  } = useInfiniteQuery({\n    queryKey: [\"projects\"],\n    queryFn: (ctx) => fetchServerPage(10, ctx.pageParam),\n    getNextPageParam: (lastGroup) => lastGroup.nextOffset,\n    initialPageParam: 0,\n  });\n\n  const allRows = data ? data.pages.flatMap((d) => d.rows) : [];\n\n  return (\n    <div className=\"**:data-[slot=infinite-scroll-container]:h-[400px] w-full\">\n      {status === \"pending\" ? (\n        <p>Loading...</p>\n      ) : status === \"error\" ? (\n        <span>Error: {error.message}</span>\n      ) : (\n        <InfiniteScroll\n          count={allRows.length}\n          estimatedHeight={50}\n          overScan={5}\n          gap={10}\n          loading={isFetchingNextPage}\n          hasNextPage={hasNextPage}\n          onLoadMore={() => {\n            fetchNextPage();\n          }}\n          loadingIndicator=\"Loading ...\"\n          scrollElementType=\"element\"\n        >\n          <InfiniteScrollList>\n            {(index) => {\n              return <div>{allRows[index]}</div>;\n            }}\n          </InfiniteScrollList>\n        </InfiniteScroll>\n      )}\n    </div>\n  );\n}\n\nexport default function InfiniteScrollElementDemo() {\n  return (\n    <QueryClientProvider client={queryClient}>\n      <InfiniteScrollElement />\n    </QueryClientProvider>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
