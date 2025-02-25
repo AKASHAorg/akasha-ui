@@ -41,6 +41,7 @@ function Button({
   size = "default",
   loading,
   asChild = false,
+  type = "button",
   disabled,
   children,
   ...props
@@ -62,6 +63,7 @@ function Button({
         buttonVariants({ variant, size, className }),
         { "p-0": variant === "link" || asChild }
       )}
+      type={type}
       disabled={loading || disabled}
       {...props}
     >
