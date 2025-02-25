@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
-import { Check, Loader2, Search } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import {
@@ -63,7 +63,7 @@ const Autocomplete = ({
       }
 
       if (event.key === "Enter" && input.value !== "") {
-        const optionToSelect = options.find(
+        const optionToSelect = (options || []).find(
           (option) => option.label === input.value
         );
         if (optionToSelect) {
