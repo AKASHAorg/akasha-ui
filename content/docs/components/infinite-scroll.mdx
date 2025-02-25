@@ -74,18 +74,25 @@ return (
 
 ## Props
 
-| Name             | Type         | Description                                                                                                                                                                         |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| count            | `number`     | The total number of items to virtualize.                                                                                                                                            |
-| estimatedHeight  | `number`     | Estimated height of each virtual item.                                                                                                                                              |
-| lanes            | `number`     | The number of lanes the list is divided into.                                                                                                                                       |
-| overScan         | `number`     | The number of items rendered above and below the visible area. A higher number reduces the chance of blank items during slow rendering but increases the virtualizer's render time. |
-| gap              | number       | Set's the spacing between items in the virtualized list.                                                                                                                            |
-| header           | `ReactNode`  | Component which is at the top of a virtual list. Including it inside the infinite scroll helps to accurately calculate the scroll restoration position.                             |
-| hasNextPage      | `boolean`    | Determines there is a next page to be fetched in paginated query.                                                                                                                   |
-| loading          | `boolean`    | Signals if a queried data is loading.                                                                                                                                               |
-| loadingIndicator | `ReactNode`  | Component used to represent loading data.                                                                                                                                           |
-| onLoadMore       | `() => void` | Callback to load more data.                                                                                                                                                         |
+| Name              | Type                  | Description                                                                                                                                                                         |
+| ----------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| count             | `number`              | The total number of items to virtualize.                                                                                                                                            |
+| estimatedHeight   | `number`              | Estimated height of each virtual item.                                                                                                                                              |
+| lanes             | `number`              | The number of lanes the list is divided into.                                                                                                                                       |
+| overScan          | `number`              | The number of items rendered above and below the visible area. A higher number reduces the chance of blank items during slow rendering but increases the virtualizer's render time. |
+| gap               | number                | Set's the spacing between items in the virtualized list.                                                                                                                            |
+| header            | `ReactNode`           | Component which is at the top of a virtual list. Including it inside the infinite scroll helps to accurately calculate the scroll restoration position.                             |
+| hasNextPage       | `boolean`             | Determines there is a next page to be fetched in paginated query.                                                                                                                   |
+| loading           | `boolean`             | Signals if a queried data is loading.                                                                                                                                               |
+| loadingIndicator  | `ReactNode`           | Component used to represent loading data.                                                                                                                                           |
+| scrollElementType | `window` or `element` | Type of scroll element for the virtualizer, determining whether it's element-based or window-based.                                                                                 |
+| onLoadMore        | `() => void`          | Callback to load more data.                                                                                                                                                         |
+
+<Callout>
+
+The default value of `scrollElementType` is `window`
+
+</Callout>
 
 ## Scroll Restoration
 
@@ -122,3 +129,9 @@ return (
 | ------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------- |
 | scrollConfigStorageKey   | `string` | Key used to store scroll restoration configuration.                                                              |
 | lastScrollRestorationKey | `string` | Last scroll restoration prevents scroll restoration unless the user navigates back to the last key they visited. |
+
+## Examples
+
+### Element based scroll
+
+<ComponentPreview name="infinite-scroll-element-demo" />

@@ -9,7 +9,7 @@ export const Index: Record<string, any> = {
       name: "autocomplete",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["command","input"],
+      registryDependencies: ["command","custom/input"],
       files: [{
         path: "registry/default/ui/autocomplete.tsx",
         type: "registry:ui",
@@ -149,14 +149,6 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/extension-avatar.tsx",
         type: "registry:ui",
         target: ""
-      },{
-        path: "registry/default/types/get-image-from-seed.tsx",
-        type: "registry:ui",
-        target: ""
-      },{
-        path: "registry/default/types/extension-type.tsx",
-        type: "registry:ui",
-        target: ""
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/ui/extension-avatar.tsx")),
@@ -172,10 +164,6 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/extension-card.tsx",
         type: "registry:ui",
         target: ""
-      },{
-        path: "registry/default/types/extension-type.tsx",
-        type: "registry:ui",
-        target: ""
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/ui/extension-card.tsx")),
@@ -189,10 +177,6 @@ export const Index: Record<string, any> = {
       registryDependencies: undefined,
       files: [{
         path: "registry/default/ui/extension-type-icon.tsx",
-        type: "registry:ui",
-        target: ""
-      },{
-        path: "registry/default/types/extension-type.tsx",
         type: "registry:ui",
         target: ""
       }],
@@ -1014,6 +998,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/infinite-scroll-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "infinite-scroll-element-demo": {
+      name: "infinite-scroll-element-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/infinite-scroll"],
+      files: [{
+        path: "registry/default/examples/infinite-scroll-element-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/infinite-scroll-element-demo.tsx")),
       source: "",
       meta: undefined,
     },
