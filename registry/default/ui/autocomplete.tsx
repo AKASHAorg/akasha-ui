@@ -63,7 +63,7 @@ const Autocomplete = ({
       }
 
       if (event.key === "Enter" && input.value !== "") {
-        const optionToSelect = (options || []).find(
+        const optionToSelect = options?.find(
           (option) => option.label === input.value
         );
         if (optionToSelect) {
@@ -167,7 +167,7 @@ const Autocomplete = ({
           )}
           {(options || []).length > 0 && !loading && (
             <CommandGroup>
-              {(options || []).map((option) => {
+              {options?.map((option) => {
                 const isSelected =
                   props.multiple === true
                     ? props.value?.some((item) => item.value === option.value)
