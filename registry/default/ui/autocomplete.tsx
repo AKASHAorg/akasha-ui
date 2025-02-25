@@ -18,7 +18,7 @@ import { Input } from "@/registry/default/ui/input";
 export type Option = Record<"value" | "label", string>;
 
 type AutoCompleteProps = {
-  options: Option[];
+  options: Option[] | null;
   emptyMessage: string;
   loading?: boolean;
   disabled?: boolean;
@@ -38,7 +38,7 @@ type AutoCompleteProps = {
 );
 
 const Autocomplete = ({
-  options,
+  options = [],
   emptyMessage,
   disabled,
   loading = false,
@@ -127,30 +127,30 @@ const Autocomplete = ({
         className
       )}
     >
-      <div className="flex items-center">
-        <Input
-          ref={inputRef}
-          value={value}
-          onChange={(event) => {
-            setValue(event.target.value);
-            setTyping(true);
-          }}
-          onBlur={handleBlur}
-          onFocus={() => {
-            setOpen(true);
-            setTyping(false);
-          }}
-          placeholder={placeholder}
-          disabled={disabled}
-        />
-        <Search className="-ml-6 size-3 shrink-0 opacity-50" />
-      </div>
+      <Input
+        ref={inputRef}
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+          setTyping(true);
+        }}
+        onBlur={handleBlur}
+        onFocus={() => {
+          setOpen(true);
+          setTyping(false);
+        }}
+        placeholder={placeholder}
+        type="search"
+        disabled={disabled}
+      />
       <CommandInput value={typing ? value : ""} className="hidden" />
       <div className="relative">
         <CommandList
           className={cn(
             "absolute animate-in fade-in-0 zoom-in-95 z-10 w-full border rounded-lg bg-card p-1",
-            { hidden: !open }
+            {
+              hidden: !open,
+            }
           )}
         >
           {!loading && (
@@ -163,9 +163,9 @@ const Autocomplete = ({
               <Loader2 className="animate-spin" />
             </CommandPrimitive.Loading>
           )}
-          {options.length > 0 && !loading && (
+          {(options || []).length > 0 && !loading && (
             <CommandGroup>
-              {options.map((option) => {
+              {(options || []).map((option) => {
                 const isSelected =
                   props.multiple === true
                     ? props.value?.some((item) => item.value === option.value)

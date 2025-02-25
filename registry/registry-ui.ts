@@ -4,7 +4,7 @@ export const ui: Registry = [
   {
     name: "autocomplete",
     type: "registry:ui",
-    registryDependencies: ["command", "input"],
+    registryDependencies: ["command", "custom/input"],
     dependencies: ["cmdk", "lucide-react"],
     files: [
       {

@@ -9,7 +9,7 @@ export const Index: Record<string, any> = {
       name: "autocomplete",
       description: "",
       type: "registry:ui",
-      registryDependencies: ["command","input"],
+      registryDependencies: ["command","custom/input"],
       files: [{
         path: "registry/default/ui/autocomplete.tsx",
         type: "registry:ui",

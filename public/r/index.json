@@ -8,7 +8,7 @@
     ],
     "registryDependencies": [
       "command",
-      "input"
+      "custom/input"
     ],
     "files": [
       {
