@@ -143,7 +143,9 @@ const Autocomplete = ({
         type="search"
         disabled={disabled}
       />
-      <CommandInput value={typing ? value : ""} className="hidden" />
+      <div className="hidden">
+        <CommandInput value={typing ? value : ""} />
+      </div>
       <div className="relative">
         <CommandList
           className={cn(
