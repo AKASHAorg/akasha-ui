@@ -439,6 +439,33 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "sidebar-01": {
+      name: "sidebar-01",
+      description: "A simple sidebar with navigation grouped by section.",
+      type: "registry:block",
+      registryDependencies: ["sidebar","breadcrumb","separator","label","dropdown-menu"],
+      files: [{
+        path: "registry/default/blocks/sidebar-01/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/default/blocks/sidebar-01/components/app-sidebar.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/sidebar-01/components/search-form.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/sidebar-01/components/version-switcher.tsx",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["sidebar"],
+      component: React.lazy(() => import("@/registry/default/blocks/sidebar-01/page.tsx")),
+      source: "__registry__/default/blocks/sidebar-01/page.tsx",
+      meta: undefined,
+    },
     "utils": {
       name: "utils",
       description: "",

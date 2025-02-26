@@ -11,7 +11,7 @@ import { registryItemFileSchema } from "@/registry/schema";
 
 export async function BlockDisplay({ name }: { name: string }) {
   const item = await getCachedRegistryItem(name);
-
+  
   if (!item?.files) {
     return null;
   }
