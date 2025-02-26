@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/extension-avatar-demo.tsx",
-      "content": "import * as React from \"react\";\n\nimport {\n  ExtensionAvatar,\n  ExtensionAvatarFallback,\n  ExtensionAvatarImage,\n} from \"../ui/extension-avatar\";\n\nexport default function ExtensionCardDemo() {\n  return (\n    <ExtensionAvatar>\n      <ExtensionAvatarImage\n        src=\"https://github.com/akashaorg.png\"\n        alt=\"@akashaorg\"\n        showLoadingIndicator={true}\n      />\n      <ExtensionAvatarFallback />\n    </ExtensionAvatar>\n  );\n}\n",
+      "content": "import * as React from \"react\";\n\nimport {\n  ExtensionAvatar,\n  ExtensionAvatarFallback,\n  ExtensionAvatarImage,\n} from \"../ui/extension-avatar\";\n\nexport default function ExtensionCardDemo() {\n  return (\n    <ExtensionAvatar>\n      <ExtensionAvatarImage\n        src=\"https://github.com/akashaorg.png\"\n        alt=\"@akashaorg\"\n        showLoadingIndicator={true}\n      >\n        <ExtensionAvatarFallback />\n      </ExtensionAvatarImage>\n    </ExtensionAvatar>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

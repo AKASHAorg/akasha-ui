@@ -65,6 +65,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "tabs": {
+      name: "tabs",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/tabs.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/tabs.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "textarea": {
       name: "textarea",
       description: "",
@@ -149,6 +164,14 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/extension-avatar.tsx",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/lib/get-image-from-seed.ts",
+        type: "registry:lib",
+        target: ""
+      },{
+        path: "registry/default/types/extension-type.ts",
+        type: "registry:lib",
+        target: ""
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/ui/extension-avatar.tsx")),
@@ -164,6 +187,10 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/extension-card.tsx",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/types/extension-type.ts",
+        type: "registry:lib",
+        target: ""
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/ui/extension-card.tsx")),
@@ -178,6 +205,10 @@ export const Index: Record<string, any> = {
       files: [{
         path: "registry/default/ui/extension-type-icon.tsx",
         type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/types/extension-type.ts",
+        type: "registry:lib",
         target: ""
       }],
       categories: undefined,
@@ -308,9 +339,28 @@ export const Index: Record<string, any> = {
         path: "registry/default/ui/profile-avatar.tsx",
         type: "registry:ui",
         target: ""
+      },{
+        path: "registry/default/lib/get-image-from-seed.ts",
+        type: "registry:lib",
+        target: ""
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/ui/profile-avatar.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "select": {
+      name: "select",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/select.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/select.tsx")),
       source: "",
       meta: undefined,
     },
@@ -761,21 +811,6 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/input-search-demo.tsx")),
-      source: "",
-      meta: undefined,
-    },
-    "textarea-demo": {
-      name: "textarea-demo",
-      description: "",
-      type: "registry:example",
-      registryDependencies: ["custom/textarea"],
-      files: [{
-        path: "registry/default/examples/textarea-demo.tsx",
-        type: "registry:example",
-        target: ""
-      }],
-      categories: undefined,
-      component: React.lazy(() => import("@/registry/default/examples/textarea-demo.tsx")),
       source: "",
       meta: undefined,
     },
@@ -1319,6 +1354,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "select-demo": {
+      name: "select-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/select"],
+      files: [{
+        path: "registry/default/examples/select-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/select-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "sonner-demo": {
       name: "sonner-demo",
       description: "",
@@ -1376,6 +1426,36 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/sonner-warning.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "tabs-demo": {
+      name: "tabs-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["tabs"],
+      files: [{
+        path: "registry/default/examples/tabs-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/tabs-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "textarea-demo": {
+      name: "textarea-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/textarea"],
+      files: [{
+        path: "registry/default/examples/textarea-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/textarea-demo.tsx")),
       source: "",
       meta: undefined,
     },
