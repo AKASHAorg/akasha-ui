@@ -7,7 +7,7 @@ import { EyeOff } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getImageFromSeed } from "@/registry/default/lib/get-image-from-seed";
 import { ExtensionType } from "@/registry/default/types/extension-type";
-import { Image, ImageFallback, ImageRoot } from "@/registry/default/ui/image";
+import { Image, ImageFallback } from "@/registry/default/ui/image";
 
 const extensionVariants = cva(
   "flex justify-center items-center rounded-lg overflow-hidden shrink-0",
@@ -61,7 +61,7 @@ const ExtensionAvatar = ({
   <ExtensionAvatarContext.Provider
     value={{ extensionId, extensionType, nsfw, publicImgPath }}
   >
-    <ImageRoot
+    <div
       data-slot="extension-avatar"
       className={cn(extensionVariants({ size }), nsfw && "bg-muted", className)}
       {...props}

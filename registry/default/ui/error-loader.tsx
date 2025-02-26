@@ -7,7 +7,7 @@ import {
   CardFooter,
   CardTitle,
 } from "@/registry/default/ui/card";
-import { Image, ImageFallback, ImageRoot } from "@/registry/default/ui/image";
+import { Image, ImageFallback } from "@/registry/default/ui/image";
 
 const ErrorLoaderTitle = ({
   className,
@@ -79,14 +79,15 @@ const ErrorLoader = ({
 
   return (
     <Card data-slot="error-loader" className={cn(className)} {...props}>
-      <ImageRoot className={cn("flex justify-center px-6")}>
+      <div className={cn("flex justify-center px-6")}>
         <Image
           src={imageSrc}
           alt="Error Image"
           className="size-[12.5rem] object-contain rounded-lg"
-        />
-        <ImageFallback>Failed to load image</ImageFallback>
-      </ImageRoot>
+        >
+          <ImageFallback>Failed to load image</ImageFallback>
+        </Image>
+      </div>
       {children}
     </Card>
   );

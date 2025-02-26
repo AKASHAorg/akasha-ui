@@ -173,17 +173,6 @@ export const examples: Registry = [
     ],
   },
   {
-    name: "textarea-demo",
-    type: "registry:example",
-    registryDependencies: ["custom/textarea"],
-    files: [
-      {
-        path: "examples/textarea-demo.tsx",
-        type: "registry:example",
-      },
-    ],
-  },
-  {
     name: "circular-progress-demo",
     type: "registry:example",
     registryDependencies: ["custom/circular-progress"],
@@ -586,6 +575,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "select-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/select"],
+    files: [
+      {
+        path: "examples/select-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "sonner-demo",
     type: "registry:example",
     registryDependencies: ["custom/sonner", "custom/button"],
@@ -625,6 +625,28 @@ export const examples: Registry = [
     files: [
       {
         path: "examples/sonner-warning.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tabs-demo",
+    type: "registry:example",
+    registryDependencies: ["tabs"],
+    files: [
+      {
+        path: "examples/tabs-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "textarea-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/textarea"],
+    files: [
+      {
+        path: "examples/textarea-demo.tsx",
         type: "registry:example",
       },
     ],

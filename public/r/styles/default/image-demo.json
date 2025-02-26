@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/image-demo.tsx",
-      "content": "import { Image, ImageFallback, ImageRoot } from \"@/registry/default/ui/image\";\n\nexport default function ImageDemo() {\n  return (\n    <ImageRoot>\n      <Image\n        showLoadingIndicator={true}\n        src=\"https://picsum.photos/200/300\"\n        alt=\"Example\"\n        width={256}\n        height={256}\n      />\n      <ImageFallback>Failed to load image</ImageFallback>\n    </ImageRoot>\n  );\n}\n",
+      "content": "import { Image, ImageFallback } from \"@/registry/default/ui/image\";\n\nexport default function ImageDemo() {\n  return (\n    <Image\n      showLoadingIndicator={true}\n      src=\"https://picsum.photos/200/300\"\n      alt=\"Example\"\n      width={256}\n      height={256}\n    >\n      <ImageFallback>Failed to load image</ImageFallback>\n    </Image>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

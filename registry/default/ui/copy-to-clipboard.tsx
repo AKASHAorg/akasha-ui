@@ -14,6 +14,7 @@ function CopyToClipboard({
   ctaText = "Copy to clipboard",
   successText = "Copied",
   resetDuration = 5000,
+  asChild,
   children,
   ...props
 }: React.ComponentProps<typeof TooltipProvider> &
@@ -22,6 +23,7 @@ function CopyToClipboard({
     ctaText?: string;
     successText?: string;
     resetDuration?: number;
+    asChild?: boolean;
   }>) {
   const [copied, setCopied] = React.useState(false);
   const [open, setOpen] = React.useState(false);
@@ -58,6 +60,7 @@ function CopyToClipboard({
           ref={triggerRef}
           onMouseEnter={handleTooltipOpen}
           onMouseLeave={handleTooltipClose}
+          asChild={asChild}
         >
           {children}
         </TooltipTrigger>
