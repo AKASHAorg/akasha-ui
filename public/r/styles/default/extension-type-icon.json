@@ -10,6 +10,12 @@
       "content": "import * as React from \"react\";\nimport { LayoutGrid, LayoutPanelLeft, Puzzle } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { ExtensionType } from \"@/registry/default/types/extension-type\";\n\nconst Icon = ({ extensionType }: { extensionType: ExtensionType }) => {\n  switch (extensionType) {\n    case ExtensionType.App:\n      return <LayoutGrid />;\n    case ExtensionType.Plugin:\n      return <Puzzle />;\n    case ExtensionType.Widget:\n      return <LayoutPanelLeft />;\n    default:\n      return <LayoutGrid />;\n  }\n};\n\nconst ExtensionTypeIcon = ({\n  extensionType = ExtensionType.App,\n  className,\n  ...props\n}: React.ComponentProps<\"div\"> & {\n  extensionType?: ExtensionType;\n}) => {\n  return (\n    <div\n      data-slot=\"extension-type-icon\"\n      className={cn(\n        \"flex items-center justify-center size-5 [&_svg]:size-3 text-secondary-foreground rounded-full bg-secondary\",\n        className\n      )}\n      {...props}\n    >\n      <Icon extensionType={extensionType} />\n    </div>\n  );\n};\n\nexport { ExtensionTypeIcon };\n",
       "type": "registry:ui",
       "target": ""
+    },
+    {
+      "path": "types/extension-type.ts",
+      "content": "export enum ExtensionType {\n  App = \"APP\",\n  Other = \"OTHER\",\n  Plugin = \"PLUGIN\",\n  Widget = \"WIDGET\",\n}\n",
+      "type": "registry:lib",
+      "target": ""
     }
   ]
 }

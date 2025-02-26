@@ -1,0 +1,15 @@
+{
+  "name": "tabs-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "tabs"
+  ],
+  "files": [
+    {
+      "path": "examples/tabs-demo.tsx",
+      "content": "import {\n  Tabs,\n  TabsContent,\n  TabsList,\n  TabsTrigger,\n} from \"@/registry/default/ui/tabs\";\n\nexport default function TabsDemo() {\n  return (\n    <Tabs defaultValue=\"followers\" className=\"w-[400px]\">\n      <TabsList className=\"grid w-full grid-cols-2\">\n        <TabsTrigger value=\"followers\">Followers</TabsTrigger>\n        <TabsTrigger value=\"following\">Following</TabsTrigger>\n      </TabsList>\n      <TabsContent value=\"followers\">Followers list</TabsContent>\n      <TabsContent value=\"following\">Following list</TabsContent>\n    </Tabs>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

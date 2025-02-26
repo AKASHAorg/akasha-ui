@@ -164,8 +164,18 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Select",
+          href: "/docs/components/select",
+          items: [],
+        },
+        {
           title: "Sonner",
           href: "/docs/components/sonner",
+          items: [],
+        },
+        {
+          title: "Tabs",
+          href: "/docs/components/tabs",
           items: [],
         },
         {

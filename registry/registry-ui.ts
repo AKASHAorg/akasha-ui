@@ -48,6 +48,17 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "tabs",
+    type: "registry:ui",
+    dependencies: ["@radix-ui/react-tabs"],
+    files: [
+      {
+        path: "ui/tabs.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "textarea",
     type: "registry:ui",
     files: [
@@ -111,6 +122,14 @@ export const ui: Registry = [
         path: "ui/extension-avatar.tsx",
         type: "registry:ui",
       },
+      {
+        path: "lib/get-image-from-seed.ts",
+        type: "registry:lib",
+      },
+      {
+        path: "types/extension-type.ts",
+        type: "registry:lib",
+      },
     ],
   },
   {
@@ -128,6 +147,10 @@ export const ui: Registry = [
         path: "ui/extension-card.tsx",
         type: "registry:ui",
       },
+      {
+        path: "types/extension-type.ts",
+        type: "registry:lib",
+      },
     ],
   },
   {
@@ -138,6 +161,10 @@ export const ui: Registry = [
       {
         path: "ui/extension-type-icon.tsx",
         type: "registry:ui",
+      },
+      {
+        path: "types/extension-type.ts",
+        type: "registry:lib",
       },
     ],
   },
@@ -248,6 +275,21 @@ export const ui: Registry = [
     files: [
       {
         path: "ui/profile-avatar.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "lib/get-image-from-seed.ts",
+        type: "registry:lib",
+      },
+    ],
+  },
+  {
+    name: "select",
+    type: "registry:ui",
+    dependencies: ["@radix-ui/react-select"],
+    files: [
+      {
+        path: "ui/select.tsx",
         type: "registry:ui",
       },
     ],
