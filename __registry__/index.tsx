@@ -411,7 +411,7 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar","apps"],
+      categories: ["sidebar"],
       component: React.lazy(() => import("@/registry/default/blocks/sidebar-01/page.tsx")),
       source: "__registry__/default/blocks/sidebar-01/page.tsx",
       meta: undefined,
