@@ -21,12 +21,7 @@ const useImageContext = () => {
 
 const ImageFallback = ({ children }: React.ComponentProps<"span">) => {
   const { hasError } = useImageContext();
-  if (!hasError) return null;
-  return (
-    <div data-slot="image-fallback" className="absolute inset-0">
-      {children}
-    </div>
-  );
+  return hasError && <span data-slot="image-fallback">{children}</span>;
 };
 
 const DelayLoad = ({
@@ -47,6 +42,7 @@ const DelayLoad = ({
 };
 
 const Image = ({
+  src,
   alt,
   showLoadingIndicator,
   className,
@@ -64,8 +60,6 @@ const Image = ({
     setLoading(true);
   }, [setLoading]);
 
-  if (hasError) return null;
-
   return (
     <ImageContext.Provider value={{ hasError }}>
       <div data-slot="image-container" className="relative">
@@ -76,23 +70,26 @@ const Image = ({
             </div>
           </DelayLoad>
         )}
-        <img
-          data-slot="image"
-          className={cn("h-full w-full object-cover", className)}
-          alt={alt}
-          loading="lazy"
-          decoding="async"
-          onLoad={(event) => {
-            setLoading(false);
-            onLoad?.(event);
-          }}
-          onError={(event) => {
-            setError(true);
-            setLoading(false);
-            onError?.(event);
-          }}
-          {...props}
-        />
+        {!hasError && (
+          <img
+            data-slot="image"
+            src={src}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            onLoad={(event) => {
+              setLoading(false);
+              onLoad?.(event);
+            }}
+            onError={(event) => {
+              setError(true);
+              setLoading(false);
+              onError?.(event);
+            }}
+            className={cn("h-full w-full object-cover", className)}
+            {...props}
+          />
+        )}
         {children}
       </div>
     </ImageContext.Provider>
