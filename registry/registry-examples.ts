@@ -162,6 +162,50 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "badge-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/badge"],
+    files: [
+      {
+        path: "examples/badge-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "badge-secondary-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/badge"],
+    files: [
+      {
+        path: "examples/badge-secondary-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "badge-outline-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/badge"],
+    files: [
+      {
+        path: "examples/badge-outline-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "badge-destructive-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/badge"],
+    files: [
+      {
+        path: "examples/badge-destructive-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "input-search-demo",
     type: "registry:example",
     registryDependencies: ["custom/input"],

@@ -1,0 +1,15 @@
+{
+  "name": "badge-secondary-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://akasha-ui.pages.dev/r/styles/default/badge.json"
+  ],
+  "files": [
+    {
+      "path": "examples/badge-secondary-demo.tsx",
+      "content": "import * as React from \"react\";\n\nimport { Badge } from \"../ui/badge\";\n\nexport default function BadgeDemo() {\n  return (\n    <Badge variant=\"secondary\" asChild>\n      <a>Secondary</a>\n    </Badge>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
