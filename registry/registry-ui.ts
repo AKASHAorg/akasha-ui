@@ -59,6 +59,16 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "checkbox",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/checkbox.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "tabs",
     type: "registry:ui",
     dependencies: ["@radix-ui/react-tabs"],

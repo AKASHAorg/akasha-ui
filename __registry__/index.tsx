@@ -80,6 +80,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "checkbox": {
+      name: "checkbox",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/checkbox.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/checkbox.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "tabs": {
       name: "tabs",
       description: "",
@@ -838,6 +853,51 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/input-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "checkbox-demo": {
+      name: "checkbox-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/checkbox"],
+      files: [{
+        path: "registry/default/examples/checkbox-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/checkbox-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "checkbox-form-demo": {
+      name: "checkbox-form-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/checkbox"],
+      files: [{
+        path: "registry/default/examples/checkbox-form-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/checkbox-form-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "checkbox-disabled-demo": {
+      name: "checkbox-disabled-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/checkbox"],
+      files: [{
+        path: "registry/default/examples/checkbox-disabled-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/checkbox-disabled-demo.tsx")),
       source: "",
       meta: undefined,
     },
