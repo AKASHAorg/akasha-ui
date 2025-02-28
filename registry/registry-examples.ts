@@ -162,6 +162,39 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "checkbox-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/checkbox"],
+    files: [
+      {
+        path: "examples/checkbox-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "checkbox-form-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/checkbox"],
+    files: [
+      {
+        path: "examples/checkbox-form-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "checkbox-disabled-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/checkbox"],
+    files: [
+      {
+        path: "examples/checkbox-disabled-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "badge-demo",
     type: "registry:example",
     registryDependencies: ["custom/badge"],
