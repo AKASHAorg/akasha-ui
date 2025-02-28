@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { CircleAlert, CircleCheck, CircleX } from "lucide-react";
+import { CircleAlert, CircleCheck, CircleX, Trash2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { typographyVariants } from "@/registry/default/ui/typography";
@@ -13,6 +13,7 @@ const inlineNotificationVariants = cva(
         info: "",
         success: "",
         destructive: "",
+        delete: "",
       },
     },
     defaultVariants: {
@@ -25,6 +26,7 @@ const variantToIconMap = {
   info: <CircleAlert size={16} className="text-primary" />,
   success: <CircleCheck size={16} className="text-success" />,
   destructive: <CircleX size={16} className="text-destructive" />,
+  delete: <Trash2 size={16} className="text-destructive" />,
 };
 
 const InlineNotification = ({
