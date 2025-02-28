@@ -1,0 +1,33 @@
+{
+  "name": "post-page",
+  "type": "registry:block",
+  "description": "A simple sidebar with navigation grouped by section.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://akasha-ui.pages.dev/r/styles/default/profile-avatar-button.json",
+    "https://akasha-ui.pages.dev/r/styles/default/card.json",
+    "https://akasha-ui.pages.dev/r/styles/default/stack.json",
+    "https://akasha-ui.pages.dev/r/styles/default/typography.json",
+    "https://akasha-ui.pages.dev/r/styles/default/icon-container.json",
+    "https://akasha-ui.pages.dev/r/styles/default/button.json"
+  ],
+  "files": [
+    {
+      "path": "blocks/post-page/page.tsx",
+      "content": "import * as React from \"react\";\n\nimport Post, {\n  PostProps,\n} from \"@/registry/default/blocks/post-page/components/post\";\n\nconst POST_MOCK_DATA: PostProps = {\n  title: \"\",\n  author: {\n    did: \"did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95\",\n    avatar: \"https://github.com/akashaorg.png\",\n    name: \"CoffeeLover\",\n  },\n  content:\n    \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.\",\n  publishedAt: \"5 mins ago\",\n  tags: [\"AKASHA\", \"AKASHA\"],\n  publishedVia: \"Antenna\",\n  commentCount: 5,\n};\n\nexport default function Page() {\n  return <Post {...POST_MOCK_DATA} variant=\"page\" />;\n}\n",
+      "type": "registry:page",
+      "target": "app/dashboard/page.tsx"
+    },
+    {
+      "path": "blocks/post-page/components/post.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport { Ellipsis, MessageCircle, SatelliteDish } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { Badge } from \"@/registry/default/ui/badge\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport { Card } from \"@/registry/default/ui/card\";\nimport { IconContainer } from \"@/registry/default/ui/icon-container\";\nimport {\n  ProfileAvatarButton,\n  ProfileAvatarButtonAvatar,\n  ProfileAvatarButtonAvatarFallback,\n  ProfileAvatarButtonAvatarImage,\n  ProfileDidField,\n  ProfileName,\n} from \"@/registry/default/ui/profile-avatar-button\";\nimport { Stack } from \"@/registry/default/ui/stack\";\nimport { Typography } from \"@/registry/default/ui/typography\";\n\nexport interface PostProps extends React.ComponentProps<typeof Card> {\n  title: string;\n  author: {\n    did: string;\n    avatar: string;\n    name: string;\n  };\n  content: string;\n  publishedAt: string;\n  tags: string[];\n  publishedVia: string;\n  commentCount: number;\n  variant?: \"feed\" | \"page\";\n}\n\nconst Post = ({\n  author,\n  content,\n  publishedAt,\n  tags,\n  publishedVia,\n  commentCount,\n  variant = \"feed\",\n  className,\n}: PostProps) => {\n  const onEllipsisClick = () => {\n    alert(\"ellipsis\");\n  };\n\n  const onMessageClick = () => {\n    alert(\"message\");\n  };\n\n  const isPageVariant = variant === \"page\";\n\n  return (\n    <Card\n      className={(cn(\"p-4\", { \"rounded-b-none\": isPageVariant }), className)}\n    >\n      <Stack direction=\"column\" spacing={4}>\n        <Stack direction=\"row\" justifyContent={\"between\"}>\n          <ProfileAvatarButton profileDID={author.did}>\n            <ProfileAvatarButtonAvatar>\n              <ProfileAvatarButtonAvatarImage\n                src={author.avatar}\n                alt={`@${author.name}`}\n              />\n              <ProfileAvatarButtonAvatarFallback />\n            </ProfileAvatarButtonAvatar>\n            <ProfileName>\n              {author.name}{\" \"}\n              <Typography\n                variant=\"xs\"\n                className=\"text-muted-foreground font-normal\"\n              >\n                · {publishedAt}\n              </Typography>\n            </ProfileName>\n            <ProfileDidField />\n          </ProfileAvatarButton>\n          <Button\n            asChild\n            onClick={onEllipsisClick}\n            className=\"border-none bg-transparent text-primary\"\n          >\n            <Ellipsis size={20} />\n          </Button>\n        </Stack>\n        <Typography variant=\"p\">{content}</Typography>\n        {isPageVariant && (\n          <Stack direction=\"row\" spacing={2}>\n            {tags.map((tag, index) => (\n              <Badge key={index} variant=\"outline\">\n                <Typography variant=\"xs\">{tag}</Typography>\n              </Badge>\n            ))}\n          </Stack>\n        )}\n        <Stack direction=\"row\" spacing={2} justifyContent=\"between\">\n          <Stack direction=\"row\" spacing={1} alignItems=\"center\">\n            <IconContainer size=\"xs\" variant=\"round\">\n              <SatelliteDish className=\"text-primary\" size={12} />\n            </IconContainer>\n            <Typography variant=\"xs\" className=\"text-muted-foreground\">\n              Published via {publishedVia}\n            </Typography>\n          </Stack>\n\n          <Button\n            asChild\n            onClick={onMessageClick}\n            className=\"border-none bg-transparent\"\n          >\n            <Stack direction=\"row\" spacing={1} alignItems=\"center\">\n              <MessageCircle size={16} className=\"text-primary\" />\n              <Typography variant=\"xs\" className=\"font-bold text-primary\">\n                {commentCount}\n              </Typography>\n            </Stack>\n          </Button>\n        </Stack>\n      </Stack>\n    </Card>\n  );\n};\n\nexport default Post;\n",
+      "type": "registry:component",
+      "target": ""
+    }
+  ],
+  "categories": [
+    "post-page"
+  ]
+}

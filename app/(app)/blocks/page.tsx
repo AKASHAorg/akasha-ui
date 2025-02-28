@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BlockDisplay } from "@/components/block-display";
 import { Button } from "@/registry/default/ui/button";
 
-const FEATURED_BLOCKS = ["sidebar-01"];
+const FEATURED_BLOCKS = ["post-page"];
 
 export default async function BlocksPage() {
   return (
@@ -19,7 +19,7 @@ export default async function BlocksPage() {
       <div className="container-wrapper">
         <div className="container flex justify-center py-6">
           <Button asChild variant="outline">
-            <Link href="/blocks/sidebar" className="px-4">
+            <Link href="/blocks" className="px-4">
               Browse all blocks
             </Link>
           </Button>

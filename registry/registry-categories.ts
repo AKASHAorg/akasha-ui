@@ -1,7 +1,7 @@
 export const registryCategories = [
   {
-    name: "Sidebar",
-    slug: "sidebar",
+    name: "Post page",
+    slug: "post-page",
     hidden: false,
   },
 ];
