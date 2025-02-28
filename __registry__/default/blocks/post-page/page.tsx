@@ -17,6 +17,10 @@ const POST_MOCK_DATA: PostProps = {
   tags: ["AKASHA", "AKASHA"],
   publishedVia: "Antenna",
   commentCount: 5,
+  isDelisted: true,
+  isNsfw: true,
+  isAppNotInstalled: false,
+  isCouldNotLoad: false,
 };
 
 export default function Page() {

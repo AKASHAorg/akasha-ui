@@ -19,6 +19,11 @@ import {
 import { Stack } from "@/registry/default/ui/stack";
 import { Typography } from "@/registry/default/ui/typography";
 
+import AppNotInstalled from "./app-not-installed";
+import CouldNotLoad from "./could-not-load";
+import Delisted from "./delisted";
+import NsfwWarning from "./nsfw-warning";
+
 export interface PostProps extends React.ComponentProps<typeof Card> {
   title: string;
   author: {
@@ -32,6 +37,10 @@ export interface PostProps extends React.ComponentProps<typeof Card> {
   publishedVia: string;
   commentCount: number;
   variant?: "feed" | "page";
+  isDelisted?: boolean;
+  isNsfw?: boolean;
+  isAppNotInstalled?: boolean;
+  isCouldNotLoad?: boolean;
 }
 
 const Post = ({
@@ -43,6 +52,10 @@ const Post = ({
   commentCount,
   variant = "feed",
   className,
+  isDelisted,
+  isNsfw,
+  isAppNotInstalled,
+  isCouldNotLoad,
 }: PostProps) => {
   const onEllipsisClick = () => {
     alert("ellipsis");
@@ -88,11 +101,24 @@ const Post = ({
           </Button>
         </Stack>
         <Typography variant="p">{content}</Typography>
+
+        {isDelisted ? (
+          <Delisted />
+        ) : isCouldNotLoad ? (
+          <CouldNotLoad />
+        ) : isAppNotInstalled ? (
+          <AppNotInstalled />
+        ) : isNsfw ? (
+          <NsfwWarning />
+        ) : null}
+
         {isPageVariant && (
           <Stack direction="row" spacing={2}>
             {tags.map((tag, index) => (
               <Badge key={index} variant="outline">
-                <Typography variant="xs">{tag}</Typography>
+                <Typography variant="xs" className="font-normal">
+                  {tag}
+                </Typography>
               </Badge>
             ))}
           </Stack>

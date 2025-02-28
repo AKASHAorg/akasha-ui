@@ -467,6 +467,22 @@ export const Index: Record<string, any> = {
         path: "registry/default/blocks/post-page/components/post.tsx",
         type: "registry:component",
         target: ""
+      },{
+        path: "registry/default/blocks/post-page/components/delisted.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/post-page/components/could-not-load.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/post-page/components/app-not-installed.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/post-page/components/nsfw-warning.tsx",
+        type: "registry:component",
+        target: ""
       }],
       categories: ["post-page"],
       component: React.lazy(() => import("@/registry/default/blocks/post-page/page.tsx")),

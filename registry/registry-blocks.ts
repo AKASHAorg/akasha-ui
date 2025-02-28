@@ -24,6 +24,22 @@ export const blocks: Registry = [
         path: "blocks/post-page/components/post.tsx",
         type: "registry:component",
       },
+      {
+        path: "blocks/post-page/components/delisted.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/post-page/components/could-not-load.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/post-page/components/app-not-installed.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/post-page/components/nsfw-warning.tsx",
+        type: "registry:component",
+      },
     ],
     categories: ["post-page"],
   },
