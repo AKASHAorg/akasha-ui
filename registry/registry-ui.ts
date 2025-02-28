@@ -14,6 +14,17 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "badge",
+    type: "registry:ui",
+    dependencies: ["@radix-ui/react-slot", "class-variance-authority"],
+    files: [
+      {
+        path: "ui/badge.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "button",
     type: "registry:ui",
     registryDependencies: ["custom/typography"],
