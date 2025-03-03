@@ -25,7 +25,7 @@ export const ui: Registry = [
     ],
   },
   {
-    name: "button",
+    name: "custom-button",
     type: "registry:ui",
     registryDependencies: ["custom/typography"],
     dependencies: ["@radix-ui/react-slot", "lucide-react"],
@@ -149,7 +149,8 @@ export const ui: Registry = [
       },
       {
         path: "types/extension-type.ts",
-        type: "registry:lib",
+        type: "registry:file",
+        target: "types/extension-type.ts",
       },
     ],
   },
@@ -170,7 +171,8 @@ export const ui: Registry = [
       },
       {
         path: "types/extension-type.ts",
-        type: "registry:lib",
+        type: "registry:file",
+        target: "types/extension-type.ts",
       },
     ],
   },
@@ -185,7 +187,8 @@ export const ui: Registry = [
       },
       {
         path: "types/extension-type.ts",
-        type: "registry:lib",
+        type: "registry:file",
+        target: "types/extension-type.ts",
       },
     ],
   },
@@ -273,19 +276,23 @@ export const ui: Registry = [
       },
       {
         path: "custom-icons/did-key.tsx",
-        type: "registry:lib",
+        type: "registry:file",
+        target: "custom-icons/did-key.tsx",
       },
       {
         path: "custom-icons/ethereum.tsx",
-        type: "registry:lib",
+        type: "registry:file",
+        target: "custom-icons/ethereum.tsx",
       },
       {
         path: "custom-icons/no-eth.tsx",
-        type: "registry:lib",
+        type: "registry:file",
+        target: "custom-icons/no-eth.tsx",
       },
       {
         path: "custom-icons/solana.tsx",
-        type: "registry:lib",
+        type: "registry:file",
+        target: "custom-icons/solana.tsx",
       },
     ],
   },
