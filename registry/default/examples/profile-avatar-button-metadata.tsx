@@ -1,5 +1,8 @@
 import {
   ProfileAvatarButton,
+  ProfileAvatarButtonAvatar,
+  ProfileAvatarButtonAvatarFallback,
+  ProfileAvatarButtonAvatarImage,
   ProfileDidField,
   ProfileName,
 } from "@/registry/default/ui/profile-avatar-button";
@@ -16,13 +19,13 @@ export default function ProfileAvatarButtonMetadata() {
         </Typography>
       }
     >
-      <ProfileAvatarButton.Avatar>
-        <ProfileAvatarButton.AvatarImage
+      <ProfileAvatarButtonAvatar>
+        <ProfileAvatarButtonAvatarImage
           src="https://github.com/akashaorg.png"
           alt="@akashaorg"
         />
-        <ProfileAvatarButton.AvatarFallback />
-      </ProfileAvatarButton.Avatar>
+        <ProfileAvatarButtonAvatarFallback />
+      </ProfileAvatarButtonAvatar>
       <ProfileName>CoffeeLover</ProfileName>
       <ProfileDidField />
     </ProfileAvatarButton>
