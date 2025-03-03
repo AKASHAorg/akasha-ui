@@ -20,7 +20,8 @@
     {
       "path": "types/extension-type.ts",
       "content": "export enum ExtensionType {\n  App = \"APP\",\n  Other = \"OTHER\",\n  Plugin = \"PLUGIN\",\n  Widget = \"WIDGET\",\n}\n",
-      "type": "registry:lib"
+      "type": "registry:file",
+      "target": "types/extension-type.ts"
     }
   ]
 }

@@ -17,22 +17,26 @@
     {
       "path": "custom-icons/did-key.tsx",
       "content": "import React from \"react\";\nimport { LucideProps } from \"lucide-react\";\n\nexport const DidKey = (props: LucideProps) => (\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"24\"\n    height=\"24\"\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    stroke=\"currentColor\"\n    strokeWidth=\"2\"\n    strokeLinecap=\"round\"\n    strokeLinejoin=\"round\"\n    {...props}\n  >\n    <path d=\"M16.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z\" />\n    <path d=\"M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4l-6.814 6.814Z\" />\n    <path d=\"M16.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z\" />\n  </svg>\n);\n",
-      "type": "registry:lib"
+      "type": "registry:file",
+      "target": "custom-icons/did-key.tsx"
     },
     {
       "path": "custom-icons/ethereum.tsx",
       "content": "import React from \"react\";\nimport { LucideProps } from \"lucide-react\";\n\nexport const Ethereum = (props: LucideProps) => (\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"24\"\n    height=\"24\"\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    strokeWidth=\"2\"\n    strokeLinecap=\"round\"\n    strokeLinejoin=\"round\"\n    {...props}\n  >\n    <path\n      d=\"M11.9999 16.4904V1.6001L5.5 12.606L11.9999 16.4904Z\"\n      fill=\"#FFE644\"\n    />\n    <path\n      d=\"M11.9999 1.6001L18.5 12.606L11.9999 16.4904V1.6001Z\"\n      fill=\"#EC7463\"\n    />\n    <path d=\"M5.5 13.4421L11.9999 17.3263V22.3507\" fill=\"#009ECB\" />\n    <path d=\"M18.5 13.4421L11.9999 17.3263V22.3507\" fill=\"#4D68AE\" />\n    <path\n      d=\"M11.9999 8.72216L5.5 12.606L11.9999 16.4904V8.72216Z\"\n      fill=\"#57A759\"\n    />\n    <path\n      d=\"M11.9999 8.72216L18.5 12.606L11.9999 16.4904V8.72216Z\"\n      fill=\"#8E5298\"\n    />\n  </svg>\n);\n",
-      "type": "registry:lib"
+      "type": "registry:file",
+      "target": "custom-icons/ethereum.tsx"
     },
     {
       "path": "custom-icons/no-eth.tsx",
       "content": "import React from \"react\";\nimport { LucideProps } from \"lucide-react\";\n\nexport const NoEth = (props: LucideProps) => (\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"24\"\n    height=\"24\"\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    stroke=\"currentColor\"\n    strokeWidth=\"2\"\n    strokeLinecap=\"round\"\n    strokeLinejoin=\"round\"\n    {...props}\n  >\n    <path d=\"M17.849 6.19c2.01-.37 3.49-.21 3.98.573 1.01 1.616-2.57 5.27-7.998 8.163-5.428 2.892-10.65 3.927-11.66 2.31-.533-.852.21-2.27 1.829-3.846M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z\" />\n  </svg>\n);\n",
-      "type": "registry:lib"
+      "type": "registry:file",
+      "target": "custom-icons/no-eth.tsx"
     },
     {
       "path": "custom-icons/solana.tsx",
       "content": "import React from \"react\";\nimport { LucideProps } from \"lucide-react\";\n\nexport const Solana = (props: LucideProps) => (\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"24\"\n    height=\"24\"\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    stroke=\"currentColor\"\n    strokeWidth=\"2\"\n    strokeLinecap=\"round\"\n    strokeLinejoin=\"round\"\n    {...props}\n  >\n    <path d=\"m22 14-5 5H2l5-5m15 0H7m15 0-5-5M7 14 2 9m0 0h15M2 9l5-5h15l-5 5\" />\n  </svg>\n);\n",
-      "type": "registry:lib"
+      "type": "registry:file",
+      "target": "custom-icons/solana.tsx"
     }
   ]
 }

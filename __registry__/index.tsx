@@ -200,8 +200,8 @@ export const Index: Record<string, any> = {
         target: ""
       },{
         path: "registry/default/types/extension-type.ts",
-        type: "registry:lib",
-        target: ""
+        type: "registry:file",
+        target: "types/extension-type.ts"
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/ui/extension-avatar.tsx")),
@@ -219,8 +219,8 @@ export const Index: Record<string, any> = {
         target: ""
       },{
         path: "registry/default/types/extension-type.ts",
-        type: "registry:lib",
-        target: ""
+        type: "registry:file",
+        target: "types/extension-type.ts"
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/ui/extension-card.tsx")),
@@ -238,8 +238,8 @@ export const Index: Record<string, any> = {
         target: ""
       },{
         path: "registry/default/types/extension-type.ts",
-        type: "registry:lib",
-        target: ""
+        type: "registry:file",
+        target: "types/extension-type.ts"
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/ui/extension-type-icon.tsx")),
@@ -340,20 +340,20 @@ export const Index: Record<string, any> = {
         target: ""
       },{
         path: "registry/default/custom-icons/did-key.tsx",
-        type: "registry:lib",
-        target: ""
+        type: "registry:file",
+        target: "custom-icons/did-key.tsx"
       },{
         path: "registry/default/custom-icons/ethereum.tsx",
-        type: "registry:lib",
-        target: ""
+        type: "registry:file",
+        target: "custom-icons/ethereum.tsx"
       },{
         path: "registry/default/custom-icons/no-eth.tsx",
-        type: "registry:lib",
-        target: ""
+        type: "registry:file",
+        target: "custom-icons/no-eth.tsx"
       },{
         path: "registry/default/custom-icons/solana.tsx",
-        type: "registry:lib",
-        target: ""
+        type: "registry:file",
+        target: "custom-icons/solana.tsx"
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/ui/profile-avatar-button.tsx")),
