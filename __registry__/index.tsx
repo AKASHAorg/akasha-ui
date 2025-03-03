@@ -35,8 +35,8 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "custom-button": {
-      name: "custom-button",
+    "button": {
+      name: "button",
       description: "",
       type: "registry:ui",
       registryDependencies: ["custom/typography"],

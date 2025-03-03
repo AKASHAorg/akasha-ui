@@ -25,7 +25,7 @@ export const ui: Registry = [
     ],
   },
   {
-    name: "custom-button",
+    name: "button",
     type: "registry:ui",
     registryDependencies: ["custom/typography"],
     dependencies: ["@radix-ui/react-slot", "lucide-react"],

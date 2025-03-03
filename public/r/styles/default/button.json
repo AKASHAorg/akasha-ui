@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "custom-button",
+  "name": "button",
   "type": "registry:ui",
   "dependencies": [
     "@radix-ui/react-slot",

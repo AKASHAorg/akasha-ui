@@ -32,7 +32,7 @@
     ]
   },
   {
-    "name": "custom-button",
+    "name": "button",
     "type": "registry:ui",
     "dependencies": [
       "@radix-ui/react-slot",
