@@ -454,31 +454,39 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
-    "sidebar-01": {
-      name: "sidebar-01",
+    "post-page": {
+      name: "post-page",
       description: "A simple sidebar with navigation grouped by section.",
       type: "registry:block",
-      registryDependencies: ["sidebar","breadcrumb","separator","label","dropdown-menu"],
+      registryDependencies: ["custom/profile-avatar-button","custom/card","custom/stack","custom/typography","custom/icon-container","custom/button"],
       files: [{
-        path: "registry/default/blocks/sidebar-01/page.tsx",
+        path: "registry/default/blocks/post-page/page.tsx",
         type: "registry:page",
         target: "app/dashboard/page.tsx"
       },{
-        path: "registry/default/blocks/sidebar-01/components/app-sidebar.tsx",
+        path: "registry/default/blocks/post-page/components/post.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/sidebar-01/components/search-form.tsx",
+        path: "registry/default/blocks/post-page/components/delisted.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/sidebar-01/components/version-switcher.tsx",
+        path: "registry/default/blocks/post-page/components/could-not-load.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/post-page/components/app-not-installed.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/post-page/components/nsfw-warning.tsx",
         type: "registry:component",
         target: ""
       }],
-      categories: ["sidebar"],
-      component: React.lazy(() => import("@/registry/default/blocks/sidebar-01/page.tsx")),
-      source: "__registry__/default/blocks/sidebar-01/page.tsx",
+      categories: ["post-page"],
+      component: React.lazy(() => import("@/registry/default/blocks/post-page/page.tsx")),
+      source: "__registry__/default/blocks/post-page/page.tsx",
       meta: undefined,
     },
     "utils": {
