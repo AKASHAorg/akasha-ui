@@ -1,12 +1,13 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "solana",
-  "type": "registry:lib",
+  "type": "registry:file",
   "files": [
     {
       "path": "custom-icons/solana.tsx",
       "content": "import React from \"react\";\nimport { LucideProps } from \"lucide-react\";\n\nexport const Solana = (props: LucideProps) => (\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"24\"\n    height=\"24\"\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    stroke=\"currentColor\"\n    strokeWidth=\"2\"\n    strokeLinecap=\"round\"\n    strokeLinejoin=\"round\"\n    {...props}\n  >\n    <path d=\"m22 14-5 5H2l5-5m15 0H7m15 0-5-5M7 14 2 9m0 0h15M2 9l5-5h15l-5 5\" />\n  </svg>\n);\n",
-      "type": "registry:lib",
-      "target": ""
+      "type": "registry:file",
+      "target": "custom-icons/solana.tsx"
     }
   ]
 }

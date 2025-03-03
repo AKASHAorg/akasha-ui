@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "next dev -p 3333",
     "build": "contentlayer2 build && pnpm build:registry && next build",
+    "build:registry": "pnpm build:internal-registry && tsx --tsconfig ./tsconfig.scripts.json ./scripts/registry.mts && npx shadcn build --output ../../public/r/styles/default -c ./registry/default",
     "build:docs": "contentlayer2 build",
-    "build:registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-registry.mts && prettier --loglevel silent --write \"registry/**/*.{ts,tsx,mdx}\" --cache",
+    "build:internal-registry": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/build-internal-registry.mts && prettier --log-level silent --write \"registry/**/*.{ts,tsx,mdx}\" --cache",
     "registry:capture": "tsx --tsconfig ./tsconfig.scripts.json ./scripts/capture-registry.mts",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",

@@ -6,20 +6,31 @@ export const registryItemTypeSchema = z.enum([
   "registry:component",
   "registry:ui",
   "registry:hook",
-  "registry:theme",
   "registry:page",
+  "registry:file",
 
   // Internal use only
+  "registry:theme",
   "registry:example",
   "registry:style",
+  "registry:internal",
 ]);
 
-export const registryItemFileSchema = z.object({
-  path: z.string(),
-  content: z.string().optional(),
-  type: registryItemTypeSchema,
-  target: z.string().optional(),
-});
+export const registryItemFileSchema = z.discriminatedUnion("type", [
+  // Target is required for registry:file and registry:page
+  z.object({
+    path: z.string(),
+    content: z.string().optional(),
+    type: z.enum(["registry:file", "registry:page"]),
+    target: z.string(),
+  }),
+  z.object({
+    path: z.string(),
+    content: z.string().optional(),
+    type: registryItemTypeSchema.exclude(["registry:file", "registry:page"]),
+    target: z.string().optional(),
+  }),
+]);
 
 export const registryItemTailwindSchema = z.object({
   config: z.object({
@@ -35,8 +46,11 @@ export const registryItemCssVarsSchema = z.object({
 });
 
 export const registryItemSchema = z.object({
+  $schema: z.string().optional(),
   name: z.string(),
   type: registryItemTypeSchema,
+  title: z.string().optional(),
+  author: z.string().min(2).optional(),
   description: z.string().optional(),
   dependencies: z.array(z.string()).optional(),
   devDependencies: z.array(z.string()).optional(),

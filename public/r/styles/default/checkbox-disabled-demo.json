@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/checkbox-disabled-demo.tsx",
-      "content": "import * as React from \"react\";\n\nimport { Checkbox } from \"@/registry/default/ui/checkbox\";\n\nexport default function CheckboxDisabledDemo() {\n  return (\n    <div className=\"flex items-center space-x-2\">\n      <Checkbox id=\"terms-conditions\" disabled checked/>\n      <label\n        htmlFor=\"terms-conditions\"\n        className=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50\"\n      >\n        Accept terms and conditions\n      </label>\n    </div>\n  );\n}\n",
+      "content": "import * as React from \"react\";\n\nimport { Checkbox } from \"@/registry/default/ui/checkbox\";\n\nexport default function CheckboxDisabledDemo() {\n  return (\n    <div className=\"flex items-center space-x-2\">\n      <Checkbox id=\"terms-conditions\" disabled checked />\n      <label\n        htmlFor=\"terms-conditions\"\n        className=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50\"\n      >\n        Accept terms and conditions\n      </label>\n    </div>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

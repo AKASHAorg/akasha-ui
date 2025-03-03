@@ -101,7 +101,10 @@ const components = {
   ),
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
-      className={cn("font-medium underline underline-offset-4", className)}
+      className={cn(
+        "text-primary font-medium underline underline-offset-4",
+        className
+      )}
       {...props}
     />
   ),
@@ -302,7 +305,10 @@ const components = {
   ),
   Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
-      className={cn("font-medium underline underline-offset-4", className)}
+      className={cn(
+        "text-primary font-medium underline underline-offset-4",
+        className
+      )}
       {...props}
     />
   ),

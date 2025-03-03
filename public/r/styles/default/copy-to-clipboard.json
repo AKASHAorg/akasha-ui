@@ -1,4 +1,5 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "copy-to-clipboard",
   "type": "registry:ui",
   "registryDependencies": [
@@ -8,8 +9,7 @@
     {
       "path": "ui/copy-to-clipboard.tsx",
       "content": "\"use client\";\n\nimport * as React from \"react\";\n\nimport {\n  Tooltip,\n  TooltipContent,\n  TooltipProvider,\n  TooltipTrigger,\n} from \"@/registry/default/ui/tooltip\";\n\nfunction CopyToClipboard({\n  textToCopy,\n  ctaText = \"Copy to clipboard\",\n  successText = \"Copied\",\n  resetDuration = 5000,\n  asChild,\n  children,\n  ...props\n}: React.ComponentProps<typeof TooltipProvider> &\n  React.PropsWithChildren<{\n    textToCopy: string;\n    ctaText?: string;\n    successText?: string;\n    resetDuration?: number;\n    asChild?: boolean;\n  }>) {\n  const [copied, setCopied] = React.useState(false);\n  const [open, setOpen] = React.useState(false);\n\n  const copyToClipboard = async () => {\n    await navigator.clipboard.writeText(textToCopy);\n    setCopied(true);\n    setTimeout(() => setCopied(false), resetDuration);\n  };\n\n  const handleTooltipOpen = () => {\n    setOpen(true);\n  };\n\n  const handleTooltipClose = () => {\n    setOpen(false);\n  };\n\n  const triggerRef = React.useRef<HTMLButtonElement>(null);\n\n  const handlePointerDown = (event: { target: EventTarget | null }) => {\n    const target = event.target as Node;\n    // Only clicking outside the trigger closes the tooltip\n    if (!triggerRef.current?.contains(target)) {\n      handleTooltipClose();\n    }\n  };\n\n  return (\n    <TooltipProvider data-slot=\"copy-to-clipboard\" {...props}>\n      <Tooltip open={open}>\n        <TooltipTrigger\n          onClick={copyToClipboard}\n          ref={triggerRef}\n          onMouseEnter={handleTooltipOpen}\n          onMouseLeave={handleTooltipClose}\n          asChild={asChild}\n        >\n          {children}\n        </TooltipTrigger>\n        <TooltipContent onPointerDownOutside={handlePointerDown}>\n          {copied ? successText : ctaText}\n        </TooltipContent>\n      </Tooltip>\n    </TooltipProvider>\n  );\n}\n\nexport { CopyToClipboard };\n",
-      "type": "registry:ui",
-      "target": ""
+      "type": "registry:ui"
     }
   ]
 }
