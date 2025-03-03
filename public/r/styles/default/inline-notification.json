@@ -1,12 +1,12 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "inline-notification",
   "type": "registry:ui",
   "files": [
     {
       "path": "ui/inline-notification.tsx",
       "content": "import * as React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { CircleAlert, CircleCheck, CircleX, Trash2 } from \"lucide-react\";\n\nimport { cn } from \"@/lib/utils\";\nimport { typographyVariants } from \"@/registry/default/ui/typography\";\n\nconst inlineNotificationVariants = cva(\n  \"relative bg-background text-foreground w-full rounded-lg border px-4 py-3 grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5\",\n  {\n    variants: {\n      variant: {\n        info: \"\",\n        success: \"\",\n        destructive: \"\",\n        delete: \"\",\n      },\n    },\n    defaultVariants: {\n      variant: \"info\",\n    },\n  }\n);\n\nconst variantToIconMap = {\n  info: <CircleAlert size={16} className=\"text-primary\" />,\n  success: <CircleCheck size={16} className=\"text-success\" />,\n  destructive: <CircleX size={16} className=\"text-destructive\" />,\n  delete: <Trash2 size={16} className=\"text-destructive\" />,\n};\n\nconst InlineNotification = ({\n  className,\n  variant = \"info\",\n  children,\n  ...props\n}: React.ComponentProps<\"div\"> &\n  VariantProps<typeof inlineNotificationVariants>) => (\n  <div\n    data-slot=\"inline-notification\"\n    role=\"alert\"\n    className={cn(inlineNotificationVariants({ variant }), className)}\n    {...props}\n  >\n    {variant && variantToIconMap[variant]}\n    {children}\n  </div>\n);\n\nconst InlineNotificationTitle = ({\n  className,\n  ...props\n}: React.ComponentProps<\"h5\">) => (\n  <h5\n    data-slot=\"inline-notification-title\"\n    className={cn(\n      \"col-start-2 line-clamp-1 min-h-4\",\n      typographyVariants({ variant: \"sm\" }),\n      \"font-bold\",\n      className\n    )}\n    {...props}\n  >\n    {props.children}\n  </h5>\n);\n\nconst InlineNotificationDescription = ({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) => (\n  <div\n    data-slot=\"inline-notification-description\"\n    className={cn(\n      \"col-start-2 grid justify-items-start gap-1\",\n      typographyVariants({ variant: \"sm\" }),\n      className\n    )}\n    {...props}\n  />\n);\n\nexport {\n  InlineNotification,\n  InlineNotificationTitle,\n  InlineNotificationDescription,\n};\n",
-      "type": "registry:ui",
-      "target": ""
+      "type": "registry:ui"
     }
   ]
 }

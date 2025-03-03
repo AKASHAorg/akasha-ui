@@ -1,12 +1,12 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "stacked-avatar",
   "type": "registry:ui",
   "files": [
     {
       "path": "ui/stacked-avatar.tsx",
       "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nconst StackedAvatar = ({\n  className,\n  count,\n  children,\n  ...props\n}: Omit<React.ComponentProps<\"div\">, \"children\"> & {\n  count: number;\n  children: (index: number) => React.ReactNode;\n}) => {\n  const safeCount = Math.max(0, Math.floor(count));\n\n  return (\n    <div\n      data-slot=\"stacked-avatar\"\n      className={cn(\"flex flex-row\", className)}\n      {...props}\n    >\n      {Array.from({ length: safeCount }, (_, index) => (\n        <div\n          key={index}\n          className={cn(\"rounded-full border border-border\")}\n          style={{ transform: `translateX(-${index * 50}%)` }}\n        >\n          {children(index)}\n        </div>\n      ))}\n    </div>\n  );\n};\n\nexport { StackedAvatar };\n",
-      "type": "registry:ui",
-      "target": ""
+      "type": "registry:ui"
     }
   ]
 }

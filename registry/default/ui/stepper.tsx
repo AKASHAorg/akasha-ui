@@ -3,11 +3,6 @@ import { Check, Dot } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-interface StepperProps extends React.HTMLAttributes<HTMLElement> {
-  currentStep: number;
-  numberOfSteps: number;
-}
-
 export const Stepper = ({
   currentStep,
   numberOfSteps,

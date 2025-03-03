@@ -1,12 +1,13 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "extension-type",
-  "type": "registry:lib",
+  "type": "registry:file",
   "files": [
     {
       "path": "types/extension-type.ts",
       "content": "export enum ExtensionType {\n  App = \"APP\",\n  Other = \"OTHER\",\n  Plugin = \"PLUGIN\",\n  Widget = \"WIDGET\",\n}\n",
-      "type": "registry:lib",
-      "target": ""
+      "type": "registry:file",
+      "target": "types/extension-type.ts"
     }
   ]
 }

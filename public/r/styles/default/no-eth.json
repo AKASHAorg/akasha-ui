@@ -1,12 +1,13 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "no-eth",
-  "type": "registry:lib",
+  "type": "registry:file",
   "files": [
     {
       "path": "custom-icons/no-eth.tsx",
       "content": "import React from \"react\";\nimport { LucideProps } from \"lucide-react\";\n\nexport const NoEth = (props: LucideProps) => (\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"24\"\n    height=\"24\"\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    stroke=\"currentColor\"\n    strokeWidth=\"2\"\n    strokeLinecap=\"round\"\n    strokeLinejoin=\"round\"\n    {...props}\n  >\n    <path d=\"M17.849 6.19c2.01-.37 3.49-.21 3.98.573 1.01 1.616-2.57 5.27-7.998 8.163-5.428 2.892-10.65 3.927-11.66 2.31-.533-.852.21-2.27 1.829-3.846M20 12a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z\" />\n  </svg>\n);\n",
-      "type": "registry:lib",
-      "target": ""
+      "type": "registry:file",
+      "target": "custom-icons/no-eth.tsx"
     }
   ]
 }

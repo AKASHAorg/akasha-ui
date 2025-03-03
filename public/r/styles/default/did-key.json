@@ -1,12 +1,13 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "did-key",
-  "type": "registry:lib",
+  "type": "registry:file",
   "files": [
     {
       "path": "custom-icons/did-key.tsx",
       "content": "import React from \"react\";\nimport { LucideProps } from \"lucide-react\";\n\nexport const DidKey = (props: LucideProps) => (\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"24\"\n    height=\"24\"\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    stroke=\"currentColor\"\n    strokeWidth=\"2\"\n    strokeLinecap=\"round\"\n    strokeLinejoin=\"round\"\n    {...props}\n  >\n    <path d=\"M16.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z\" />\n    <path d=\"M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4l-6.814 6.814Z\" />\n    <path d=\"M16.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z\" />\n  </svg>\n);\n",
-      "type": "registry:lib",
-      "target": ""
+      "type": "registry:file",
+      "target": "custom-icons/did-key.tsx"
     }
   ]
 }

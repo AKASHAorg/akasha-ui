@@ -57,6 +57,8 @@ import {
   ExtensionCardActionActive,
   ExtensionCardActionInactive,
   ExtensionCardAvatar,
+  ExtensionCardAvatarFallback,
+  ExtensionCardAvatarImage,
   ExtensionCardContent,
   ExtensionCardDescription,
   ExtensionCardName,
@@ -64,18 +66,18 @@ import {
 ```
 
 ```tsx
-<ExtensionCard>
+<ExtensionCard extensionId=''>
   <ExtensionCardAvatar>
-    <ExtensionAvatar size="lg" extensionId="">
+    <ExtensionCardAvatarImage>
       <ExtensionAvatarImage
         src="https://github.com/akashaorg.png"
         alt="@akashaorg"
         showLoadingIndicator={true}
       >
-        <ExtensionAvatarFallback />
-      </ExtensionAvatarImage>
+        <ExtensionCardAvatarFallback />
+      </ExtensionCardAvatarImage>
     </ExtensionAvatar>
-  </ExtensionCardAvatar>{" "}
+  </ExtensionCardAvatar>
   <ExtensionCardContent>
     <ExtensionCardName>Extensions</ExtensionCardName>
     <ExtensionCardDescription>Extension description</ExtensionCardDescription>

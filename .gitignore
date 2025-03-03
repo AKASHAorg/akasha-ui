@@ -134,6 +134,7 @@ dist
 .DS_Store
 *.pem
 
+registry.json
 .vscode
 .idea
 .contentlayer

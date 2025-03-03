@@ -1,4 +1,5 @@
 {
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "error-loader",
   "type": "registry:ui",
   "registryDependencies": [
@@ -9,8 +10,7 @@
     {
       "path": "ui/error-loader.tsx",
       "content": "import * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\nimport {\n  Card,\n  CardDescription,\n  CardFooter,\n  CardTitle,\n} from \"@/registry/default/ui/card\";\nimport { Image, ImageFallback } from \"@/registry/default/ui/image\";\n\nconst ErrorLoaderTitle = ({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) => (\n  <CardTitle\n    data-slot=\"error-loader-title\"\n    className={cn(\"pt-4\", className)}\n    {...props}\n  />\n);\n\nconst ErrorLoaderDescription = ({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) => (\n  <CardDescription\n    data-slot=\"error-loader-description\"\n    className={cn(\"pt-2\", className)}\n    {...props}\n  />\n);\n\nconst ErrorLoaderFooter = ({\n  className,\n  ...props\n}: React.ComponentProps<\"div\">) => (\n  <CardFooter\n    data-slot=\"error-loader-footer\"\n    className={cn(\"justify-center\", className)}\n    {...props}\n  />\n);\n\nconst ErrorLoader = ({\n  children,\n  publicImgPath = \"/images\",\n  type,\n  className,\n  ...props\n}: React.ComponentProps<\"div\"> & {\n  type:\n    | \"no-apps\"\n    | \"not-authenticated\"\n    | \"script-error\"\n    | \"page-not-found\"\n    | \"list-not-available\";\n  publicImgPath?: string;\n}) => {\n  let imageSrc: string;\n\n  switch (type) {\n    case \"no-apps\":\n      imageSrc = `${publicImgPath}/no-apps-error.webp`;\n      break;\n    case \"not-authenticated\":\n      imageSrc = `${publicImgPath}/not-authenticated.webp`;\n      break;\n    case \"page-not-found\":\n      imageSrc = `${publicImgPath}/new404.webp`;\n      break;\n    case \"list-not-available\":\n      imageSrc = `${publicImgPath}/list-not-available.webp`;\n      break;\n    default:\n      imageSrc = `${publicImgPath}/general-error.webp`;\n      break;\n  }\n\n  return (\n    <Card data-slot=\"error-loader\" className={cn(className)} {...props}>\n      <div className={cn(\"flex justify-center px-6\")}>\n        <Image\n          src={imageSrc}\n          alt=\"Error Image\"\n          className=\"size-[12.5rem] object-contain rounded-lg\"\n        >\n          <ImageFallback>Failed to load image</ImageFallback>\n        </Image>\n      </div>\n      {children}\n    </Card>\n  );\n};\n\nexport {\n  ErrorLoader,\n  ErrorLoaderTitle,\n  ErrorLoaderDescription,\n  ErrorLoaderFooter,\n};\n",
-      "type": "registry:ui",
-      "target": ""
+      "type": "registry:ui"
     }
   ]
 }

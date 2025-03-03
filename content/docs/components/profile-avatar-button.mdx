@@ -52,10 +52,10 @@ npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/profile-avat
 
 ```tsx
 import {
-  ProfileAvatar,
   ProfileAvatarButton,
-  ProfileAvatarFallback,
-  ProfileAvatarImage,
+  ProfileAvatarButtonAvatar,
+  ProfileAvatarButtonAvatarFallback,
+  ProfileAvatarButtonAvatarImage,
   ProfileDidField,
   ProfileName,
 } from "<path-to-ui-components>/profile-avatar-button";
@@ -63,13 +63,13 @@ import {
 
 ```tsx
 <ProfileAvatarButton profileDID="did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95">
-  <ProfileAvatarButton.Avatar>
-    <ProfileAvatarButton.AvatarImage
+  <ProfileAvatarButtonAvatar>
+    <ProfileAvatarButtonAvatarImage
       src="https://github.com/akashaorg.png"
       alt="@akashaorg"
     />
-    <ProfileAvatarButton.AvatarFallback />
-  </ProfileAvatarButton.Avatar>
+    <ProfileAvatarButtonAvatarFallback />
+  </ProfileAvatarButtonAvatar>
   <ProfileName>coffeelover</ProfileName>
   <ProfileDidField />
 </ProfileAvatarButton>
