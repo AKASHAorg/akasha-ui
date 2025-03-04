@@ -21,23 +21,11 @@ export const blocks: Registry = [
         target: "app/dashboard/page.tsx",
       },
       {
-        path: "blocks/post-page/components/post.tsx",
+        path: "blocks/content-card.tsx",
         type: "registry:component",
       },
       {
-        path: "blocks/post-page/components/delisted.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "blocks/post-page/components/could-not-load.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "blocks/post-page/components/app-not-installed.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "blocks/post-page/components/nsfw-warning.tsx",
+        path: "blocks/nsfw-warning.tsx",
         type: "registry:component",
       },
     ],

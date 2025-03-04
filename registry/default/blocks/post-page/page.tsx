@@ -3,15 +3,15 @@
 import * as React from "react";
 import { Ellipsis } from "lucide-react";
 
-import Post, {
-  PostProps,
-} from "@/registry/default/blocks/post-page/components/post";
+import ContentCard, {
+  ContentCardProps,
+} from "@/registry/default/blocks/content-card";
 import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "@/registry/default/ui/dropdown-menu";
 
-const POST_MOCK_DATA: PostProps = {
+const POST_MOCK_DATA: ContentCardProps = {
   author: {
     did: "did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95",
     avatarSrc: "https://github.com/akashaorg.png",
@@ -47,12 +47,11 @@ const POST_MOCK_DATA: PostProps = {
 export default function Page() {
   return (
     <div className="p-4">
-      <Post
+      <ContentCard
         {...POST_MOCK_DATA}
         onRepliesButtonClick={() => {
           console.log("Clicked on replies button");
         }}
-        
       />
     </div>
   );

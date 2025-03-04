@@ -4,6 +4,7 @@ import * as React from "react";
 import { MessageCircle, SatelliteDish } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import NsfwWarning from "@/registry/default/blocks/nsfw-warning";
 import { Badge } from "@/registry/default/ui/badge";
 import { Button } from "@/registry/default/ui/button";
 import { Card } from "@/registry/default/ui/card";
@@ -24,9 +25,7 @@ import {
 import { Stack } from "@/registry/default/ui/stack";
 import { Typography } from "@/registry/default/ui/typography";
 
-import NsfwWarning from "./nsfw-warning";
-
-export interface PostProps {
+export interface ContentCardProps {
   author: {
     did: string;
     avatarSrc: string;
@@ -47,7 +46,7 @@ export interface PostProps {
   onRepliesButtonClick?: () => void;
 }
 
-const Post = ({
+const ContentCard = ({
   author,
   publishedAt,
   tags,
@@ -58,7 +57,7 @@ const Post = ({
   menu,
   children,
   onRepliesButtonClick,
-}: PostProps) => {
+}: ContentCardProps) => {
   const [showNsfw, setShowNsfw] = React.useState(nsfw);
 
   return (
@@ -137,4 +136,4 @@ const Post = ({
   );
 };
 
-export default Post;
+export default ContentCard;
