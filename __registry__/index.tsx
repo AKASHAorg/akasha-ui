@@ -554,23 +554,11 @@ export const Index: Record<string, any> = {
         type: "registry:page",
         target: "app/dashboard/page.tsx"
       },{
-        path: "registry/default/blocks/post-page/components/post.tsx",
+        path: "registry/default/blocks/content-card.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/post-page/components/delisted.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/default/blocks/post-page/components/could-not-load.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/default/blocks/post-page/components/app-not-installed.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/default/blocks/post-page/components/nsfw-warning.tsx",
+        path: "registry/default/blocks/nsfw-warning.tsx",
         type: "registry:component",
         target: ""
       }],
