@@ -140,4 +140,4 @@ const ContentCard = ({
   );
 };
 
-export { ContentCard, type ContentCardProps };
+export { ContentCard };
