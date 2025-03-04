@@ -4,7 +4,7 @@ import * as React from "react";
 import { MessageCircle, SatelliteDish } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import NsfwWarning from "@/registry/default/blocks/nsfw-warning";
+import { NsfwWarning } from "@/registry/default/blocks/nsfw-warning";
 import { Badge } from "@/registry/default/ui/badge";
 import { Button } from "@/registry/default/ui/button";
 import { Card } from "@/registry/default/ui/card";
@@ -25,7 +25,7 @@ import {
 import { Stack } from "@/registry/default/ui/stack";
 import { Typography } from "@/registry/default/ui/typography";
 
-export interface ContentCardProps {
+interface ContentCardProps {
   author: {
     did: string;
     avatarSrc: string;
@@ -43,7 +43,7 @@ export interface ContentCardProps {
   nsfw?: boolean;
   className?: string;
   children: React.ReactNode;
-  onRepliesButtonClick?: () => void;
+  onRepliesClicked?: () => void;
 }
 
 const ContentCard = ({
@@ -56,7 +56,7 @@ const ContentCard = ({
   nsfw,
   menu,
   children,
-  onRepliesButtonClick,
+  onRepliesClicked,
 }: ContentCardProps) => {
   const [showNsfw, setShowNsfw] = React.useState(nsfw);
 
@@ -92,7 +92,11 @@ const ContentCard = ({
         </Stack>
 
         {showNsfw ? (
-          <NsfwWarning onShowClick={() => setShowNsfw(!showNsfw)} />
+          <NsfwWarning
+            onShowClick={() => setShowNsfw(!showNsfw)}
+            title="Content Warning: Not Safe Work"
+            description="The post author marked this post as NSFW"
+          />
         ) : (
           children
         )}
@@ -120,7 +124,7 @@ const ContentCard = ({
 
           <Button
             asChild
-            onClick={onRepliesButtonClick}
+            onClick={onRepliesClicked}
             className="border-none bg-transparent pr-0"
           >
             <Stack direction="row" spacing={1} alignItems="center">
@@ -136,4 +140,4 @@ const ContentCard = ({
   );
 };
 
-export default ContentCard;
+export { ContentCard, type ContentCardProps };

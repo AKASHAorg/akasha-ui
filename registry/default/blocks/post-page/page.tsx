@@ -3,9 +3,7 @@
 import * as React from "react";
 import { Ellipsis } from "lucide-react";
 
-import ContentCard, {
-  ContentCardProps,
-} from "@/registry/default/blocks/content-card";
+import { ContentCard, ContentCardProps } from "@/registry/default/blocks/content-card";
 import {
   DropdownMenuItem,
   DropdownMenuSeparator,
@@ -49,7 +47,7 @@ export default function Page() {
     <div className="p-4">
       <ContentCard
         {...POST_MOCK_DATA}
-        onRepliesButtonClick={() => {
+        onRepliesClicked={() => {
           console.log("Clicked on replies button");
         }}
       />
