@@ -3,13 +3,13 @@
 import * as React from "react";
 import { Ellipsis } from "lucide-react";
 
-import { ContentCard, ContentCardProps } from "@/registry/default/blocks/content-card";
+import { ContentCard } from "@/registry/default/blocks/content-card";
 import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "@/registry/default/ui/dropdown-menu";
 
-const POST_MOCK_DATA: ContentCardProps = {
+const POST_MOCK_DATA: React.ComponentProps<typeof ContentCard> = {
   author: {
     did: "did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95",
     avatarSrc: "https://github.com/akashaorg.png",
