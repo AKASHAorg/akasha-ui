@@ -34,7 +34,7 @@ export interface PostProps {
   };
   publishedAt: string;
   publishedVia: string;
-  commentCount: number;
+  repliesCount: number;
   menu?: {
     trigger: React.ReactNode;
     items: React.ReactNode[];
@@ -52,7 +52,7 @@ const Post = ({
   publishedAt,
   tags,
   publishedVia,
-  commentCount,
+  repliesCount,
   className,
   nsfw,
   menu,
@@ -127,7 +127,7 @@ const Post = ({
             <Stack direction="row" spacing={1} alignItems="center">
               <MessageCircle size={16} className="text-primary" />
               <Typography variant="xs" className="font-bold text-primary">
-                {commentCount}
+                {repliesCount}
               </Typography>
             </Stack>
           </Button>

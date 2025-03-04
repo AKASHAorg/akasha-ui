@@ -26,7 +26,7 @@ const POST_MOCK_DATA: PostProps = {
   publishedAt: "5 mins ago",
   tags: ["AKASHA", "WEB3"],
   publishedVia: "Antenna",
-  commentCount: 5,
+  repliesCount: 5,
   nsfw: false,
   menu: {
     trigger: (
