@@ -35,7 +35,7 @@ export interface PostProps {
   publishedAt: string;
   publishedVia: string;
   commentCount: number;
-  menu: {
+  menu?: {
     trigger: React.ReactNode;
     items: React.ReactNode[];
   };
@@ -84,10 +84,12 @@ const Post = ({
             </ProfileName>
             <ProfileDidField />
           </ProfileAvatarButton>
-          <DropdownMenu>
-            <DropdownMenuTrigger>{menu?.trigger}</DropdownMenuTrigger>
-            <DropdownMenuContent>{menu?.items}</DropdownMenuContent>
-          </DropdownMenu>
+          {menu && (
+            <DropdownMenu>
+              <DropdownMenuTrigger>{menu.trigger}</DropdownMenuTrigger>
+              <DropdownMenuContent>{menu.items}</DropdownMenuContent>
+            </DropdownMenu>
+          )}
         </Stack>
 
         {showNsfw ? (
