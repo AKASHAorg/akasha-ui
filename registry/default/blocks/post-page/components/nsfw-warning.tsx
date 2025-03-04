@@ -9,8 +9,11 @@ import { Typography } from "@/registry/default/ui/typography";
 
 const NsfwWarning = ({
   className,
+  onShowClick,
   ...props
-}: React.ComponentProps<typeof Card>) => {
+}: React.ComponentProps<typeof Card> & {
+  onShowClick?: () => void;
+}) => {
   return (
     <Card
       className={cn("border-border pb-0 bg-nested-card", className)}
@@ -24,7 +27,7 @@ const NsfwWarning = ({
         <Typography variant="sm">
           The post author marked this post as NSFW
         </Typography>
-        <Button variant="link" className="px-8">
+        <Button variant="link" className="px-8" onClick={onShowClick}>
           Show
         </Button>
       </Stack>

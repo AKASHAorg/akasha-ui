@@ -1,12 +1,17 @@
 "use client";
 
 import * as React from "react";
-import { Ellipsis, MessageCircle, SatelliteDish } from "lucide-react";
+import { MessageCircle, SatelliteDish } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Badge } from "@/registry/default/ui/badge";
 import { Button } from "@/registry/default/ui/button";
 import { Card } from "@/registry/default/ui/card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/registry/default/ui/dropdown-menu";
 import { IconContainer } from "@/registry/default/ui/icon-container";
 import {
   ProfileAvatarButton,
@@ -19,64 +24,51 @@ import {
 import { Stack } from "@/registry/default/ui/stack";
 import { Typography } from "@/registry/default/ui/typography";
 
-import AppNotInstalled from "./app-not-installed";
-import CouldNotLoad from "./could-not-load";
-import Delisted from "./delisted";
 import NsfwWarning from "./nsfw-warning";
 
-export interface PostProps extends React.ComponentProps<typeof Card> {
-  title: string;
+export interface PostProps {
   author: {
     did: string;
-    avatar: string;
+    avatarSrc: string;
     name: string;
   };
-  content: string;
   publishedAt: string;
-  tags: string[];
   publishedVia: string;
   commentCount: number;
+  menu: {
+    trigger: React.ReactNode;
+    items: React.ReactNode[];
+  };
+  tags?: string[];
   variant?: "feed" | "page";
-  isDelisted?: boolean;
-  isNsfw?: boolean;
-  isAppNotInstalled?: boolean;
-  isCouldNotLoad?: boolean;
+  nsfw?: boolean;
+  className?: string;
+  children: React.ReactNode;
+  onRepliesButtonClick?: () => void;
 }
 
 const Post = ({
   author,
-  content,
   publishedAt,
   tags,
   publishedVia,
   commentCount,
-  variant = "feed",
   className,
-  isDelisted,
-  isNsfw,
-  isAppNotInstalled,
-  isCouldNotLoad,
+  nsfw,
+  menu,
+  children,
+  onRepliesButtonClick,
 }: PostProps) => {
-  const onEllipsisClick = () => {
-    alert("ellipsis");
-  };
-
-  const onMessageClick = () => {
-    alert("message");
-  };
-
-  const isPageVariant = variant === "page";
+  const [showNsfw, setShowNsfw] = React.useState(nsfw);
 
   return (
-    <Card
-      className={(cn("p-4", { "rounded-b-none": isPageVariant }), className)}
-    >
+    <Card className={cn("p-4", className)}>
       <Stack direction="column" spacing={4}>
         <Stack direction="row" justifyContent={"between"}>
           <ProfileAvatarButton profileDID={author.did}>
             <ProfileAvatarButtonAvatar>
               <ProfileAvatarButtonAvatarImage
-                src={author.avatar}
+                src={author.avatarSrc}
                 alt={`@${author.name}`}
               />
               <ProfileAvatarButtonAvatarFallback />
@@ -92,30 +84,22 @@ const Post = ({
             </ProfileName>
             <ProfileDidField />
           </ProfileAvatarButton>
-          <Button
-            asChild
-            onClick={onEllipsisClick}
-            className="border-none bg-transparent text-primary"
-          >
-            <Ellipsis size={20} />
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger>{menu?.trigger}</DropdownMenuTrigger>
+            <DropdownMenuContent>{menu?.items}</DropdownMenuContent>
+          </DropdownMenu>
         </Stack>
-        <Typography variant="p">{content}</Typography>
 
-        {isDelisted ? (
-          <Delisted />
-        ) : isCouldNotLoad ? (
-          <CouldNotLoad />
-        ) : isAppNotInstalled ? (
-          <AppNotInstalled />
-        ) : isNsfw ? (
-          <NsfwWarning />
-        ) : null}
+        {showNsfw ? (
+          <NsfwWarning onShowClick={() => setShowNsfw(!showNsfw)} />
+        ) : (
+          children
+        )}
 
-        {isPageVariant && (
+        {tags && (
           <Stack direction="row" spacing={2}>
             {tags.map((tag, index) => (
-              <Badge key={index} variant="outline">
+              <Badge key={index} variant="outline" className="border-secondary">
                 <Typography variant="xs" className="font-normal">
                   {tag}
                 </Typography>
@@ -135,8 +119,8 @@ const Post = ({
 
           <Button
             asChild
-            onClick={onMessageClick}
-            className="border-none bg-transparent"
+            onClick={onRepliesButtonClick}
+            className="border-none bg-transparent pr-0"
           >
             <Stack direction="row" spacing={1} alignItems="center">
               <MessageCircle size={16} className="text-primary" />
