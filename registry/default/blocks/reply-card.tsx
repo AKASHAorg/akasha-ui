@@ -13,10 +13,7 @@ const ReplyCard = ({ className, ...props }: ReplyCardProps) => {
     <>
       <ContentCard
         {...props}
-        className={cn(
-          "rounded-b-none border-b-0 rounded-t-none ",
-          className
-        )}
+        className={cn("rounded-b-none border-b-0 rounded-t-none ", className)}
       />
     </>
   );

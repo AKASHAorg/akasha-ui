@@ -10,7 +10,9 @@ type ReplyPreviewProps = React.ComponentProps<typeof ContentCard>;
 
 const ReplyPreview = ({ className, ...props }: ReplyPreviewProps) => {
   return (
-    <div className={cn("border-x border-border pl-8 bg-card last:pb-2", className)}>
+    <div
+      className={cn("border-x border-border pl-8 bg-card last:pb-2", className)}
+    >
       <div className="border-l border-primary">
         <ContentCard
           {...props}
