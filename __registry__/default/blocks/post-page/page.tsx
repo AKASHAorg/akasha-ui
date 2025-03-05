@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Fragment } from "react";
-import { Ellipsis, Trash2 } from "lucide-react";
+import { Ellipsis } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { ContentCard } from "@/registry/default/blocks/content-card";

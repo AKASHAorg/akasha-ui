@@ -1,12 +1,11 @@
 import * as React from "react";
-import { ReactNode } from "react";
 
 import { ContentCard } from "@/registry/default/blocks/content-card";
 
 interface MockPost
   extends Omit<React.ComponentProps<typeof ContentCard>, "children"> {
   id: string;
-  content: ReactNode;
+  content: string;
 }
 
 const POST: MockPost = {
