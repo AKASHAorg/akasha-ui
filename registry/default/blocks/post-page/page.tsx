@@ -1,56 +1,123 @@
 "use client";
 
 import * as React from "react";
+import { Fragment } from "react";
 import { Ellipsis } from "lucide-react";
 
+import { cn } from "@/lib/utils";
 import { ContentCard } from "@/registry/default/blocks/content-card";
+import { Card } from "@/registry/default/ui/card";
 import {
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-} from "@/registry/default/ui/dropdown-menu";
+  InfiniteScroll,
+  InfiniteScrollList,
+} from "@/registry/default/ui/infinite-scroll";
 
-const POST_MOCK_DATA: React.ComponentProps<typeof ContentCard> = {
-  author: {
-    did: "did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95",
-    avatarSrc: "https://github.com/akashaorg.png",
-    name: "CoffeeLover",
-  },
-  children: (
-    <>
-      &quot;Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-      quos.&quot;
-    </>
-  ),
-  publishedAt: "5 mins ago",
-  tags: ["AKASHA", "WEB3"],
-  publishedVia: "Antenna",
-  repliesCount: 5,
-  nsfw: false,
-  menu: {
-    trigger: (
-      <Ellipsis
-        size={20}
-        className="text-primary cursor-pointer hover:text-muted-foreground"
-      />
-    ),
-    items: [
-      <DropdownMenuItem key="flag">Flag</DropdownMenuItem>,
-      <DropdownMenuItem key="delete">Delete</DropdownMenuItem>,
-      <DropdownMenuSeparator key="separator" />,
-      <DropdownMenuItem key="edit">Edit</DropdownMenuItem>,
-    ],
-  },
-};
+import { ReplyCard } from "../reply-card";
+import { ReplyEditor } from "../reply-editor";
+import { ReplyPreview } from "../reply-preview";
+import { POST, REPLIES } from "./mock-data";
+
+const MAXIMUM_REFLECTION_PREVIEWS = 2;
 
 export default function Page() {
+  const { content, ...postProps } = POST;
   return (
-    <div className="p-4">
+    <div className="p-4 h-full">
       <ContentCard
-        {...POST_MOCK_DATA}
-        onRepliesClicked={() => {
-          console.log("Clicked on replies button");
+        {...postProps}
+        onRepliesClick={() => {
+          console.log("Not implemented");
         }}
-      />
+        className="rounded-b-none"
+        menu={{
+          trigger: (
+            <Ellipsis
+              size={20}
+              className="text-primary cursor-pointer hover:text-muted"
+            />
+          ),
+          items: [
+            { content: "Flag", onClick: () => console.log("flag") },
+            {
+              content: "Delete",
+              className: "text-destructive",
+              onClick: () => console.log("delete"),
+            },
+            { content: "Edit", onClick: () => console.log("edit") },
+          ],
+        }}
+      >
+        {content}
+      </ContentCard>
+      <Card className="border-t-0 p-2 rounded-none" key={1}>
+        <ReplyEditor
+          avatarSrc={"https://github.com/akashaorg.png"}
+          onReplyClick={() => {
+            console.log("Not implemented");
+          }}
+        />
+      </Card>
+      <InfiniteScroll
+        count={REPLIES.length}
+        estimatedHeight={220}
+        overScan={5}
+        gap={0}
+        scrollElementType="window"
+      >
+        <InfiniteScrollList>
+          {(index) => {
+            const reply = REPLIES[index];
+            const { content, id, ...replyProps } = reply;
+            const repliesToReply = reply.replies;
+
+            return (
+              <Fragment key={id}>
+                <ReplyCard
+                  {...replyProps}
+                  menu={{
+                    trigger: (
+                      <Ellipsis
+                        size={20}
+                        className="text-primsary cursor-pointer hover:text-muted"
+                      />
+                    ),
+                    items: [
+                      { content: "Flag", onClick: () => console.log("flag") },
+                      {
+                        content: "Delete",
+                        onClick: () => console.log("delete"),
+                      },
+                      { content: "Edit", onClick: () => console.log("edit") },
+                    ],
+                  }}
+                  className={cn(
+                    "rounded-none",
+                    index === 0 && "border-t-0",
+                    index === REPLIES.length - 1 && "rounded-b-3xl"
+                  )}
+                >
+                  {content}
+                </ReplyCard>
+
+                {repliesToReply
+                  ?.slice(0, MAXIMUM_REFLECTION_PREVIEWS)
+                  .map(({ content, id, ...replyProps }) => (
+                    <ReplyPreview
+                      {...replyProps}
+                      key={id}
+                      onRepliesClick={() => {
+                        console.log("Clicked on replies button");
+                      }}
+                    >
+                      {content}
+                    </ReplyPreview>
+                  ))}
+                {/* TODO - add load more buttons */}
+              </Fragment>
+            );
+          }}
+        </InfiniteScrollList>
+      </InfiniteScroll>
     </div>
   );
 }

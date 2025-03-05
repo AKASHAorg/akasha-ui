@@ -558,7 +558,19 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       },{
+        path: "registry/default/blocks/reply-card.tsx",
+        type: "registry:component",
+        target: ""
+      },{
         path: "registry/default/blocks/nsfw-warning.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/reply-editor.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/post-page/mock-data.tsx",
         type: "registry:component",
         target: ""
       }],

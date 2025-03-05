@@ -25,7 +25,19 @@ export const blocks: Registry = [
         type: "registry:component",
       },
       {
+        path: "blocks/reply-card.tsx",
+        type: "registry:component",
+      },
+      {
         path: "blocks/nsfw-warning.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/reply-editor.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/post-page/mock-data.tsx",
         type: "registry:component",
       },
     ],
