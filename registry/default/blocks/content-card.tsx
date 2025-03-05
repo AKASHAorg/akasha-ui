@@ -11,6 +11,7 @@ import { Card } from "@/registry/default/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/registry/default/ui/dropdown-menu";
 import { IconContainer } from "@/registry/default/ui/icon-container";
@@ -25,6 +26,8 @@ import {
 import { Stack } from "@/registry/default/ui/stack";
 import { Typography } from "@/registry/default/ui/typography";
 
+type MenuItem = "flag" | "delete" | "edit";
+
 interface ContentCardProps {
   author: {
     did: string;
@@ -36,7 +39,7 @@ interface ContentCardProps {
   publishedVia?: string;
   menu?: {
     trigger: React.ReactNode;
-    items: React.ReactNode[];
+    items: MenuItem[];
   };
   tags?: string[];
   variant?: "feed" | "page";
@@ -59,6 +62,10 @@ const ContentCard = ({
   onRepliesClick,
 }: ContentCardProps) => {
   const [showNsfw, setShowNsfw] = React.useState(nsfw);
+
+  const handleMenuItemClick = (item: MenuItem) => {
+    console.log(item);
+  };
 
   return (
     <Card className={cn("p-4", className)}>
@@ -86,7 +93,16 @@ const ContentCard = ({
           {menu && (
             <DropdownMenu>
               <DropdownMenuTrigger>{menu.trigger}</DropdownMenuTrigger>
-              <DropdownMenuContent>{menu.items}</DropdownMenuContent>
+              <DropdownMenuContent>
+                {menu?.items.map((item) => (
+                  <DropdownMenuItem
+                    key={item}
+                    onClick={() => handleMenuItemClick(item)}
+                  >
+                    {item}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
             </DropdownMenu>
           )}
         </Stack>

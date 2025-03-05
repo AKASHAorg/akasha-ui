@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { Ellipsis } from "lucide-react";
 
 import { ContentCard } from "@/registry/default/blocks/content-card";
 import { Card } from "@/registry/default/ui/card";
@@ -27,6 +28,15 @@ export default function Page() {
           console.log("Not implemented");
         }}
         className="rounded-b-none"
+        menu={{
+          trigger: (
+            <Ellipsis
+              size={20}
+              className="text-primary cursor-pointer hover:text-muted"
+            />
+          ),
+          items: ["flag", "delete", "edit"],
+        }}
       />
       <Card className="border-t-0 p-2 rounded-none" key={1}>
         <ReplyEditor
@@ -53,6 +63,15 @@ export default function Page() {
               <>
                 <ReplyCard
                   {...reply}
+                  menu={{
+                    trigger: (
+                      <Ellipsis
+                        size={20}
+                        className="text-primary cursor-pointer hover:text-muted"
+                      />
+                    ),
+                    items: ["flag", "delete", "edit"],
+                  }}
                   className={cn(
                     "rounded-none",
                     index === 0 && "border-t-0",
