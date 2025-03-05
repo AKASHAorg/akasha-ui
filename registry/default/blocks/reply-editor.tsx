@@ -10,7 +10,7 @@ import {
   ProfileAvatar,
   ProfileAvatarFallback,
   ProfileAvatarImage,
-} from "../../ui/profile-avatar";
+} from "../ui/profile-avatar";
 
 interface ReplyEditorProps {
   onReplyClick?: (content: string) => void;

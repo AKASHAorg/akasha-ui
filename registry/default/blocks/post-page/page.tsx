@@ -10,8 +10,8 @@ import {
 } from "@/registry/default/ui/infinite-scroll";
 
 import { ReplyCard } from "../reply-card";
+import { ReplyEditor } from "../reply-editor";
 import { POST, REPLY_1, REPLY_2, REPLY_3 } from "./mock-data";
-import { ReplyEditor } from "./reply-editor";
 
 export default function Page() {
   const ROWS = [
