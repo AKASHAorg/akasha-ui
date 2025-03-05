@@ -38,8 +38,9 @@ interface ContentCardProps {
   menu?: {
     trigger: React.ReactNode;
     items: {
-      label: string;
-      onItemClick: () => void;
+      content: React.ReactNode;
+      className?: string;
+      onClick?: () => void;
     }[];
   };
   tags?: string[];
@@ -91,9 +92,13 @@ const ContentCard = ({
             <DropdownMenu>
               <DropdownMenuTrigger>{menu.trigger}</DropdownMenuTrigger>
               <DropdownMenuContent>
-                {menu?.items.map(({ label, onItemClick }) => (
-                  <DropdownMenuItem key={label} onClick={onItemClick}>
-                    {label}
+                {menu?.items.map(({ content, className, onClick }, index) => (
+                  <DropdownMenuItem
+                    key={index}
+                    onClick={onClick}
+                    className={className}
+                  >
+                    {content}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>

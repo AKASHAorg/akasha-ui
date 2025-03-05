@@ -2,8 +2,9 @@
 
 import * as React from "react";
 import { Fragment } from "react";
-import { Ellipsis } from "lucide-react";
+import { Ellipsis, Trash2 } from "lucide-react";
 
+import { cn } from "@/lib/utils";
 import { ContentCard } from "@/registry/default/blocks/content-card";
 import { Card } from "@/registry/default/ui/card";
 import {
@@ -11,7 +12,6 @@ import {
   InfiniteScrollList,
 } from "@/registry/default/ui/infinite-scroll";
 
-import { cn } from "../../../../lib/utils";
 import { ReplyCard } from "../reply-card";
 import { ReplyEditor } from "../reply-editor";
 import { ReplyPreview } from "../reply-preview";
@@ -37,9 +37,13 @@ export default function Page() {
             />
           ),
           items: [
-            { label: "Flag", onItemClick: () => console.log("flag") },
-            { label: "Delete", onItemClick: () => console.log("delete") },
-            { label: "Edit", onItemClick: () => console.log("edit") },
+            { content: "Flag", onClick: () => console.log("flag") },
+            {
+              content: "Delete",
+              className: "text-destructive",
+              onClick: () => console.log("delete"),
+            },
+            { content: "Edit", onClick: () => console.log("edit") },
           ],
         }}
       >
@@ -58,8 +62,6 @@ export default function Page() {
         estimatedHeight={220}
         overScan={5}
         gap={0}
-        loading={false}
-        hasNextPage={false}
         scrollElementType="window"
       >
         <InfiniteScrollList>
@@ -80,12 +82,12 @@ export default function Page() {
                       />
                     ),
                     items: [
-                      { label: "Flag", onItemClick: () => console.log("flag") },
+                      { content: "Flag", onClick: () => console.log("flag") },
                       {
-                        label: "Delete",
-                        onItemClick: () => console.log("delete"),
+                        content: "Delete",
+                        onClick: () => console.log("delete"),
                       },
-                      { label: "Edit", onItemClick: () => console.log("edit") },
+                      { content: "Edit", onClick: () => console.log("edit") },
                     ],
                   }}
                   className={cn(
