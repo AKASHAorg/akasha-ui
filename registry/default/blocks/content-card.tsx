@@ -32,8 +32,8 @@ interface ContentCardProps {
     name: string;
   };
   publishedAt: string;
-  publishedVia: string;
   repliesCount: number;
+  publishedVia?: string;
   menu?: {
     trigger: React.ReactNode;
     items: React.ReactNode[];
@@ -43,7 +43,7 @@ interface ContentCardProps {
   nsfw?: boolean;
   className?: string;
   children: React.ReactNode;
-  onRepliesClicked?: () => void;
+  onRepliesClick?: () => void;
 }
 
 const ContentCard = ({
@@ -56,7 +56,7 @@ const ContentCard = ({
   nsfw,
   menu,
   children,
-  onRepliesClicked,
+  onRepliesClick,
 }: ContentCardProps) => {
   const [showNsfw, setShowNsfw] = React.useState(nsfw);
 
@@ -114,24 +114,31 @@ const ContentCard = ({
         )}
         <Stack direction="row" spacing={2} justifyContent="between">
           <Stack direction="row" spacing={1} alignItems="center">
-            <IconContainer size="xs" variant="round">
-              <SatelliteDish className="text-primary" size={12} />
-            </IconContainer>
-            <Typography variant="xs" className="text-muted-foreground">
-              Published via {publishedVia}
-            </Typography>
+            {publishedVia && (
+              <>
+                <IconContainer size="xs" variant="round">
+                  <SatelliteDish className="text-primary" size={12} />
+                </IconContainer>
+
+                <Typography variant="xs" className="text-muted-foreground">
+                  Published via {publishedVia}
+                </Typography>
+              </>
+            )}
           </Stack>
 
           <Button
             asChild
-            onClick={onRepliesClicked}
+            onClick={onRepliesClick}
             className="border-none bg-transparent pr-0"
           >
             <Stack direction="row" spacing={1} alignItems="center">
               <MessageCircle size={16} className="text-primary" />
-              <Typography variant="xs" className="font-bold text-primary">
-                {repliesCount}
-              </Typography>
+              {repliesCount > 0 && (
+                <Typography variant="xs" className="font-bold text-primary">
+                  {repliesCount}
+                </Typography>
+              )}
             </Stack>
           </Button>
         </Stack>

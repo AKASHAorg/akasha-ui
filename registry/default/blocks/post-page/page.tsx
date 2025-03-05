@@ -1,56 +1,57 @@
 "use client";
 
 import * as React from "react";
-import { Ellipsis } from "lucide-react";
 
 import { ContentCard } from "@/registry/default/blocks/content-card";
+import { Card } from "@/registry/default/ui/card";
 import {
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-} from "@/registry/default/ui/dropdown-menu";
+  InfiniteScroll,
+  InfiniteScrollList,
+} from "@/registry/default/ui/infinite-scroll";
 
-const POST_MOCK_DATA: React.ComponentProps<typeof ContentCard> = {
-  author: {
-    did: "did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95",
-    avatarSrc: "https://github.com/akashaorg.png",
-    name: "CoffeeLover",
-  },
-  children: (
-    <>
-      &quot;Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-      quos.&quot;
-    </>
-  ),
-  publishedAt: "5 mins ago",
-  tags: ["AKASHA", "WEB3"],
-  publishedVia: "Antenna",
-  repliesCount: 5,
-  nsfw: false,
-  menu: {
-    trigger: (
-      <Ellipsis
-        size={20}
-        className="text-primary cursor-pointer hover:text-muted-foreground"
-      />
-    ),
-    items: [
-      <DropdownMenuItem key="flag">Flag</DropdownMenuItem>,
-      <DropdownMenuItem key="delete">Delete</DropdownMenuItem>,
-      <DropdownMenuSeparator key="separator" />,
-      <DropdownMenuItem key="edit">Edit</DropdownMenuItem>,
-    ],
-  },
-};
+import { ReplyCard } from "../reply-card";
+import { POST, REPLY_1, REPLY_2, REPLY_3 } from "./mock-data";
+import { ReplyEditor } from "./reply-editor";
 
 export default function Page() {
-  return (
-    <div className="p-4">
-      <ContentCard
-        {...POST_MOCK_DATA}
-        onRepliesClicked={() => {
-          console.log("Clicked on replies button");
+  const ROWS = [
+    <ContentCard
+      key={0}
+      {...POST}
+      onRepliesClick={() => {
+        console.log("Not implemented");
+      }}
+      className="rounded-b-none"
+    />,
+    <Card className="border-y-0 p-2 rounded-none" key={1}>
+      <ReplyEditor
+        avatarSrc={"https://github.com/akashaorg.png"}
+        onReplyClick={() => {
+          console.log("Not implemented");
         }}
       />
+    </Card>,
+    <ReplyCard {...REPLY_1} key={2} />,
+    <ReplyCard {...REPLY_2} key={3} />,
+    <ContentCard {...REPLY_3} className="rounded-t-none" key={4} />,
+  ];
+  return (
+    <div className="p-4 h-full">
+      <InfiniteScroll
+        count={ROWS.length}
+        estimatedHeight={220}
+        overScan={5}
+        gap={0}
+        loading={false}
+        hasNextPage={false}
+        scrollElementType="window"
+      >
+        <InfiniteScrollList>
+          {(index) => {
+            return ROWS[index];
+          }}
+        </InfiniteScrollList>
+      </InfiniteScroll>
     </div>
   );
 }
