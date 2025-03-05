@@ -12,7 +12,10 @@ import {
 import { cn } from "../../../../lib/utils";
 import { ReplyCard } from "../reply-card";
 import { ReplyEditor } from "../reply-editor";
+import { ReplyPreview } from "../reply-preview";
 import { POST, REPLIES } from "./mock-data";
+
+const MAXIMUM_REFLECTION_PREVIEWS = 2;
 
 export default function Page() {
   return (
@@ -45,15 +48,31 @@ export default function Page() {
         <InfiniteScrollList>
           {(index) => {
             const reply = REPLIES[index];
+            const repliesToReply = reply.replies;
             return (
-              <ReplyCard
-                {...reply}
-                className={cn(
-                  "rounded-none",
-                  index === 0 && "border-t-0",
-                  index === REPLIES.length - 1 && "rounded-b-3xl"
-                )}
-              />
+              <>
+                <ReplyCard
+                  {...reply}
+                  className={cn(
+                    "rounded-none",
+                    index === 0 && "border-t-0",
+                    index === REPLIES.length - 1 && "rounded-b-3xl"
+                  )}
+                />
+
+                {repliesToReply
+                  ?.slice(0, MAXIMUM_REFLECTION_PREVIEWS)
+                  .map((reply, index) => (
+                    <ReplyPreview
+                      {...reply}
+                      key={index}
+                      onRepliesClick={() => {
+                        console.log("Clicked on replies button");
+                      }}
+                    />
+                  ))}
+                {/* TODO - add load more buttons */}
+              </>
             );
           }}
         </InfiniteScrollList>

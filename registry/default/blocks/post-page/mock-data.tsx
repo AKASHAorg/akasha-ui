@@ -88,7 +88,7 @@ const REPLIES_TO_REPLY_2 = [
   },
 ];
 
-const REPLY_2: React.ComponentProps<typeof ReplyCard> = {
+const REPLY_2 = {
   author: {
     did: "did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95",
     avatarSrc: "https://github.com/akashaorg.png",
@@ -107,7 +107,7 @@ const REPLY_2: React.ComponentProps<typeof ReplyCard> = {
   replies: REPLIES_TO_REPLY_2,
 };
 
-const REPLY_3: React.ComponentProps<typeof ReplyCard> = {
+const REPLY_3 = {
   author: {
     did: "did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95",
     avatarSrc: "https://github.com/akashaorg.png",
@@ -120,10 +120,8 @@ const REPLY_3: React.ComponentProps<typeof ReplyCard> = {
   menu: MENU,
 };
 
-const REPLIES: React.ComponentProps<typeof ReplyCard>[] = [
-  REPLY_1,
-  REPLY_2,
-  REPLY_3,
-];
+const REPLIES: (React.ComponentProps<typeof ReplyCard> & {
+  replies?: React.ComponentProps<typeof ContentCard>[];
+})[] = [REPLY_1, REPLY_2, REPLY_3];
 
 export { POST, REPLIES };
