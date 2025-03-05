@@ -2,18 +2,20 @@
 
 import * as React from "react";
 
+import { cn } from "@/lib/utils";
+
 import { ContentCard } from "./content-card";
 
 interface ReplyCardProps extends React.ComponentProps<typeof ContentCard> {
   replies?: React.ComponentProps<typeof ContentCard>[];
 }
 
-const ReplyCard = ({ replies, ...props }: ReplyCardProps) => {
+const ReplyCard = ({ replies, className, ...props }: ReplyCardProps) => {
   return (
     <>
       <ContentCard
         {...props}
-        className="rounded-b-none border-b-0 rounded-t-none"
+        className={cn("rounded-b-none border-b-0 rounded-t-none", className)}
       />
       {replies && (
         <div className="border-x border-border pl-8 pb-2 bg-card">

@@ -566,7 +566,7 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/post-page/reply-editor.tsx",
+        path: "registry/default/blocks/reply-editor.tsx",
         type: "registry:component",
         target: ""
       },{

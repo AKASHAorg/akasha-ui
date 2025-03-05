@@ -10,35 +10,31 @@ import {
 } from "@/registry/default/ui/infinite-scroll";
 
 import { ReplyCard } from "../reply-card";
-import { ReplyEditor } from "./reply-editor";
-import { POST, REPLY_1, REPLY_2, REPLY_3 } from "./mock-data";
+import { ReplyEditor } from "../reply-editor";
+import { POST, REPLIES } from "./mock-data";
 
 export default function Page() {
-  const ROWS = [
-    <ContentCard
-      key={0}
-      {...POST}
-      onRepliesClick={() => {
-        console.log("Not implemented");
-      }}
-      className="rounded-b-none"
-    />,
-    <Card className="border-y-0 p-2 rounded-none" key={1}>
-      <ReplyEditor
-        avatarSrc={"https://github.com/akashaorg.png"}
-        onReplyClick={() => {
-          console.log("Not implemented");
-        }}
-      />
-    </Card>,
-    <ReplyCard {...REPLY_1} key={2} />,
-    <ReplyCard {...REPLY_2} key={3} />,
-    <ContentCard {...REPLY_3} className="rounded-t-none" key={4} />,
-  ];
   return (
     <div className="p-4 h-full">
+      <ContentCard
+        key={0}
+        {...POST}
+        onRepliesClick={() => {
+          console.log("Not implemented");
+        }}
+        className="rounded-b-none"
+      />
+      ,
+      <Card className="border-y-0 p-2 rounded-none" key={1}>
+        <ReplyEditor
+          avatarSrc={"https://github.com/akashaorg.png"}
+          onReplyClick={() => {
+            console.log("Not implemented");
+          }}
+        />
+      </Card>
       <InfiniteScroll
-        count={ROWS.length}
+        count={REPLIES.length}
         estimatedHeight={220}
         overScan={5}
         gap={0}
@@ -48,7 +44,8 @@ export default function Page() {
       >
         <InfiniteScrollList>
           {(index) => {
-            return ROWS[index];
+            const reply = REPLIES[index];
+            return <ReplyCard {...reply} className="rounded-none" />;
           }}
         </InfiniteScrollList>
       </InfiniteScroll>

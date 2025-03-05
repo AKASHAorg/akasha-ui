@@ -33,7 +33,7 @@ export const blocks: Registry = [
         type: "registry:component",
       },
       {
-        path: "blocks/post-page/reply-editor.tsx",
+        path: "blocks/reply-editor.tsx",
         type: "registry:component",
       },
       {

@@ -120,4 +120,10 @@ const REPLY_3: React.ComponentProps<typeof ReplyCard> = {
   menu: MENU,
 };
 
-export { POST, REPLY_1, REPLY_2, REPLY_3 };
+const REPLIES: React.ComponentProps<typeof ReplyCard>[] = [
+  REPLY_1,
+  REPLY_2,
+  REPLY_3,
+];
+
+export { POST, REPLIES };
