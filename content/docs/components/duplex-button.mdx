@@ -77,3 +77,27 @@ const [subscribe, setSubscribe] = useState(false);
   </DuplexButtonActive>
 </DuplexButton>;
 ```
+
+## Props
+
+| Name     | Type      | Description                                           |
+| -------- | --------- | ----------------------------------------------------- |
+| active   | `boolean` | Checks if the component is currently active.          |
+| loading  | `boolean` | Specifies whether the component is currently loading. |
+| disabled | `boolean` | Specifies whether the component is disabled.          |
+
+## Examples
+
+### Loading
+
+<ComponentPreview
+  name="duplex-button-loading"
+  description="A duplex button loading"
+/>
+
+### Disabled
+
+<ComponentPreview
+  name="duplex-button-disabled"
+  description="A disabled duplex button"
+/>

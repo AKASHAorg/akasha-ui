@@ -1029,6 +1029,36 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "duplex-button-loading": {
+      name: "duplex-button-loading",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/duplex-button"],
+      files: [{
+        path: "registry/default/examples/duplex-button-loading.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/duplex-button-loading.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "duplex-button-disabled": {
+      name: "duplex-button-disabled",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/duplex-button"],
+      files: [{
+        path: "registry/default/examples/duplex-button-disabled.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/duplex-button-disabled.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "error-loader-demo": {
       name: "error-loader-demo",
       description: "",

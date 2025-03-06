@@ -1,0 +1,15 @@
+{
+  "name": "duplex-button-disabled",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://akasha-ui.pages.dev/r/styles/default/duplex-button.json"
+  ],
+  "files": [
+    {
+      "path": "examples/duplex-button-disabled.tsx",
+      "content": "\"use client\";\n\nimport { useEffect, useState } from \"react\";\nimport { UserIcon, UsersIcon } from \"lucide-react\";\n\nimport {\n  DuplexButton,\n  DuplexButtonActive,\n  DuplexButtonHover,\n  DuplexButtonInactive,\n} from \"@/registry/default/ui/duplex-button\";\n\nexport default function DuplexButtonDisabled() {\n  const [follow, setFollow] = useState(false);\n\n  useEffect(() => {\n    setTimeout(() => setFollow(true), 2000);\n  }, []);\n\n  return (\n    <DuplexButton active={follow} disabled={true}>\n      <DuplexButtonInactive variant=\"outline\">\n        Follow <UsersIcon size={16} />\n      </DuplexButtonInactive>\n\n      <DuplexButtonHover variant=\"destructive\">\n        Unfollow <UsersIcon size={16} />\n      </DuplexButtonHover>\n\n      <DuplexButtonActive variant=\"outline\">\n        Following <UserIcon size={16} />\n      </DuplexButtonActive>\n    </DuplexButton>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

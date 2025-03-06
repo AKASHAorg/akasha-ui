@@ -10,13 +10,19 @@ import {
   DuplexButtonInactive,
 } from "@/registry/default/ui/duplex-button";
 
-export default function DuplexButtonDemo() {
+export default function DuplexButtonLoading() {
   const [follow, setFollow] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   return (
-    <DuplexButton active={follow}>
+    <DuplexButton active={follow} loading={loading}>
       <DuplexButtonInactive
         onClick={() => {
-          setFollow(true);
+          setLoading(true);
+          setTimeout(() => {
+            setFollow(true);
+            setLoading(false);
+          }, 1000);
         }}
         variant="outline"
       >
@@ -26,7 +32,11 @@ export default function DuplexButtonDemo() {
       <DuplexButtonHover
         variant="destructive"
         onClick={() => {
-          setFollow(false);
+          setLoading(true);
+          setTimeout(() => {
+            setFollow(false);
+            setLoading(false);
+          }, 1000);
         }}
       >
         Unfollow <UsersIcon size={16} />

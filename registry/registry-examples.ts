@@ -286,6 +286,28 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "duplex-button-loading",
+    type: "registry:example",
+    registryDependencies: ["custom/duplex-button"],
+    files: [
+      {
+        path: "examples/duplex-button-loading.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "duplex-button-disabled",
+    type: "registry:example",
+    registryDependencies: ["custom/duplex-button"],
+    files: [
+      {
+        path: "examples/duplex-button-disabled.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "error-loader-demo",
     type: "registry:example",
     registryDependencies: ["custom/error-loader"],

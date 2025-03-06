@@ -42,7 +42,7 @@ function getTag(variant: Variant) {
 }
 
 interface TypographyProps
-  extends React.ButtonHTMLAttributes<HTMLHeadingElement | HTMLParagraphElement>,
+  extends React.HtmlHTMLAttributes<HTMLHeadingElement | HTMLParagraphElement>,
     VariantProps<typeof typographyVariants> {
   asChild?: boolean;
   bold?: boolean;
