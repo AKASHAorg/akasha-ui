@@ -3,7 +3,7 @@ import { Check, Dot } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-export const Stepper = ({
+const Stepper = ({
   currentStep,
   numberOfSteps,
   className,
@@ -75,3 +75,5 @@ export const Stepper = ({
     </nav>
   );
 };
+
+export { Stepper };
