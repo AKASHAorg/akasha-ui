@@ -546,7 +546,7 @@ export const Index: Record<string, any> = {
     },
     "post-page": {
       name: "post-page",
-      description: "A simple sidebar with navigation grouped by section.",
+      description: "A single post page with reply editor and replies",
       type: "registry:block",
       registryDependencies: ["custom/profile-avatar-button","custom/card","custom/stack","custom/typography","custom/icon-container","custom/button"],
       files: [{
@@ -570,13 +570,48 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/post-page/mock-data.tsx",
+        path: "registry/default/blocks/post-page/mock-data.ts",
         type: "registry:component",
         target: ""
       }],
       categories: ["post-page"],
       component: React.lazy(() => import("@/registry/default/blocks/post-page/page.tsx")),
       source: "__registry__/default/blocks/post-page/page.tsx",
+      meta: undefined,
+    },
+    "reply-page": {
+      name: "reply-page",
+      description: "A reply post page with reply editor and replies",
+      type: "registry:block",
+      registryDependencies: ["custom/profile-avatar-button","custom/card","custom/stack","custom/typography","custom/icon-container","custom/button"],
+      files: [{
+        path: "registry/default/blocks/reply-page/page.tsx",
+        type: "registry:page",
+        target: "app/dashboard/page.tsx"
+      },{
+        path: "registry/default/blocks/content-card.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/reply-card.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/nsfw-warning.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/reply-editor.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/reply-page/mock-data.ts",
+        type: "registry:component",
+        target: ""
+      }],
+      categories: ["reply-page"],
+      component: React.lazy(() => import("@/registry/default/blocks/reply-page/page.tsx")),
+      source: "__registry__/default/blocks/reply-page/page.tsx",
       meta: undefined,
     },
     "utils": {

@@ -5,7 +5,6 @@ import { Fragment } from "react";
 import { Ellipsis } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { ContentCard } from "@/registry/default/blocks/content-card";
 import { Card } from "@/registry/default/ui/card";
 import {
   InfiniteScroll,
@@ -15,20 +14,20 @@ import {
 import { ReplyCard } from "../reply-card";
 import { ReplyEditor } from "../reply-editor";
 import { ReplyPreview } from "../reply-preview";
-import { POST, REPLIES } from "./mock-data";
+import { REPLIES_TO_REPLY, REPLY } from "./mock-data";
 
 const MAXIMUM_REFLECTION_PREVIEWS = 2;
 
 export default function Page() {
-  const { content, ...postProps } = POST;
+  const { content, ...replyProps } = REPLY;
   return (
     <div className="p-4 h-full">
-      <ContentCard
-        {...postProps}
+      <ReplyCard
+        {...replyProps}
         onRepliesClick={() => {
           console.log("Not implemented");
         }}
-        className="rounded-b-none"
+        className="rounded-t-3xl border-t"
         menu={{
           trigger: (
             <Ellipsis
@@ -48,7 +47,7 @@ export default function Page() {
         }}
       >
         {content}
-      </ContentCard>
+      </ReplyCard>
       <Card className="border-t-0 p-2 rounded-none" key={1}>
         <ReplyEditor
           avatarSrc={"https://github.com/akashaorg.png"}
@@ -58,7 +57,7 @@ export default function Page() {
         />
       </Card>
       <InfiniteScroll
-        count={REPLIES.length}
+        count={REPLIES_TO_REPLY.length}
         estimatedHeight={220}
         overScan={5}
         gap={0}
@@ -66,7 +65,7 @@ export default function Page() {
       >
         <InfiniteScrollList>
           {(index) => {
-            const reply = REPLIES[index];
+            const reply = REPLIES_TO_REPLY[index];
             const { content, id, ...replyProps } = reply;
             const repliesToReply = reply.replies;
 
@@ -90,23 +89,22 @@ export default function Page() {
                       { content: "Edit", onClick: () => console.log("edit") },
                     ],
                   }}
-                  className={cn(replyProps.repliesCount && "border-b-0")}
+                  className={cn(
+                    index === REPLIES_TO_REPLY.length - 1 && "rounded-b-3xl"
+                  )}
                 >
                   {content}
                 </ReplyCard>
 
                 {repliesToReply
                   ?.slice(0, MAXIMUM_REFLECTION_PREVIEWS)
-                  .map(({ content, id, ...replyProps }, index) => (
+                  .map(({ content, id, ...replyProps }) => (
                     <ReplyPreview
                       {...replyProps}
                       key={id}
                       onRepliesClick={() => {
                         console.log("Clicked on replies button");
                       }}
-                      className={cn(
-                        index === repliesToReply.length - 1 && "border-b"
-                      )}
                     >
                       {content}
                     </ReplyPreview>
