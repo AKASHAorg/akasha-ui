@@ -78,7 +78,7 @@ export default function Page() {
                     trigger: (
                       <Ellipsis
                         size={20}
-                        className="text-primsary cursor-pointer hover:text-muted"
+                        className="text-primary cursor-pointer hover:text-muted"
                       />
                     ),
                     items: [
@@ -90,24 +90,23 @@ export default function Page() {
                       { content: "Edit", onClick: () => console.log("edit") },
                     ],
                   }}
-                  className={cn(
-                    "rounded-none",
-                    index === 0 && "border-t-0",
-                    index === REPLIES.length - 1 && "rounded-b-3xl"
-                  )}
+                  className={cn(replyProps.repliesCount && "border-b-0")}
                 >
                   {content}
                 </ReplyCard>
 
                 {repliesToReply
                   ?.slice(0, MAXIMUM_REFLECTION_PREVIEWS)
-                  .map(({ content, id, ...replyProps }) => (
+                  .map(({ content, id, ...replyProps }, index) => (
                     <ReplyPreview
                       {...replyProps}
                       key={id}
                       onRepliesClick={() => {
                         console.log("Clicked on replies button");
                       }}
+                      className={cn(
+                        index === repliesToReply.length - 1 && "border-b"
+                      )}
                     >
                       {content}
                     </ReplyPreview>
