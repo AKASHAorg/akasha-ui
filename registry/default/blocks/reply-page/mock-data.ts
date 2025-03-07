@@ -1,14 +1,14 @@
 import * as React from "react";
 
-import { ContentCard } from "@/registry/default/blocks/content-card";
+import { ReplyCard } from "../reply-card";
 
-interface MockPost
-  extends Omit<React.ComponentProps<typeof ContentCard>, "children"> {
+interface MockReply
+  extends Omit<React.ComponentProps<typeof ReplyCard>, "children"> {
   id: string;
   content: string;
 }
 
-const REPLY: MockPost = {
+const REPLY: MockReply = {
   id: "post1",
   author: {
     did: "did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95",
@@ -21,8 +21,8 @@ const REPLY: MockPost = {
   repliesCount: 2,
 };
 
-const REPLIES_TO_REPLY: (MockPost & {
-  replies?: MockPost[];
+const REPLIES_TO_REPLY: (MockReply & {
+  replies?: MockReply[];
 })[] = [
   {
     id: "reply1",

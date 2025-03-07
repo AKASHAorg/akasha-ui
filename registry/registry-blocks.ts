@@ -4,7 +4,8 @@ export const blocks: Registry = [
   {
     name: "post-page",
     type: "registry:block",
-    description: "A single post page with reply editor and replies and nested reply previews",
+    description:
+      "A single post page with reply editor and replies and nested reply previews",
     registryDependencies: [
       "custom/profile-avatar-button",
       "custom/card",

@@ -546,7 +546,7 @@ export const Index: Record<string, any> = {
     },
     "post-page": {
       name: "post-page",
-      description: "A single post page with reply editor and replies",
+      description: "A single post page with reply editor and replies and nested reply previews",
       type: "registry:block",
       registryDependencies: ["custom/profile-avatar-button","custom/card","custom/stack","custom/typography","custom/icon-container","custom/button"],
       files: [{

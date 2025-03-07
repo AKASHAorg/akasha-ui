@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "post-page",
   "type": "registry:block",
-  "description": "A single post page with reply editor and replies",
+  "description": "A single post page with reply editor and replies and nested reply previews",
   "dependencies": [
     "lucide-react"
   ],
