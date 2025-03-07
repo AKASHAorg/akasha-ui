@@ -1,0 +1,16 @@
+{
+  "name": "tags-input-autocomplete",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://akasha-ui.pages.dev/r/styles/default/tags-input.json",
+    "https://akasha-ui.pages.dev/r/styles/default/autocomplete.json"
+  ],
+  "files": [
+    {
+      "path": "examples/tags-input-autocomplete.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\n\nimport {\n  Autocomplete,\n  AutocompleteItem,\n  AutocompleteList,\n  AutocompleteTrigger,\n} from \"@/registry/default/ui/autocomplete\";\nimport {\n  TagsInput,\n  TagsInputItem,\n  TagsInputList,\n} from \"@/registry/default/ui/tags-input\";\n\nconst frameworks = [\n  { value: \"next\", label: \"Next.js\" },\n  { value: \"sveltekit\", label: \"SvelteKit\" },\n  { value: \"nuxt\", label: \"Nuxt.js\" },\n  { value: \"remix\", label: \"Remix\" },\n  { value: \"astro\", label: \"Astro\" },\n  { value: \"wordpress\", label: \"WordPress\" },\n  { value: \"express\", label: \"Express.js\" },\n  { value: \"nest\", label: \"Nest.js\" },\n];\n\nexport default function TagsInputAutocomplete() {\n  const [value, setValue] = useState(\"\");\n  const [selectedValues, setSelectedValues] = useState<string[]>([\n    \"next\",\n    \"remix\",\n    \"astro\",\n    \"nest\",\n  ]);\n\n  const handleValueChange = (value: string[]) => {\n    setSelectedValues(value);\n  };\n\n  return (\n    <div className=\"flex flex-col gap-2 items-center w-full\">\n      <Autocomplete\n        multiple\n        value={selectedValues}\n        onValueChange={handleValueChange}\n        className=\"w-full max-w-md\"\n      >\n        <AutocompleteTrigger asChild>\n          <TagsInput\n            value={value}\n            onChange={(event) => setValue(event.target.value)}\n            onTagsChange={(tags, newTagAdded) => {\n              if (newTagAdded) {\n                setValue(\"\");\n              }\n              setSelectedValues([...tags]);\n            }}\n            placeholder=\"Interests\"\n            className=\"w-100\"\n          >\n            <TagsInputList>\n              {selectedValues.map((interest) => (\n                <TagsInputItem key={interest} tag={interest}>\n                  {\n                    frameworks.find((framework) => framework.value === interest)\n                      ?.label\n                  }\n                </TagsInputItem>\n              ))}\n            </TagsInputList>\n          </TagsInput>\n        </AutocompleteTrigger>\n        <AutocompleteList>\n          {frameworks.map((framework) => (\n            <AutocompleteItem key={framework.value} value={framework.value}>\n              {framework.label}\n            </AutocompleteItem>\n          ))}\n        </AutocompleteList>\n      </Autocomplete>\n    </div>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

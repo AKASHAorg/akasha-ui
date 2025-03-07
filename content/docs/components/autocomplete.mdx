@@ -30,7 +30,7 @@ npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/autocomplete
 <Step>Install the following dependencies:</Step>
 
 ```bash
-npm install cmdk lucide-react
+npm install @radix-ui/react-slot cmdk lucide-react
 ```
 
 <Step>Copy and paste the following code into your project.</Step>
@@ -48,33 +48,56 @@ npm install cmdk lucide-react
 ## Usage
 
 ```tsx
-import { Autocomplete } from "<path-to-ui-components>/autocomplete";
+import {
+  Autocomplete,
+  AutocompleteItem,
+  AutocompleteList,
+  AutocompleteTrigger,
+} from "<path-to-ui-components>/autocomplete";
 ```
 
 ```tsx
 <Autocomplete
-  options={frameworks}
   value={singleValue}
-  onValueChange={(value) => setSingleValue(value)}
-  placeholder="Select a framework"
   emptyMessage="No framework found."
-/>
+  onValueChange={setSingleValue}
+>
+  <AutocompleteTrigger placeholder="Select a framework" />
+  <AutocompleteList>
+    <AutocompleteItem value="next">Next.js</AutocompleteItem>
+    <AutocompleteItem value="sveltekit">SvelteKit</AutocompleteItem>
+    <AutocompleteItem value="nuxt">Nuxt.js</AutocompleteItem>
+    <AutocompleteItem value="remix">Remix</AutocompleteItem>
+    <AutocompleteItem value="astro">Astro</AutocompleteItem>
+    <AutocompleteItem value="wordpress">WordPress</AutocompleteItem>
+    <AutocompleteItem value="express">Express.js</AutocompleteItem>
+    <AutocompleteItem value="nest">Nest.js</AutocompleteItem>
+  </AutocompleteList>
+</Autocomplete>
 ```
 
 ## Props
 
-| Name         | Type       | Description                            |
-| ------------ | ---------- | -------------------------------------- |
-| options      | `Option[]` | Array of options.                      |
-| emptyMessage | `string`   | Message to display when list is empty. |
-| loading      | `boolean`  | Shows spinner while list loads.        |
-| multiple     | `boolean`  | Allows single or multiple selections.  |
+| Name         | Type                 | Description                            |
+| ------------ | -------------------- | -------------------------------------- |
+| value        | string or `string[]` | Component's value.                     |
+| emptyMessage | `string`             | Message to display when list is empty. |
+| loading      | `boolean`            | Shows spinner while list loads.        |
+| multiple     | `boolean`            | Allows single or multiple selections.  |
 
 <Callout>
 
 Single selection is supported by default.
 
 </Callout>
+
+### AutocompleteItem
+
+#### Props
+
+| Name  | Type   | Description        |
+| ----- | ------ | ------------------ |
+| value | string | Component's value. |
 
 ## Example
 

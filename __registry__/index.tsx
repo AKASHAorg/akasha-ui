@@ -110,6 +110,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "tags-input": {
+      name: "tags-input",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["custom/badge","custom/input"],
+      files: [{
+        path: "registry/default/ui/tags-input.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/tags-input.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "textarea": {
       name: "textarea",
       description: "",
@@ -1676,6 +1691,36 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/tabs-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "tags-input-demo": {
+      name: "tags-input-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/tags-input"],
+      files: [{
+        path: "registry/default/examples/tags-input-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/tags-input-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "tags-input-autocomplete": {
+      name: "tags-input-autocomplete",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/tags-input","custom/autocomplete"],
+      files: [{
+        path: "registry/default/examples/tags-input-autocomplete.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/tags-input-autocomplete.tsx")),
       source: "",
       meta: undefined,
     },

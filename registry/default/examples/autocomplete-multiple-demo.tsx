@@ -3,7 +3,12 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 
-import { Autocomplete, type Option } from "@/registry/default/ui/autocomplete";
+import {
+  Autocomplete,
+  AutocompleteItem,
+  AutocompleteList,
+  AutocompleteTrigger,
+} from "@/registry/default/ui/autocomplete";
 import { Badge } from "@/registry/default/ui/badge";
 import { Button } from "@/registry/default/ui/button";
 
@@ -20,50 +25,57 @@ const frameworks = [
 ];
 
 export default function AutoCompleteMultipleDemo() {
-  const [selectedValues, setSelectedValues] = useState<Option[]>([]);
+  const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
-  const handleValueChange = (value: Option[] | undefined) => {
-    if (!value) return;
+  const handleValueChange = (value: string[]) => {
     setSelectedValues(value);
   };
 
   const handleRemove = (valueToRemove: string) => {
-    setSelectedValues((prev) =>
-      prev.filter((item) => item.value !== valueToRemove)
-    );
+    setSelectedValues((prev) => prev.filter((item) => item !== valueToRemove));
   };
 
   return (
     <div className="flex flex-col gap-2 items-center">
       <Autocomplete
-        options={frameworks}
+        multiple
         value={selectedValues}
-        onValueChange={(value) => handleValueChange(value as Option[])}
-        placeholder="Select frameworks..."
         emptyMessage="No framework found."
-        multiple={true}
+        onValueChange={handleValueChange}
         className="w-56"
-      />
+      >
+        <AutocompleteTrigger placeholder="Select frameworks..." />
+        <AutocompleteList>
+          {frameworks.map((framework) => (
+            <AutocompleteItem key={framework.value} value={framework.value}>
+              {framework.label}
+            </AutocompleteItem>
+          ))}
+        </AutocompleteList>
+      </Autocomplete>
+
       <div className="flex flex-wrap gap-2">
-        {selectedValues.map((framework) => (
-          <Badge key={framework.value} variant="secondary">
-            {framework.label}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="h-auto p-1 ml-2"
-              onClick={() => handleRemove(framework.value)}
-            >
-              <X className="h-3 w-3" />
-            </Button>
-          </Badge>
-        ))}
+        {selectedValues.map((value) => {
+          const label =
+            frameworks.find((f) => f.value === value)?.label || value;
+          return (
+            <Badge key={value} variant="secondary">
+              {label}
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-auto p-1 ml-2"
+                onClick={() => handleRemove(value)}
+              >
+                <X className="h-3 w-3" />
+              </Button>
+            </Badge>
+          );
+        })}
       </div>
+
       <p className="text-sm text-muted-foreground">
-        Selected:{" "}
-        {selectedValues.length
-          ? selectedValues.map((v) => v.label).join(", ")
-          : "None"}
+        Selected: {selectedValues.length ? selectedValues.join(", ") : "None"}
       </p>
     </div>
   );

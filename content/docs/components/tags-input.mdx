@@ -1,0 +1,93 @@
+---
+title: Tags Input
+description: Tags input renders an input followed by tags.
+component: true
+---
+
+<ComponentPreview name="tags-input-demo" />
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add "https://akasha-ui.pages.dev/r/styles/default/tags-input.json"
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install lucide-react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="tags-input" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import {
+  TagsInput,
+  TagsInputItem,
+  TagsInputList,
+} from "<path-to-ui-components>/tags-input";
+```
+
+```tsx
+<TagsInput
+  onTagsChange={(tags) => setInterests([...tags])}
+  placeholder="Interests"
+  className="w-100"
+>
+  <TagsInputList>
+    {interests.map((interest) => (
+      <TagsInputItem key={interest} tag={interest} />
+    ))}
+  </TagsInputList>
+</TagsInput>
+```
+
+## Props
+
+| Name         | Type                          | Description                                  |
+| ------------ | ----------------------------- | -------------------------------------------- |
+| separators   | 'Enter' or 'Space' or 'Comma' | List of separators.                          |
+| onTagsChange | `(tags: Set<string>) => void` | Handler function invoked when a tags change. |
+
+### TagsInputItem
+
+#### Props
+
+| Name | Type     | Description |
+| ---- | -------- | ----------- |
+| tag  | `string` | Tag value.  |
+
+## Examples
+
+### Autocomplete
+
+<ComponentPreview
+  name="tags-input-autocomplete"
+  description="Tags input with autocomplete "
+/>

@@ -5,7 +5,7 @@ export const ui: Registry = [
     name: "autocomplete",
     type: "registry:ui",
     registryDependencies: ["command", "custom/input"],
-    dependencies: ["cmdk", "lucide-react"],
+    dependencies: ["@radix-ui/react-slot", "cmdk", "lucide-react"],
     files: [
       {
         path: "ui/autocomplete.tsx",
@@ -75,6 +75,18 @@ export const ui: Registry = [
     files: [
       {
         path: "ui/tabs.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "tags-input",
+    type: "registry:ui",
+    registryDependencies: ["custom/badge", "custom/input"],
+    dependencies: ["lucide-react"],
+    files: [
+      {
+        path: "ui/tags-input.tsx",
         type: "registry:ui",
       },
     ],
