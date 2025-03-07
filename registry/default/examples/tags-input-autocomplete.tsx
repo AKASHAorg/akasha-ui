@@ -50,10 +50,7 @@ export default function TagsInputAutocomplete() {
           <TagsInput
             value={value}
             onChange={(event) => setValue(event.target.value)}
-            onTagsChange={(tags, newTagAdded) => {
-              if (newTagAdded) {
-                setValue("");
-              }
+            onTagsChange={(tags) => {
               setSelectedValues([...tags]);
             }}
             placeholder="Interests"
