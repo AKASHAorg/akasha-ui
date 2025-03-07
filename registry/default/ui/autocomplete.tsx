@@ -120,6 +120,14 @@ const Autocomplete = ({
     [open, options, props, setOpen]
   );
 
+  const getSelectedValues = React.useCallback(
+    (multiple: boolean, value?: string | string[]) => {
+      if (multiple) return Array.isArray(value) ? value : [];
+      return typeof value === "string" ? [value] : [];
+    },
+    []
+  );
+
   return (
     <AutocompleteContext.Provider
       value={{
@@ -127,11 +135,7 @@ const Autocomplete = ({
         searchValue,
         emptyMessage,
         open,
-        selectedValues: props.multiple
-          ? (props.value ?? [])
-          : props.value
-            ? [props.value]
-            : [],
+        selectedValues: getSelectedValues(!!props.multiple, props.value),
         loading,
         inputRef,
         setOpen,
