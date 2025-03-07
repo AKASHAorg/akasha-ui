@@ -6,16 +6,17 @@ import { cn } from "@/lib/utils";
 
 import { ContentCard } from "./content-card";
 
-type ReplyCardProps = React.ComponentProps<typeof ContentCard>;
+type ReplyCardProps = Omit<
+  React.ComponentProps<typeof ContentCard>,
+  "tags" | "publishedVia"
+>;
 
 const ReplyCard = ({ className, ...props }: ReplyCardProps) => {
   return (
-    <>
-      <ContentCard
-        {...props}
-        className={cn("rounded-b-none border-b-0 rounded-t-none ", className)}
-      />
-    </>
+    <ContentCard
+      {...props}
+      className={cn("border-t-0 rounded-none", className)}
+    />
   );
 };
 

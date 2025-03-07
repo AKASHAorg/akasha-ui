@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BlockDisplay } from "@/components/block-display";
 import { Button } from "@/registry/default/ui/button";
 
-const FEATURED_BLOCKS = ["post-page"];
+const FEATURED_BLOCKS = ["post-page", "reply-page"];
 
 export default async function BlocksPage() {
   return (
