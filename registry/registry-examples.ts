@@ -740,6 +740,28 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "tags-input-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/tags-input"],
+    files: [
+      {
+        path: "examples/tags-input-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
+    name: "tags-input-autocomplete",
+    type: "registry:example",
+    registryDependencies: ["custom/tags-input", "custom/autocomplete"],
+    files: [
+      {
+        path: "examples/tags-input-autocomplete.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "textarea-demo",
     type: "registry:example",
     registryDependencies: ["custom/textarea"],
