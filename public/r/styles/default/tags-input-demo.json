@@ -1,0 +1,15 @@
+{
+  "name": "tags-input-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://akasha-ui.pages.dev/r/styles/default/tags-input.json"
+  ],
+  "files": [
+    {
+      "path": "examples/tags-input-demo.tsx",
+      "content": "import * as React from \"react\";\n\nimport {\n  TagsInput,\n  TagsInputItem,\n  TagsInputList,\n} from \"@/registry/default/ui/tags-input\";\n\nconst INTERESTS = [\"akasha\", \"ipfs\", \"ethereum\", \"web3\"];\n\nexport default function TagsInputDemo() {\n  const [interests, setInterests] = React.useState(INTERESTS);\n\n  return (\n    <TagsInput\n      onTagsChange={(tags) => setInterests([...tags])}\n      placeholder=\"Interests\"\n      className=\"w-100\"\n    >\n      <TagsInputList>\n        {interests.map((interest) => (\n          <TagsInputItem key={interest} tag={interest} />\n        ))}\n      </TagsInputList>\n    </TagsInput>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
