@@ -44,25 +44,23 @@ export default function TagsInputAutocomplete() {
         multiple
         value={selectedValues}
         onValueChange={handleValueChange}
-        className="w-full max-w-md"
+        className="w-100"
       >
         <AutocompleteTrigger asChild>
           <TagsInput
             value={value}
+            separators={["Enter", "Space"]}
             onChange={(event) => setValue(event.target.value)}
             onTagsChange={(tags) => {
               setSelectedValues([...tags]);
             }}
             placeholder="Interests"
-            className="w-100"
           >
             <TagsInputList>
               {selectedValues.map((interest) => (
                 <TagsInputItem key={interest} tag={interest}>
-                  {
-                    frameworks.find((framework) => framework.value === interest)
-                      ?.label
-                  }
+                  {frameworks.find((framework) => framework.value === interest)
+                    ?.label ?? interest}
                 </TagsInputItem>
               ))}
             </TagsInputList>
