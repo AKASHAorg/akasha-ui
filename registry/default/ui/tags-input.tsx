@@ -20,7 +20,7 @@ const TagsInputContext = React.createContext<TagsInputContextProps | null>(
 function useTagsInputContext() {
   const context = React.useContext(TagsInputContext);
   if (!context) {
-    throw new Error("TagsInput must be used within TagsInput");
+    throw new Error("`useTagsInputContext` must be used within `TagsInput`");
   }
   return context;
 }
@@ -76,7 +76,6 @@ const TagsInputItem = ({
 
 const TagsInput = ({
   ref,
-  value,
   separators = ["Enter"],
   className,
   children,
@@ -86,10 +85,11 @@ const TagsInput = ({
   ...props
 }: React.ComponentProps<typeof Input> & {
   separators?: Separator[];
-  onTagsChange?: (tags: Set<string>, newTagAdded?: boolean) => void;
+  onTagsChange?: (tags: Set<string>) => void;
 }) => {
   const [tags, setTags] = React.useState<Set<string>>(new Set());
   const [inputValue, setInputValue] = React.useState("");
+  const inputRef = React.useRef<HTMLInputElement>(null);
 
   const registerTag = (tag: string) => {
     setTags((prev) => new Set(prev).add(tag));
@@ -109,10 +109,17 @@ const TagsInput = ({
         className={cn("flex flex-col gap-3", className)}
       >
         <Input
-          ref={ref}
+          ref={(node) => {
+            inputRef.current = node;
+            if (typeof ref === "function") {
+              ref(node);
+            } else if (ref) {
+              ref.current = node;
+            }
+          }}
           data-slot="tags-input-field"
           type="search"
-          value={value || inputValue}
+          value={inputValue}
           onChange={(event) => {
             setInputValue(event.target.value);
             onChange?.(event);
@@ -128,9 +135,27 @@ const TagsInput = ({
               if (inputValue) {
                 const newTags = new Set(tags);
                 newTags.add(inputValue);
-                onTagsChange?.(newTags, true);
+                onTagsChange?.(newTags);
                 registerTag(inputValue);
-                setInputValue("");
+
+                // Clear controlled input via native setter to propagate change event.
+                const newEvent = new Event("change", { bubbles: true });
+                const input = event.target;
+
+                const nativeValueSetter = Object.getOwnPropertyDescriptor(
+                  HTMLInputElement.prototype,
+                  "value"
+                )?.set;
+
+                if (nativeValueSetter) {
+                  nativeValueSetter.call(input, "");
+                }
+
+                input.dispatchEvent(newEvent);
+
+                if (inputRef.current) {
+                  inputRef.current?.blur();
+                }
               }
             }
             onKeyDown?.(event);
