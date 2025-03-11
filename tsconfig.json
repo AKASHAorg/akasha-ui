@@ -40,5 +40,9 @@
     ".next/types/**/*.ts",
     ".contentlayer/generated"
   ],
-  "exclude": ["node_modules", "./scripts/build-internal-registry.mts", "__registry__"]
+  "exclude": [
+    "node_modules",
+    "./scripts/build-internal-registry.mts",
+    "__registry__"
+  ]
 }

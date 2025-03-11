@@ -60,7 +60,7 @@ type BlockViewerContext = {
   setStyle: (style: Style["name"]) => void;
   activeFile: string | null;
   setActiveFile: (file: string) => void;
-  resizablePanelRef: React.RefObject<ImperativePanelHandle | null> | null;
+  resizablePanelRef: React.RefObject<ImperativePanelHandle | null>;
   tree: ReturnType<typeof createFileTreeForRegistryItemFiles> | null;
   highlightedFiles:
     | (z.infer<typeof registryItemFileSchema> & {
@@ -212,14 +212,17 @@ function BlockViewerToolbar() {
         <div className="flex h-7 items-center gap-1 rounded-md border p-[2px]">
           <Button
             variant="ghost"
-            className="hidden h-[22px] w-auto gap-1 rounded-sm px-2 md:flex lg:w-auto"
+            className="hidden h-[22px] w-auto gap-1 rounded-sm px-2 md:flex lg:w-auto hover:rounded-none"
             size="sm"
             onClick={() => {
               copyToClipboard(`npx shadcn@latest add ${item.name}`);
             }}
           >
             {isCopied ? <Check /> : <Terminal />}
-            <span className="hidden lg:inline">npx shadcn add {item.name}</span>
+            <span className="hidden lg:inline">
+              npx shadcn add{" "}
+              {`https://akasha-ui.pages.dev/r/styles/default/${item.name}.json`}
+            </span>
           </Button>
         </div>
         <Separator orientation="vertical" className="mx-1 hidden h-4 xl:flex" />

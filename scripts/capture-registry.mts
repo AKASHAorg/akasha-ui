@@ -6,8 +6,7 @@ import { getAllBlockIds } from "../lib/blocks";
 
 const REGISTRY_PATH = path.join(process.cwd(), "public/r");
 
-const REGISTRY_URL =
-  process.env.PUBLIC_REGISTRY_URL || "https://akasha-ui.pages.dev/r";
+const BASE_URL = "http://localhost:3333";
 
 // ----------------------------------------------------------------------------
 // Capture screenshots.
@@ -41,7 +40,7 @@ async function captureScreenshots() {
   });
 
   for (const block of blocks) {
-    const pageUrl = `${REGISTRY_URL}/styles/default/${block}`;
+    const pageUrl = `${BASE_URL}/view/styles/default/${block}`;
 
     const page = await browser.newPage();
     await page.goto(pageUrl, {

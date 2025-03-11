@@ -12,8 +12,6 @@ import { Button } from "@/registry/default/ui/button";
 
 import "@/styles/mdx.css";
 
-import Link from "next/link";
-
 export const metadata: Metadata = {
   title: "Building Blocks.",
   description:
@@ -39,11 +37,6 @@ export default function BlocksLayout({
             <a href="#blocks" className="px-4">
               Browse Blocks
             </a>
-          </Button>
-          <Button asChild variant="ghost" size="sm">
-            <Link href="/docs/blocks" className="px-4">
-              Add a block
-            </Link>
           </Button>
         </PageActions>
       </PageHeader>

@@ -559,15 +559,50 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "post-feed": {
+      name: "post-feed",
+      description: "A post-feed page displaying a list of posts.",
+      type: "registry:block",
+      registryDependencies: ["custom/profile-avatar","custom/profile-avatar-button","custom/card","custom/stack","custom/typography","custom/icon-container","custom/button"],
+      files: [{
+        path: "registry/default/blocks/post-feed/page.tsx",
+        type: "registry:page",
+        target: "app/post-feed/page.tsx"
+      },{
+        path: "registry/default/blocks/content-card.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/post-feed/components/editor-placeholder.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/post-feed/components/posts-resolver.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/post-feed/mock-data.ts",
+        type: "registry:file",
+        target: "app/post-feed/mock-data.tsx"
+      },{
+        path: "registry/default/lib/format-relative-time.ts",
+        type: "registry:lib",
+        target: ""
+      }],
+      categories: ["post-feed"],
+      component: React.lazy(() => import("@/registry/default/blocks/post-feed/page.tsx")),
+      source: "__registry__/default/blocks/post-feed/page.tsx",
+      meta: undefined,
+    },
     "post-page": {
       name: "post-page",
-      description: "A single post page with reply editor and replies and nested reply previews",
+      description: "A post page displaying the main post along with its replies.",
       type: "registry:block",
       registryDependencies: ["custom/profile-avatar-button","custom/card","custom/stack","custom/typography","custom/icon-container","custom/button"],
       files: [{
         path: "registry/default/blocks/post-page/page.tsx",
         type: "registry:page",
-        target: "app/dashboard/page.tsx"
+        target: "app/post/page.tsx"
       },{
         path: "registry/default/blocks/content-card.tsx",
         type: "registry:component",
@@ -589,7 +624,7 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       }],
-      categories: ["post-page"],
+      categories: ["post"],
       component: React.lazy(() => import("@/registry/default/blocks/post-page/page.tsx")),
       source: "__registry__/default/blocks/post-page/page.tsx",
       meta: undefined,
@@ -602,7 +637,7 @@ export const Index: Record<string, any> = {
       files: [{
         path: "registry/default/blocks/reply-page/page.tsx",
         type: "registry:page",
-        target: "app/dashboard/page.tsx"
+        target: "app/post/page.tsx"
       },{
         path: "registry/default/blocks/content-card.tsx",
         type: "registry:component",
@@ -656,6 +691,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/lib/get-image-from-seed.ts")),
+      source: "",
+      meta: undefined,
+    },
+    "format-relative-time": {
+      name: "format-relative-time",
+      description: "",
+      type: "registry:lib",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/lib/format-relative-time.ts",
+        type: "registry:lib",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/lib/format-relative-time.ts")),
       source: "",
       meta: undefined,
     },
