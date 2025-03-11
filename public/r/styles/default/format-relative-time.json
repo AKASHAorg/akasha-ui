@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "format-relative-time",
+  "type": "registry:lib",
+  "files": [
+    {
+      "path": "lib/format-relative-time.ts",
+      "content": "export function formatRelativeTime(isoDate: string): string {\n  const now = new Date();\n  const pastDate = new Date(isoDate);\n  const diffInSeconds = Math.floor((now.getTime() - pastDate.getTime()) / 1000);\n\n  const timeUnits = [\n    { limit: 60, divisor: 1, suffix: \"s\" },\n    { limit: 3600, divisor: 60, suffix: \"m\" },\n    { limit: 86400, divisor: 3600, suffix: \"h\" },\n    { limit: 2592000, divisor: 86400, suffix: \"d\" },\n    { limit: 31536000, divisor: 2592000, suffix: \"mo\" },\n  ];\n\n  for (const unit of timeUnits) {\n    if (diffInSeconds < unit.limit) {\n      return `${Math.floor(diffInSeconds / unit.divisor)}${unit.suffix} ago`;\n    }\n  }\n\n  return `${Math.floor(diffInSeconds / 31536000)}y ago`;\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}

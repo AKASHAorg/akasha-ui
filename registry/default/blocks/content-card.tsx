@@ -44,7 +44,6 @@ interface ContentCardProps {
     }[];
   };
   tags?: string[];
-  variant?: "feed" | "page";
   nsfw?: boolean;
   className?: string;
   children: React.ReactNode;

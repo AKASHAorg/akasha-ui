@@ -1,7 +1,12 @@
 export const registryCategories = [
   {
-    name: "Post page",
-    slug: "post-page",
+    name: "Feed",
+    slug: "post-feed",
+    hidden: false,
+  },
+  {
+    name: "Post",
+    slug: "post",
     hidden: false,
   },
   {

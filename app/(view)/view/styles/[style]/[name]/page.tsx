@@ -58,10 +58,10 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: siteConfig.name,
+      description: siteConfig.description,
       images: [siteConfig.ogImage],
-      creator: "@shadcn",
+      creator: "AKASHAorg",
     },
   };
 }

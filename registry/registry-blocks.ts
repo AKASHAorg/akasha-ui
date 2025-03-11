@@ -2,10 +2,53 @@ import { Registry } from "@/registry/schema";
 
 export const blocks: Registry = [
   {
+    name: "post-feed",
+    type: "registry:block",
+    description: "A post-feed page displaying a list of posts.",
+    registryDependencies: [
+      "custom/profile-avatar",
+      "custom/profile-avatar-button",
+      "custom/card",
+      "custom/stack",
+      "custom/typography",
+      "custom/icon-container",
+      "custom/button",
+    ],
+    dependencies: ["lucide-react"],
+    files: [
+      {
+        path: "blocks/post-feed/page.tsx",
+        type: "registry:page",
+        target: "app/post-feed/page.tsx",
+      },
+      {
+        path: "blocks/content-card.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/post-feed/components/editor-placeholder.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/post-feed/components/posts-resolver.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/post-feed/mock-data.ts",
+        type: "registry:file",
+        target: "app/post-feed/mock-data.tsx",
+      },
+      {
+        path: "lib/format-relative-time.ts",
+        type: "registry:lib",
+      },
+    ],
+    categories: ["post-feed"],
+  },
+  {
     name: "post-page",
     type: "registry:block",
-    description:
-      "A single post page with reply editor and replies and nested reply previews",
+    description: "A post page displaying the main post along with its replies.",
     registryDependencies: [
       "custom/profile-avatar-button",
       "custom/card",
@@ -19,7 +62,7 @@ export const blocks: Registry = [
       {
         path: "blocks/post-page/page.tsx",
         type: "registry:page",
-        target: "app/dashboard/page.tsx",
+        target: "app/post/page.tsx",
       },
       {
         path: "blocks/content-card.tsx",
@@ -42,7 +85,7 @@ export const blocks: Registry = [
         type: "registry:component",
       },
     ],
-    categories: ["post-page"],
+    categories: ["post"],
   },
   {
     name: "reply-page",
@@ -61,7 +104,7 @@ export const blocks: Registry = [
       {
         path: "blocks/reply-page/page.tsx",
         type: "registry:page",
-        target: "app/dashboard/page.tsx",
+        target: "app/post/page.tsx",
       },
       {
         path: "blocks/content-card.tsx",

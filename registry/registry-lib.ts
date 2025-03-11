@@ -22,4 +22,14 @@ export const lib: Registry = [
       },
     ],
   },
+  {
+    name: "format-relative-time",
+    type: "registry:lib",
+    files: [
+      {
+        path: "lib/format-relative-time.ts",
+        type: "registry:lib",
+      },
+    ],
+  },
 ];
