@@ -26,8 +26,6 @@ async function fetchPostsStream(
   const endIndex = Math.min(startIndex + limit, POSTS_STREAM.length);
   const ids = POSTS_STREAM.slice(startIndex, endIndex).map((post) => post.id);
 
-  await new Promise((resolve) => setTimeout(resolve, 500));
-
   return {
     ids,
     nextOffset: endIndex < POSTS_STREAM.length ? offset + 1 : -1,
