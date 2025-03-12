@@ -17,7 +17,7 @@ import {
 import { ReplyCard } from "../reply-card";
 import { ReplyEditor } from "../reply-editor";
 import { ReplyResolver } from "../reply-resolver";
-import { REPLY, REPLIES_STREAM } from "./mock-data";
+import { REPLIES_STREAM, REPLY } from "./mock-data";
 
 const queryClient = new QueryClient();
 

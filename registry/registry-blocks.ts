@@ -36,7 +36,7 @@ export const blocks: Registry = [
       {
         path: "blocks/post-feed/mock-data.ts",
         type: "registry:file",
-        target: "app/post-feed/mock-data.tsx",
+        target: "app/post-feed/mock-data.ts",
       },
       {
         path: "lib/format-relative-time.ts",
@@ -65,6 +65,11 @@ export const blocks: Registry = [
         target: "app/post/page.tsx",
       },
       {
+        path: "blocks/post-page/mock-data.ts",
+        type: "registry:file",
+        target: "app/post/mock-data.ts",
+      },
+      {
         path: "blocks/content-card.tsx",
         type: "registry:component",
       },
@@ -73,7 +78,11 @@ export const blocks: Registry = [
         type: "registry:component",
       },
       {
-        path: "blocks/nsfw-warning.tsx",
+        path: "blocks/reply-resolver.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/reply-preview.tsx",
         type: "registry:component",
       },
       {
@@ -81,8 +90,17 @@ export const blocks: Registry = [
         type: "registry:component",
       },
       {
-        path: "blocks/post-page/mock-data.ts",
+        path: "blocks/reply-mock-data.ts",
+        type: "registry:file",
+        target: "app/reply/mock-data.ts",
+      },
+      {
+        path: "blocks/nsfw-warning.tsx",
         type: "registry:component",
+      },
+      {
+        path: "lib/format-relative-time.ts",
+        type: "registry:lib",
       },
     ],
     categories: ["post"],
@@ -107,6 +125,11 @@ export const blocks: Registry = [
         target: "app/post/page.tsx",
       },
       {
+        path: "blocks/reply-page/mock-data.ts",
+        type: "registry:file",
+        target: "app/reply/mock-data.ts",
+      },
+      {
         path: "blocks/content-card.tsx",
         type: "registry:component",
       },
@@ -115,7 +138,11 @@ export const blocks: Registry = [
         type: "registry:component",
       },
       {
-        path: "blocks/nsfw-warning.tsx",
+        path: "blocks/reply-resolver.tsx",
+        type: "registry:component",
+      },
+      {
+        path: "blocks/reply-preview.tsx",
         type: "registry:component",
       },
       {
@@ -123,8 +150,17 @@ export const blocks: Registry = [
         type: "registry:component",
       },
       {
-        path: "blocks/reply-page/mock-data.ts",
+        path: "blocks/reply-mock-data.ts",
+        type: "registry:file",
+        target: "app/reply/mock-data.ts",
+      },
+      {
+        path: "blocks/nsfw-warning.tsx",
         type: "registry:component",
+      },
+      {
+        path: "lib/format-relative-time.ts",
+        type: "registry:lib",
       },
     ],
     categories: ["reply-page"],

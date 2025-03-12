@@ -3,14 +3,13 @@
 import * as React from "react";
 
 import { Button } from "@/registry/default/ui/button";
-import { Stack } from "@/registry/default/ui/stack";
-import { Textarea } from "@/registry/default/ui/textarea";
-
 import {
   ProfileAvatar,
   ProfileAvatarFallback,
   ProfileAvatarImage,
-} from "../ui/profile-avatar";
+} from "@/registry/default/ui/profile-avatar";
+import { Stack } from "@/registry/default/ui/stack";
+import { Textarea } from "@/registry/default/ui/textarea";
 
 interface ReplyEditorProps {
   onReplyClick?: (content: string) => void;

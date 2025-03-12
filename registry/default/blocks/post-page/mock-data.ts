@@ -24,8 +24,6 @@ const POST: MockPost = {
   nsfw: false,
 };
 
-
-
 const REPLIES_STREAM = [
   { id: "r00000000001", createdAt: "2025-03-11T18:00:00Z" },
   { id: "r00000000002", createdAt: "2025-03-11T17:00:00Z" },
