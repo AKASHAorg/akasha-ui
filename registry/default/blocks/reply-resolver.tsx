@@ -24,7 +24,7 @@ async function fetchReplyById(
 
   if (errorThrown && Math.random() < 0.5) {
     errorThrown = true;
-    throw new Error("Failed to fetch post data");
+    throw new Error("Failed to fetch reply data");
   }
 
   return REPLIES.find((reply) => reply.id === replyId);
@@ -82,16 +82,12 @@ function ReplyResolver({ replyId, last }: { replyId: string; last: boolean }) {
 
       {repliesToReply
         ?.slice(0, MAXIMUM_REFLECTION_PREVIEWS)
-        .map(({ content, id, ...replyProps }) => (
+        .map((replyId) => (
           <ReplyPreview
-            {...replyProps}
-            key={id}
-            onRepliesClick={() => {
-              console.log("Clicked on replies button");
-            }}
-          >
-            {content}
-          </ReplyPreview>
+            key={replyId}
+            replyId={replyId}
+            onRepliesClick={() => console.log("Not implemented")}
+          />
         ))}
       {/* TODO - add load more buttons */}
     </>

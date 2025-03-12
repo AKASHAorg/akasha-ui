@@ -8,37 +8,13 @@ interface MockPost
     content: string;
 }
 
-const REPLIES_TO_REPLY: MockPost[] = [
-    {
-        id: "relply4",
-        author: {
-            did: "did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95",
-            avatarSrc: "https://github.com/akashaorg.png",
-            name: "CoffeeLover",
-        },
-        content: "Haha very funny.",
-        publishedAt: "5 mins ago",
-        nsfw: false,
-
-        repliesCount: 0,
-    },
-    {
-        id: "reply5",
-        author: {
-            did: "did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95",
-            avatarSrc: "https://github.com/akashaorg.png",
-            name: "CoffeeLover",
-        },
-        content: "At this point, coffee and I are practically married 😅",
-        publishedAt: "5 mins ago",
-        nsfw: false,
-
-        repliesCount: 0,
-    },
+const REPLIES_TO_REPLY: string[] = [
+    "r00000000007",
+    "r00000000008"
 ];
 
 const REPLIES: (MockPost & {
-    replies?: MockPost[];
+    replies?: string[];
 })[] = [
         {
             id: "r00000000001",
@@ -80,9 +56,6 @@ const REPLIES: (MockPost & {
             repliesCount: 1,
             nsfw: true,
         },
-
-        /* REPLY PAGE */
-
         {
             id: "r00000000004",
             author: {
@@ -119,6 +92,32 @@ const REPLIES: (MockPost & {
             publishedAt: "5 mins ago",
             repliesCount: 0,
             nsfw: false,
+        },
+        {
+            id: "r00000000007",
+            author: {
+                did: "did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95",
+                avatarSrc: "https://github.com/akashaorg.png",
+                name: "CoffeeLover",
+            },
+            content: "Haha very funny.",
+            publishedAt: "5 mins ago",
+            nsfw: false,
+
+            repliesCount: 0,
+        },
+        {
+            id: "r00000000008",
+            author: {
+                did: "did:pkh:eip155:11155111:0x8a022905463998860516390fb27548479a098b95",
+                avatarSrc: "https://github.com/akashaorg.png",
+                name: "CoffeeLover",
+            },
+            content: "At this point, coffee and I are practically married 😅",
+            publishedAt: "5 mins ago",
+            nsfw: false,
+
+            repliesCount: 0,
         },
     ];
 
