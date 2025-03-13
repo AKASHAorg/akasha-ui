@@ -583,7 +583,7 @@ export const Index: Record<string, any> = {
       },{
         path: "registry/default/blocks/post-feed/mock-data.ts",
         type: "registry:file",
-        target: "app/post-feed/mock-data.tsx"
+        target: "app/post-feed/mock-data.ts"
       },{
         path: "registry/default/lib/format-relative-time.ts",
         type: "registry:lib",
@@ -604,6 +604,10 @@ export const Index: Record<string, any> = {
         type: "registry:page",
         target: "app/post/page.tsx"
       },{
+        path: "registry/default/blocks/post-page/mock-data.ts",
+        type: "registry:file",
+        target: "app/post/mock-data.ts"
+      },{
         path: "registry/default/blocks/content-card.tsx",
         type: "registry:component",
         target: ""
@@ -612,7 +616,11 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/nsfw-warning.tsx",
+        path: "registry/default/blocks/reply-resolver.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/reply-preview.tsx",
         type: "registry:component",
         target: ""
       },{
@@ -620,8 +628,16 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/post-page/mock-data.ts",
+        path: "registry/default/blocks/reply-mock-data.ts",
+        type: "registry:file",
+        target: "app/reply/mock-data.ts"
+      },{
+        path: "registry/default/blocks/nsfw-warning.tsx",
         type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/lib/format-relative-time.ts",
+        type: "registry:lib",
         target: ""
       }],
       categories: ["post"],
@@ -639,6 +655,10 @@ export const Index: Record<string, any> = {
         type: "registry:page",
         target: "app/post/page.tsx"
       },{
+        path: "registry/default/blocks/reply-page/mock-data.ts",
+        type: "registry:file",
+        target: "app/reply/mock-data.ts"
+      },{
         path: "registry/default/blocks/content-card.tsx",
         type: "registry:component",
         target: ""
@@ -647,7 +667,11 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/nsfw-warning.tsx",
+        path: "registry/default/blocks/reply-resolver.tsx",
+        type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/blocks/reply-preview.tsx",
         type: "registry:component",
         target: ""
       },{
@@ -655,8 +679,16 @@ export const Index: Record<string, any> = {
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/reply-page/mock-data.ts",
+        path: "registry/default/blocks/reply-mock-data.ts",
+        type: "registry:file",
+        target: "app/reply/mock-data.ts"
+      },{
+        path: "registry/default/blocks/nsfw-warning.tsx",
         type: "registry:component",
+        target: ""
+      },{
+        path: "registry/default/lib/format-relative-time.ts",
+        type: "registry:lib",
         target: ""
       }],
       categories: ["reply-page"],

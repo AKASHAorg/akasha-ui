@@ -1,10 +1,13 @@
 "use client";
 
 import * as React from "react";
-import { Fragment } from "react";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useInfiniteQuery,
+} from "@tanstack/react-query";
 import { Ellipsis } from "lucide-react";
 
-import { cn } from "@/lib/utils";
 import { Card } from "@/registry/default/ui/card";
 import {
   InfiniteScroll,
@@ -13,12 +16,43 @@ import {
 
 import { ReplyCard } from "../reply-card";
 import { ReplyEditor } from "../reply-editor";
-import { ReplyPreview } from "../reply-preview";
-import { REPLIES_TO_REPLY, REPLY } from "./mock-data";
+import { ReplyResolver } from "../reply-resolver";
+import { REPLIES_STREAM, REPLY } from "./mock-data";
 
-const MAXIMUM_REFLECTION_PREVIEWS = 2;
+const queryClient = new QueryClient();
 
-export default function Page() {
+async function fetchRepliesStream(
+  limit: number,
+  offset: number = 0
+): Promise<{ ids: string[]; nextOffset: number }> {
+  const startIndex = offset * limit;
+  const endIndex = Math.min(startIndex + limit, REPLIES_STREAM.length);
+  const ids = REPLIES_STREAM.slice(startIndex, endIndex).map((post) => post.id);
+
+  return {
+    ids,
+    nextOffset: endIndex < REPLIES_STREAM.length ? offset + 1 : -1,
+  };
+}
+
+function Replies() {
+  const {
+    status,
+    data,
+    error,
+    isFetchingNextPage,
+    fetchNextPage,
+    hasNextPage,
+  } = useInfiniteQuery({
+    queryKey: ["post-ids"],
+    queryFn: (ctx) => fetchRepliesStream(10, ctx.pageParam),
+    getNextPageParam: (lastGroup) =>
+      lastGroup.nextOffset === -1 ? undefined : lastGroup.nextOffset,
+    initialPageParam: 0,
+  });
+
+  const replyIds = data ? data.pages.flatMap((d) => d.ids) : [];
+
   const { content, ...replyProps } = REPLY;
   return (
     <div className="p-4 h-full">
@@ -56,65 +90,46 @@ export default function Page() {
           }}
         />
       </Card>
-      <InfiniteScroll
-        count={REPLIES_TO_REPLY.length}
-        estimatedHeight={220}
-        overScan={5}
-        gap={0}
-        scrollElementType="window"
-      >
-        <InfiniteScrollList>
-          {(index) => {
-            const reply = REPLIES_TO_REPLY[index];
-            const { content, id, ...replyProps } = reply;
-            const repliesToReply = reply.replies;
-
-            return (
-              <Fragment key={id}>
-                <ReplyCard
-                  {...replyProps}
-                  menu={{
-                    trigger: (
-                      <Ellipsis
-                        size={20}
-                        className="text-primary cursor-pointer hover:text-muted"
-                      />
-                    ),
-                    items: [
-                      { content: "Flag", onClick: () => console.log("flag") },
-                      {
-                        content: "Delete",
-                        onClick: () => console.log("delete"),
-                      },
-                      { content: "Edit", onClick: () => console.log("edit") },
-                    ],
-                  }}
-                  className={cn(
-                    index === REPLIES_TO_REPLY.length - 1 && "rounded-b-3xl"
-                  )}
-                >
-                  {content}
-                </ReplyCard>
-
-                {repliesToReply
-                  ?.slice(0, MAXIMUM_REFLECTION_PREVIEWS)
-                  .map(({ content, id, ...replyProps }) => (
-                    <ReplyPreview
-                      {...replyProps}
-                      key={id}
-                      onRepliesClick={() => {
-                        console.log("Clicked on replies button");
-                      }}
-                    >
-                      {content}
-                    </ReplyPreview>
-                  ))}
-                {/* TODO - add load more buttons */}
-              </Fragment>
-            );
+      {status === "pending" ? (
+        <p>Loading...</p>
+      ) : status === "error" ? (
+        <span>Error: {error.message}</span>
+      ) : (
+        <InfiniteScroll
+          count={replyIds.length}
+          estimatedHeight={220}
+          overScan={5}
+          gap={0}
+          loading={isFetchingNextPage}
+          hasNextPage={hasNextPage}
+          onLoadMore={() => {
+            fetchNextPage();
           }}
-        </InfiniteScrollList>
-      </InfiniteScroll>
+          loadingIndicator="Loading ..."
+          scrollElementType="window"
+        >
+          <InfiniteScrollList>
+            {(index) => {
+              const replyId = replyIds[index];
+              return (
+                <ReplyResolver
+                  key={replyId}
+                  replyId={replyId}
+                  last={index === replyIds.length - 1}
+                />
+              );
+            }}
+          </InfiniteScrollList>
+        </InfiniteScroll>
+      )}
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Replies />
+    </QueryClientProvider>
   );
 }
