@@ -53,7 +53,9 @@ function ReplyResolver({ replyId, last }: { replyId: string; last: boolean }) {
   if (!reply) return null;
 
   const { content, ...replyProps } = reply;
-  const repliesToReply = reply.replies;
+  const repliesToReply = reply.replies
+    ?.slice(0, MAXIMUM_REFLECTION_PREVIEWS)
+    .map((replyId) => replyId);
 
   return (
     <>
@@ -75,20 +77,22 @@ function ReplyResolver({ replyId, last }: { replyId: string; last: boolean }) {
             { content: "Edit", onClick: () => console.log("edit") },
           ],
         }}
-        className={cn(last && "rounded-b-3xl")}
+        className={cn(
+          last && "rounded-b-3xl",
+          repliesToReply && repliesToReply.length > 0 && "border-b-0"
+        )}
       >
         {content}
       </ReplyCard>
 
-      {repliesToReply
-        ?.slice(0, MAXIMUM_REFLECTION_PREVIEWS)
-        .map((replyId) => (
-          <ReplyPreview
-            key={replyId}
-            replyId={replyId}
-            onRepliesClick={() => console.log("Not implemented")}
-          />
-        ))}
+      {repliesToReply?.map((replyId, index) => (
+        <ReplyPreview
+          key={replyId}
+          replyId={replyId}
+          onRepliesClick={() => console.log("Not implemented")}
+          className={cn(index === repliesToReply.length - 1 && "border-b")}
+        />
+      ))}
       {/* TODO - add load more buttons */}
     </>
   );

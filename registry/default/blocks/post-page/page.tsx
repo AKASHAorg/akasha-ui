@@ -112,7 +112,11 @@ function Post() {
             {(index) => {
               const replyId = replyIds[index];
               return (
-                <ReplyResolver key={replyId} replyId={replyId} last={false} />
+                <ReplyResolver
+                  key={replyId}
+                  replyId={replyId}
+                  last={replyId === replyIds[replyIds.length - 1]}
+                />
               );
             }}
           </InfiniteScrollList>
