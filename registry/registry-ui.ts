@@ -2,6 +2,17 @@ import { Registry } from "@/registry/schema";
 
 export const ui: Registry = [
   {
+    name: "accordion",
+    type: "registry:ui",
+    dependencies: ["@radix-ui/react-accordion", "lucide-react"],
+    files: [
+      {
+        path: "ui/accordion.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "autocomplete",
     type: "registry:ui",
     registryDependencies: ["command", "custom/input"],

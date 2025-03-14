@@ -144,6 +144,11 @@ export const docsConfig: DocsConfig = {
       title: "Custom ShadCN Components",
       items: [
         {
+          title: "Accordion",
+          href: "/docs/components/accordion",
+          items: [],
+        },
+        {
           title: "Badge",
           href: "/docs/components/badge",
           items: [],

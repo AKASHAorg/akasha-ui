@@ -13,6 +13,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "accordion-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/accordion"],
+    files: [
+      {
+        path: "examples/accordion-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "autocomplete-multiple-demo",
     type: "registry:example",
     registryDependencies: ["custom/autocomplete", "badge", "custom/button"],
