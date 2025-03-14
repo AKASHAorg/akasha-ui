@@ -424,6 +424,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "slider": {
+      name: "slider",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/slider.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/slider.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "stack": {
       name: "stack",
       description: "",
