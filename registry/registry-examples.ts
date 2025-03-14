@@ -729,6 +729,17 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "slider-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/slider"],
+    files: [
+      {
+        path: "examples/slider-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "tabs-demo",
     type: "registry:example",
     registryDependencies: ["tabs"],
