@@ -357,6 +357,17 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "slider",
+    type: "registry:ui",
+    dependencies: ["@radix-ui/react-slider"],
+    files: [
+      {
+        path: "ui/slider.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "stack",
     type: "registry:ui",
     files: [

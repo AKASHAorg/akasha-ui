@@ -1,0 +1,15 @@
+{
+  "name": "slider-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://akasha-ui.pages.dev/r/styles/default/slider.json"
+  ],
+  "files": [
+    {
+      "path": "examples/slider-demo.tsx",
+      "content": "import * as React from \"react\";\n\nimport { Slider } from \"../ui/slider\";\n\nexport default function SliderDemo() {\n  return <Slider defaultValue={[33]} max={100} min={0} step={1} />;\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}
