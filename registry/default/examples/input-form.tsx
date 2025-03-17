@@ -49,7 +49,7 @@ export default function InputForm() {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel required>Username</FormLabel>
               <FormControl>
                 <Input placeholder="coffeelover" {...field} />
               </FormControl>

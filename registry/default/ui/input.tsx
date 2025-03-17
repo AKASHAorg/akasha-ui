@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   const isSearch = type === "search";
   return (
-    <div className="relative">
+    <div data-slot="input-container" className="relative w-full">
       <input
         type={type}
         data-slot="input"
