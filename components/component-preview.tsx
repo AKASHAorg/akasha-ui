@@ -131,11 +131,9 @@ export function ComponentPreview({
           <div className="flex items-center justify-between p-4">
             <StyleSwitcher />
             <div className="flex items-center gap-2">
-              {
-                <OpenInV0Button
-                  url={`${REGISTRY_URL}/styles/default/${name}.json`}
-                />
-              }
+              <OpenInV0Button
+                url={`${REGISTRY_URL}/styles/default/${name}.json`}
+              />
               <CopyButton
                 value={codeString}
                 variant="outline"

@@ -217,7 +217,8 @@
 }
 
 @layer component {
-  [data-slot="card"] {
+  [data-slot="card"],
+  [data-slot="error-loader"] {
     --radius: 1.25rem;
   }
   [data-slot="card"] * {

@@ -20,7 +20,7 @@ import { z } from "zod";
 
 import { createFileTreeForRegistryItemFiles, FileTree } from "@/lib/registry";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
-// import { V0Button } from "@/components/v0-button";
+import { OpenInV0Button } from "@/components/v0-button";
 import { Button } from "@/registry/default/ui/button";
 import {
   Collapsible,
@@ -68,6 +68,9 @@ type BlockViewerContext = {
       })[]
     | null;
 };
+
+const REGISTRY_URL =
+  process.env.REGISTRY_URL || "https://akasha-ui.pages.dev/r";
 
 const BlockViewerContext = React.createContext<BlockViewerContext | null>(null);
 
@@ -226,11 +229,9 @@ function BlockViewerToolbar() {
           </Button>
         </div>
         <Separator orientation="vertical" className="mx-1 hidden h-4 xl:flex" />
-        {/* <V0Button
-          className="hidden shadow-none sm:flex"
-          id={`v0-button-${item.name}`}
-          name={`${item.name}`}
-        /> */}
+        <OpenInV0Button
+          url={`${REGISTRY_URL}/styles/default/${item.name}.json`}
+        />
       </div>
     </div>
   );
