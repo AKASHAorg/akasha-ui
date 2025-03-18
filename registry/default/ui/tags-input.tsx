@@ -34,6 +34,26 @@ const TagsInputList = ({
   children,
   ...props
 }: React.ComponentProps<"div">) => {
+  const { tags, handleRemove } = useTagsInputContext();
+
+  //remove unmounted TagsInputItem's from local state
+  React.useEffect(() => {
+    const childrenArray = React.Children.toArray(children).filter(
+      (
+        child
+      ): child is React.ReactElement<
+        React.ComponentProps<typeof TagsInputItem>
+      > => React.isValidElement(child) && child.type === TagsInputItem
+    );
+
+    const currentTags = new Set(childrenArray.map((child) => child.props.tag));
+
+    if (currentTags.size < tags.size) {
+      const removedTags = tags.difference(currentTags);
+      removedTags.forEach(handleRemove);
+    }
+  }, [children, handleRemove, tags]);
+
   return (
     <div
       data-slot="tags-input-list"
@@ -92,7 +112,7 @@ const TagsInput = ({
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   const registerTag = (tag: string) => {
-    setTags((prev) => new Set(prev).add(tag));
+    setTags((prevTags) => new Set([...prevTags, tag]));
   };
 
   const handleRemove = (tag: string) => {
@@ -125,39 +145,25 @@ const TagsInput = ({
             onChange?.(event);
           }}
           onKeyDown={(event) => {
-            if (
-              isSeparator(event.code, separators) &&
-              typeof inputValue === "string"
-            ) {
-              if (separators.includes("Comma") && event.key === ",") {
+            if (isSeparator(event.code, separators) && inputValue.trim()) {
+              if (event.key === "," && separators.includes("Comma")) {
                 event.preventDefault();
               }
-              if (inputValue) {
-                const newTags = new Set(tags);
-                newTags.add(inputValue);
-                onTagsChange?.(newTags);
-                registerTag(inputValue);
 
-                // Clear controlled input via native setter to propagate change event.
-                const newEvent = new Event("change", { bubbles: true });
-                const input = event.target;
+              registerTag(inputValue);
+              onTagsChange?.(new Set([...tags, inputValue]));
 
-                const nativeValueSetter = Object.getOwnPropertyDescriptor(
-                  HTMLInputElement.prototype,
-                  "value"
-                )?.set;
+              // Clear controlled input via native setter to propagate change event.
+              const input = event.target as HTMLInputElement;
+              Object.getOwnPropertyDescriptor(
+                HTMLInputElement.prototype,
+                "value"
+              )?.set?.call(input, "");
 
-                if (nativeValueSetter) {
-                  nativeValueSetter.call(input, "");
-                }
-
-                input.dispatchEvent(newEvent);
-
-                if (inputRef.current) {
-                  inputRef.current?.blur();
-                }
-              }
+              input.dispatchEvent(new Event("change", { bubbles: true }));
+              inputRef.current?.blur();
             }
+
             onKeyDown?.(event);
           }}
           {...props}
