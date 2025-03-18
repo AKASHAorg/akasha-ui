@@ -5,6 +5,21 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {
   "default": {
+    "accordion": {
+      name: "accordion",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/accordion.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/accordion.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "autocomplete": {
       name: "autocomplete",
       description: "",
@@ -424,6 +439,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "slider": {
+      name: "slider",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: undefined,
+      files: [{
+        path: "registry/default/ui/slider.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/slider.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "stack": {
       name: "stack",
       description: "",
@@ -798,6 +828,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/autocomplete-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "accordion-demo": {
+      name: "accordion-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/accordion"],
+      files: [{
+        path: "registry/default/examples/accordion-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/accordion-demo.tsx")),
       source: "",
       meta: undefined,
     },
@@ -1758,6 +1803,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/sonner-warning.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "slider-demo": {
+      name: "slider-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/slider"],
+      files: [{
+        path: "registry/default/examples/slider-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/slider-demo.tsx")),
       source: "",
       meta: undefined,
     },
