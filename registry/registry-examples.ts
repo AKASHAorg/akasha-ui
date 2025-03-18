@@ -937,4 +937,15 @@ export const examples: Registry = [
       },
     ],
   },
+  {
+    name: "feed-cta-demo",
+    type: "registry:example",
+    registryDependencies: ["custom/feed-cta"],
+    files: [
+      {
+        path: "examples/feed-cta-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];

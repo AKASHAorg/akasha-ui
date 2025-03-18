@@ -7,9 +7,10 @@ import {
   useInfiniteQuery,
 } from "@tanstack/react-query";
 
-import { EditorPlaceholder } from "@/registry/default/blocks/post-feed/components/editor-placeholder";
 import { PostResolver } from "@/registry/default/blocks/post-feed/components/posts-resolver";
 import { POSTS_STREAM } from "@/registry/default/blocks/post-feed/mock-data";
+import { Button } from "@/registry/default/ui/button";
+import { FeedCTA } from "@/registry/default/ui/feed-cta";
 import {
   InfiniteScroll,
   InfiniteScrollList,
@@ -57,15 +58,20 @@ function Posts() {
       spacing={4}
       className="p-4 **:data-[slot=infinite-scroll-container]:h-fit h-screen"
     >
-      <EditorPlaceholder
+      <FeedCTA
         profileDID="did:pkh:eip155:11155111:0x1a4b3c567890abcdeffedcba1234567890abcdef"
-        avatar={{ src: "https://github.com/akashaorg.png" }}
+        avatarSrc="https://github.com/akashaorg.png"
         cta="From your mind to the world. "
-        actionLabel="Post Something"
-        onClick={() => {
-          console.log("Show beam editor");
-        }}
-      />
+      >
+        <Button
+          size="sm"
+          onClick={() => {
+            console.log("Show beam editor");
+          }}
+        >
+          Post Something
+        </Button>
+      </FeedCTA>
       {status === "pending" ? (
         <p>Loading...</p>
       ) : status === "error" ? (
