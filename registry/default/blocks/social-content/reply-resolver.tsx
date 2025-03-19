@@ -2,14 +2,13 @@ import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Ellipsis } from "lucide-react";
 
-import { REPLIES } from "@/registry/default/blocks/reply-mock-data";
+import { REPLIES } from "@/registry/default/blocks/social-content/reply-mock-data";
 import {
   InlineNotification,
   InlineNotificationDescription,
   InlineNotificationTitle,
 } from "@/registry/default/ui/inline-notification";
 
-import { cn } from "../lib/utils";
 import { ReplyCard } from "./reply-card";
 import { ReplyPreview } from "./reply-preview";
 
@@ -30,7 +29,13 @@ async function fetchReplyById(
   return REPLIES.find((reply) => reply.id === replyId);
 }
 
-function ReplyResolver({ replyId, last }: { replyId: string; last: boolean }) {
+function ReplyResolver({
+  replyId,
+  className,
+}: {
+  replyId: string;
+  className?: string;
+}) {
   const { data: reply, status } = useQuery({
     queryKey: ["reply", replyId],
     queryFn: async () => fetchReplyById(replyId),
@@ -77,20 +82,16 @@ function ReplyResolver({ replyId, last }: { replyId: string; last: boolean }) {
             { content: "Edit", onClick: () => console.log("edit") },
           ],
         }}
-        className={cn(
-          last && "rounded-b-3xl",
-          repliesToReply && repliesToReply.length > 0 && "border-b-0"
-        )}
+        className={className}
       >
         {content}
       </ReplyCard>
 
-      {repliesToReply?.map((replyId, index) => (
+      {repliesToReply?.map((replyId) => (
         <ReplyPreview
           key={replyId}
           replyId={replyId}
           onRepliesClick={() => console.log("Not implemented")}
-          className={cn(index === repliesToReply.length - 1 && "border-b")}
         />
       ))}
       {/* TODO - add load more buttons */}

@@ -18,20 +18,20 @@ export const blocks: Registry = [
     dependencies: ["lucide-react"],
     files: [
       {
-        path: "blocks/post-feed/page.tsx",
+        path: "blocks/social-content/post-feed/page.tsx",
         type: "registry:page",
         target: "app/post-feed/page.tsx",
       },
       {
-        path: "blocks/content-card.tsx",
+        path: "blocks/social-content/post-card.tsx",
         type: "registry:component",
       },
       {
-        path: "blocks/post-feed/components/posts-resolver.tsx",
+        path: "blocks/social-content/post-feed/components/posts-resolver.tsx",
         type: "registry:component",
       },
       {
-        path: "blocks/post-feed/mock-data.ts",
+        path: "blocks/social-content/post-feed/mock-data.ts",
         type: "registry:file",
         target: "app/post-feed/mock-data.ts",
       },
@@ -40,7 +40,7 @@ export const blocks: Registry = [
         type: "registry:lib",
       },
     ],
-    categories: ["post-feed"],
+    categories: ["social-content"],
   },
   {
     name: "post-page",
@@ -54,45 +54,45 @@ export const blocks: Registry = [
       "custom/icon-container",
       "custom/button",
     ],
-    dependencies: ["lucide-react"],
+    dependencies: ["social-content"],
     files: [
       {
-        path: "blocks/post-page/page.tsx",
+        path: "blocks/social-content/post-page/page.tsx",
         type: "registry:page",
         target: "app/post/page.tsx",
       },
       {
-        path: "blocks/post-page/mock-data.ts",
+        path: "blocks/social-content/post-page/mock-data.ts",
         type: "registry:file",
         target: "app/post/mock-data.ts",
       },
       {
-        path: "blocks/content-card.tsx",
+        path: "blocks/social-content/post-card.tsx",
         type: "registry:component",
       },
       {
-        path: "blocks/reply-card.tsx",
+        path: "blocks/social-content/reply-card.tsx",
         type: "registry:component",
       },
       {
-        path: "blocks/reply-resolver.tsx",
+        path: "blocks/social-content/reply-resolver.tsx",
         type: "registry:component",
       },
       {
-        path: "blocks/reply-preview.tsx",
+        path: "blocks/social-content/reply-preview.tsx",
         type: "registry:component",
       },
       {
-        path: "blocks/reply-editor.tsx",
+        path: "blocks/social-content/reply-editor.tsx",
         type: "registry:component",
       },
       {
-        path: "blocks/reply-mock-data.ts",
+        path: "blocks/social-content/reply-mock-data.ts",
         type: "registry:file",
         target: "app/reply/mock-data.ts",
       },
       {
-        path: "blocks/nsfw-warning.tsx",
+        path: "blocks/social-content/post-page/components/nsfw-warning.tsx",
         type: "registry:component",
       },
       {
@@ -100,7 +100,7 @@ export const blocks: Registry = [
         type: "registry:lib",
       },
     ],
-    categories: ["post"],
+    categories: ["social-content"],
   },
   {
     name: "reply-page",
@@ -114,52 +114,44 @@ export const blocks: Registry = [
       "custom/icon-container",
       "custom/button",
     ],
-    dependencies: ["lucide-react"],
+    dependencies: ["social-content"],
     files: [
       {
-        path: "blocks/reply-page/page.tsx",
+        path: "blocks/social-content/reply-page/page.tsx",
         type: "registry:page",
         target: "app/post/page.tsx",
       },
       {
-        path: "blocks/reply-page/mock-data.ts",
+        path: "blocks/social-content/reply-page/mock-data.ts",
         type: "registry:file",
         target: "app/reply/mock-data.ts",
       },
       {
-        path: "blocks/content-card.tsx",
+        path: "blocks/social-content/reply-card.tsx",
         type: "registry:component",
       },
       {
-        path: "blocks/reply-card.tsx",
+        path: "blocks/social-content/reply-resolver.tsx",
         type: "registry:component",
       },
       {
-        path: "blocks/reply-resolver.tsx",
+        path: "blocks/social-content/reply-preview.tsx",
         type: "registry:component",
       },
       {
-        path: "blocks/reply-preview.tsx",
+        path: "blocks/social-content/reply-editor.tsx",
         type: "registry:component",
       },
       {
-        path: "blocks/reply-editor.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "blocks/reply-mock-data.ts",
+        path: "blocks/social-content/reply-mock-data.ts",
         type: "registry:file",
         target: "app/reply/mock-data.ts",
-      },
-      {
-        path: "blocks/nsfw-warning.tsx",
-        type: "registry:component",
       },
       {
         path: "lib/format-relative-time.ts",
         type: "registry:lib",
       },
     ],
-    categories: ["reply-page"],
+    categories: ["social-content"],
   },
 ];

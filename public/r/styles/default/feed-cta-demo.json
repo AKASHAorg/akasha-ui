@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "examples/feed-cta-demo.tsx",
-      "content": "import * as React from \"react\";\n\nimport { Button } from \"@/registry/default/ui/button\";\nimport { FeedCTA } from \"@/registry/default/ui/feed-cta\";\n\nexport default function FeedCTADemo() {\n  return (\n    <div className=\"flex gap-4 flex-col w-full\">\n      <FeedCTA\n        avatarSrc=\"https://github.com/shadcn.png\"\n        profileDID=\"did:web:example.com\"\n        cta=\"Follow\"\n      >\n        <Button size=\"sm\">Follow</Button>\n      </FeedCTA>\n    </div>\n  );\n}\n",
+      "content": "import * as React from \"react\";\n\nimport { Button } from \"@/registry/default/ui/button\";\nimport { FeedCTA } from \"@/registry/default/ui/feed-cta\";\n\nexport default function FeedCTADemo() {\n  return (\n    <div className=\"flex gap-4 flex-col w-full\">\n      <FeedCTA\n        avatarSrc=\"https://github.com/akashaorg.png\"\n        profileDID=\"did:pkh:eip155:11155111:0x1a4b3c567890abcdeffedcba1234567890abcdef\"\n        cta=\"From your mind to the world.\"\n      >\n        <Button size=\"sm\">Post Something</Button>\n      </FeedCTA>\n    </div>\n  );\n}\n",
       "type": "registry:example",
       "target": ""
     }

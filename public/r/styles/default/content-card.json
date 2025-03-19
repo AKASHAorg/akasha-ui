@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "content-card",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "https://akasha-ui.pages.dev/r/styles/default/card.json",
+    "https://akasha-ui.pages.dev/r/styles/default/profile-avatar-button.json",
+    "https://akasha-ui.pages.dev/r/styles/default/typography.json"
+  ],
+  "files": [
+    {
+      "path": "ui/content-card.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\nimport {\n  Card,\n  CardAction,\n  CardContent,\n  CardFooter,\n  CardHeader,\n} from \"@/registry/default/ui/card\";\nimport {\n  ProfileAvatarButton,\n  ProfileAvatarButtonAvatar,\n  ProfileAvatarButtonAvatarFallback,\n  ProfileAvatarButtonAvatarImage,\n  ProfileDidField,\n  ProfileName,\n} from \"@/registry/default/ui/profile-avatar-button\";\nimport { Typography } from \"@/registry/default/ui/typography\";\n\nconst ContentCard = ({\n  author,\n  publishedAt,\n  className,\n  children,\n  ...props\n}: {\n  author: {\n    did: string;\n    name?: string;\n    avatarSrc?: string;\n  };\n  publishedAt?: string;\n} & React.ComponentProps<typeof Card>) => {\n  return (\n    <Card className={cn(\"p-4 w-full\", className)} {...props}>\n      <CardHeader>\n        <ProfileAvatarButton profileDID={author.did}>\n          <ProfileAvatarButtonAvatar>\n            <ProfileAvatarButtonAvatarImage\n              src={author.avatarSrc}\n              alt={author.name}\n            />\n            <ProfileAvatarButtonAvatarFallback />\n          </ProfileAvatarButtonAvatar>\n          <ProfileName>\n            {author.name}\n            {publishedAt && (\n              <Typography\n                variant=\"xs\"\n                className=\"text-muted-foreground font-normal\"\n              >\n                {\" \"}\n                · {publishedAt}\n              </Typography>\n            )}\n          </ProfileName>\n          <ProfileDidField />\n        </ProfileAvatarButton>\n        {React.Children.toArray(children).find(\n          (child) =>\n            React.isValidElement(child) && child.type === ContentCardAction\n        )}\n      </CardHeader>\n      {React.Children.toArray(children).find(\n        (child) => React.isValidElement(child) && child.type === ContentCardBody\n      )}\n      {React.Children.toArray(children).find(\n        (child) =>\n          React.isValidElement(child) && child.type === ContentCardFooter\n      )}\n    </Card>\n  );\n};\n\nconst ContentCardAction = (props: React.ComponentProps<typeof CardAction>) => {\n  return <CardAction {...props} />;\n};\n\nconst ContentCardBody = ({\n  className,\n  ...props\n}: React.ComponentProps<typeof CardContent>) => {\n  return (\n    <CardContent className={cn(\"justify-start w-full\", className)} {...props} />\n  );\n};\n\nconst ContentCardFooter = ({\n  className,\n  ...props\n}: React.ComponentProps<typeof CardFooter>) => {\n  return <CardFooter className={cn(\"justify-between\", className)} {...props} />;\n};\n\nexport { ContentCard, ContentCardAction, ContentCardBody, ContentCardFooter };\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "lib/format-relative-time.ts",
+      "content": "export function formatRelativeTime(isoDate: string): string {\n  const now = new Date();\n  const pastDate = new Date(isoDate);\n  const diffInSeconds = Math.floor((now.getTime() - pastDate.getTime()) / 1000);\n\n  const timeUnits = [\n    { limit: 60, divisor: 1, suffix: \"s\" },\n    { limit: 3600, divisor: 60, suffix: \"m\" },\n    { limit: 86400, divisor: 3600, suffix: \"h\" },\n    { limit: 2592000, divisor: 86400, suffix: \"d\" },\n    { limit: 31536000, divisor: 2592000, suffix: \"mo\" },\n  ];\n\n  for (const unit of timeUnits) {\n    if (diffInSeconds < unit.limit) {\n      return `${Math.floor(diffInSeconds / unit.divisor)}${unit.suffix} ago`;\n    }\n  }\n\n  return `${Math.floor(diffInSeconds / 31536000)}y ago`;\n}\n",
+      "type": "registry:lib"
+    }
+  ]
+}

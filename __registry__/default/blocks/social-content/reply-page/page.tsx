@@ -8,16 +8,19 @@ import {
 } from "@tanstack/react-query";
 import { Ellipsis } from "lucide-react";
 
-import { ContentCard } from "@/registry/default/blocks/content-card";
+import { cn } from "@/lib/utils";
+import { ReplyCard } from "@/registry/default/blocks/social-content/reply-card";
+import { ReplyEditor } from "@/registry/default/blocks/social-content/reply-editor";
+import {
+  REPLIES_STREAM,
+  REPLY,
+} from "@/registry/default/blocks/social-content/reply-page/mock-data";
+import { ReplyResolver } from "@/registry/default/blocks/social-content/reply-resolver";
 import { Card } from "@/registry/default/ui/card";
 import {
   InfiniteScroll,
   InfiniteScrollList,
 } from "@/registry/default/ui/infinite-scroll";
-
-import { ReplyEditor } from "../reply-editor";
-import { ReplyResolver } from "../reply-resolver";
-import { POST, REPLIES_STREAM } from "./mock-data";
 
 const queryClient = new QueryClient();
 
@@ -34,9 +37,8 @@ async function fetchRepliesStream(
     nextOffset: endIndex < REPLIES_STREAM.length ? offset + 1 : -1,
   };
 }
-function Post() {
-  const { content, ...postProps } = POST;
 
+function Replies() {
   const {
     status,
     data,
@@ -54,20 +56,17 @@ function Post() {
 
   const replyIds = data ? data.pages.flatMap((d) => d.ids) : [];
 
+  const { content, ...replyProps } = REPLY;
   return (
     <div className="p-4 h-full">
-      <ContentCard
-        {...postProps}
+      <ReplyCard
         onRepliesClick={() => {
           console.log("Not implemented");
         }}
-        className="rounded-b-none"
+        className="border-b-none rounded-b-none"
         menu={{
           trigger: (
-            <Ellipsis
-              size={20}
-              className="text-primary cursor-pointer hover:text-muted"
-            />
+            <Ellipsis size={20} className="text-primary hover:text-muted" />
           ),
           items: [
             { content: "Flag", onClick: () => console.log("flag") },
@@ -79,10 +78,11 @@ function Post() {
             { content: "Edit", onClick: () => console.log("edit") },
           ],
         }}
+        {...replyProps}
       >
         {content}
-      </ContentCard>
-      <Card className="border-t-0 p-2 rounded-none" key={1}>
+      </ReplyCard>
+      <Card className="border-y-0 p-2 rounded-none">
         <ReplyEditor
           avatarSrc={"https://github.com/akashaorg.png"}
           onReplyClick={() => {
@@ -115,7 +115,11 @@ function Post() {
                 <ReplyResolver
                   key={replyId}
                   replyId={replyId}
-                  last={replyId === replyIds[replyIds.length - 1]}
+                  className={cn(
+                    index === replyIds.length - 1
+                      ? "rounded-t-none"
+                      : "rounded-none border-b-0"
+                  )}
                 />
               );
             }}
@@ -129,7 +133,7 @@ function Post() {
 export default function Page() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Post />
+      <Replies />
     </QueryClientProvider>
   );
 }

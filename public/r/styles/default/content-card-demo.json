@@ -1,0 +1,20 @@
+{
+  "name": "content-card-demo",
+  "type": "registry:example",
+  "registryDependencies": [
+    "https://akasha-ui.pages.dev/r/styles/default/content-card.json",
+    "https://akasha-ui.pages.dev/r/styles/default/button.json",
+    "https://akasha-ui.pages.dev/r/styles/default/typography.json",
+    "https://akasha-ui.pages.dev/r/styles/default/stack.json",
+    "https://akasha-ui.pages.dev/r/styles/default/icon-container.json",
+    "dropdown-menu"
+  ],
+  "files": [
+    {
+      "path": "examples/content-card-demo.tsx",
+      "content": "import { Ellipsis, MessageCircle, SatelliteDish } from \"lucide-react\";\n\nimport { formatRelativeTime } from \"@/registry/default/lib/format-relative-time\";\nimport { Button } from \"@/registry/default/ui/button\";\nimport {\n  ContentCard,\n  ContentCardAction,\n  ContentCardBody,\n  ContentCardFooter,\n} from \"@/registry/default/ui/content-card\";\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from \"@/registry/default/ui/dropdown-menu\";\nimport { IconContainer } from \"@/registry/default/ui/icon-container\";\nimport { Stack } from \"@/registry/default/ui/stack\";\nimport { Typography } from \"@/registry/default/ui/typography\";\n\nexport default function ContentCardDemo() {\n  return (\n    <ContentCard\n      author={{\n        did: \"did:pkh:eip155:11155111:0x1a4b3c567890abcdeffedcba1234567890abcdef\",\n        name: \"CoffeLover\",\n        avatarSrc: \"https://github.com/akashaorg.png\",\n      }}\n      publishedAt={formatRelativeTime(\"2025-02-28T06:26:53.092058Z\")}\n    >\n      <ContentCardAction>\n        <DropdownMenu>\n          <DropdownMenuTrigger>\n            <Ellipsis size={20} className=\"text-primary hover:text-muted\" />\n          </DropdownMenuTrigger>\n          <DropdownMenuContent align=\"end\">\n            <DropdownMenuItem\n              onClick={() => {\n                console.log(\"Flag content\");\n              }}\n            >\n              Flag\n            </DropdownMenuItem>\n          </DropdownMenuContent>\n        </DropdownMenu>\n      </ContentCardAction>\n      <ContentCardBody>This is a sample post ...</ContentCardBody>\n      <ContentCardFooter>\n        <Stack direction=\"row\" spacing={1} alignItems=\"center\">\n          <IconContainer size=\"xs\" variant=\"round\">\n            <SatelliteDish className=\"text-primary\" size={12} />\n          </IconContainer>\n\n          <Typography variant=\"xs\" className=\"text-muted-foreground\">\n            Published via Antenna\n          </Typography>\n        </Stack>\n        <Button\n          asChild\n          onClick={() => {\n            console.log(\"Reply to the post\");\n          }}\n          className=\"border-none bg-transparent pr-0\"\n        >\n          <MessageCircle size={16} className=\"text-primary\" />\n        </Button>\n      </ContentCardFooter>\n    </ContentCard>\n  );\n}\n",
+      "type": "registry:example",
+      "target": ""
+    }
+  ]
+}

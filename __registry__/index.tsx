@@ -170,6 +170,25 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "content-card": {
+      name: "content-card",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["custom/card","custom/profile-avatar-button","custom/typography"],
+      files: [{
+        path: "registry/default/ui/content-card.tsx",
+        type: "registry:ui",
+        target: ""
+      },{
+        path: "registry/default/lib/format-relative-time.ts",
+        type: "registry:lib",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/content-card.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "copy-to-clipboard": {
       name: "copy-to-clipboard",
       description: "",
@@ -610,19 +629,19 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["custom/profile-avatar","custom/profile-avatar-button","custom/card","custom/stack","custom/typography","custom/icon-container","custom/button","custom/feed-cta"],
       files: [{
-        path: "registry/default/blocks/post-feed/page.tsx",
+        path: "registry/default/blocks/social-content/post-feed/page.tsx",
         type: "registry:page",
         target: "app/post-feed/page.tsx"
       },{
-        path: "registry/default/blocks/content-card.tsx",
+        path: "registry/default/blocks/social-content/post-card.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/post-feed/components/posts-resolver.tsx",
+        path: "registry/default/blocks/social-content/post-feed/components/posts-resolver.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/post-feed/mock-data.ts",
+        path: "registry/default/blocks/social-content/post-feed/mock-data.ts",
         type: "registry:file",
         target: "app/post-feed/mock-data.ts"
       },{
@@ -630,9 +649,9 @@ export const Index: Record<string, any> = {
         type: "registry:lib",
         target: ""
       }],
-      categories: ["post-feed"],
-      component: React.lazy(() => import("@/registry/default/blocks/post-feed/page.tsx")),
-      source: "__registry__/default/blocks/post-feed/page.tsx",
+      categories: ["social-content"],
+      component: React.lazy(() => import("@/registry/default/blocks/social-content/post-feed/page.tsx")),
+      source: "__registry__/default/blocks/social-content/post-feed/page.tsx",
       meta: undefined,
     },
     "post-page": {
@@ -641,39 +660,39 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["custom/profile-avatar-button","custom/card","custom/stack","custom/typography","custom/icon-container","custom/button"],
       files: [{
-        path: "registry/default/blocks/post-page/page.tsx",
+        path: "registry/default/blocks/social-content/post-page/page.tsx",
         type: "registry:page",
         target: "app/post/page.tsx"
       },{
-        path: "registry/default/blocks/post-page/mock-data.ts",
+        path: "registry/default/blocks/social-content/post-page/mock-data.ts",
         type: "registry:file",
         target: "app/post/mock-data.ts"
       },{
-        path: "registry/default/blocks/content-card.tsx",
+        path: "registry/default/blocks/social-content/post-card.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/reply-card.tsx",
+        path: "registry/default/blocks/social-content/reply-card.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/reply-resolver.tsx",
+        path: "registry/default/blocks/social-content/reply-resolver.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/reply-preview.tsx",
+        path: "registry/default/blocks/social-content/reply-preview.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/reply-editor.tsx",
+        path: "registry/default/blocks/social-content/reply-editor.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/reply-mock-data.ts",
+        path: "registry/default/blocks/social-content/reply-mock-data.ts",
         type: "registry:file",
         target: "app/reply/mock-data.ts"
       },{
-        path: "registry/default/blocks/nsfw-warning.tsx",
+        path: "registry/default/blocks/social-content/post-page/components/nsfw-warning.tsx",
         type: "registry:component",
         target: ""
       },{
@@ -681,9 +700,9 @@ export const Index: Record<string, any> = {
         type: "registry:lib",
         target: ""
       }],
-      categories: ["post"],
-      component: React.lazy(() => import("@/registry/default/blocks/post-page/page.tsx")),
-      source: "__registry__/default/blocks/post-page/page.tsx",
+      categories: ["social-content"],
+      component: React.lazy(() => import("@/registry/default/blocks/social-content/post-page/page.tsx")),
+      source: "__registry__/default/blocks/social-content/post-page/page.tsx",
       meta: undefined,
     },
     "reply-page": {
@@ -692,49 +711,41 @@ export const Index: Record<string, any> = {
       type: "registry:block",
       registryDependencies: ["custom/profile-avatar-button","custom/card","custom/stack","custom/typography","custom/icon-container","custom/button"],
       files: [{
-        path: "registry/default/blocks/reply-page/page.tsx",
+        path: "registry/default/blocks/social-content/reply-page/page.tsx",
         type: "registry:page",
         target: "app/post/page.tsx"
       },{
-        path: "registry/default/blocks/reply-page/mock-data.ts",
+        path: "registry/default/blocks/social-content/reply-page/mock-data.ts",
         type: "registry:file",
         target: "app/reply/mock-data.ts"
       },{
-        path: "registry/default/blocks/content-card.tsx",
+        path: "registry/default/blocks/social-content/reply-card.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/reply-card.tsx",
+        path: "registry/default/blocks/social-content/reply-resolver.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/reply-resolver.tsx",
+        path: "registry/default/blocks/social-content/reply-preview.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/reply-preview.tsx",
+        path: "registry/default/blocks/social-content/reply-editor.tsx",
         type: "registry:component",
         target: ""
       },{
-        path: "registry/default/blocks/reply-editor.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/default/blocks/reply-mock-data.ts",
+        path: "registry/default/blocks/social-content/reply-mock-data.ts",
         type: "registry:file",
         target: "app/reply/mock-data.ts"
-      },{
-        path: "registry/default/blocks/nsfw-warning.tsx",
-        type: "registry:component",
-        target: ""
       },{
         path: "registry/default/lib/format-relative-time.ts",
         type: "registry:lib",
         target: ""
       }],
-      categories: ["reply-page"],
-      component: React.lazy(() => import("@/registry/default/blocks/reply-page/page.tsx")),
-      source: "__registry__/default/blocks/reply-page/page.tsx",
+      categories: ["social-content"],
+      component: React.lazy(() => import("@/registry/default/blocks/social-content/reply-page/page.tsx")),
+      source: "__registry__/default/blocks/social-content/reply-page/page.tsx",
       meta: undefined,
     },
     "utils": {
@@ -1184,6 +1195,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/circular-progress-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "content-card-demo": {
+      name: "content-card-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/content-card","custom/button","custom/typography","custom/stack","custom/icon-container","dropdown-menu"],
+      files: [{
+        path: "registry/default/examples/content-card-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/content-card-demo.tsx")),
       source: "",
       meta: undefined,
     },

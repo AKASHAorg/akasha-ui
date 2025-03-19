@@ -64,10 +64,7 @@ function Replies() {
         className="rounded-t-3xl border-t"
         menu={{
           trigger: (
-            <Ellipsis
-              size={20}
-              className="text-primary cursor-pointer hover:text-muted"
-            />
+            <Ellipsis size={20} className="text-primary hover:text-muted" />
           ),
           items: [
             { content: "Flag", onClick: () => console.log("flag") },

@@ -2,8 +2,8 @@ import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Ellipsis } from "lucide-react";
 
-import { ContentCard } from "@/registry/default/blocks/content-card";
-import { POSTS } from "@/registry/default/blocks/post-feed/mock-data";
+import { PostCard } from "@/registry/default/blocks/social-content/post-card";
+import { POSTS } from "@/registry/default/blocks/social-content/post-feed/mock-data";
 import { formatRelativeTime } from "@/registry/default/lib/format-relative-time";
 import { Image } from "@/registry/default/ui/image";
 import {
@@ -49,7 +49,7 @@ function PostResolver({ postId }: { postId: string }) {
 
   return (
     post && (
-      <ContentCard
+      <PostCard
         author={post.author}
         publishedAt={formatRelativeTime(post.createdAt)}
         publishedVia={post.publishedVia}
@@ -59,10 +59,7 @@ function PostResolver({ postId }: { postId: string }) {
         }}
         menu={{
           trigger: (
-            <Ellipsis
-              size={20}
-              className="text-primary cursor-pointer hover:text-muted"
-            />
+            <Ellipsis size={20} className="text-primary hover:text-muted" />
           ),
           items: [{ content: "Flag", onClick: () => console.log("flag") }],
         }}
@@ -85,7 +82,7 @@ function PostResolver({ postId }: { postId: string }) {
             </React.Fragment>
           ))}
         </Stack>
-      </ContentCard>
+      </PostCard>
     )
   );
 }

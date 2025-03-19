@@ -8,16 +8,19 @@ import {
 } from "@tanstack/react-query";
 import { Ellipsis } from "lucide-react";
 
-import { PostCard } from "@/registry/default/blocks/post-card";
+import { cn } from "@/lib/utils";
+import { PostCard } from "@/registry/default/blocks/social-content/post-card";
+import {
+  POST,
+  REPLIES_STREAM,
+} from "@/registry/default/blocks/social-content/post-page/mock-data";
+import { ReplyEditor } from "@/registry/default/blocks/social-content/reply-editor";
+import { ReplyResolver } from "@/registry/default/blocks/social-content/reply-resolver";
 import { Card } from "@/registry/default/ui/card";
 import {
   InfiniteScroll,
   InfiniteScrollList,
 } from "@/registry/default/ui/infinite-scroll";
-
-import { ReplyEditor } from "../reply-editor";
-import { ReplyResolver } from "../reply-resolver";
-import { POST, REPLIES_STREAM } from "./mock-data";
 
 const queryClient = new QueryClient();
 
@@ -79,7 +82,7 @@ function Post() {
       >
         {content}
       </PostCard>
-      <Card className="border-t-0 p-2 rounded-none" key={1}>
+      <Card className="border-y-0 p-2 rounded-none">
         <ReplyEditor
           avatarSrc={"https://github.com/akashaorg.png"}
           onReplyClick={() => {
@@ -112,7 +115,11 @@ function Post() {
                 <ReplyResolver
                   key={replyId}
                   replyId={replyId}
-                  last={replyId === replyIds[replyIds.length - 1]}
+                  className={cn(
+                    index === replyIds.length - 1
+                      ? "rounded-t-none"
+                      : "rounded-none border-b-0"
+                  )}
                 />
               );
             }}

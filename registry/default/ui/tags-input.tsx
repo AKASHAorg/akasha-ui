@@ -88,7 +88,7 @@ const TagsInputItem = ({
     >
       {React.Children.count(children) ? children : tag}
       <button type="button" onClick={() => handleRemove(tag)}>
-        <X className="cursor-pointer size-4" />
+        <X className="size-4" />
       </button>
     </Badge>
   );

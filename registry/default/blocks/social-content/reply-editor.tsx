@@ -20,7 +20,7 @@ function ReplyEditor({ onReplyClick, avatarSrc }: ReplyEditorProps) {
   const [content, setContent] = React.useState("");
 
   const handleReplyClick = () => {
-    if (content.trim() && onReplyClick) {
+    if (content && onReplyClick) {
       onReplyClick(content);
       setContent("");
     }
@@ -41,7 +41,7 @@ function ReplyEditor({ onReplyClick, avatarSrc }: ReplyEditorProps) {
       </ProfileAvatar>
       <Button
         onClick={handleReplyClick}
-        disabled={!content.trim()}
+        disabled={!content}
         className="absolute bottom-3 right-2"
       >
         Reply
