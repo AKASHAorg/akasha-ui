@@ -9,16 +9,18 @@ import {
 import { Ellipsis } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { PostCard } from "@/registry/default/blocks/post-card";
+import { ReplyCard } from "@/registry/default/blocks/social-content/reply-card";
+import { ReplyEditor } from "@/registry/default/blocks/social-content/reply-editor";
+import {
+  REPLIES_STREAM,
+  REPLY,
+} from "@/registry/default/blocks/social-content/reply-page/mock-data";
+import { ReplyResolver } from "@/registry/default/blocks/social-content/reply-resolver";
 import { Card } from "@/registry/default/ui/card";
 import {
   InfiniteScroll,
   InfiniteScrollList,
 } from "@/registry/default/ui/infinite-scroll";
-
-import { ReplyEditor } from "../reply-editor";
-import { ReplyResolver } from "../reply-resolver";
-import { POST, REPLIES_STREAM } from "./mock-data";
 
 const queryClient = new QueryClient();
 
@@ -35,9 +37,8 @@ async function fetchRepliesStream(
     nextOffset: endIndex < REPLIES_STREAM.length ? offset + 1 : -1,
   };
 }
-function Post() {
-  const { content, ...postProps } = POST;
 
+function Replies() {
   const {
     status,
     data,
@@ -55,14 +56,14 @@ function Post() {
 
   const replyIds = data ? data.pages.flatMap((d) => d.ids) : [];
 
+  const { content, ...replyProps } = REPLY;
   return (
     <div className="p-4 h-full">
-      <PostCard
-        {...postProps}
+      <ReplyCard
         onRepliesClick={() => {
           console.log("Not implemented");
         }}
-        className="rounded-b-none"
+        className="border-b-none rounded-b-none"
         menu={{
           trigger: (
             <Ellipsis size={20} className="text-primary hover:text-muted" />
@@ -77,9 +78,10 @@ function Post() {
             { content: "Edit", onClick: () => console.log("edit") },
           ],
         }}
+        {...replyProps}
       >
         {content}
-      </PostCard>
+      </ReplyCard>
       <Card className="border-y-0 p-2 rounded-none">
         <ReplyEditor
           avatarSrc={"https://github.com/akashaorg.png"}
@@ -131,7 +133,7 @@ function Post() {
 export default function Page() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Post />
+      <Replies />
     </QueryClientProvider>
   );
 }

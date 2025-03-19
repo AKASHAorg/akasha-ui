@@ -9,16 +9,18 @@ import {
 import { Ellipsis } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { ReplyCard } from "@/registry/default/blocks/social-content/reply-card";
+import { ReplyEditor } from "@/registry/default/blocks/social-content/reply-editor";
+import {
+  REPLIES_STREAM,
+  REPLY,
+} from "@/registry/default/blocks/social-content/reply-page/mock-data";
+import { ReplyResolver } from "@/registry/default/blocks/social-content/reply-resolver";
 import { Card } from "@/registry/default/ui/card";
 import {
   InfiniteScroll,
   InfiniteScrollList,
 } from "@/registry/default/ui/infinite-scroll";
-
-import { ReplyCard } from "../reply-card";
-import { ReplyEditor } from "../reply-editor";
-import { ReplyResolver } from "../reply-resolver";
-import { REPLIES_STREAM, REPLY } from "./mock-data";
 
 const queryClient = new QueryClient();
 

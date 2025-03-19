@@ -164,6 +164,10 @@
       {
         "path": "ui/content-card.tsx",
         "type": "registry:ui"
+      },
+      {
+        "path": "lib/format-relative-time.ts",
+        "type": "registry:lib"
       }
     ]
   },

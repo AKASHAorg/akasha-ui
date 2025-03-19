@@ -3,7 +3,6 @@ import * as React from "react";
 import { Button } from "@/registry/default/ui/button";
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
@@ -26,9 +25,6 @@ export default function CardDemo() {
       <CardHeader>
         <CardTitle>Create project</CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
-        <CardAction>
-          <Button>Click me</Button>
-        </CardAction>
       </CardHeader>
       <CardContent className="justify-left">
         <form className="w-full">

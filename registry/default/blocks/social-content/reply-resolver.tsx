@@ -2,7 +2,7 @@ import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Ellipsis } from "lucide-react";
 
-import { REPLIES } from "@/registry/default/blocks/reply-mock-data";
+import { REPLIES } from "@/registry/default/blocks/social-content/reply-mock-data";
 import {
   InlineNotification,
   InlineNotificationDescription,

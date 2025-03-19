@@ -4,8 +4,8 @@ import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { cn } from "@/lib/utils";
-import { ReplyCard } from "@/registry/default/blocks/reply-card";
-import { REPLIES } from "@/registry/default/blocks/reply-mock-data";
+import { ReplyCard } from "@/registry/default/blocks/social-content/reply-card";
+import { REPLIES } from "@/registry/default/blocks/social-content/reply-mock-data";
 import {
   InlineNotification,
   InlineNotificationDescription,

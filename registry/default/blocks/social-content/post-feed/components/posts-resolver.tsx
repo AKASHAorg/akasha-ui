@@ -2,8 +2,8 @@ import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Ellipsis } from "lucide-react";
 
-import { PostCard } from "@/registry/default/blocks/post-card";
-import { POSTS } from "@/registry/default/blocks/post-feed/mock-data";
+import { PostCard } from "@/registry/default/blocks/social-content/post-card";
+import { POSTS } from "@/registry/default/blocks/social-content/post-feed/mock-data";
 import { formatRelativeTime } from "@/registry/default/lib/format-relative-time";
 import { Image } from "@/registry/default/ui/image";
 import {

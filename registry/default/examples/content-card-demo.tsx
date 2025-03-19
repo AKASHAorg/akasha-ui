@@ -33,7 +33,7 @@ export default function ContentCardDemo() {
           <DropdownMenuTrigger>
             <Ellipsis size={20} className="text-primary hover:text-muted" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent>
+          <DropdownMenuContent align="end">
             <DropdownMenuItem
               onClick={() => {
                 console.log("Flag content");

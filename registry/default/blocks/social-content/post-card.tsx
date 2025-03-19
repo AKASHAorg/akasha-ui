@@ -3,7 +3,7 @@
 import * as React from "react";
 import { MessageCircle, SatelliteDish } from "lucide-react";
 
-import { NsfwWarning } from "@/registry/default/blocks/nsfw-warning";
+import { NsfwWarning } from "@/registry/default/blocks/social-content/post-page/components/nsfw-warning";
 import { Badge } from "@/registry/default/ui/badge";
 import { Button } from "@/registry/default/ui/button";
 import {
@@ -68,7 +68,7 @@ const PostCard = ({
         {menu && (
           <DropdownMenu>
             <DropdownMenuTrigger>{menu.trigger}</DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent align="end">
               {menu?.items.map(({ content, className, onClick }, index) => (
                 <DropdownMenuItem
                   key={index}
@@ -90,17 +90,23 @@ const PostCard = ({
             description="The post author marked this post as NSFW"
           />
         ) : (
-          children
-        )}
-        {tags && (
-          <Stack direction="row" spacing={2}>
-            {tags.map((tag, index) => (
-              <Badge key={index} variant="outline" className="border-secondary">
-                <Typography variant="xs" className="font-normal">
-                  {tag}
-                </Typography>
-              </Badge>
-            ))}
+          <Stack spacing={4}>
+            {children}
+            {tags && (
+              <Stack direction="row" spacing={2}>
+                {tags.map((tag, index) => (
+                  <Badge
+                    key={index}
+                    variant="outline"
+                    className="border-secondary"
+                  >
+                    <Typography variant="xs" className="font-normal">
+                      {tag}
+                    </Typography>
+                  </Badge>
+                ))}
+              </Stack>
+            )}
           </Stack>
         )}
       </ContentCardBody>
@@ -120,18 +126,15 @@ const PostCard = ({
         </Stack>
 
         <Button
-          asChild
           onClick={onRepliesClick}
           className="border-none bg-transparent pr-0"
         >
-          <Stack direction="row" spacing={1} alignItems="center">
-            <MessageCircle size={16} className="text-primary" />
-            {repliesCount > 0 && (
-              <Typography variant="xs" className="font-bold text-primary">
-                {repliesCount}
-              </Typography>
-            )}
-          </Stack>
+          <MessageCircle size={16} className="text-primary" />
+          {repliesCount > 0 && (
+            <Typography variant="xs" className="font-bold text-primary">
+              {repliesCount}
+            </Typography>
+          )}
         </Button>
       </ContentCardFooter>
     </ContentCard>

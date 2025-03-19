@@ -34,7 +34,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-title"
       className={cn(
-        "text-center font-bold",
+        "font-bold text-center",
         typographyVariants({ variant: "h5" }),
         className
       )}
@@ -47,7 +47,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-description"
-      className={cn("text-muted-foreground text-sm text-center ", className)}
+      className={cn("text-muted-foreground text-sm text-center", className)}
       {...props}
     />
   );
@@ -67,23 +67,14 @@ function CardAction({ className, ...props }: React.ComponentProps<"div">) {
 }
 
 function CardContent({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-content"
-      className={cn("flex justify-center", className)}
-      {...props}
-    />
-  );
+  return <div data-slot="card-content" className={cn(className)} {...props} />;
 }
 
 function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-footer"
-      className={cn(
-        "flex items-center justify-end w-full gap-2 pt-6",
-        className
-      )}
+      className={cn("flex items-center justify-end gap-2", className)}
       {...props}
     />
   );

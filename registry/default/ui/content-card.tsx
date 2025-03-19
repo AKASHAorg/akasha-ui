@@ -34,7 +34,6 @@ const ContentCard = ({
   };
   publishedAt?: string;
 } & React.ComponentProps<typeof Card>) => {
-  console.log(className);
   return (
     <Card className={cn("p-4 w-full", className)} {...props}>
       <CardHeader>

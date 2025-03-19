@@ -1,4 +1,4 @@
-import { ReplyCard } from "@/registry/default/blocks/reply-card";
+import { ReplyCard } from "@/registry/default/blocks/social-content/reply-card";
 
 interface MockPost
   extends Omit<React.ComponentProps<typeof ReplyCard>, "children"> {
@@ -22,7 +22,6 @@ const REPLIES: (MockPost & {
       "Tobi, you’re not drinking coffee—you’re fueling a NASA rocket launch. 🚀☕️",
     publishedAt: "45 mins ago",
     repliesCount: 0,
-    nsfw: false,
   },
   {
     id: "r00000000002",
@@ -35,7 +34,6 @@ const REPLIES: (MockPost & {
       "5 cups a day? That’s not a coffee habit, that’s a legally binding relationship. Do you and coffee have anniversary plans? 😂",
     publishedAt: "30 mins ago",
     repliesCount: REPLIES_TO_REPLY.length,
-    nsfw: false,
 
     replies: REPLIES_TO_REPLY,
   },
@@ -49,7 +47,6 @@ const REPLIES: (MockPost & {
     content: "This is NSFW.",
     publishedAt: "30 mins ago",
     repliesCount: 1,
-    nsfw: true,
   },
   {
     id: "r00000000004",
@@ -74,7 +71,6 @@ const REPLIES: (MockPost & {
       "Tobi, you’re not drinking coffee—you’re fueling a NASA rocket launch. 🚀☕️",
     publishedAt: "5 mins ago",
     repliesCount: 0,
-    nsfw: false,
   },
   {
     id: "r00000000006",
@@ -86,7 +82,6 @@ const REPLIES: (MockPost & {
     content: "At this point, coffee and I are practically married 😅",
     publishedAt: "5 mins ago",
     repliesCount: 0,
-    nsfw: false,
   },
   {
     id: "r00000000007",
@@ -97,7 +92,6 @@ const REPLIES: (MockPost & {
     },
     content: "Haha very funny.",
     publishedAt: "5 mins ago",
-    nsfw: false,
 
     repliesCount: 0,
   },
@@ -110,7 +104,6 @@ const REPLIES: (MockPost & {
     },
     content: "At this point, coffee and I are practically married 😅",
     publishedAt: "5 mins ago",
-    nsfw: false,
 
     repliesCount: 0,
   },

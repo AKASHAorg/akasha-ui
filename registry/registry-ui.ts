@@ -137,7 +137,7 @@ export const ui: Registry = [
         type: "registry:ui",
       },
       {
-        path: "registry/default/lib/format-relative-time.ts",
+        path: "lib/format-relative-time.ts",
         type: "registry:lib",
       },
     ],

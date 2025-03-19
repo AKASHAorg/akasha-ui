@@ -7,8 +7,8 @@ import {
   useInfiniteQuery,
 } from "@tanstack/react-query";
 
-import { PostResolver } from "@/registry/default/blocks/post-feed/components/posts-resolver";
-import { POSTS_STREAM } from "@/registry/default/blocks/post-feed/mock-data";
+import { PostResolver } from "@/registry/default/blocks/social-content/post-feed/components/posts-resolver";
+import { POSTS_STREAM } from "@/registry/default/blocks/social-content/post-feed/mock-data";
 import { Button } from "@/registry/default/ui/button";
 import { FeedCTA } from "@/registry/default/ui/feed-cta";
 import {
