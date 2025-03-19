@@ -8,7 +8,7 @@ import {
 } from "@tanstack/react-query";
 import { Ellipsis } from "lucide-react";
 
-import { ContentCard } from "@/registry/default/blocks/content-card";
+import { PostCard } from "@/registry/default/blocks/post-card";
 import { Card } from "@/registry/default/ui/card";
 import {
   InfiniteScroll,
@@ -56,7 +56,7 @@ function Post() {
 
   return (
     <div className="p-4 h-full">
-      <ContentCard
+      <PostCard
         {...postProps}
         onRepliesClick={() => {
           console.log("Not implemented");
@@ -64,10 +64,7 @@ function Post() {
         className="rounded-b-none"
         menu={{
           trigger: (
-            <Ellipsis
-              size={20}
-              className="text-primary cursor-pointer hover:text-muted"
-            />
+            <Ellipsis size={20} className="text-primary hover:text-muted" />
           ),
           items: [
             { content: "Flag", onClick: () => console.log("flag") },
@@ -81,7 +78,7 @@ function Post() {
         }}
       >
         {content}
-      </ContentCard>
+      </PostCard>
       <Card className="border-t-0 p-2 rounded-none" key={1}>
         <ReplyEditor
           avatarSrc={"https://github.com/akashaorg.png"}

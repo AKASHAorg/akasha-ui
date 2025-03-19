@@ -272,6 +272,24 @@ export const examples: Registry = [
     ],
   },
   {
+    name: "content-card-demo",
+    type: "registry:example",
+    registryDependencies: [
+      "custom/content-card",
+      "custom/button",
+      "custom/typography",
+      "custom/stack",
+      "custom/icon-container",
+      "dropdown-menu",
+    ],
+    files: [
+      {
+        path: "examples/content-card-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "copy-to-clipboard-demo",
     type: "registry:example",
     registryDependencies: [

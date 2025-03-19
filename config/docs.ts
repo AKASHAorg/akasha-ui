@@ -59,6 +59,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Content Card",
+          href: "/docs/components/content-card",
+          items: [],
+        },
+        {
           title: "Copy to clipboard",
           href: "/docs/components/copy-to-clipboard",
           items: [],

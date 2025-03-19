@@ -177,7 +177,7 @@ function BlockViewerToolbar() {
           >
             <ToggleGroupItem
               value="100"
-              className="h-[22px] w-[22px] min-w-0 rounded-sm p-0"
+              className="bg-accent h-[22px] w-[22px] min-w-0 rounded-sm p-0"
               title="Desktop"
             >
               <Monitor className="h-3.5 w-3.5" />
@@ -215,10 +215,12 @@ function BlockViewerToolbar() {
         <div className="flex h-7 items-center gap-1 rounded-md border p-[2px]">
           <Button
             variant="ghost"
-            className="hidden h-[22px] w-auto gap-1 rounded-sm px-2 md:flex lg:w-auto hover:rounded-none"
+            className="hidden h-[22px] w-auto gap-1 rounded-sm px-2 md:flex lg:w-auto hover:rounded-[4px]"
             size="sm"
             onClick={() => {
-              copyToClipboard(`npx shadcn@latest add ${item.name}`);
+              copyToClipboard(
+                `npx shadcn@latest add https://akasha-ui.pages.dev/r/styles/default/${item.name}.json`
+              );
             }}
           >
             {isCopied ? <Check /> : <Terminal />}

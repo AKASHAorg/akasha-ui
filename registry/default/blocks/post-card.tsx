@@ -1,9 +1,10 @@
 "use client";
 
 import * as React from "react";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, SatelliteDish } from "lucide-react";
 
 import { NsfwWarning } from "@/registry/default/blocks/nsfw-warning";
+import { Badge } from "@/registry/default/ui/badge";
 import { Button } from "@/registry/default/ui/button";
 import {
   ContentCard,
@@ -17,12 +18,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/registry/default/ui/dropdown-menu";
+import { IconContainer } from "@/registry/default/ui/icon-container";
 import { Stack } from "@/registry/default/ui/stack";
 import { Typography } from "@/registry/default/ui/typography";
 
-const ReplyCard = ({
+const PostCard = ({
   author,
   publishedAt,
+  tags,
+  publishedVia,
   repliesCount,
   className,
   nsfw,
@@ -37,6 +41,7 @@ const ReplyCard = ({
   };
   publishedAt: string;
   repliesCount: number;
+  publishedVia?: string;
   menu?: {
     trigger: React.ReactNode;
     items: {
@@ -45,6 +50,7 @@ const ReplyCard = ({
       onClick?: () => void;
     }[];
   };
+  tags?: string[];
   nsfw?: boolean;
   className?: string;
   children: React.ReactNode;
@@ -86,8 +92,33 @@ const ReplyCard = ({
         ) : (
           children
         )}
+        {tags && (
+          <Stack direction="row" spacing={2}>
+            {tags.map((tag, index) => (
+              <Badge key={index} variant="outline" className="border-secondary">
+                <Typography variant="xs" className="font-normal">
+                  {tag}
+                </Typography>
+              </Badge>
+            ))}
+          </Stack>
+        )}
       </ContentCardBody>
-      <ContentCardFooter className="justify-end">
+      <ContentCardFooter>
+        <Stack direction="row" spacing={1} alignItems="center">
+          {publishedVia && (
+            <>
+              <IconContainer size="xs" variant="round">
+                <SatelliteDish className="text-primary" size={12} />
+              </IconContainer>
+
+              <Typography variant="xs" className="text-muted-foreground">
+                Published via {publishedVia}
+              </Typography>
+            </>
+          )}
+        </Stack>
+
         <Button
           asChild
           onClick={onRepliesClick}
@@ -107,4 +138,4 @@ const ReplyCard = ({
   );
 };
 
-export { ReplyCard };
+export { PostCard };

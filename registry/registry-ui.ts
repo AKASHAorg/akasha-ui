@@ -124,6 +124,25 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "content-card",
+    type: "registry:ui",
+    registryDependencies: [
+      "custom/card",
+      "custom/profile-avatar-button",
+      "custom/typography",
+    ],
+    files: [
+      {
+        path: "ui/content-card.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "registry/default/lib/format-relative-time.ts",
+        type: "registry:lib",
+      },
+    ],
+  },
+  {
     name: "copy-to-clipboard",
     type: "registry:ui",
     registryDependencies: ["tooltip"],

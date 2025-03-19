@@ -1,7 +1,7 @@
-import { ContentCard } from "@/registry/default/blocks/content-card";
+import { ReplyCard } from "@/registry/default/blocks/reply-card";
 
 interface MockPost
-  extends Omit<React.ComponentProps<typeof ContentCard>, "children"> {
+  extends Omit<React.ComponentProps<typeof ReplyCard>, "children"> {
   id: string;
   content: string;
 }

@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import { ContentCard } from "@/registry/default/blocks/content-card";
+import { PostCard } from "@/registry/default/blocks/post-card";
 
 interface MockPost
-  extends Omit<React.ComponentProps<typeof ContentCard>, "children"> {
+  extends Omit<React.ComponentProps<typeof PostCard>, "children"> {
   id: string;
   content: string;
 }

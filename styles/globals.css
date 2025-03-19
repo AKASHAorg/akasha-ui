@@ -173,6 +173,9 @@
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
   }
+  button {
+    cursor: pointer;
+  }
 
   @supports (font: -apple-system-body) and (-webkit-appearance: none) {
     [data-wrapper] {

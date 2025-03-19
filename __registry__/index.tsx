@@ -170,6 +170,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "content-card": {
+      name: "content-card",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["custom/card","custom/profile-avatar-button","custom/typography"],
+      files: [{
+        path: "registry/default/ui/content-card.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/content-card.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "copy-to-clipboard": {
       name: "copy-to-clipboard",
       description: "",
@@ -614,7 +629,7 @@ export const Index: Record<string, any> = {
         type: "registry:page",
         target: "app/post-feed/page.tsx"
       },{
-        path: "registry/default/blocks/content-card.tsx",
+        path: "registry/default/blocks/post-card.tsx",
         type: "registry:component",
         target: ""
       },{
@@ -649,7 +664,7 @@ export const Index: Record<string, any> = {
         type: "registry:file",
         target: "app/post/mock-data.ts"
       },{
-        path: "registry/default/blocks/content-card.tsx",
+        path: "registry/default/blocks/post-card.tsx",
         type: "registry:component",
         target: ""
       },{
@@ -699,10 +714,6 @@ export const Index: Record<string, any> = {
         path: "registry/default/blocks/reply-page/mock-data.ts",
         type: "registry:file",
         target: "app/reply/mock-data.ts"
-      },{
-        path: "registry/default/blocks/content-card.tsx",
-        type: "registry:component",
-        target: ""
       },{
         path: "registry/default/blocks/reply-card.tsx",
         type: "registry:component",
@@ -1184,6 +1195,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/circular-progress-demo.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "content-card-demo": {
+      name: "content-card-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/content-card","custom/button","custom/typography","custom/stack","custom/icon-container","dropdown-menu"],
+      files: [{
+        path: "registry/default/examples/content-card-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/content-card-demo.tsx")),
       source: "",
       meta: undefined,
     },

@@ -153,6 +153,21 @@
     ]
   },
   {
+    "name": "content-card",
+    "type": "registry:ui",
+    "registryDependencies": [
+      "custom/card",
+      "custom/profile-avatar-button",
+      "custom/typography"
+    ],
+    "files": [
+      {
+        "path": "ui/content-card.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "copy-to-clipboard",
     "type": "registry:ui",
     "registryDependencies": [

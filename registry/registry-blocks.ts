@@ -23,7 +23,7 @@ export const blocks: Registry = [
         target: "app/post-feed/page.tsx",
       },
       {
-        path: "blocks/content-card.tsx",
+        path: "blocks/post-card.tsx",
         type: "registry:component",
       },
       {
@@ -67,7 +67,7 @@ export const blocks: Registry = [
         target: "app/post/mock-data.ts",
       },
       {
-        path: "blocks/content-card.tsx",
+        path: "blocks/post-card.tsx",
         type: "registry:component",
       },
       {
@@ -125,10 +125,6 @@ export const blocks: Registry = [
         path: "blocks/reply-page/mock-data.ts",
         type: "registry:file",
         target: "app/reply/mock-data.ts",
-      },
-      {
-        path: "blocks/content-card.tsx",
-        type: "registry:component",
       },
       {
         path: "blocks/reply-card.tsx",
