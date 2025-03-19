@@ -216,6 +216,22 @@ export const ui: Registry = [
     ],
   },
   {
+    name: "feed-cta",
+    type: "registry:ui",
+    registryDependencies: [
+      "custom/card",
+      "custom/profile-avatar",
+      "custom/stack",
+      "custom/typography",
+    ],
+    files: [
+      {
+        path: "ui/feed-cta.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "form",
     type: "registry:ui",
     dependencies: [

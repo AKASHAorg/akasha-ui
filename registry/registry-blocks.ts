@@ -13,6 +13,7 @@ export const blocks: Registry = [
       "custom/typography",
       "custom/icon-container",
       "custom/button",
+      "custom/feed-cta",
     ],
     dependencies: ["lucide-react"],
     files: [
@@ -23,10 +24,6 @@ export const blocks: Registry = [
       },
       {
         path: "blocks/content-card.tsx",
-        type: "registry:component",
-      },
-      {
-        path: "blocks/post-feed/components/editor-placeholder.tsx",
         type: "registry:component",
       },
       {

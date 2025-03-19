@@ -276,6 +276,21 @@ export const Index: Record<string, any> = {
       source: "",
       meta: undefined,
     },
+    "feed-cta": {
+      name: "feed-cta",
+      description: "",
+      type: "registry:ui",
+      registryDependencies: ["custom/card","custom/profile-avatar","custom/stack","custom/typography"],
+      files: [{
+        path: "registry/default/ui/feed-cta.tsx",
+        type: "registry:ui",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/ui/feed-cta.tsx")),
+      source: "",
+      meta: undefined,
+    },
     "form": {
       name: "form",
       description: "",
@@ -593,17 +608,13 @@ export const Index: Record<string, any> = {
       name: "post-feed",
       description: "A post-feed page displaying a list of posts.",
       type: "registry:block",
-      registryDependencies: ["custom/profile-avatar","custom/profile-avatar-button","custom/card","custom/stack","custom/typography","custom/icon-container","custom/button"],
+      registryDependencies: ["custom/profile-avatar","custom/profile-avatar-button","custom/card","custom/stack","custom/typography","custom/icon-container","custom/button","custom/feed-cta"],
       files: [{
         path: "registry/default/blocks/post-feed/page.tsx",
         type: "registry:page",
         target: "app/post-feed/page.tsx"
       },{
         path: "registry/default/blocks/content-card.tsx",
-        type: "registry:component",
-        target: ""
-      },{
-        path: "registry/default/blocks/post-feed/components/editor-placeholder.tsx",
         type: "registry:component",
         target: ""
       },{
@@ -2073,6 +2084,21 @@ export const Index: Record<string, any> = {
       }],
       categories: undefined,
       component: React.lazy(() => import("@/registry/default/examples/typography-extra-small-bold.tsx")),
+      source: "",
+      meta: undefined,
+    },
+    "feed-cta-demo": {
+      name: "feed-cta-demo",
+      description: "",
+      type: "registry:example",
+      registryDependencies: ["custom/feed-cta"],
+      files: [{
+        path: "registry/default/examples/feed-cta-demo.tsx",
+        type: "registry:example",
+        target: ""
+      }],
+      categories: undefined,
+      component: React.lazy(() => import("@/registry/default/examples/feed-cta-demo.tsx")),
       source: "",
       meta: undefined,
     },

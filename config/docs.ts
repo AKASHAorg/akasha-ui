@@ -89,6 +89,11 @@ export const docsConfig: DocsConfig = {
           items: [],
         },
         {
+          title: "Feed CTA",
+          href: "/docs/components/feed-cta",
+          items: [],
+        },
+        {
           title: "Icon Container",
           href: "/docs/components/icon-container",
           items: [],
