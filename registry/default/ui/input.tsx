@@ -1,13 +1,43 @@
+"use client";
+
 import * as React from "react";
+import Color from "colorjs.io";
+import CssFilterConverter from "css-filter-converter";
 import { Search } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
+  React.useEffect(() => {
+    if (!inputRef.current || type !== "search") return;
+
+    const primaryColor = getComputedStyle(inputRef.current).getPropertyValue(
+      "--primary"
+    );
+    const color = new Color(primaryColor);
+    const hex = color.to("srgb").toString({ format: "hex" });
+    const filter = CssFilterConverter.hexToFilter(hex);
+
+    const style = document.createElement("style");
+    style.textContent = `
+      input[type="search"]::-webkit-search-cancel-button {
+        filter: ${filter.color};
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, [type]);
+
   const isSearch = type === "search";
   return (
     <div data-slot="input-container" className="relative w-full">
       <input
+        ref={inputRef}
         type={type}
         data-slot="input"
         className={cn(
