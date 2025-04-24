@@ -50,13 +50,13 @@ const truncateMiddle = (str: string, startChars = 6, endChars = 4) =>
       )}`
     : "";
 
-const truncateDid = (didKey: string, type = "eth") => {
+const truncateDid = (didKey: string, type = "ethereum") => {
   if (!didKey) return "";
   if (didKey.length <= 12) return didKey;
   const address = didKey.split(":").pop() || "";
   return truncateMiddle(
     address,
-    type === "eth" || type === "solana" ? 6 : 5,
+    type === "ethereum" || type === "solana" ? 6 : 5,
     6
   );
 };
@@ -90,6 +90,8 @@ const ProfileAvatarButton = ({
     }
 ) &
   React.ComponentProps<"div">) => {
+  const childrenArray = React.Children.toArray(children);
+  const childCount = childrenArray.length;
   return (
     <ProfileAvatarButtonContext.Provider
       value={{ profileDID, nsfw, nsfwLabel, size, metadata, vertical }}
@@ -97,14 +99,13 @@ const ProfileAvatarButton = ({
       <div
         data-slot="profile-avatar-button"
         className={cn(
-          {
-            "grid grid-cols-[0.5fr_1fr] grid-rows-2":
-              size === "lg" && !vertical,
-            "grid grid-cols-[0fr_1fr] grid-rows-2": size === "md",
-            "flex items-center flex-col": size === "lg" && vertical,
-            "flex items-center": size === "sm",
+          "flex items-center",
+          childCount > 1 && {
+            "flex flex-col items-center gap-1": size === "lg" && vertical,
+            "grid grid-cols-[auto_1fr] gap-x-2 gap-y-1":
+              (size === "md" || size === "lg") && !vertical,
+            "flex items-center gap-1": size === "sm",
           },
-          "gap-1",
           className
         )}
         {...props}
