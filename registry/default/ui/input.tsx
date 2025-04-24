@@ -16,9 +16,9 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
 
     const updateSearchButtonStyle = () => {
       try {
-        const primaryColor = getComputedStyle(inputRef.current!).getPropertyValue(
-          "--primary"
-        );
+        const primaryColor = getComputedStyle(
+          inputRef.current!
+        ).getPropertyValue("--primary");
         const color = new Color(primaryColor);
         const hex = color.to("srgb").toString({ format: "hex" });
         const filter = CssFilterConverter.hexToFilter(hex);
@@ -41,13 +41,8 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
     updateSearchButtonStyle();
 
     const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (
-          mutation.type === "attributes" &&
-          mutation.attributeName === "style"
-        ) {
-          updateSearchButtonStyle();
-        }
+      mutations.forEach(() => {
+        updateSearchButtonStyle();
       });
     });
 
