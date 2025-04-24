@@ -9,27 +9,60 @@ import { cn } from "@/lib/utils";
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
   const inputRef = React.useRef<HTMLInputElement>(null);
+  const styleRef = React.useRef<HTMLStyleElement | null>(null);
 
   React.useEffect(() => {
     if (!inputRef.current || type !== "search") return;
 
-    const primaryColor = getComputedStyle(inputRef.current).getPropertyValue(
-      "--primary"
-    );
-    const color = new Color(primaryColor);
-    const hex = color.to("srgb").toString({ format: "hex" });
-    const filter = CssFilterConverter.hexToFilter(hex);
+    const updateSearchButtonStyle = () => {
+      try {
+        const primaryColor = getComputedStyle(inputRef.current!).getPropertyValue(
+          "--primary"
+        );
+        const color = new Color(primaryColor);
+        const hex = color.to("srgb").toString({ format: "hex" });
+        const filter = CssFilterConverter.hexToFilter(hex);
 
-    const style = document.createElement("style");
-    style.textContent = `
-      input[type="search"]::-webkit-search-cancel-button {
-        filter: ${filter.color};
+        if (!styleRef.current) {
+          styleRef.current = document.createElement("style");
+          document.head.appendChild(styleRef.current);
+        }
+
+        styleRef.current.textContent = `
+          input[type="search"]::-webkit-search-cancel-button {
+            filter: ${filter.color};
+          }
+        `;
+      } catch (error) {
+        console.error("Failed to update search button style:", error);
       }
-    `;
-    document.head.appendChild(style);
+    };
+
+    updateSearchButtonStyle();
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "style"
+        ) {
+          updateSearchButtonStyle();
+        }
+      });
+    });
+
+    // Observe the root element for style changes
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["style"],
+    });
 
     return () => {
-      document.head.removeChild(style);
+      observer.disconnect();
+      if (styleRef.current) {
+        document.head.removeChild(styleRef.current);
+        styleRef.current = null;
+      }
     };
   }, [type]);
 
