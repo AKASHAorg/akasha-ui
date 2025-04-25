@@ -1,13 +1,71 @@
+"use client";
+
 import * as React from "react";
+import Color from "colorjs.io";
+import CssFilterConverter from "css-filter-converter";
 import { Search } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  const styleRef = React.useRef<HTMLStyleElement | null>(null);
+
+  React.useEffect(() => {
+    if (!inputRef.current || type !== "search") return;
+
+    const updateSearchButtonStyle = () => {
+      try {
+        const primaryColor = getComputedStyle(
+          inputRef.current!
+        ).getPropertyValue("--primary");
+        const color = new Color(primaryColor);
+        const hex = color.to("srgb").toString({ format: "hex" });
+        const filter = CssFilterConverter.hexToFilter(hex);
+
+        if (!styleRef.current) {
+          styleRef.current = document.createElement("style");
+          document.head.appendChild(styleRef.current);
+        }
+
+        styleRef.current.textContent = `
+          input[type="search"]::-webkit-search-cancel-button {
+            filter: ${filter.color};
+          }
+        `;
+      } catch (error) {
+        console.error("Failed to update search button style:", error);
+      }
+    };
+
+    updateSearchButtonStyle();
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach(() => {
+        updateSearchButtonStyle();
+      });
+    });
+
+    // Observe the root element for style changes
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["style"],
+    });
+
+    return () => {
+      observer.disconnect();
+      if (styleRef.current) {
+        document.head.removeChild(styleRef.current);
+        styleRef.current = null;
+      }
+    };
+  }, [type]);
+
   const isSearch = type === "search";
   return (
     <div data-slot="input-container" className="relative w-full">
       <input
+        ref={inputRef}
         type={type}
         data-slot="input"
         className={cn(

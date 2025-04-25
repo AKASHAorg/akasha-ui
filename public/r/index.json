@@ -80,7 +80,9 @@
     "name": "input",
     "type": "registry:ui",
     "dependencies": [
-      "lucide-react"
+      "lucide-react",
+      "css-filter-converter",
+      "colorjs.io"
     ],
     "files": [
       {

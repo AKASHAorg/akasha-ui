@@ -61,7 +61,7 @@ export const ui: Registry = [
   {
     name: "input",
     type: "registry:ui",
-    dependencies: ["lucide-react"],
+    dependencies: ["lucide-react", "css-filter-converter", "colorjs.io"],
     files: [
       {
         path: "ui/input.tsx",
