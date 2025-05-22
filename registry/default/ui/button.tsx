@@ -16,7 +16,7 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-card text-primary hover:bg-accent hover:text-accent-foreground",
+          "border border-input bg-transparent text-primary hover:bg-accent hover:text-accent-foreground",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
@@ -61,7 +61,8 @@ function Button({
           [typographyVariants({ variant: "xs" })]: size === "sm",
         },
         buttonVariants({ variant, size, className }),
-        { "p-0": variant === "link" && asChild }
+        { "p-0": variant === "link" },
+        { "h-fit": variant === "link" && asChild }
       )}
       type={type}
       disabled={loading || disabled}

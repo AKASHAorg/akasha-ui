@@ -62,7 +62,6 @@ const truncateDid = (didKey: string, type = "ethereum") => {
 };
 
 const getDidFieldIconType = (didKey: string) => {
-  if (!didKey) return "noDid";
   if (didKey.includes("eip155")) return "ethereum";
   return didKey.includes("solana") ? "solana" : "did";
 };
@@ -99,12 +98,12 @@ const ProfileAvatarButton = ({
       <div
         data-slot="profile-avatar-button"
         className={cn(
-          "flex items-center",
-          childCount > 1 && {
-            "flex flex-col items-center gap-1": size === "lg" && vertical,
-            "grid grid-cols-[auto_1fr] gap-x-2 gap-y-1":
+          "group flex items-center gap-x-2 gap-y-1 group/profile-avatar-button",
+          childCount > 2 && {
+            "flex flex-col items-center": size === "lg" && vertical,
+            "grid grid-cols-[auto_1fr]":
               (size === "md" || size === "lg") && !vertical,
-            "flex items-center gap-1": size === "sm",
+            "flex items-center": size === "sm",
           },
           className
         )}
@@ -164,7 +163,7 @@ const ProfileName = ({
         <Typography
           variant={size === "sm" ? "xs" : "sm"}
           bold={size !== "sm"}
-          className={className}
+          className={`group-hover/profile-avatar-button:underline group-hover/profile-avatar-button:decoration-black dark:group-hover/profile-avatar-button:decoration-white ${className}`}
         >
           {children}
         </Typography>
@@ -188,7 +187,6 @@ const didNetworkIconMapping = {
   ethereum: <Ethereum />,
   solana: <Solana />,
   did: <DidKey />,
-  noDid: <NoEth />,
 };
 
 const ProfileDidField = ({ className }: React.ComponentProps<"div">) => {
@@ -211,10 +209,16 @@ const ProfileDidField = ({ className }: React.ComponentProps<"div">) => {
       )}
     >
       <IconContainer size="xs" className="text-secondary-foreground">
-        {isValidDID ? didNetworkIconMapping[networkType] : <NoEth />}
+        {isValidDID || profileDID.startsWith("k") ? (
+          didNetworkIconMapping[networkType]
+        ) : (
+          <NoEth />
+        )}
       </IconContainer>
       <Typography variant="xs" className="text-secondary-foreground">
-        {isValidDID ? truncateDid(profileDID, networkType) : "Invalid DID"}
+        {isValidDID || profileDID.startsWith("k")
+          ? truncateDid(profileDID, networkType)
+          : "Invalid DID"}{" "}
       </Typography>
     </Stack>
   );
